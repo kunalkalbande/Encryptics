@@ -1,0 +1,206 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DLPRulesVisibilityModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Administer PBP Policy Set";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    var companyName = ViewBag.CompanyName as string;
+    companyName = string.IsNullOrEmpty(companyName) ? "Company Name Not Found" : companyName;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a> &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)<text>&gt;</text>
+        }
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+@if (!Model.Policies.Any())
+{
+    <text>No Data to Display</text>
+}
+else
+{
+    <section class="featured light">
+        @using (Html.BeginForm("UpdateRuleAssignments", "PolicyBasedProtection", new { entityId = ViewBag.CompanyId }, FormMethod.Post, null))
+        {
+            @Html.AntiForgeryToken()
+            <div class="formActions clear-fix topActions">
+                <input type="button" value="Cancel" style="float: left;" />
+                <input type="submit" value="Update" style="float: right" class="mainAction" />
+            </div>
+            <ul class="policyList">
+                @foreach (var policy in Model.Policies)
+                {
+                    var ruleTypes = policy.RuleTypes;
+                    <li>
+                        <h2 class="policyName">@policy.Description</h2>
+                        <ul>
+                            @foreach (var ruleType in ruleTypes)
+                            {
+                                var rules = ruleType.Rules;
+                                <li>
+                                    @{
+                                var ruleTypeDescriptionSplit = ruleType.Description.Split(new[] { " <br> " }, 2, StringSplitOptions.None);
+
+                                if (ruleTypeDescriptionSplit.Length == 2)
+                                {
+                                    var ruleTypeTitle = ruleTypeDescriptionSplit[0];
+                                    var ruleTypeDescription = ruleTypeDescriptionSplit[1];
+                                        <div class="policyTitle">@ruleTypeTitle</div>
+                                        <div class="policyDescription">@ruleTypeDescription</div>
+                                }
+                                else
+                                {
+                                        <div class="policyDescription">@ruleType.Description</div>                                        
+                                }
+                                    }
+                                    <div class="policyControls">
+                                        <a href="#" class="selectAll">Enable All</a>&nbsp;<a href="#" class="clearAll">Disable All</a>
+                                    </div>
+                                    <ul class="policyItemList">
+                                        @foreach (var rule in rules)
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="rules" value="@rule.Id" @if (rule.IsVisible)
+                                                                                                     {<text>checked</text>}/>@rule.Description
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+            <div class="formActions clear-fix">
+                <input type="button" value="Cancel" style="float: left;" />
+                <input type="submit" value="Update" style="float: right" class="mainAction" />
+            </div>
+        }
+    </section>
+}
+
+@section styles
+{
+    <style>
+        .topActions {
+            padding-top: 0;
+            padding-bottom: 20px;
+            border-bottom: solid 1px #bfb7b5;
+            border-top: none;
+        }
+
+        .policyList {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .policyTitle {
+            font-weight: bold;
+        }
+
+        .policyDescription {
+            padding-bottom: 15px;
+            color: #7f7674;
+            font-size: 0.9em;
+            padding-right: 25px;
+            text-align: justify;
+        }
+
+        .policyControls {
+            padding: 10px 0;
+        }
+
+            .policyControls input[type="checkbox"] {
+                border-bottom: solid 1px #bfb7b5;
+            }
+
+        .policyItemList {
+            list-style: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border: solid 1px #eee9e7;
+        }
+
+            .policyItemList li {
+                padding: 10px;
+                border-top: solid 1px #eee9e7;
+            }
+
+                .policyItemList li input {
+                    margin-right: 10px;
+                }
+
+                .policyItemList li:first-child {
+                    border-top: none;
+                }
+
+        .policyList li {
+            list-style: none;
+        }
+
+        .policyName {
+            margin-top: 25px;
+        }
+
+        .selectAll, .clearAll, .addRule, .scrollToTop {
+            border: solid 1px #bfb7b5;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .featured {
+            padding: 25px 15px !important;
+        }
+
+            .featured p {
+                text-align: justify;
+            }
+
+            .featured h2 {
+                border-bottom: solid 1px #bfb7b5;
+            }
+
+        .aside {
+            padding: 15px 0;
+            color: #7f7674;
+            font-size: 0.9em;
+            padding-right: 25px;
+            text-align: justify;
+        }
+    </style>
+}
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $('.selectAll').click(function (e) {
+                e.preventDefault();
+                $(this).parent().siblings('ul').children().children('input[type="checkbox"]').prop('checked', true);
+            });
+
+            $('.clearAll').click(function (e) {
+                e.preventDefault();
+                $(this).parent().siblings('ul').children().children('input[type="checkbox"]').prop('checked', false);
+            });
+
+            $('input[type="button"], [value="Cancel"]').click(function (e) {
+                e.preventDefault();
+                location.href = '@Url.Action("Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" })';
+            });
+        });
+    </script>
+}

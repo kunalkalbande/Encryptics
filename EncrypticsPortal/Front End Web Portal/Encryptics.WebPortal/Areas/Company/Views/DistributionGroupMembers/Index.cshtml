@@ -1,0 +1,204 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel
+
+@*@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel>*@
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    string companyName = (ViewBag.CompanyName ?? ViewBag.CompanyName as string) ?? "Company Dashboard";
+    ViewBag.Title = "Manage Company Accounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+        @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+        &gt;
+        @Html.ActionLink("Distribution Groups", "Index", "DistributionGroup", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+        &gt;
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+@Html.Partial("_ErrorMessages")
+
+<ul class="toolbar" id="actionToolbar">
+    @*@if (encrypticsUser.HasPermissions("Company/DistributionGroups/Create"))
+    {
+        *@<li>
+            <a href="#" id="addGroupMember">
+                <div>
+                    Add Group Member 
+                    <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>
+    @*}*@
+</ul>
+
+<section class="white">@*@if (encrypticsUser.HasPermissions("Company/DistributionGroups/Delete"))
+    {
+        *@
+    <div class="dataTableToolbar">
+        <ul class="tableActions">
+            <li>
+                <input type="checkbox" value="all" id="selectAll" /></li>
+            <li>
+                <input type="button" value="remove members" id="removeSelectedMembers" disabled="disabled"></li>
+        </ul>
+    </div>
+    @*}*@
+    @Html.Partial("_groupMemberTable", Model.GroupMempers)
+</section>
+
+<div class="dialog" id="groupMemberDialog"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var dialogWidth = "400";
+        var $dialog = $('#groupMemberDialog');
+
+        if (isPhone) {
+            dialogWidth = "350";
+        }
+
+        $dialog.dialog({
+            autoOpen: false,
+            dialogClass: "no-close",
+            title: "Add Group Member",
+            width: dialogWidth,
+            height: 400,
+            modal: true,
+            resizable: false,
+            open: function () {
+                $dialog.css('overflow', 'hidden'); //this line does the actual hiding
+            },
+            buttons: {
+                "OK": function () {
+                    var $form = $(this).find('form');
+
+                    $.validator.unobtrusive.parse($form);
+
+                    if ($form.valid()) {
+                        $(this).dialog("close");
+                        $form.submit();
+                    }
+                },
+                "Cancel": function () { $(this).dialog("close"); }
+            }
+        });
+
+        function changeSelection(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $(this).siblings('input[type=hidden]').val(ui.item.value);
+        }
+
+        function getActiveAccounts(request, response) {
+            var token = $("#filterForm").find('input[name=__RequestVerificationToken]').val();
+
+            $.get('@Url.Action("AjaxSearchActiveAccounts")', { searchTerm: request.term, RequestVerificationToken: token }, function (data) {
+                console.log(data);
+                response(data);
+            });
+        }
+
+        function initializeElements() {
+            $('#addGroupMember').click(addGroupMember);
+
+            $('#deleteSelectedGroups').click(removeGroups);
+
+            $('.selectedMember').change(selectMember);
+
+            $('#selectAll').change(selectAll);
+
+            $('#CurrentPage').change(currentPageChange);
+        }
+
+        function addGroupMember(e) {
+            e.preventDefault();
+
+            $dialog.html(getWaitPanel()).dialog("open");
+
+            $.get('@Href(Url.Action("Create", new { entityId = ViewBag.CompanyId, groupID = Model.GroupId, currentPage = Model.GroupMempers.CurrentPage, pageSize = Model.GroupMempers.PageSize }))', null, function (response) {
+                $dialog.html($(response));
+
+                $('#UserName').autocomplete({
+                    source: getActiveAccounts,
+                    minLength: 2,
+                    focus: changeSelection,
+                    select: changeSelection
+                });
+            });
+        }
+
+        function removeGroups() {
+            var groupMemberIds = new Array();
+
+            $('.selectedGroup:checked').each(function () {
+                groupMemberIds.push($(this).attr('data-id'));
+            });
+
+            ajaxPost('@Href(Url.Action("Delete", new { entityId = ViewBag.CompanyId, groupId = Model.GroupId, currentPage = Model.GroupMempers.CurrentPage, pageSize = Model.GroupMempers.PageSize }))', { groupMemberIds: groupMemberIds }, function (response) {
+                $('#distributionGroupsTable').replaceWith($(response));
+                initializeElements();
+            }, function () {
+                console.log('error');
+            }, function () {
+                console.log("complete");
+            });
+        }
+
+        function selectMember() {
+            var itemsSelected = $('.selectedMember:checked').length > 0;
+
+            $('#removeSelectedMembers').attr('disabled', !itemsSelected);
+            $('#selectAll').attr('checked', itemsSelected);
+        }
+
+        function selectAll() {
+            var checked = $('#selectAll').attr('checked') == 'checked';
+            $('.selectedMember').attr('checked', checked);
+            var itemsSelected = $('.selectedMember:checked').length > 0;
+
+            $('#removeSelectedMembers').attr('disabled', !itemsSelected);
+        }
+
+        function currentPageChange() {
+            var currentPage = $(this).val();
+            window.location = '@Url.Action("Index")?currentPage=' + currentPage;
+        }
+
+        $(function () {
+            initializeElements();
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        #deleteSelectedGroups {
+            color: rgb(34, 139, 34);
+            border: none;
+            background: none;
+            font-size: 13px;
+        }
+
+            #deleteSelectedGroups:disabled {
+                color: rgb(187, 187, 187);
+            }
+
+        .selectColumn {
+            width: 5% !important;
+        }
+    </style>
+}

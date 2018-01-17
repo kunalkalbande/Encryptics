@@ -1,0 +1,32 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel
+
+@using (Html.BeginForm("Edit", "DistributionGroup", new { entityId = ViewBag.CompanyId, groupId = Model.GroupId, currentPage = ViewBag.CurrentPage }))
+{
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <legend></legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.GroupName)
+                    @Html.TextBoxFor(m => m.GroupName)
+                    @Html.ValidationMessageFor(m => m.GroupName)
+                </div>
+            </li>
+        </ol>
+        <ol class="float-right formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.IsActive)
+                    @Html.RadioButtonFor(m => m.IsActive, true) Active&nbsp;&nbsp;&nbsp;
+                    @Html.RadioButtonFor(m => m.IsActive, false) Inactive
+                    @Html.ValidationMessageFor(m => m.IsActive)
+                </div>
+            </li>
+        </ol>
+        <div class="formActions">
+            <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+            <input type="submit" value="Update Group" class="mainAction" style="float: right;" />
+        </div>
+    </fieldset>
+}

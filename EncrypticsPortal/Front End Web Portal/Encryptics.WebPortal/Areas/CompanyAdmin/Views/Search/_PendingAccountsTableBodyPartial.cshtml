@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsListItemModel>
+
+<tbody>
+    @foreach (var domain in Model)
+    {
+        @Html.DisplayFor(m => domain)
+    }
+    <tr class="hidden"></tr>
+</tbody>

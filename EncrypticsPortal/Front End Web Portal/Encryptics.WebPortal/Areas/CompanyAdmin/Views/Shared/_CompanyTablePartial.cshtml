@@ -1,0 +1,17 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@model CompanySearchModel
+
+<table id="pageableTable" class="newDataTable" style="width: 100%">
+    @*@Html.Partial(Model.TableBodyPartialView, Model.DataItems, new ViewDataDictionary { { "CurrentPage", Model.CurrentPage }, { "SearchTerm", Model.SearchTerm } })*@
+    @Html.Partial(Model.TableBodyPartialView, Model.DataItems)
+    <tr class="hidden"></tr>
+    <tfoot>
+        <tr class="tableFooter">
+            <td colspan="6">
+                <span>@if (Model.CurrentPage > 1){<a href="#" id="prevCompanyPage">&laquo; prev</a>} else {<text>&laquo; prev</text>}</span>
+                <span class="pagingBar">Page @Html.DropDownListFor(m => m.CurrentPage, Model.PageList) of @Model.PageCount</span>
+                <span>@if (Model.PageCount > Model.CurrentPage){<a href="#" id="nextCompanyPage">next &raquo;</a>} else {<text>next &raquo;</text>}</span>
+            </td>
+        </tr>
+    </tfoot>
+</table>

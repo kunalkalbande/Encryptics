@@ -1,0 +1,30 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@model UserAccountModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+<ul class="toolbar" id="actionToolbar">
+    @if (Model.LicenseType == AccountType.Free && encrypticsUser.HasPermission("UserAccount/Admin/ActivateAccount"))
+    {
+        <li><a href="#" id="activateAccount" data-form-to-submit="activateAccountForm">
+            <div>
+                @UserActionForm("ActivateAccount", "Reactivate Account", "activateAccountForm")
+            </div>
+        </a></li>
+    }
+</ul>
+
+@helper UserActionForm(string actionName, string buttonText, string formId = "")
+{
+    @buttonText
+    using (Html.BeginForm(actionName, "Admin", new { entityId = Model.EntityId }, FormMethod.Post, new { id = formId }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.EntityId)
+    @Html.HiddenFor(m => m.UserName)
+    @Html.HiddenFor(m => m.PrimaryRole)
+    }
+}

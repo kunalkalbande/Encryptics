@@ -1,0 +1,58 @@
+C:\GIT Repository\raptor\ServicesCommon\bin\Release\ServicesCommon.dll
+C:\GIT Repository\raptor\ServicesCommon\bin\Release\ServicesCommon.pdb
+C:\GIT Repository\raptor\ServicesCommon\obj\Release\ServicesCommon.dll
+C:\GIT Repository\raptor\ServicesCommon\obj\Release\ServicesCommon.pdb
+C:\GIT Repository\raptor\ServicesCommon\obj\Release\ServicesCommon.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\ServicesCommon\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\ServicesCommon\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\ServicesCommon\obj\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\ServicesCommon\obj\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\ServicesCommon.dll.config
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Auth.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Core.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Oauth2.v2.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.PlatformServices.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Newtonsoft.Json.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Net.Http.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Security.Cryptography.Algorithms.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Security.Cryptography.Encoding.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Security.Cryptography.Primitives.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Auth.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Core.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Google.Apis.Oauth2.v2.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\Newtonsoft.Json.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\obj\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\ServicesCommon\obj\Release\ServicesCommon.pdb
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\ServicesCommon.dll.config
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\ServicesCommon.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\ServicesCommon.pdb
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Auth.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Auth.PlatformServices.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Core.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Oauth2.v2.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.PlatformServices.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Newtonsoft.Json.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Net.Http.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Net.Http.Formatting.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Security.Cryptography.Algorithms.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Security.Cryptography.Encoding.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Security.Cryptography.Primitives.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Security.Cryptography.X509Certificates.dll
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.xml
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Auth.xml
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Core.xml
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Google.Apis.Oauth2.v2.xml
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\Newtonsoft.Json.xml
+E:\Encryptics\synerzip\ServicesCommon\bin\Release\System.Net.Http.Formatting.xml
+E:\Encryptics\synerzip\ServicesCommon\obj\Release\ServicesCommon.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\ServicesCommon\obj\Release\ServicesCommon.dll
+E:\Encryptics\synerzip\ServicesCommon\obj\Release\ServicesCommon.pdb

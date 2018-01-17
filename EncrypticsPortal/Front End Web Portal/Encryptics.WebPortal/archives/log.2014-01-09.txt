@@ -1,0 +1,108 @@
+33 Initializing AuthenticationModule class.
+33 Initializing PipelineLoggingModule class.
+33 Initializing AuthenticationModule class.
+33 Initializing PipelineLoggingModule class.
+33 Beginning request.
+33 Raw URL: /
+33 Entering OnAuthenticateRequest
+33 Entering OnPostAuthenticateRequest
+36 Ending request.
+36 Beginning request.
+36 Raw URL: /Glimpse.axd?n=glimpse_request&requestId=151b577e-a56d-4223-a83d-d23a29fcd16b&hash=f1cee753&callback=glimpse.data.initData
+36 Entering OnAuthenticateRequest
+36 Entering OnPostAuthenticateRequest
+36 Ending request.
+44 Ending request.
+44 Beginning request.
+44 Raw URL: /Account/JsonLogOff
+44 Entering OnAuthenticateRequest
+44 Custom header: 802E4C14533267F330FEA02C47FA3CF36D134B363759069AD0FA4104C3DB6E637E2C7655923601D8FA8DCE8B5EACFA3B4DE063A09FA16AC85435114B513B5EEDB39568E5F00BB667B34EDEF9536B5814FA6B6FC669DDFD4275EDB31CC2D672CE5E5A93CC732C14A57659EECC7A73E2FE2508AD555F04CB0E7F316B3ECA69353C6D466594E4C805B3D7FE14AB315D5E21BA324EABB87CA45D391CEE1214B887E41C683211D50D73DCD9BC8BF55CAC65D9AEA4D2EC2B58B6AD42E2F40778F5380CD438203919E5EF832D287EB36A44EF66
+44 Logged in as colintest006@mailinator.com
+44 Entering OnPostAuthenticateRequest
+45 Initializing AccountController class.
+45 Entering JsonLogoff
+45 Logging off colintest006@mailinator.com
+45 Exiting JsonLogoff
+45 Disposing AccountController class.
+45 Ending request.
+01 Ending request.
+01 Beginning request.
+01 Raw URL: /Account/JsonLogin
+01 Entering OnAuthenticateRequest
+01 Custom header: null
+01 Exception caught during forms authentication decryption: Invalid value for 'encryptedTicket' parameter.
+01    at System.Web.Security.FormsAuthentication.Decrypt(String encryptedTicket)
+   at Encryptics.WebPortal.Modules.AuthenticationModule.OnAuthenticateRequest(Object sender, EventArgs eventArgs) in c:\Projects\Encryptics.WebPortal\Encryptics.WebPortal\Modules\AuthenticationModule.cs:line 61
+01 Entering OnPostAuthenticateRequest
+01 Initializing AccountController class.
+01 Entering JsonLogin
+01 Entering LoginAsync
+01 UserName: colintest006@mailinator.com
+01 Password: asdfasdf
+04 LoginAsync: login successful.
+04 Login successful.
+04 Disposing AccountController class.
+04 Ending request.
+19 Beginning request.
+19 Raw URL: /Account/TokenLogin/?id=7378A0859475D66E67E92E3723209A3B2940679330E15057C80BF891999E34A4418136E24B2741A421E294729D9AC94001C4EBB3CE23EC2F410D5CDE165C6ACFF75AC5EF00CA5E8FCC2B92931F63C36D7C264156D55BFA15774C71765D123023C7359EF67551C5569D2BC2BBCECE46B894E51A0A61F045E47B840068FE4369AE88611BA24A82C72184153148B4901AFD5E1790A8C1B2BB16D068EBD1448331E68D45DCA52CEA9839B9BF6063B097844915E4E1760A13B0DF88674A8B0C0CFA428D2246B72C18AE70394F65923A9AF196&returnUrl=/UserAccount/UserDashboard/
+19 Entering OnAuthenticateRequest
+19 Entering OnPostAuthenticateRequest
+19 Initializing AccountController class.
+29 Disposing AccountController class.
+29 Ending request.
+29 Beginning request.
+29 Raw URL: /UserAccount/UserDashboard/
+29 Entering OnAuthenticateRequest
+29 Entering OnPostAuthenticateRequest
+32 Ending request.
+32 Beginning request.
+32 Raw URL: /Content/site.css
+32 Entering OnAuthenticateRequest
+32 Entering OnPostAuthenticateRequest
+32 Ending request.
+05 Beginning request.
+05 Raw URL: /Account/LogOff
+05 Entering OnAuthenticateRequest
+05 Entering OnPostAuthenticateRequest
+05 Initializing AccountController class.
+05 Disposing AccountController class.
+05 Ending request.
+05 Beginning request.
+05 Raw URL: /
+05 Entering OnAuthenticateRequest
+05 Entering OnPostAuthenticateRequest
+05 Ending request.
+05 Beginning request.
+05 Initializing AuthenticationModule class.
+05 Raw URL: /Scripts/modernizr-2.6.2.js
+05 Entering OnAuthenticateRequest
+05 Initializing PipelineLoggingModule class.
+05 Entering OnPostAuthenticateRequest
+05 Beginning request.
+05 Ending request.
+05 Raw URL: /Scripts/jquery-1.8.2.js
+05 Entering OnAuthenticateRequest
+05 Initializing AuthenticationModule class.
+05 Beginning request.
+05 Initializing AuthenticationModule class.
+05 Initializing PipelineLoggingModule class.
+05 Raw URL: /Images/orderedList1.png
+05 Entering OnPostAuthenticateRequest
+05 Beginning request.
+05 Entering OnAuthenticateRequest
+05 Initializing PipelineLoggingModule class.
+05 Raw URL: /Images/orderedList2.png
+05 Beginning request.
+05 Entering OnPostAuthenticateRequest
+05 Ending request.
+05 Raw URL: /Images/orderedList3.png
+05 Entering OnAuthenticateRequest
+05 Ending request.
+05 Entering OnAuthenticateRequest
+05 Entering OnPostAuthenticateRequest
+05 Entering OnPostAuthenticateRequest
+05 Ending request.
+05 Ending request.
+59 Disposing PipelineLoggingModule class.
+29 Disposing PipelineLoggingModule class.
+59 Disposing PipelineLoggingModule class.

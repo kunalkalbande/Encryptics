@@ -1,0 +1,196 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model Encryptics.WebPortal.Areas.Company.Models.ZDPSettingsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manage ZDP Settings";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    var companyName = ViewBag.CompanyName as string;
+    companyName = string.IsNullOrEmpty(companyName) ? "Company Name Not Found" : companyName;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { area = "Company", entityId = ViewBag.CompanyId }, null)
+            <text>&gt;</text>
+        }
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<section class="featured dark">
+    <p>Encryptics Zero Day Protection scans content to find malware. Potentially harmful content is scanned and can be remediated based on the following settings.</p>
+    <p>Changes to these settings are persisted, but must be published to the client applications before they can take effect.</p>
+    @using (Html.BeginForm("PublishSettings", "ZeroDayProtection", new { area = "Company", entityId = ViewBag.CompanyId }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="formActions">
+            <input type="submit" value="Publish" class="singleAction" id="publishSubmitButton" />
+        </div>
+    }
+</section>
+
+<section class="featured light">
+    <div id="zdpEnabledControl" class="clear-fix">
+        @using (Html.BeginForm("EnableZDP", "ZeroDayProtection", new { area = "Company", entityId = ViewBag.CompanyId }))
+        {
+            @Html.AntiForgeryToken()
+            <h2>Zero Day Protection Enabled</h2>
+            @Html.ToggleFor(m => m.IsEnabled)
+        }
+    </div>
+    @*<table id="configurationTable">
+        @foreach (var fileType in Model.FileTypes)
+        {
+            <tr>
+                <th colspan="3" class="tableHeaderLabel">@Html.Label(fileType.Title + " Configurations") </th>
+            </tr>
+            foreach (var config in fileType.ConfigurationSettings.OrderBy(c => !c.IsWaterMark))
+            {
+            <tr>
+                <td style="">&nbsp;</td>
+                <td>@config.Title</td>
+                <td>@using (Html.BeginForm())
+                    {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ftcId" value="@config.Id"/>
+                        if (config.IsWaterMark)
+                        {
+                    <input type="text" name="setting" value="@config.Setting"/>
+                        }
+                        else
+                        {
+                    <input type="radio" name="setting" value="allow" @(config.Setting == "allow" ? "checked=\"checked\"" : string.Empty)/>
+                    <text>&nbsp;Allow&nbsp;</text>
+                    <input type="radio" name="setting" value="disallow" class="radioMargin" @(config.Setting == "disallow" ? "checked=\"checked\"" : string.Empty)/>
+                    <text>&nbsp;Block File&nbsp;&nbsp;&nbsp;</text>
+                    <input type="radio" name="setting" value="sanitise" class="radioMargin" @(config.Setting == "sanitise" ? "checked=\"checked\"" : string.Empty)/>
+                    <text>&nbsp;Clean</text>
+                        }
+                    }
+                </td>
+            </tr>
+            }
+        }
+    </table>*@
+</section>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#publishSubmitButton').parents('form').submit(function (e) {
+                e.preventDefault();
+                console.log($(this));
+                console.log($(this).serialize());
+                $.post('@Url.Action("PublishSettings", "ZeroDayProtection", new { area = "Company", entityId = ViewBag.CompanyId })', $(this).serialize(), function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        $(window).off('beforeunload');
+                        showMessageBox('Publishing ZDP Settings Succeeded', response.message);
+                    } else {
+                        showErrorMessage('Publishing ZDP Settings Failed', response.message);
+                    }
+                });
+            });
+
+            $('input[name=setting]').change(function () {
+                var $form = $(this).parents("form");
+                $.post('@Url.Action("UpdateSetting", "ZeroDayProtection", new { area = "Company", entityId = ViewBag.CompanyId })', $form.serialize(), function (response) {
+                    if (response.success) {
+                        dataChanged();
+                    } else {
+                        showErrorMessage('Updating ZDP Setting Failed', response.message);
+                    }
+                });
+            });
+
+            $('#IsEnabled').change(function () {
+                var isEnabledCheckBox = $(this);
+                var $form = isEnabledCheckBox.parents("form");
+
+                $.post('@Url.Action("EnableZDP", "ZeroDayProtection", new { area = "Company", entityId = ViewBag.CompanyId })', $form.serialize(), function (response) {
+                    if (response.success) {
+                        dataChanged();
+                        showMessageBox('Configuration Changed', response.message);
+                    } else {
+                        isEnabledCheckBox.prop('checked', !isEnabledCheckBox.prop('checked'));
+                        showErrorMessage('Configuration Changed Failed', response.message);
+                    }
+                });
+            });
+        });
+
+        function dataChanged() {
+            $(window).on('beforeunload', function () {
+                return 'Hold on! We saved your changes, but, if you leave before clicking Publish, these changes will not be enforced.';
+            });
+        }
+    </script>
+}
+
+@section styles
+{
+    <style>
+        #zdpEnabledControl h2 {
+            margin: 10px 15px 20px 15px !important;
+            float: left;
+        }
+
+        #zdpEnabledControl .onoffswitch {
+            float: left;
+            margin-top: 10px;
+        }
+
+        #zdpEnabledControl .onoffswitch-switch {
+            margin: 6px;
+        }
+
+        #zdpEnabledControl {
+            border-bottom: solid 1px #999;
+            margin-bottom: 15px;
+        }
+
+        #configurationTable tr td:first-child {
+            width: 1%;
+        }
+
+        .radioMargin {
+            margin-left: 30px;
+        }
+
+        @@media only screen and (device-width: 768px) {
+            #configurationTable {
+                width: 100%;
+            }
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            #configurationTable {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+                #configurationTable tr td:first-child {
+                    display: none;
+                }
+
+            .radioMargin {
+                margin-left: 0;
+            }
+
+            #configurationTable tr td:last-child {
+                width: 75%;
+            }
+        }
+    </style>
+}

@@ -1,0 +1,28 @@
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll.config
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb

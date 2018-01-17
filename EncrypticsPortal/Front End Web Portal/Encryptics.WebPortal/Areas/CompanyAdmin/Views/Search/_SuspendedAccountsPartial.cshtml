@@ -1,0 +1,28 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.ActiveAccountsSearchModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchType)
+    @Html.HiddenFor(m => m.SortField)
+    @Html.HiddenFor(m => m.SortOrder)
+    @Html.HiddenFor(m => m.ItemCount)
+    @Html.HiddenFor(m => m.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes)</div>
+        @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxEnableSuspendedAccounts"))
+        {<ul class="tableActions">
+            <li>
+                <input type="checkbox" value="all" id="selectAllSuspendedAccounts" />
+            </li>
+            <li>
+                <input type="button" value="reactivate user" id="enableSelectedSuspendedAccounts" disabled="disabled">
+            </li>
+        </ul>}
+    </div>
+    @Html.Partial("_SuspendedAccountsTablePartial")
+}

@@ -1,0 +1,12 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@model CompanySearchModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes)</div>
+    </div>
+    @Html.Partial("_CompanyTablePartial", Model)
+}

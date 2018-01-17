@@ -1,0 +1,20 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@using Encryptics.WebPortal.Properties
+@model IEnumerable<DeviceModel>
+<ol>
+    @foreach (DeviceModel item in Model)
+    {
+        <li class="deviceCard">
+            @Html.Partial("_DevicePartial", item)
+        </li>
+    }
+</ol>
+<style>
+    .suspendDeviceButton:after {
+        content: '@Resources.DeviceListPartialSuspendDisplay';
+    }
+
+    .activateDeviceButton:after {
+        content: '@Resources.DeviceListPartialActivateDisplay';
+    }
+</style>

@@ -1,0 +1,27 @@
+﻿@using Encryptics.WebPortal.Models
+@using Encryptics.WebPortal.Areas.UserAccount.Models
+@model PageableViewModel<DeviceModel>
+
+<div class="waitingOverlay hidden"></div>
+<table id="deviceTable">
+    <tbody>
+        @foreach (var device in Model.DataItems)
+        {
+            <tr>@Html.Partial("_UserDeviceDetailPartial", device, new ViewDataDictionary { { "CurrentPage", Model.CurrentPage }, { "EntityId", ViewData["EntityId"] }, { "UserId", ViewData["UserId"] } })</tr>
+        }
+    </tbody>
+</table>
+<div id="devicePagingSection">
+    <div class="devicePaging prevPage">
+        @if (Model.CurrentPage > 1)
+        {
+            <a href="#" id="prevDevicesPage" data-page="@(Model.CurrentPage - 1)" data-entity-id="@ViewData["EntityId"]" data-user-id="@ViewData["UserId"]">&laquo; prev</a>
+        }
+    </div>
+    <div class="devicePaging nextPage">
+        @if (Model.CurrentPage < Model.PageCount)
+        {
+            <a href="#" id="nextDevicesPage" data-page="@(Model.CurrentPage + 1)" data-entity-id="@ViewData["EntityId"]" data-user-id="@ViewData["UserId"]">next &raquo;</a>
+        }
+    </div>
+</div>

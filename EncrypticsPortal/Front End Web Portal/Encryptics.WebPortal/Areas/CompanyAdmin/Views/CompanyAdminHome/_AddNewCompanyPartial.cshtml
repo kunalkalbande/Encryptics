@@ -1,0 +1,18 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.CompanyDetailsModel
+
+@using (Html.BeginForm("AddNewCompany", "CompanyAdminHome", new { area = "CompanyAdmin" }, FormMethod.Post, new { id = "addNewCompanyForm" }))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Create New Company</legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

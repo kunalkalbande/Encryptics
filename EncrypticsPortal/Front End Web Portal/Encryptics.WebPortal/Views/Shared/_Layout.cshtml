@@ -1,0 +1,145 @@
+﻿@using System.Web.Configuration
+@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.IdentityModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - @WebConfigurationManager.AppSettings["CompanyName"] Administration Portal</title>
+    @*<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />*@
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/encryptics/css")
+    @RenderSection("styles", false)
+    @Styles.Render("~/Content/custom-css")
+    @Scripts.Render("~/bundles/jquery", "~/bundles/modernizr", "~/bundles/jqueryui", "~/bundles/ajax")
+    <script>
+        returnUrl = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@HttpUtility.UrlEncode((Request.Url == null ? string.Empty : Request.Url.PathAndQuery))';
+    </script>
+</head>
+<body>
+    <header>
+        <div id="barContainer" style="margin-top: -12px">
+            <div style="height: 12px; margin: 0 auto; width: 960px;">
+                <div class="coloredBar orangeBackground">
+                </div>
+                <div class="coloredBar blueBackground">
+                </div>
+                <div class="coloredBar greenBackground">
+                </div>
+                <div class="coloredBar maroonBackground">
+                </div>
+            </div>
+        </div>
+        <div id="headerBar">
+            <div class="content-wrapper">
+                <div class="float-left" style="margin-top: 8px">
+                    <p class="site-title" style="">
+                        @Html.ImageLink(Url.Content(WebConfigurationManager.AppSettings["CompanyLogoUrl"]), WebConfigurationManager.AppSettings["CompanyLogoAltText"], "Index", "Home", new { area = "" }, null, null)
+                    </p>
+                </div>
+
+                <div class="float-right">
+                    <div>
+                        <section id="login">
+                            @if (Request.IsAuthenticated)
+                            {
+                                ViewData.TemplateInfo.HtmlFieldPrefix = string.Empty;
+
+                                if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("CompanyAdmin/Search/SearchResults") && EncrypticsPrincipal.CurrentEncrypticsUser.CompanyCount > 1)
+                                {
+                                @Html.Partial("~/Areas/CompanyAdmin/Views/Search/_searchForm.cshtml")
+                                }
+                                @Html.ActionLink("My Account", string.Empty, "UserHome", new { area = "UserAccount" }, new { title = string.Format("Manage {0}", User.Identity.Name) })
+                                using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                }
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink" })
+                                @Html.ActionLink("Log in", "Login", "Account", null, new { id = "loginLink" })
+                            }
+                        </section>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="body">
+        @RenderSection("featured", false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </section>
+
+    <footer>
+        <div class="content-wrapper">
+            <div id="helpInfo">
+                <h4>@WebConfigurationManager.AppSettings["CompanyName"] Support:</h4>
+                <p>@WebConfigurationManager.AppSettings["SupportPhone"]</p>
+                <p><a href="mailto:@WebConfigurationManager.AppSettings["SupportEmail"]">@WebConfigurationManager.AppSettings["SupportEmail"]</a></p>
+            </div>
+            <div id="copyrightInfo">&copy; @DateTime.Now.Year @WebConfigurationManager.AppSettings["CompanyName"] &#8212; @HttpContext.Current.Application["Version"]</div>
+        </div>
+    </footer>
+
+    @Html.Partial("_MessageBox")
+</body>
+</html>
+@Scripts.Render("~/bundles/modernizr", "~/bundles/ajax")
+@if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("CompanyAdmin/Search/SearchResults") && EncrypticsPrincipal.CurrentEncrypticsUser.CompanyCount > 1)
+{
+    <script>
+        var searchUrl = '@Url.Action("AjaxGetAllSearchResults", "Search", new { area = "CompanyAdmin" })';
+    </script>
+    @Scripts.Render("~/bundles/search")
+}
+<script>
+    var isTablet = window.matchMedia("only screen and (device-width: 768px)").matches;
+    var isPhone = window.matchMedia("only screen and (max-device-width:736px), only screen and (width:375px)").matches;
+
+    function testDST() {
+        var date1 = new Date('3/9/2015');
+        var date2 = new Date('11/2/2015');
+
+        return date1.getTimezoneOffset() != date2.getTimezoneOffset();
+    }
+
+    $(function () {
+        $.cookie("tzo", new Date().getTimezoneOffset(), { expires: 1 });
+        $.cookie("dst", testDST(), { expires: 1 });
+
+        $(document).tooltip();
+
+        $("#siteSearchButton").button({
+            icons: {
+                primary: "ui-icon-search"
+            },
+            text: false
+        });
+        
+        $('#hideErrorMessage').click(function (e) {
+            e.preventDefault();
+            $("#errorMessages").hide("highlight", {}, 600);
+        });
+        
+        $('#hideSuccessMessage').click(function (e) {
+            e.preventDefault();
+            $("#successMessage").hide("highlight", {}, 600);
+        });
+        
+        ajaxGet('@Url.Action("AjaxCheckLogin", "Account", new { area = string.Empty })', function (response) {
+            if (!response.success && response.redirect) {
+                window.location = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@HttpUtility.UrlEncode((Request.Url == null ? string.Empty : Request.Url.PathAndQuery))';
+            }
+        }, function (errorResponse) {
+            console.log(errorResponse);
+        });
+    });
+</script>
+@RenderSection("scripts", false)

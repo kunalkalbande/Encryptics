@@ -1,0 +1,47 @@
+﻿@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Models.ForgotPasswordModel
+<p>@Resources.ForgotPasswordPartialInstructions</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset id="forgotPwdFields">
+        <legend>@*Reset Password*@</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new {type="email"})
+            </li>
+            @*@if (string.IsNullOrEmpty(Model.SecretQuestion))
+            {
+                <input type="submit" id="btnSecretQuestion" value="Next >" />
+            }
+            else
+            {
+                <li>
+                    @Html.LabelFor(m => m.SecretQuestion)
+                    @Html.TextBoxFor(m => m.SecretQuestion)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Answer)
+                    @Html.TextBoxFor(m => m.Answer)
+                </li>
+            }*@
+        </ol>
+        <div id="errorMessages">
+            @Html.ValidationSummary()
+        </div>
+        <a href="#" class="button">@Resources.ResetPassword <span>&gt;</span></a>
+    </fieldset>
+}
+<style>
+    #errorMessages {
+        min-height: 50px;
+        position: relative;
+    }
+
+    #errorMessages div {
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+</style>

@@ -1,0 +1,99 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@using Encryptics.WebPortal.Helpers
+@model TransferLicenseModel
+@{
+    ViewBag.Title = "Transfer Licenses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+<section class="white" style="padding: 40px;">
+    @using (Html.BeginForm())
+    { 
+        <div class="formSection">
+            @Html.LabelFor(m => m.FromEntityId)
+            @Html.HiddenFor(m => m.FromEntityId)
+            @Html.TextBoxFor(m => m.FromEntityName, new { @class = "searchField", @placeholder = "Type a name to begin searching" }) @Html.ValidationMessageFor(m => m.FromEntityName)<br />
+            @Html.RadioButtonFor(m => m.FromLicensePool, "AvailablePool", new { @checked = "checked" })&nbsp;@LicensePool.AvailablePool.GetDisplay()&nbsp;@Html.RadioButtonFor(m => m.FromLicensePool, "ActivePool")&nbsp;@LicensePool.ActivePool.GetDisplay()
+        </div>
+        <div class="formSection">
+            @Html.LabelFor(m => m.ToEntityId)
+            @Html.HiddenFor(m => m.ToEntityId)
+            @Html.TextBoxFor(m => m.ToEntityName, new { @class = "searchField", @placeholder = "Type a name to begin searching" }) @Html.ValidationMessageFor(m => m.ToEntityName)<br />
+            @Html.RadioButtonFor(m => m.ToLicensePool, "AvailablePool", new { @checked = "checked" })&nbsp;@LicensePool.AvailablePool.GetDisplay()&nbsp;@Html.RadioButtonFor(m => m.ToLicensePool, "ActivePool")&nbsp;@LicensePool.ActivePool.GetDisplay()
+        </div>
+        <div>
+            @Html.LabelFor(m => m.TransferAmount)
+            @Html.TextBoxFor(m => m.TransferAmount)
+            @Html.ValidationMessageFor(m => m.TransferAmount)
+        </div>
+        <br/>
+        <input type="submit" value="Transfer" />
+    }
+</section>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2 class="greenBackground whiteText">@ViewBag.Message</h2>
+                <h2 class="maroonBackground whiteText">@Html.ValidationSummary()</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#TransferAmount').spinner();
+
+            $('.searchField').autocomplete({
+                source: getCompanyNames,
+                minLength: 2,
+                focus: changeSelection,
+                select: changeSelection
+            });
+        });
+
+        function changeSelection(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $(this).siblings('input[type=hidden]').val(ui.item.value);
+        }
+
+        function getCompanyNames(request, response) {
+            console.log(request.term);
+            $.get('@Url.Action("GetCompanySearchResults", "CompanyAdminHome")', { searchTerm: request.term }, function (data) {
+                console.log(data);
+                response(data);
+            });
+        }
+    </script>
+}
+
+@section styles
+{
+    <style>
+        .ui-autocomplete {
+            max-height: 100px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+        }
+        /* IE 6 doesn't support max-height we use height instead, but this forces the menu to always be this tall */
+        * html .ui-autocomplete {
+            height: 100px;
+        }
+
+        .formSection {
+            margin-bottom: 40px;
+        }
+    </style>
+}

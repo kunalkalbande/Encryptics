@@ -1,0 +1,11 @@
+﻿@using Encryptics.WebPortal.Properties
+<h1 style="margin-top: 5px;">@Resources.Success</h1>
+<p id="successMessage">@ViewBag.SuccessMessage</p>
+<p id="successImage"><img src="~/Images/Success.png" /></p>
+<style>
+    @@media only screen and (max-width: 480px) {
+        #successMessage {
+            width: 50% !important;
+        }
+    }
+</style>

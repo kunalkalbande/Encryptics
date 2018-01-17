@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAccount.Models.UserEmailModel>
+
+
+<tr>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.ProfileName)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Subject)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Sent)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Status)</th>
+</tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.ProfileName)</td>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.Subject)</td>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.Sent)</td>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.Status)</td>
+    </tr>
+}

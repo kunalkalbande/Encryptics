@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel>
+
+<tbody>
+    @foreach (var account in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => account.UserName)</td>
+            <td>@Html.DisplayFor(m => account.Name)</td>
+            <td>@Html.DisplayFor(m => account.ValidationError)</td>
+        </tr>
+    }
+    <tr></tr>
+</tbody>

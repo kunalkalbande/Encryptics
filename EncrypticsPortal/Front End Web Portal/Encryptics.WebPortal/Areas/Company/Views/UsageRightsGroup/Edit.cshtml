@@ -1,0 +1,102 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Helpers
+@model EditableUsageRightsGroupModel
+
+@using (Html.BeginForm("Edit", "UsageRightsGroup", new { entityId = ViewBag.CompanyId, groupId = Model.GroupId, currentPage = ViewBag.CurrentPage }))
+{
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <legend></legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.GroupName)
+                    @Html.TextBoxFor(m => m.GroupName)
+                    @Html.ValidationMessageFor(m => m.GroupName)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptCopy)
+                    @Html.DropDownListFor(m => m.EncryptCopy, EnumHelper.SelectListFor(Model.EncryptCopy))
+                    @Html.ValidationMessageFor(m => m.EncryptCopy)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptForward)
+                    @Html.DropDownListFor(m => m.EncryptForward, EnumHelper.SelectListFor(Model.EncryptForward))
+                    @Html.ValidationMessageFor(m => m.EncryptForward)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptPrint)
+                    @Html.DropDownListFor(m => m.EncryptPrint, EnumHelper.SelectListFor(Model.EncryptPrint))
+                    @Html.ValidationMessageFor(m => m.EncryptPrint)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSave)
+                    @Html.DropDownListFor(m => m.EncryptSave, EnumHelper.SelectListFor(Model.EncryptSave))
+                    @Html.ValidationMessageFor(m => m.EncryptSave)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSunrise)
+                    @Html.DropDownListFor(m => m.EncryptSunrise, EnumHelper.SelectListFor(Model.EncryptSunrise))
+                    @Html.ValidationMessageFor(m => m.EncryptSunrise)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSunset)
+                    @Html.DropDownListFor(m => m.EncryptSunset, EnumHelper.SelectListFor(Model.EncryptSunset))
+                    @Html.ValidationMessageFor(m => m.EncryptSunset)
+                </div>
+            </li>
+        </ol>
+        <ol class="float-right formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.IsActive)
+                    @Html.RadioButtonFor(m => m.IsActive, true) Active&nbsp;&nbsp;&nbsp;
+                    @Html.RadioButtonFor(m => m.IsActive, false) Inactive
+                    @Html.ValidationMessageFor(m => m.IsActive)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptCopy)
+                    @Html.DropDownListFor(m => m.DecryptCopy, EnumHelper.SelectListFor(Model.DecryptCopy))
+                    @Html.ValidationMessageFor(m => m.DecryptCopy)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptForward)
+                    @Html.DropDownListFor(m => m.DecryptForward, EnumHelper.SelectListFor(Model.DecryptForward))
+                    @Html.ValidationMessageFor(m => m.DecryptForward)
+                </div>
+            </li><li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptPrint)
+                    @Html.DropDownListFor(m => m.DecryptPrint, EnumHelper.SelectListFor(Model.DecryptPrint))
+                    @Html.ValidationMessageFor(m => m.DecryptPrint)
+                </div>
+            </li><li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptSave)
+                    @Html.DropDownListFor(m => m.DecryptSave, EnumHelper.SelectListFor(Model.DecryptSave))
+                    @Html.ValidationMessageFor(m => m.DecryptSave)
+                </div>
+            </li>
+        </ol>
+        <div class="formActions">
+            <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+            <input type="submit" value="Update Group" class="mainAction" style="float: right;" />
+        </div>
+    </fieldset>
+}

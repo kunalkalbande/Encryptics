@@ -1,0 +1,29 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.CompanyProductVersionModel
+
+@using (Html.BeginForm("AddVersion", "CompanyHome", new { entityId = ViewBag.CompanyId }, FormMethod.Post))
+{
+    <fieldset>
+        <legend></legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.EntityId)
+
+                    @Html.LabelFor(m => m.VersionNumber)
+                    @Html.TextBoxFor(m => m.VersionNumber)
+                    
+                    @Html.LabelFor(m => m.Url)
+                    @Html.TextBoxFor(m => m.Url)
+                    
+                    @Html.LabelFor(m => m.ReleaseNotes)
+                    @Html.TextAreaFor(m => m.ReleaseNotes)
+                    
+                    @Html.LabelFor(m => m.Status)
+                    
+                    @Html.LabelFor(m => m.Severity)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

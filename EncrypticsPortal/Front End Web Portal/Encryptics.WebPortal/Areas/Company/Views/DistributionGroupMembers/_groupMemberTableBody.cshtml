@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.Company.Models.DistributionGroupMemberModel>
+
+<tbody>
+    @foreach (var accountModel in Model)
+    {
+        <tr>
+            <td class="selectColumn">
+                <input type="checkbox" class="selectedMember" data-id="@accountModel.GroupMemberId" /></td>
+            <td><a href="@Url.Action("ActiveAccount", "Admin", new { area = "UserAccount", entityId = accountModel.EntityId, userId = accountModel.UserId })">@Html.DisplayFor(m => accountModel.Name)</a></td>
+            <td>@Html.DisplayFor(m => accountModel.UserName)</td>
+        </tr>
+    }
+    <tr></tr>
+</tbody>

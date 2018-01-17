@@ -1,0 +1,14 @@
+﻿@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="ui-widget viewErrorMessage">
+        <div class="ui-state-error ui-corner-all viewMessage viewErrorMessage" style="">
+            <dl>
+                <dt><span class="ui-icon ui-icon-alert"></span>
+                    <strong>Alert:</strong></dt>
+                <dd id="message">@Html.Raw(ViewData["ErrorMessage"])</dd>
+                <dd><a href="#" id="hideErrorMessage" class="hideMessage" >hide</a></dd>
+            </dl>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/info-messages")
+}

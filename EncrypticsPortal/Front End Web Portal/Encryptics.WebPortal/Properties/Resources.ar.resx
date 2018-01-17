@@ -1,0 +1,939 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EnterUserNameMessage" xml:space="preserve">
+    <value>يرجى إدخال اسم المستخدم الخاص بك أو عنوان البريد الالكتروني لإنكريبتكس.</value>
+    <comment>Please enter your user name or Encryptics email address.</comment>
+  </data>
+  <data name="AnswerSecretQuestionMessage" xml:space="preserve">
+    <value>يرجى الإجابة عن السؤال السري الخاص بك.</value>
+    <comment>Please answer your secret question.</comment>
+  </data>
+  <data name="CouldNotResendActivationMessage" xml:space="preserve">
+    <value>لا يمكن إعادة إرسال رابط تفعيل الحساب!</value>
+    <comment>Could not re-send Account Activation Link!</comment>
+  </data>
+  <data name="ErrorSendingAccountActivationMessage" xml:space="preserve">
+    <value>حدث خطأ عند إرسال رابط تنشيط الحساب!</value>
+    <comment>An error occurred while sending Account Activation Link!</comment>
+  </data>
+  <data name="CurrentPasswordIsIncorrectOrTheNewPasswordIsInvalidMessage" xml:space="preserve">
+    <value>كلمة المرور الحالية غير صحيحة أو كلمة المرور الجديدة غير صالحة.</value>
+    <comment>The current password is incorrect or the new password is invalid.</comment>
+  </data>
+  <data name="UserNameExistsMessage" xml:space="preserve">
+    <value>اسم المستخدم موجود بالفعل. يرجى استخدام اسم مستخدم مختلف.</value>
+    <comment>User name already exists. Please enter a different user name.</comment>
+  </data>
+  <data name="SecurityQuestion1" xml:space="preserve">
+    <value>ما كان الإسم المستعار طفولتك؟</value>
+    <comment>What was your childhood nickname?</comment>
+  </data>
+  <data name="SecurityQuestion2" xml:space="preserve">
+    <value>في مدينة ما لم تلتقي زوجتك / هامة أخرى؟</value>
+    <comment>In what city did you meet your spouse/significant other?</comment>
+  </data>
+  <data name="SecurityQuestion3" xml:space="preserve">
+    <value>ما هو اسم صديق الطفولة المفضل لديك؟</value>
+    <comment>What is the name of your favorite childhood friend?</comment>
+  </data>
+  <data name="SecurityQuestion4" xml:space="preserve">
+    <value>ما لم الشارع الذي تعيش فيه في في الصف الثالث؟</value>
+    <comment>What street did you live on in third grade?</comment>
+  </data>
+  <data name="SecurityQuestion5" xml:space="preserve">
+    <value>ما هو الاسم الأوسط من أقدم طفلك؟</value>
+    <comment>What is the middle name of your oldest child?</comment>
+  </data>
+  <data name="SecurityQuestion6" xml:space="preserve">
+    <value>ما هو الاسم الأوسط أقدم أخ لديك؟</value>
+    <comment>What is your oldest sibling's middle name?</comment>
+  </data>
+  <data name="SecurityQuestion7" xml:space="preserve">
+    <value>ما لم تحضر المدرسة للصف السادس؟</value>
+    <comment>What school did you attend for sixth grade?</comment>
+  </data>
+  <data name="SecurityQuestion8" xml:space="preserve">
+    <value>ما هو الاسم الأول والأخير أقدم ابن عم الخاص بك؟</value>
+    <comment>What is your oldest cousin's first and last name?</comment>
+  </data>
+  <data name="SecurityQuestion9" xml:space="preserve">
+    <value>في مدينة أو بلدة ما لم أمك وأبيك الوفاء؟</value>
+    <comment>In what city or town did your mother and father meet?</comment>
+  </data>
+  <data name="SecurityQuestion10" xml:space="preserve">
+    <value>أين كنتم عندما كان لديك قبلتك الأولى؟</value>
+    <comment>Where were you when you had your first kiss?</comment>
+  </data>
+  <data name="SecurityQuestion11" xml:space="preserve">
+    <value>ما هو الاسم الأول للشخص الذي كنت أول القبلات؟</value>
+    <comment>What is the first name of the person that you first kissed?</comment>
+  </data>
+  <data name="SecurityQuestion12" xml:space="preserve">
+    <value>ما كان الاسم الأخير لمعلم الصف الثالث السر؟</value>
+    <comment>What was the last name of your third grade teacher?</comment>
+  </data>
+  <data name="SecurityQuestion13" xml:space="preserve">
+    <value>في أي مدينة لا يعيش أقرب الأشقاء الخاص؟</value>
+    <comment>In what city does your nearest sibling live?</comment>
+  </data>
+  <data name="SecurityQuestion14" xml:space="preserve">
+    <value>ما هو اسم الأم قبل الزواج زوجك على ذلك؟</value>
+    <comment>What is your spouse's mother's maiden name?</comment>
+  </data>
+  <data name="SecurityQuestion15" xml:space="preserve">
+    <value>في مدينة أو بلدة ما كان وظيفتك الأولى؟</value>
+    <comment>In what city or town was your first job?</comment>
+  </data>
+  <data name="SecurityQuestion16" xml:space="preserve">
+    <value>ما هو اسم مكان عقد حفل زفاف الخاص بك؟</value>
+    <comment>What is the name of the place your wedding reception was held?</comment>
+  </data>
+  <data name="SecurityQuestion17" xml:space="preserve">
+    <value>ما هو اسم الكلية التي تطبق على ولكن لم يحضر؟</value>
+    <comment>What is the name of a college you applied to but didn't attend?</comment>
+  </data>
+  <data name="SecurityQuestion18" xml:space="preserve">
+    <value>أين كنت عند أول سمعت عن 11/9؟</value>
+    <comment>Where were you when you first heard about 9/11?</comment>
+  </data>
+  <data name="PasswordProvidedIsIncorrectMessage" xml:space="preserve">
+    <value>البريد الالكتروني أو كلمة المرور غير صحيحة.</value>
+    <comment>Email or password is incorrect.</comment>
+  </data>
+  <data name="ErrorRegisteringAccountMessage" xml:space="preserve">
+    <value>حدث خطأ. يرجى العودة والمحاولة مجددًا. في حال استمرار المشكلة، يرجى إرسال رسالة علي :  &lt;a href="mailto:support@encryptics.com"&gt;الاتصال بنا
+&lt;/a&gt;</value>
+    <comment>An error occurred. Please go back and try again. If this problem persists, &lt;a href="mailto:support@encryptics.com"&gt;contact us&lt;/a&gt;.</comment>
+  </data>
+  <data name="AccountAlreadyExistsMessage" xml:space="preserve">
+    <value>للأسف، هذا الحساب موجود بالفعل. اغلق هذه النافذة وعد إلى الصفحة الرئيسة وحاول تسجيل الدخول ببريدك الالكتروني وكلمة المرور المسجلين.</value>
+    <comment>Oops, this account already exists. Close this window to return to the homepage and try logging in with your registered email address and password.</comment>
+  </data>
+  <data name="PleaseResendActivationMessage" xml:space="preserve">
+    <value>في حال عدم استلام رابط التنشيط على بريديك الالكتروني، انقر الزر الموجود أدناه لإعادة إرساله.</value>
+    <comment>If you haven’t received an activation link in your email, click the button below to resend it.</comment>
+  </data>
+  <data name="ActivationWasSuccessfullButLogInFailedMessage" xml:space="preserve">
+    <value>وكان تنشيط الحساب ناجحة ولكن فشل تسجيل الدخول.</value>
+    <comment>Account activation was successfull but log in failed.</comment>
+  </data>
+  <data name="AccountActivationFailedErrorMessage" xml:space="preserve">
+    <value>فشل تنشيط الحساب.</value>
+    <comment>Account activation failed.</comment>
+  </data>
+  <data name="PasswordCouldNotBeUpdatedMessage" xml:space="preserve">
+    <value>لا يمكن تحديث كلمة المرور</value>
+    <comment>Password could not be updated.</comment>
+  </data>
+  <data name="CouldNotRetrieveCompanyNamesMessage" xml:space="preserve">
+    <value>لا يمكن استعادة أسماء الشركة.</value>
+    <comment>Could not retrieve company names.</comment>
+  </data>
+  <data name="AccountActivationFailedTryAgainMessage" xml:space="preserve">
+    <value>فشل تنشيط الحساب. يرجى المحاولة مرة أخرى.</value>
+    <comment>Account activation failed. Please try again.</comment>
+  </data>
+  <data name="EnterPasswordAgainMessage" xml:space="preserve">
+    <value>يرجى إعادة إدخال كلمة المرور الخاصة بك.</value>
+    <comment>Please enter your password again.</comment>
+  </data>
+  <data name="UserNameDisplay" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+    <comment>email</comment>
+  </data>
+  <data name="CurrentPasswordDisplay" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+    <comment>Current password</comment>
+  </data>
+  <data name="PasswordMinimumLengthErrorMessage" xml:space="preserve">
+    <value>يجب أن يكون عدد الأحرف {0} هو حرفين {2} على الأقل.</value>
+    <comment>The {0} must be at least {2} characters long.</comment>
+  </data>
+  <data name="PasswordNotMatchingErrorMessage" xml:space="preserve">
+    <value>كلمة المرور وتأكيد كلمة المرور غير متطابقين.</value>
+    <comment>The password and confirmation password do not match.</comment>
+  </data>
+  <data name="NewPasswordDisplay" xml:space="preserve">
+    <value>كلمة المرور الجديدة</value>
+    <comment>New password</comment>
+  </data>
+  <data name="ConfirmNewPasswordDisplay" xml:space="preserve">
+    <value>تأكيد كلمة المرور الجديدة</value>
+    <comment>Confirm new password</comment>
+  </data>
+  <data name="PasswordDisplay" xml:space="preserve">
+    <value>كلمة المرور</value>
+    <comment>Password</comment>
+  </data>
+  <data name="RememberMeDisplay" xml:space="preserve">
+    <value>هل تتذكرني؟</value>
+    <comment>Remember me?</comment>
+  </data>
+  <data name="FirstNameDisplay" xml:space="preserve">
+    <value>الأول</value>
+    <comment>first</comment>
+  </data>
+  <data name="LastNameDisplay" xml:space="preserve">
+    <value>الأخير</value>
+    <comment>last</comment>
+  </data>
+  <data name="ConfirmPasswordDisplay" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+    <comment>Confirm password</comment>
+  </data>
+  <data name="InvalidEmailAddressFormatErrorMessage" xml:space="preserve">
+    <value>عنوان بريد الكتروني غير صالح</value>
+    <comment>Invalid email address format</comment>
+  </data>
+  <data name="SecretQuestionDisplay7" xml:space="preserve">
+    <value>السؤال السري</value>
+    <comment>Secret Question</comment>
+  </data>
+  <data name="SecretQuestionAnswerDisplay" xml:space="preserve">
+    <value>إجابة</value>
+    <comment>Answer</comment>
+  </data>
+  <data name="AgreeToTermsErrorMessage" xml:space="preserve">
+    <value>يرجى الموافقة على البنود والشروط</value>
+    <comment>Please agree to Terms and Conditions</comment>
+  </data>
+  <data name="EulaAcceptanceDisplay" xml:space="preserve">
+    <value>قبول ترخيص المستخدم النهائي</value>
+    <comment>EULA Acceptance</comment>
+  </data>
+  <data name="SecurityQuestion3AnswerDisplay" xml:space="preserve">
+    <value>الاجابة الأمن # 3</value>
+    <comment>Security Answer #3</comment>
+  </data>
+  <data name="SecurityQuestion3Display" xml:space="preserve">
+    <value>الأمن سؤال وجواب # 3</value>
+    <comment>Security Question &amp; Answer #3</comment>
+  </data>
+  <data name="SecurityQuestion2AnswerDisplay" xml:space="preserve">
+    <value>الاجابة الأمن # 2</value>
+    <comment>Security Answer #2</comment>
+  </data>
+  <data name="SecurityQuestion2Display" xml:space="preserve">
+    <value>الأمن سؤال وجواب رقم 2</value>
+    <comment>Security Question &amp; Answer #2</comment>
+  </data>
+  <data name="SecurityQuestion1AnswerDisplay" xml:space="preserve">
+    <value>الاجابة الأمن رقم 1</value>
+    <comment>Security Answer #1</comment>
+  </data>
+  <data name="SecurityQuestion1Display" xml:space="preserve">
+    <value>الأمن سؤال وجواب رقم 1</value>
+    <comment>Security Question &amp; Answer #1</comment>
+  </data>
+  <data name="CouldNotLogNewUserInMessage" xml:space="preserve">
+    <value>لا يمكن تسجيل دخول مستخدم جديد.</value>
+    <comment>Could not log new user in.</comment>
+  </data>
+  <data name="ActivationTimeOutErrorMessage" xml:space="preserve">
+    <value>وجدنا خطأ داخلي من جانبك.  من المفترض ان يتم إنشاء حسابك الأن، في حال عدم تلقي رسالة التنشيط، يرجى التسجيل مجددًا.</value>
+    <comment>We experienced an internal error on our side. Your account should be created at this time. If you do not receive an activation email please try registering again.</comment>
+  </data>
+  <data name="EmailAddressRequiredErrorMessage" xml:space="preserve">
+    <value>مطلوب عنوان البريد الالكتروني</value>
+    <comment>The email address is required.</comment>
+  </data>
+  <data name="PasswordRequiredErrorMessage" xml:space="preserve">
+    <value>كلمة المرور مطلوبة.</value>
+    <comment>The password is required.</comment>
+  </data>
+  <data name="PasswordResetUnsuccessfulErrorMessage" xml:space="preserve">
+    <value>لم ينجح طلب إعادة تعيين كلمة المرور.</value>
+    <comment>Password reset request was unsuccessful.</comment>
+  </data>
+  <data name="PasswordResetErrorMessage" xml:space="preserve">
+    <value>لا يمكن تحديث كلمة المرور.</value>
+    <comment>Password could not be updated.</comment>
+  </data>
+  <data name="CouldNotVerifyPasswordErrorMessage" xml:space="preserve">
+    <value>لا يمكن التحقق من كلمة المرور الحالي.</value>
+    <comment>Could not verify current password.</comment>
+  </data>
+  <data name="AccountMayAlreadyBeActivatedErrorMessage" xml:space="preserve">
+    <value>ربما يكون هذا الحساب قد تم تنشيطه بالفعل.</value>
+    <comment>This account may have already been activated.</comment>
+  </data>
+  <data name="EmailAddressDisplay" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+    <comment>email</comment>
+  </data>
+  <data name="CompanyNameDisplay" xml:space="preserve">
+    <value>الشركة</value>
+    <comment>Company</comment>
+  </data>
+  <data name="AccountStatusDisplay" xml:space="preserve">
+    <value>الشركة</value>
+    <comment>status</comment>
+  </data>
+  <data name="LicenseTypeDisplay" xml:space="preserve">
+    <value>النوع</value>
+    <comment>type</comment>
+  </data>
+  <data name="DateRegisteredDisplay" xml:space="preserve">
+    <value>التسجيل في</value>
+    <comment>registered on</comment>
+  </data>
+  <data name="DateLinceseCreated" xml:space="preserve">
+    <value>الترخيص التطبيقية</value>
+    <comment>License Applied</comment>
+  </data>
+  <data name="DateLicenseCreatedDisplay" xml:space="preserve">
+    <value>تم تطبيق الترخيص</value>
+    <comment>License Applied</comment>
+  </data>
+  <data name="DateLicenseExpiresDisplay" xml:space="preserve">
+    <value>ينتهي في</value>
+    <comment>expires on</comment>
+  </data>
+  <data name="DatePasswordChangedDisplay" xml:space="preserve">
+    <value>تم تغيير كلمة المرور</value>
+    <comment>Password Changed</comment>
+  </data>
+  <data name="NameDisplay" xml:space="preserve">
+    <value>الاسم</value>
+    <comment>name</comment>
+  </data>
+  <data name="CongratulationsAccountActivatedMessage" xml:space="preserve">
+    <value>تهانينا، تم تنشيط حسابك بنجاح.</value>
+    <comment>Congratulations your account has been successfully activated.</comment>
+  </data>
+  <data name="MembershipDefaultUnknownErrorMessage" xml:space="preserve">
+    <value>حدث خطأ غير معروف. يرجى التحقق من صحة البيانات المدخلة والمحاولة مرة أخري في حال استمرار المشكلة، يرجى الاتصال بمدير نظامكم.</value>
+    <comment>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</comment>
+  </data>
+  <data name="MembershipDuplicateEmailErrorMessage" xml:space="preserve">
+    <value>اسم مستخدم عنوان هذا البريد الالكتروني موجود بالفعل. يرجى إدخال عنوان بريد الكتروني مختلف.</value>
+    <comment>A user name for that e-mail address already exists. Please enter a different e-mail address.</comment>
+  </data>
+  <data name="MembershipInvalidAnswerErrorMessage" xml:space="preserve">
+    <value>الإجابة الخاصة باستعادة كلمة المرور غير صحيحة. يرجى المراجعة والمحاولة مجددًا.</value>
+    <comment>The password retrieval answer provided is invalid. Please check the value and try again.</comment>
+  </data>
+  <data name="MembershipInvalidEmailErrorMessage" xml:space="preserve">
+    <value>عنوان البريد الالكتروني المذكور غير صحيح. يرجى المراجعة والمحاولة مجددًا.</value>
+    <comment>The e-mail address provided is invalid. Please check the value and try again.</comment>
+  </data>
+  <data name="MembershipInvalidPasswordErrorMessage" xml:space="preserve">
+    <value>كلمة المرور المذكورة غير صحيحة. يرجى إدخال كلمة المرور الصحيحة.</value>
+    <comment>The password provided is invalid. Please enter a valid password value.</comment>
+  </data>
+  <data name="MembershipInvalidQuestionErrorMessage" xml:space="preserve">
+    <value>الإجابة الخاصة باستعادة كلمة المرور غير صحيحة. يرجى المراجعة والمحاولة مجددًا.</value>
+    <comment>The password retrieval question provided is invalid. Please check the value and try again.</comment>
+  </data>
+  <data name="MembershipInvalidUserNameErrorMessage" xml:space="preserve">
+    <value>عنوان اسم المستخدم المذكور غير صحيح. يرجى المراجعة والمحاولة مجددًا.</value>
+    <comment>The user name provided is invalid. Please check the value and try again.</comment>
+  </data>
+  <data name="MembershipProviderErrorErrorMessage" xml:space="preserve">
+    <value>وجد المتحقق من صحة البيانات خطأ. يرجى التأكد من صحة البيانات المدخلة والمحاولة مجددًا. في حال استمرار المشكلة، يرجى الاتصال بمدير نظامكم.</value>
+    <comment>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</comment>
+  </data>
+  <data name="MembershipUserRejectedErrorMessage" xml:space="preserve">
+    <value>تم إلغاء طلب الإنشاء الخاص بالمستخدم. يرجى التحقق من صحة البيانات والمحاولة مجددًا. في حال استمرار المشكلة، يرجى الاتصال بمدير نظامكم.</value>
+    <comment>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</comment>
+  </data>
+  <data name="PasswordChangeSuccessfullMessage" xml:space="preserve">
+    <value>نجح طلب تغيير كلمة المرور. يرجى مراجعة البريد الالكتروني ومتابعة الرابط لتحديث كلمة المرور الخاصة بك.</value>
+    <comment>Request to change password was successful. Check your email and folow the link to update your password.</comment>
+  </data>
+  <data name="PasswordSuccessfullyUpdatedMessage" xml:space="preserve">
+    <value>تم تحديث كلمة المرور بنجاح. يرجى محاولة تسجيل الدخول مجددًا.</value>
+    <comment>Password was successfully updated. Please try logging in again.</comment>
+  </data>
+  <data name="NextPageText" xml:space="preserve">
+    <value>التالي</value>
+    <comment>next</comment>
+  </data>
+  <data name="PreviousPageText" xml:space="preserve">
+    <value>السابق</value>
+    <comment>prev</comment>
+  </data>
+  <data name="UsageSummaryNoUsageYet" xml:space="preserve">
+    <value>لم يتم الاستخدام بعد</value>
+    <comment>No Usage Yet</comment>
+  </data>
+  <data name="UsageSummaryTitle" xml:space="preserve">
+    <value>استخدامكم</value>
+    <comment>Your Usage</comment>
+  </data>
+  <data name="UsageSummaryYearDisplay" xml:space="preserve">
+    <value>السنة</value>
+    <comment>Year</comment>
+  </data>
+  <data name="UsageSummaryMonthDisplay" xml:space="preserve">
+    <value>الشهر</value>
+    <comment>Month</comment>
+  </data>
+  <data name="UsageSummaryDayDisplay" xml:space="preserve">
+    <value>اليوم</value>
+    <comment>Day</comment>
+  </data>
+  <data name="UsageSummaryEncryptsDisplay" xml:space="preserve">
+    <value>تشفير</value>
+    <comment>Encrypts</comment>
+  </data>
+  <data name="UsageSummaryDecryptsDisplay" xml:space="preserve">
+    <value>فك&amp;nbsp;تشفير</value>
+    <comment>Decrypts</comment>
+  </data>
+  <data name="UsageSummaryPartialDisplay" xml:space="preserve">
+    <value>جزئي</value>
+    <comment>Partial</comment>
+  </data>
+  <data name="ActiveDisplay" xml:space="preserve">
+    <value>نشط</value>
+    <comment>Active</comment>
+  </data>
+  <data name="InactiveDisplay" xml:space="preserve">
+    <value>غير نشط</value>
+    <comment>Inactive</comment>
+  </data>
+  <data name="NoDisplay" xml:space="preserve">
+    <value>لا</value>
+    <comment>No</comment>
+  </data>
+  <data name="YesDisplay" xml:space="preserve">
+    <value>نعم</value>
+    <comment>Yes</comment>
+  </data>
+  <data name="DeviceListPartialActivateDisplay" xml:space="preserve">
+    <value>التنشيط</value>
+    <comment>Activate</comment>
+  </data>
+  <data name="DeviceListPartialSuspendDisplay" xml:space="preserve">
+    <value>موقوف</value>
+    <comment>Suspend</comment>
+  </data>
+  <data name="DevicePartialAddedDisplay" xml:space="preserve">
+    <value>تمت الإضافة:</value>
+    <comment>added:</comment>
+  </data>
+  <data name="DevicePartialForgetDeviceDisplay" xml:space="preserve">
+    <value>نسيان</value>
+    <comment>forget</comment>
+  </data>
+  <data name="DevicePartialLogoutDisplay" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+    <comment>Logout</comment>
+  </data>
+  <data name="DevicePartialServerErrorDisplay" xml:space="preserve">
+    <value>خطأ في الخادم</value>
+    <comment>Server Error</comment>
+  </data>
+  <data name="DevicePartialSuspendedDisplay" xml:space="preserve">
+    <value>موقوف</value>
+    <comment>suspended</comment>
+  </data>
+  <data name="DownloadsPartialAndroidHeading" xml:space="preserve">
+    <value>أندرويد</value>
+    <comment>Android</comment>
+  </data>
+  <data name="DownloadsPartialiOSHeading" xml:space="preserve">
+    <value>آي أو إس</value>
+    <comment>iOS</comment>
+  </data>
+  <data name="DownloadsPartialMacHeading" xml:space="preserve">
+    <value>ماك</value>
+    <comment>Mac</comment>
+  </data>
+  <data name="DownloadsPartialTitle" xml:space="preserve">
+    <value>إنكريبتكس للبريد الالكتروني</value>
+    <comment>Encryptics for Email</comment>
+  </data>
+  <data name="DownloadsPartialWindowsHeading" xml:space="preserve">
+    <value>ويندوز</value>
+    <comment>Windows</comment>
+  </data>
+  <data name="ManagePasswordPartialTitle" xml:space="preserve">
+    <value>تغيير كلمة المرور الخاصة بك</value>
+    <comment>Change Your Password</comment>
+  </data>
+  <data name="PopoverAccountActivatedTabHeadingText" xml:space="preserve">
+    <value>اسم حسابك الجديد لدى شركة إنكريبتس هو</value>
+    <comment>Your new Encryptics account name is</comment>
+  </data>
+  <data name="PopoverAccountActivatedTabPara1" xml:space="preserve">
+    <value>يمكنكم الآن استخدام برمجيات إنكريبتس</value>
+    <comment>You are ready to begin using Encryptics software.</comment>
+  </data>
+  <data name="PopoverAccountActivatedTabPara2" xml:space="preserve">
+    <value>يمكنك الأن  &lt;a href="#" class="closePopover"&gt;قريب&lt;/a&gt; هذه النافذة أو &lt;a href="#" class="showAccount"&gt;شاهد&lt;/a&gt; لعرض تفاصيل حسابك.</value>
+    <comment>You may now &lt;a href="#" class="closePopover"&gt;close&lt;/a&gt; this window or &lt;a href="#" class="showAccount"&gt;view&lt;/a&gt; your account details.</comment>
+  </data>
+  <data name="PopoverAccountActivatedTabPara3" xml:space="preserve">
+    <value>يمكنكم من خلال هذا الحساب البدء باستخدام برمجيات إنكريبتس.</value>
+    <comment>With this account you can begin using Encryptics software.</comment>
+  </data>
+  <data name="PopoverAccountActivatedTabTitle" xml:space="preserve">
+    <value>شكرًا لكم لتنشيط حسابك</value>
+    <comment>Thank You for Activating Your Account</comment>
+  </data>
+  <data name="PopoverAccountTabConfirmPasswordLabel" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+    <comment>Confirm Password</comment>
+  </data>
+  <data name="PopoverAccountTabEmailAddressLabel" xml:space="preserve">
+    <value>عنوان البريد الالكتروني</value>
+    <comment>Email Address</comment>
+  </data>
+  <data name="PopoverAccountTabFieldsRequiredNote" xml:space="preserve">
+    <value>يتطلب ملء جميع الخانات.</value>
+    <comment>All fields are required.</comment>
+  </data>
+  <data name="PopoverAccountTabInvalidEmailErrorMessage" xml:space="preserve">
+    <value>صيغة عنوان البريد الالكتروني غير صحيحة</value>
+    <comment>Invalid email address format</comment>
+  </data>
+  <data name="PopoverAccountTabMatchPasswordErrorMessage" xml:space="preserve">
+    <value>يجب تطابق كلمة المرور</value>
+    <comment>Must match the password</comment>
+  </data>
+  <data name="PopoverAccountTabPasswordLabel" xml:space="preserve">
+    <value>كلمة المرور</value>
+    <comment>Password</comment>
+  </data>
+  <data name="PopoverAccountTabPasswordLengthError" xml:space="preserve">
+    <value>يجب أن تتكون من 8 أحرف على الأقل</value>
+    <comment>Must be at least 8 character.</comment>
+  </data>
+  <data name="PopoverAccountTabRegisterButtonLabel" xml:space="preserve">
+    <value>تسجيل</value>
+    <comment>Register</comment>
+  </data>
+  <data name="PopoverAccountTabRequiredErrorMessage" xml:space="preserve">
+    <value>مطلوب</value>
+    <comment>Required</comment>
+  </data>
+  <data name="PopoverAccountTabTermsLabel" xml:space="preserve">
+    <value>أوافق على &lt;a href="#"&gt; الشروط والأحكام &lt;/ A&gt;</value>
+    <comment>I agree to &lt;a href="#"&gt;Terms &amp; Conditions&lt;/a&gt;</comment>
+  </data>
+  <data name="PopoverAccountTabTitle" xml:space="preserve">
+    <value>إنشاء حساب</value>
+    <comment>Create an Account</comment>
+  </data>
+  <data name="PopoverActivateTabAlmostDoneText" xml:space="preserve">
+    <value>انتم على وشك الانتهاء من إنشاء الحساب. يرجى الانتظار حتى نقوم بتنشيط حسابك.</value>
+    <comment>You are almost done. Please wait while we activate your account.</comment>
+  </data>
+  <data name="PopoverActivateTabCheckAccountDisplay" xml:space="preserve">
+    <value>راجع</value>
+    <comment>Check &lt;email address&gt;</comment>
+  </data>
+  <data name="PopoverActivateTabCongratulationsText" xml:space="preserve">
+    <value>تهانينا لكم لإنشاء حساب إنكريبتس بنجاح. أرسلنا رابط تنشيط إلى عنوان بريدكم الالكتروني المسجل. انقر الرابط الوارد في البريد الالكتروني الذي أرسلناه إليكم لتنشيط حسابك.</value>
+    <comment>Congratulations, you have successfully created an Encryptics account. We sent an activation link to your registered email address. Click the link in the email we sent to activate your account.</comment>
+  </data>
+  <data name="PopoverActivateTabContactUsDisplay" xml:space="preserve">
+    <value>إذا كنتم تواجهون مشكلة، يرجى الدخول على &lt;a href="#"&gt; الاتصال بنا &lt;/ a&gt;.</value>
+    <comment>If you are having trouble, &lt;a href="#"&gt;contact us&lt;/a&gt;.</comment>
+  </data>
+  <data name="PopoverActivateTabForAnActivationLinkDisplay" xml:space="preserve">
+    <value>للحصول على رابط التنشيط.</value>
+    <comment>for an activation link.</comment>
+  </data>
+  <data name="PopoverActivateTabResendButtonText" xml:space="preserve">
+    <value>إعادة إرسال رابط التنشيط</value>
+    <comment>resend activation</comment>
+  </data>
+  <data name="PopoverActivateTabTitle" xml:space="preserve">
+    <value>تنشيط حسابك</value>
+    <comment>Activate Your Account</comment>
+  </data>
+  <data name="PopoverActivateTabTryResendingDisplay" xml:space="preserve">
+    <value>هل لا يوجد بريد الكتروني؟ قم بمراجعة حافظة الرسائل الالكترونية غير المرغوبة أو محاولة إعادة إرسال رابط التنشيط.</value>
+    <comment>No email? Check your spam folder or try resending the activation link.</comment>
+  </data>
+  <data name="PopoverCreatePasswordTabCreatePasswordButtonText" xml:space="preserve">
+    <value>إنشاء كلمة سر</value>
+    <comment>create password</comment>
+  </data>
+  <data name="PopoverCreatePasswordTabPara1" xml:space="preserve">
+    <value>قام مديركم بإنشاء حساب إنكريبتس من أجل استخدامكم له من خلال عنوان بريدكم الالكتروني.</value>
+    <comment>Your administrator has created an Encryptics acount for you using your email address.</comment>
+  </data>
+  <data name="PopoverCreatePasswordTabPara2" xml:space="preserve">
+    <value>يرجى إدخال كلمة سر لتنشيط حسابك.</value>
+    <comment>Please provide a password to activate your account.</comment>
+  </data>
+  <data name="PopoverCreatePasswordTabTitle" xml:space="preserve">
+    <value>مرحبًا بك في إنكريبتس</value>
+    <comment>Welcome to Encryptics</comment>
+  </data>
+  <data name="PopoverDoneAccountButtonText" xml:space="preserve">
+    <value>عرض الحساب</value>
+    <comment>view your account</comment>
+  </data>
+  <data name="PopoverDoneCloseButtonText" xml:space="preserve">
+    <value>إغلاق النافذة</value>
+    <comment>close this window</comment>
+  </data>
+  <data name="PopoverDoneDownloadManually" xml:space="preserve">
+    <value>في حال عدم قيام المثبت بالتحميل تلقائيًا، يرجى النقر هنا</value>
+    <comment>If the installer did not automatically download click here</comment>
+  </data>
+  <data name="PopoverDoneTabTitle" xml:space="preserve">
+    <value>نشكركم على تحميل إنكريبتس!</value>
+    <comment>thank you for downloading Encryptics!</comment>
+  </data>
+  <data name="PopoverDownloadsTabAppStoreText" xml:space="preserve">
+    <value>الذهاب إلى متجر التطبيقات</value>
+    <comment>Go to App Store</comment>
+  </data>
+  <data name="PopoverDownloadsTabGooglePlayText" xml:space="preserve">
+    <value>الذهاب إلى جوجل بلاي</value>
+    <comment>Go to google play</comment>
+  </data>
+  <data name="PopoverDownloadsTabHeading" xml:space="preserve">
+    <value>سيبدأ تحميل البرمجيات حالاً.</value>
+    <comment>Your software will begin downloading shortly.</comment>
+  </data>
+  <data name="PopoverDownloadsTabInstallPhoneText" xml:space="preserve">
+    <value>انقر الرابط أدناه لتثبيت البرمجيات على هاتفكم.</value>
+    <comment>Click the link below to install the software on your phone.</comment>
+  </data>
+  <data name="PopoverDownloadsTabSkipDownloadText" xml:space="preserve">
+    <value>انقر هنا للخروج من التحميل</value>
+    <comment>click here to skip the download</comment>
+  </data>
+  <data name="PopoverDownloadsTabTitle" xml:space="preserve">
+    <value>حسابك نشط الآن</value>
+    <comment>Your Account is Now Activated</comment>
+  </data>
+  <data name="PopoverTabHeadingAccount" xml:space="preserve">
+    <value>الحساب</value>
+    <comment>Account</comment>
+  </data>
+  <data name="PopoverTabHeadingActivate" xml:space="preserve">
+    <value>تنشيط</value>
+    <comment>Activate</comment>
+  </data>
+  <data name="PopoverTabHeadingDevices" xml:space="preserve">
+    <value>الأجهزة</value>
+    <comment>Devices</comment>
+  </data>
+  <data name="PopoverTabHeadingDone" xml:space="preserve">
+    <value>تم!</value>
+    <comment>Done!</comment>
+  </data>
+  <data name="PopoverTabHeadingDownload" xml:space="preserve">
+    <value>تحميل</value>
+    <comment>Download</comment>
+  </data>
+  <data name="PopoverTabHeadingDownloads" xml:space="preserve">
+    <value>التحميلات</value>
+    <comment>Downloads</comment>
+  </data>
+  <data name="PopoverTabHeadingPassword" xml:space="preserve">
+    <value>كلمة المرور</value>
+    <comment>Password</comment>
+  </data>
+  <data name="PopoverTabHeadingUsage" xml:space="preserve">
+    <value>الاستخدام</value>
+    <comment>Usage</comment>
+  </data>
+  <data name="SubmitDisplay" xml:space="preserve">
+    <value>تقديم</value>
+    <comment>submit</comment>
+  </data>
+  <data name="AuthenticationTicketHeaderName" xml:space="preserve">
+    <value>x-my-custom-header</value>
+  </data>
+  <data name="GravatarImageText" xml:space="preserve">
+    <value>صورة من جرافاتار</value>
+    <comment>image by Gravatar</comment>
+  </data>
+  <data name="MenuAdminPortal" xml:space="preserve">
+    <value>منصة المدير</value>
+    <comment>Admin Portal</comment>
+  </data>
+  <data name="MenuChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+    <comment>Change Password</comment>
+  </data>
+  <data name="MenuDownloadSoftware" xml:space="preserve">
+    <value>تنزيل برمجيات</value>
+    <comment>Download Software</comment>
+  </data>
+  <data name="MenuLogIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+    <comment>Log In</comment>
+  </data>
+  <data name="MenuLogOut" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+    <comment>Log Out</comment>
+  </data>
+  <data name="MenuManageAccount" xml:space="preserve">
+    <value>إدارة الحساب</value>
+    <comment>Manage Account</comment>
+  </data>
+  <data name="MenuRegister" xml:space="preserve">
+    <value>إنشاء حساب جديد</value>
+    <comment>Sign Up</comment>
+  </data>
+  <data name="DevicesPartalNoDevicesHeading" xml:space="preserve">
+    <value>لا توجد أجهزة</value>
+    <comment>No Devices</comment>
+  </data>
+  <data name="DevicesPartialLaptopImageStyle" xml:space="preserve">
+    <value>float: right;</value>
+  </data>
+  <data name="DevicesPartialNoDevicesInstructions" xml:space="preserve">
+    <value>تسجيل الدخول إلى البريد الالكتروني Encryptics من الحاسب الآلي أو جهاز الهاتف الجوال. يتم إدارة أي من أجهزة Encryptics من خلال هذا الموقع الالكتروني مباشرةً.</value>
+    <comment>Log in to Encryptics for Email from a computer or mobile device. Manage any of your Encryptics devices right from this website.</comment>
+  </data>
+  <data name="AccountLicenseTypeFree" xml:space="preserve">
+    <value>نسخة مجانية</value>
+    <comment>Free</comment>
+  </data>
+  <data name="AccountLicenseTypeProfessional" xml:space="preserve">
+    <value>نسخة احترافية</value>
+    <comment>Professional</comment>
+  </data>
+  <data name="AccountLicenseTypeTrial" xml:space="preserve">
+    <value>نسخة تجريبية</value>
+    <comment>Trial</comment>
+  </data>
+  <data name="ForgotPasswordPartialInstructions" xml:space="preserve">
+    <value>أدخل عنوان بريدك الإلكتروني أدناه وانقر على زر إرسال. سوف تتلقى رسالة بريد إلكتروني مع وصلة. إذا نقرت على هذا الرابط يمكنك ثم إنشاء كلمة مرور جديدة.</value>
+    <comment>Enter your email address below and click the submit button. You will receive an email with a link. If you click on that link you can then create a new password.</comment>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>إعادة تعيين كلمة المرور</value>
+    <comment>reset password</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>النجاح!</value>
+    <comment>Success!</comment>
+  </data>
+  <data name="ResetPasswordPartialInsructions" xml:space="preserve">
+    <value>إدخال كلمة مرور جديدة وانقر على زر إعادة تعيين كلمة السر الخاصة بك.</value>
+    <comment>Enter a new password and click the submit button to reset your password.</comment>
+  </data>
+  <data name="AccountDetailsNotUpdatedErrorMessage" xml:space="preserve">
+    <value>تعذر تحديث تفاصيل الحساب.</value>
+    <comment>Account details could not be updated.</comment>
+  </data>
+  <data name="CouldNotRetrieveAccountDetailsErrorMessage" xml:space="preserve">
+    <value>.لا يمكن استرداد تفاصيل حسابك</value>
+    <comment>Could not retrieve your account details.</comment>
+  </data>
+  <data name="CouldNotUpdateUserAccountErrorMessage" xml:space="preserve">
+    <value>تعذر تحديث تفاصيل الحساب (خطأ في الخادم).</value>
+    <comment>Could not update account details (server error).</comment>
+  </data>
+  <data name="FirstNameLengthErrorMessage" xml:space="preserve">
+    <value>يجب أن يكون الاسم الأول 50 حرفا أو أقل.</value>
+    <comment>First name must be 50 letters or less.</comment>
+  </data>
+  <data name="LastNameLengthErrorMessage" xml:space="preserve">
+    <value>يجب أن يكون الاسم الأخير 50 حرفا أو أقل.</value>
+    <comment>Last name must be 50 letters or less.</comment>
+  </data>
+  <data name="ResetPasswordErrorInstructions" xml:space="preserve">
+    <value>يمكنك طلب رابط جديد  &lt;a href="ForgotPassword.aspx"&gt; لإعادة تعيين    &lt;/a&gt; كلمة المرور الخاصة بك.</value>
+    <comment>You can &lt;a href="ForgotPassword.aspx"&gt;request&lt;/a&gt; a new link to reset your password.</comment>
+  </data>
+  <data name="ResetPasswordLinkStatusBadDataErrorMessage" xml:space="preserve">
+    <value>وقد تم بالفعل استخدام الرابط الذي اتباعها لإعادة تعيين كلمة المرور الخاصة بك.</value>
+    <comment>The link you followed to reset your password has already been used.</comment>
+  </data>
+  <data name="ResetPasswordLinkStatusExpiredErrorMessage" xml:space="preserve">
+    <value>انتهت صلاحية الرابط الذي اتباعها لإعادة تعيين كلمة المرور الخاصة بك.</value>
+    <comment>The link you followed to reset your password has expired.</comment>
+  </data>
+  <data name="ResetPasswordLinkStatusFailedErrorMessage" xml:space="preserve">
+    <value>محاولة للتحقق من صلاحية الرابط الذي اتباعها لإعادة تعيين كلمة المرور الخاصة بك قد فشلت لأسباب غير معروفة.</value>
+    <comment>Attempting to verify the validity of the link you followed to reset your password has failed for unknown reasons.</comment>
+  </data>
+  <data name="ResetPasswordLinkStatusUsedErrorMessage" xml:space="preserve">
+    <value>الرابط الذي اتباعها لإعادة تعيين كلمة المرور الخاصة بك غير صالحة.</value>
+    <comment>The link you followed to reset your password is invalid.</comment>
+  </data>
+  <data name="AccountActivationStatusBadDataErrorMessage" xml:space="preserve">
+    <value>الرابط الذي اتباعها لتفعيل حسابك غير صالح.</value>
+    <comment>The link you followed to activate your account is invalid.</comment>
+  </data>
+  <data name="AccountActivationStatusExpiredErrorMessage" xml:space="preserve">
+    <value>انتهت صلاحية الرابط الذي اتباعها لتفعيل حسابك.</value>
+    <comment>The link you followed to activate your account has expired.</comment>
+  </data>
+  <data name="AccountActivationStatusFailedErrorMessage" xml:space="preserve">
+    <value>محاولة للتحقق من صلاحية الرابط الذي اتباعها لتفعيل حسابك قد فشلت لأسباب غير معروفة.</value>
+    <comment>Attempting to verify the validity of the link you followed to activate your account has failed for unknown reasons.</comment>
+  </data>
+  <data name="AccountActivationStatusRemovedErrorMessage" xml:space="preserve">
+    <value>الرابط الذي اتباعها لتفعيل حسابك لم يعد صالحا كحساب الذي تحاول تنشيط تمت إزالة.</value>
+    <comment>The link you followed to activate your account is no longer valid as the account you are attempting to activate has been removed.</comment>
+  </data>
+  <data name="AccountActivationStatusUsedErrorMessage" xml:space="preserve">
+    <value>وقد تم بالفعل استخدام الرابط الذي اتباعها لتفعيل حسابك. حسابك نشط بشكل كامل في هذا الوقت. إذا كنت تشعر أن هناك خطأ يرجى الاتصال encryptics.</value>
+    <comment>The link you followed to activate your account has already been used. Your account is fully active at this time. If you feel this is in error please contact encryptics.</comment>
+  </data>
+  <data name="ChangePasswordSuccessMessage" xml:space="preserve">
+    <value>تم تغيير كلمة المرور الخاصة بك.</value>
+    <comment>Your password has been changed.</comment>
+  </data>
+  <data name="RemoveLoginSuccessMessage" xml:space="preserve">
+    <value>تم إزالة تسجيل الدخول الخارجية.</value>
+    <comment>The external login was removed.</comment>
+  </data>
+  <data name="SetPasswordSuccessMessage" xml:space="preserve">
+    <value>تم تعيين كلمة المرور الخاصة بك.</value>
+    <comment>Your password has been set.</comment>
+  </data>
+  <data name="CouldNotActivateDeviceErrorMessage" xml:space="preserve">
+    <value>لا يمكن تفعيل هذا الجهاز.</value>
+    <comment>Could not activate this device.</comment>
+  </data>
+  <data name="CouldNotDeactivateDeviceErrorMessage" xml:space="preserve">
+    <value>لا يمكن إلفاء تفعيل هذا الجهاز.</value>
+    <comment>Could not deactivate this device.</comment>
+  </data>
+  <data name="CouldNotDeactivateDeviceSessionErrorMessage" xml:space="preserve">
+    <value>لا يمكن إلغاء تفعيل جلسة العمل لهذا الجهاز.</value>
+    <comment>Could not deactivate the session for this device.</comment>
+  </data>
+  <data name="CouldNotRemoveDeviceErrorMessage" xml:space="preserve">
+    <value>لا يمكن فصل هذا الجهاز لهذا المستخدم.</value>
+    <comment>Could not remove this device for this user.</comment>
+  </data>
+  <data name="CouldNotRetrieveDevicesErrorMessage" xml:space="preserve">
+    <value>لا يمكن إسترداد الأجهزة. يرجى المحاولة مرة أخرى. إذا استمرت هذه المشكلة اتصل ب Encryptics</value>
+    <comment>Could not retrieve devices. Please try again. If this problem persists contact Encryptics.</comment>
+  </data>
+  <data name="CouldNotRetrieveUserAccount" xml:space="preserve">
+    <value>لا يمكن إسترداد حساب المستخدم</value>
+    <comment>Could not retrieve user account</comment>
+  </data>
+  <data name="CurrentPasswordRequiredErrorMessage" xml:space="preserve">
+    <value>مطلوب حقل كلمة المرور الحالية.</value>
+    <comment>The Current password field is required.</comment>
+  </data>
+  <data name="NewPasswordRequiredErrorMessage" xml:space="preserve">
+    <value>مطلوب حقل كلمة المرور الجديدة.</value>
+    <comment>The New password field is required.</comment>
+  </data>
+</root>

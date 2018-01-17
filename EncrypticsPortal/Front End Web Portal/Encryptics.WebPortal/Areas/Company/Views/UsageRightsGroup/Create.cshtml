@@ -1,0 +1,93 @@
+﻿@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.Areas.Company.Models
+@model EditableUsageRightsGroupModel
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend></legend>
+        @Html.AntiForgeryToken()
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.GroupName)
+                    @Html.TextBoxFor(m => m.GroupName)
+                    @Html.ValidationMessageFor(m => m.GroupName)
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptCopy)
+                    @Html.DropDownListFor(m => m.EncryptCopy, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptCopy)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptForward)
+                    @Html.DropDownListFor(m => m.EncryptForward, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptForward)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptPrint)
+                    @Html.DropDownListFor(m => m.EncryptPrint, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptPrint)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSave)
+                    @Html.DropDownListFor(m => m.EncryptSave, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptSave)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSunrise)
+                    @Html.DropDownListFor(m => m.EncryptSunrise, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptSunrise)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.EncryptSunset)
+                    @Html.DropDownListFor(m => m.EncryptSunset, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsEncryptOption>())
+                    @Html.ValidationMessageFor(m => m.EncryptSunset)
+                </div>
+            </li>
+        </ol>
+
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptCopy)
+                    @Html.DropDownListFor(m => m.DecryptCopy, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsDecryptOption>())
+                    @Html.ValidationMessageFor(m => m.DecryptCopy)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptForward)
+                    @Html.DropDownListFor(m => m.DecryptForward, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsDecryptOption>())
+                    @Html.ValidationMessageFor(m => m.DecryptForward)
+                </div>
+            </li><li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptPrint)
+                    @Html.DropDownListFor(m => m.DecryptPrint, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsDecryptOption>())
+                    @Html.ValidationMessageFor(m => m.DecryptPrint)
+                </div>
+            </li><li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DecryptSave)
+                    @Html.DropDownListFor(m => m.DecryptSave, EnumHelper.SelectListFor<EditableUsageRightsGroupModel.UsageRightsDecryptOption>())
+                    @Html.ValidationMessageFor(m => m.DecryptSave)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

@@ -1,0 +1,1122 @@
+﻿@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.IdentityModel
+@using Google.DataTable.Net.Wrapper
+@model Encryptics.WebPortal.Areas.Company.Models.CompanySummaryModel
+
+@{
+    var encrypticsUser = User as EncrypticsPrincipal;
+    ViewBag.Title = "Manage Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData.Add("ActiveCurrentPage", Model.ActiveAccountSearchParameters.CurrentPage);
+    ViewData.Add("ActivePageCount", Model.ActiveAccountSearchParameters.PageCount);
+    ViewData.Add("PendingCurrentPage", Model.PendingAccountSearchParameters.CurrentPage);
+    ViewData.Add("PendingPageCount", Model.PendingAccountSearchParameters.PageCount);
+    ViewData.Add("EntityId", Model.Id);
+}
+
+<div class="pageHeader">
+    <h1>@Html.DisplayFor(m => m.Name)</h1>
+    @if (encrypticsUser != null && encrypticsUser.IsInRole("SuperAdmin"))
+    {
+        <h4 class="breadcrumbs">
+            <a href="@Url.Action("Index", "Home", new {area = string.Empty})">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            &gt; 
+            <span>@ViewBag.Title</span>
+        </h4>
+    }
+    else
+    {
+        <br/>
+    }
+</div>
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+<ul class="toolbar" id="actionToolbar">
+    <li>
+        <a href="#">
+            <div>Company</div>
+        </a>
+        <ul style="width: 239px;">
+            <li><a href="@Url.Action("EditEntityDetails", new { entityId = Model.Id })">
+                <div>Edit Details</div>
+            </a></li>
+            @if (encrypticsUser != null && encrypticsUser.IsEncrytpicsSuperAdmin)
+            {
+                <li><a href="#" id="showAddLicenseDialogButton">
+                    <div>Add Licenses</div>
+                </a></li>
+            }
+            <li><a href="@Url.Action(string.Empty, "CompanyDomain", new { @entityId = Model.Id }, null)">
+                <div>Manage Domains</div>
+            </a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <div>Users</div>
+        </a>
+        <ul style="left: -1px;">
+            <li><a href="#manageAccounts">
+                <div>Manage Users</div>
+            </a></li>
+            <li><a href="@Url.Action("AddNewUser", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })">
+                <div>Add a User</div>
+            </a></li>
+            <li><a href="@Url.Action("Index", "UploadAccounts", new { area = "UserAdmin", entityId = Model.Id })">
+                <div>Upload a List of Users</div>
+            </a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="@Url.Action("RetrieveReportResults", "Reports", new { entityId = Model.Id })">
+            <div>Reports</div>
+        </a>
+        @*<ul>
+            <li><a href="@Url.Action("RetrieveReportResults", "Reports", new { entityId = Model.Id })">
+                <div>General Usage</div>
+            </a></li>
+        @if (Model.PBPEnabled)
+                {
+            <li><a href="@Url.Action("RetrieveReportResults", "Reports", new { entityId = Model.Id })">
+                <div>Policy Based Protection</div>
+            </a></li>}
+        @if (Model.ZDPEnabled)
+                {
+            <li><a href="@Url.Action("RetrieveReportResults", "Reports", new { entityId = Model.Id })">
+                <div>Zero Day Protection</div>
+            </a></li>}
+        </ul>*@
+    </li>
+    @if (Model.ZDPEnabled || Model.PBPEnabled)
+    {
+        <li>
+            <a href="#">
+                <div class="lastItem">Configuration</div>
+            </a>
+            <ul style="left: -1px; width: 241px;">
+                @if (Model.PBPEnabled)
+                {
+                    <li><a href="@Url.Action("ConfigurePolicies", "PolicyBasedProtection", new { entityId = Model.Id })">
+                        <div>Manage PBP Policies</div>
+                    </a></li>
+                    if (encrypticsUser != null && encrypticsUser.IsEncrytpicsSuperAdmin)
+                    {
+                    <li><a href="@Url.Action("AssignRules", "PolicyBasedProtection", new { entityId = Model.Id })">
+                        <div>Administer PBP Policy Set</div>
+                    </a></li>
+                    }
+                }
+                @if (Model.ZDPEnabled)
+                {
+                    <li><a href="@Url.Action("ConfigureSettings", "ZeroDayProtection", new { entityId = Model.Id })">
+                        <div>Configure Zero Day Settings</div>
+                    </a></li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+<div class="featured dark">
+    <div class="featuredArea floatright">
+        @Html.DisplayFor(m => m.Domains, "CompanyDomainList")
+    </div>
+    <div class="featuredArea floatleft">
+        <div class="summarySection">
+            <span class="summaryLabel">@Html.DisplayNameFor(m => m.EntityType)</span><br />
+            @Model.EntityType.GetDisplay()
+        </div>
+        <div class="summarySection">
+            <span class="summaryLabel">@Html.DisplayNameFor(m => m.CreatedDate)</span><br />
+            @Html.DisplayFor(m => m.CreatedDate)
+        </div>
+        <div class="summarySection">
+            <span class="summaryLabel">@Html.DisplayNameFor(m => m.GlobalExpirationDate)</span><br />
+            @Html.DisplayFor(m => m.GlobalExpirationDate) @if (Model.GlobalExpirationDate != null && DateTime.Today >= Model.GlobalExpirationDate && Model.UseGlobalExpirationDate)
+                                                          { <span class="orangeText summaryInfo">Expired</span>}&nbsp;
+        </div>
+        <div class="summarySection">
+            <span class="summaryLabel">@Html.DisplayNameFor(m => m.LicenseSummary)</span>
+            @Html.DisplayFor(m => m.LicenseSummary)
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+<section id="graphSection">
+    <div id="usageGraph">&nbsp;</div>
+
+    <div id="dailyOverlay" class="@if (ViewBag.UsageSummary == "Monthly")
+                                  {@Html.Raw("hidden")}">
+        <input type="button" value="back to monthly" id="backToMonthly" />
+    </div>
+</section>
+
+<div id="summaryArea">
+    <div id="reportsArea" class="area">
+        <div id="reportsSummary" class="areaSection" style="position: relative">
+            <h3>Usage Reports</h3>
+            <div id="reportsSummaryChart" style="float: left; height: 50%;"></div>
+        </div>
+    </div>
+
+    <div id="pbpArea" class="area" style="height: 185px; min-height: 185px;">
+        <div id="pbpSummary" class="areaSection" style="height: 162px; min-height: 162px; position: relative;">
+            <h3>Policy Based Protection</h3>
+            @if (Model.PBPEnabled)
+            {
+                <div class="simpleNumericReport">@*<a href="#">*@<span class="reportNumber">@Html.DisplayFor(m => m.PBPViolations)</span><span class="reportLabel">@Html.DisplayNameFor(m => m.PBPViolations)</span>@*</a>*@</div>
+                <div class="simpleNumericReport">@*<a href="#">*@<span class="reportNumber">@Html.DisplayFor(m => m.PBPExceptions)</span><span class="reportLabel">@Html.DisplayNameFor(m => m.PBPExceptions)</span>@*</a>*@</div>
+            }
+            else
+            {
+                <div id="pbpDisabled" class="disabledFeature">
+                    <p>Automatically encrypt messages with Encryptics Policy Based Protection (PBP). Set policies to catch and secure common PII patterns, or create your own.</p>
+                    <p>Contact your Encryptics Account Manager to learn more.</p>
+                </div>
+            }
+        </div>
+    </div>
+    <div id="zdpArea" class="area" style="height: 183px; margin-top: 30px; min-height: 183px;">
+        <div id="zdpSummary" class="areaSection" style="height: 160px; min-height: 160px; position: relative;">
+            <h3>Zero Day Protection</h3>
+            @if (Model.ZDPEnabled)
+            {
+                <div class="simpleNumericReport">@*<a href="#">*@<span class="reportNumber">@Html.DisplayFor(m => m.ZDPViolations)</span><span class="reportLabel">@Html.DisplayNameFor(m => m.ZDPViolations)</span>@*</a>*@</div>
+                <div class="simpleNumericReport">@*<a href="#">*@<span class="reportNumber">@Html.DisplayFor(m => m.ZDPViolatingUsers)</span><span class="reportLabel">@Html.DisplayNameFor(m => m.ZDPViolatingUsers)</span>@*</a>*@</div>
+            }
+            else
+            {
+                <div id="zdpDisabled" class="disabledFeature">
+                    <p>Reduce risks associated with malware and viruses by proactively scanning attachments. ZDP runs integrity checks before recipients send or receive files.</p>
+                    <p>Contact your Encryptics Account Manager to learn more.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<a id="manageAccounts"></a>
+<div id="accounts">
+    <ul id="accountActions">
+        <li @if (ViewBag.ShowActiveTab == "ActiveAccounts")
+            {
+                @Html.Raw(@"class=""active""")
+            }><a href="#" id="showActiveAccounts">Active Accounts (@Model.ActiveUserAccountTotal)</a></li>
+        <li @if (ViewBag.ShowActiveTab == "PendingAccounts")
+            {
+                @Html.Raw(@"class=""active""")
+            }><a href="#" id="showPendingAccounts">Pending Accounts (@Model.PendingUserAccountTotal)</a></li>
+    </ul>
+
+    <div id="activeAccounts" class="accountSection" @if (ViewBag.ShowActiveTab != "ActiveAccounts")
+                                                    {
+                                                        @Html.Raw(@"style = ""display: none""")
+                                                    }>
+        @Html.Action("SearchActiveAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id, Model.ActiveAccountSearchParameters })
+    </div>
+
+    <div id="pendingAccounts" class="accountSection" @if (ViewBag.ShowActiveTab != "PendingAccounts")
+                                                     {
+                                                         @Html.Raw(@"style = ""display: none""")
+                                                     }>
+        @Html.Action("SearchPendingAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id, Model.PendingAccountSearchParameters })
+    </div>
+</div>
+
+<div id="addLicensesDialog" class="dialog">
+    @using (Html.BeginForm("AddLicenses", "CompanyHome", new { entityId = Model.Id, month = ViewBag.Month, year = ViewBag.Year }, FormMethod.Post, new { @id = "addLicenseForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Label("", "Amount to Transfer")
+        @Html.TextBox("transferAmount", 1, new { @id = "licenseTransferAmount" })
+    }
+</div>
+
+<div id="addDomainDialog" class="dialog">
+    @using (Html.BeginForm("AddDomain", "CompanyHome", new { entityId = Model.Id, month = ViewBag.Month, year = ViewBag.Year }, FormMethod.Post, new { @id = "addDomainForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Label("", "Domain to Add")
+        @Html.TextBox("domainName")
+    }
+</div>
+
+@Html.Partial("_ConfirmDialog")
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+    <script type="text/javascript">
+        var usageSummaryChartData;
+        var usageSummaryChart;
+
+        google.load("visualization", "1", { packages: ["corechart", "table"], 'language': '@Html.Raw(UICulture)' });
+        google.setOnLoadCallback(initializeSummaryChart);
+
+        function initializeSummaryChart() {
+            usageSummaryChartData = new google.visualization.DataTable('@Html.Raw(SystemDataTableConverter.Convert(Model.EncrypticsUsage).GetJson())');
+            usageSummaryChart = new google.visualization.AreaChart($('#usageGraph').get(0));
+
+            drawMonthlyUsageSummaryChart();
+        }
+
+        function drawUsageSummaryChart(title) {
+            usageSummaryChart.draw(usageSummaryChartData, { colors: ['#6690CB', '#F28B20'], title: "Encryptics " + title + " Usage Summary" });
+        }
+
+        function drawMonthlyUsageSummaryChart() {
+            google.visualization.events.addOneTimeListener(usageSummaryChart, 'select', retrieveDailyChart);
+            drawUsageSummaryChart('Monthly');
+            $('#dailyOverlay').addClass('hidden');
+        }
+
+        function drawDailyUsageSummaryChart() {
+            drawUsageSummaryChart('Daily');
+            $('#dailyOverlay').removeClass('hidden');
+        }
+
+        function retrieveDailyChart() {
+            var selectedItem = usageSummaryChart.getSelection()[0];
+
+            if (selectedItem) {
+                var value = usageSummaryChartData.getValue(selectedItem.row, 0);
+
+                ajaxGet('@Url.Action("AjaxGetDailyUsageSummary", new { entityId = Model.Id })?month=' + value.getMonth() + '&year=' + value.getFullYear(), function (response) {
+                    ajaxResponseReturned(response, function (data) {
+                        // Create our data table out of JSON data loaded from server.
+                        usageSummaryChartData = new google.visualization.DataTable(data);
+
+                        drawDailyUsageSummaryChart();
+                    });
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+        }
+
+        function retrieveMonthlyChart() {
+            ajaxGet('@Url.Action("AjaxGetMonthlyUsageSummary", new { entityId = Model.Id })', function (response) {
+                ajaxResponseReturned(response, function (data) {
+                    // Create our data table out of JSON data loaded from server.
+                    usageSummaryChartData = new google.visualization.DataTable(data);
+
+                    drawMonthlyUsageSummaryChart();
+                });
+            });
+        }
+
+        function drawTop5Chart() {
+            var data = new google.visualization.DataTable('@Html.Raw(SystemDataTableConverter.Convert(Model.TopFiveUsers).GetJson())');
+            var numberOfRows = data.getNumberOfRows();
+
+            if (numberOfRows > 0) {
+                var chart = new google.visualization.PieChart($('#reportsSummaryChart').get(0));
+                var colors = ['#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C'];
+
+                google.visualization.events.addListener(chart, 'select', function () {
+                    var selectedItem = chart.getSelection()[0];
+                    if (selectedItem) {
+                        var value = data.getValue(selectedItem.row, 0);
+                        window.location = '@Url.Action("LocateActiveAccountByEmail", "Admin", new { area = "UserAccount", entityId = Model.Id })?email=' + value;
+                    }
+                });
+
+                chart.draw(data, {
+                    colors: colors,
+                    legend: { position: 'right' },
+                    height: 320,
+                    width: 600,
+                    chartArea: { width: 600, height: 310 }
+                });
+            } else {
+                $('#reportsSummaryChart').html('<p>{No Usage to Report}</p>');
+            }
+        }
+
+        /* Accounts */
+        function getChartColors(numberOfItems, color1, color2, color3, color4) {
+            var rainbow = new Rainbow();
+            var colorArray = new Array();
+
+            rainbow.setNumberRange(1, numberOfItems);
+            rainbow.setSpectrum(color1, color2, color3, color4);
+
+            for (var i = 0; i < numberOfItems; i++) {
+                var hexColour = rainbow.colourAt(i + 1);
+                colorArray[i] = '#' + hexColour;
+            }
+
+            return colorArray;
+        }
+
+        function setupButton(buttonSelector, enabledColor, selectAllSelector, checkBoxSelector) {
+            var $button = $(buttonSelector);
+
+            if ($(checkBoxSelector).length == 0) {
+                $button.attr('disabled', 'disabled').css('color', '#bbb');
+                $(selectAllSelector).attr('value', 'all').css('color', '#228b22 !important');
+            } else if ($button.attr('disabled') == 'disabled') {
+                $button.removeAttr('disabled').css('color', enabledColor);
+                $(selectAllSelector).attr('value', 'none').css('color', '#bbb');
+            }
+        }
+
+        /* Active Accounts */
+        function setupActiveButtons() {
+            setupAssignLicenseButton();
+            setupDeleteActiveAccountsButton();
+        }
+
+        function setupAssignLicenseButton() {
+            setupButton('#assignLicenses', '#228b22', '#selectAllActiveAccounts', '.selectedActiveAccount:checked');
+        }
+
+        function setupDeleteActiveAccountsButton() {
+            setupButton('#deleteSelectedActiveAccounts', '#600', '#selectAllActiveAccounts', '.selectedActiveAccount:checked');
+        }
+
+        function selectAllActiveAccountsChange() {
+            if ($(this).attr('checked') == 'checked') {
+                $('.selectedActiveAccount').attr('checked', 'checked');
+
+            } else {
+                $('.selectedActiveAccount').removeAttr('checked');
+            }
+            setupActiveButtons();
+        }
+
+        function selectedActiveAccountChange() {
+            if ($('.selectedActiveAccount:checked').length == 0) {
+                $('#selectAllActiveAccounts').removeAttr('checked');
+            } else if ($('#selectAllActiveAccounts').attr('checked') != 'checked') {
+                $('#selectAllActiveAccounts').attr('checked', 'checked');
+            }
+            setupActiveButtons();
+        }
+
+        function resetActiveAccountSearchForm() {
+            var $form = $(this).parents('form');
+            $form.find('#ActiveAccountSearchParameters_SortOrder').val('ASC');
+            $form.find('#ActiveAccountSearchParameters_SearchTerm').val('');
+            $form.find('#activeAccountsPageDropDown').val('1');
+            $form.find('#activeAccountsPageSizeDropDown').val('15');
+            $form.submit();
+        }
+
+        function submitActiveAccountSearchForm(e) {
+            var $form = $(this);
+
+            e.preventDefault();
+
+            $form.find('#activeAccountsPageDropDown').val('1');
+            
+            $.post('@Url.Action("AjaxSearchActiveAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })', $form.serialize(), updateActiveAccounts);
+        }
+
+        function getActiveAccountsSearchResults() {
+            var $form = $('#ActiveUsersSearchForm');
+
+            $form.find('#ActiveAccountSearchParameters_SearchTerm').val($form.find('#ActiveAccountSearchParameters_SavedSearchTerm').val());
+
+            $.get('@Url.Action("AjaxSearchActiveAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?' + $form.serialize(), updateActiveAccounts);
+        }
+
+        function updateActiveAccounts(response) {
+            if (response.errors == null) {
+                $('#activeAccounts').html(response);
+                var $form = $('#activeAccounts').find('#ActiveUsersSearchForm');
+                $form.submit(submitActiveAccountSearchForm);
+                $form.find('#clearActiveAccountsFilter').click(resetActiveAccountSearchForm);
+                $form.find('.selectedActiveAccount').change(selectedActiveAccountChange);
+                $form.find('#selectAllActiveAccounts').change(selectAllActiveAccountsChange);
+                $form.find('.columnSort').click(activeAccountsColumnSort);
+                $form.find('#prevActiveAccountPage').click(previousActiveAccountPageClick);
+                $form.find('#nextActiveAccountPage').click(nextActiveAccountPageClick);
+                $form.find('#activeAccountsPageDropDown').change(activeAccountsPageDropDownChange);
+                $form.find('#activeAccountsPageSizeDropDown').change(activeAccountsPageSizeDropDownChange);
+                $form.find('#deleteSelectedActiveAccounts').click(deleteSelectedActiveAccountsClick);
+                $form.find('#assignLicenses').click(assignLicensesClick);
+            } else {
+                if (response.errors[0] != "Session Ended") {
+                    showMessageBox("Error", response.errors[0]);
+                } else {
+                    window.location = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@(Request.Url == null ? string.Empty : Request.Url.PathAndQuery)';
+                }
+            }
+        }
+
+        function previousActiveAccountPageClick(e) {
+            e.preventDefault();
+
+            var previousPage = parseInt($('#activeAccountsPageDropDown').val()) - 1;
+            $('#activeAccountsPageDropDown').val(previousPage);
+
+            getActiveAccountsSearchResults();
+        }
+
+        function nextActiveAccountPageClick(e) {
+            e.preventDefault();
+
+            var nextPage = parseInt($('#activeAccountsPageDropDown').val()) + 1;
+            $('#activeAccountsPageDropDown').val(nextPage);
+
+            getActiveAccountsSearchResults();
+        }
+
+        function activeAccountsPageSizeDropDownChange() {
+            $('#activeAccountsPageDropDown').val(1);
+            getActiveAccountsSearchResults();
+        }
+
+        function activeAccountsColumnSort(e) {
+            e.preventDefault();
+
+            var newSortField = $(this).attr('data-column-name');
+            var currentSortField = $('#ActiveAccountSearchParameters_SortField').val();
+            var sortOrder = $('#ActiveAccountSearchParameters_SortOrder').val();
+
+            if (newSortField == currentSortField && sortOrder == 'ASC') {
+                $('#ActiveAccountSearchParameters_SortOrder').val('DESC');
+            } else {
+                $('#ActiveAccountSearchParameters_SortOrder').val('ASC');
+            }
+
+            $('#ActiveAccountSearchParameters_SortField').val($(this).attr('data-column-name'));
+            getActiveAccountsSearchResults();
+        }
+
+        function activeAccountsPageDropDownChange() {
+            getActiveAccountsSearchResults();
+        }
+
+        function deleteSelectedActiveAccountsClick(e) {
+            e.preventDefault();
+
+            showConfirmationDialog("Delete Active Account", "Are you sure you want to delete the selected accounts?", function () {
+                var ids = new Array();
+
+                $('.selectedActiveAccount:checked').each(function (i, el) {
+                    ids[i] = $(el).attr('data-id');
+                });
+
+                $.post('@Url.Action("AjaxRemoveActiveAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?ids=' + ids.join('&ids='),
+                    $('#ActiveUsersSearchForm').serialize(), updateActiveTotal);
+            });
+        }
+
+        function updateActiveTotal(response) {
+            updateActiveAccounts(response);
+
+            $.get('@Url.Action("AjaxGetUpdatedActiveCount", "CompanyHome", new { area = "Company", entityId = Model.Id })', function (countResponse) {
+                if (countResponse.success) {
+                    $('#showActiveAccounts').text('Active Accounts (' + countResponse.count + ')');
+                }
+            });
+        }
+
+        function assignLicensesClick(e) {
+            e.preventDefault();
+
+            showConfirmationDialog("Assign Licenses", "Are you sure you want to assign licenses to the selected accounts?", function () {
+                var ids = new Array();
+
+                $('.selectedActiveAccount:checked').each(function (i, el) {
+                    ids[i] = $(el).attr('data-id');
+                });
+
+                var data = $('#ActiveUsersSearchForm').serialize();
+                data.ids = ids;
+
+                $.post('@Url.Action("AjaxAssignProLicenses", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?ids=' + ids.join('&ids='),
+                    data, function (response) {
+                        updateActiveAccounts(response);
+                        $.get('@Url.Action("AjaxLicenseInfoUpdate", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })', null,
+                            function (licenseInfo) {
+                                if (licenseInfo.errors == null) {
+                                    $('#activeLicenses').text(licenseInfo.active);
+                                    $('#usedLicenses').text(licenseInfo.used);
+                                    $('#availableLicenses').text(licenseInfo.available);
+                                }
+                            });
+                    });
+            });
+            }
+
+            /* Pending Accounts */
+            function setupPendingButtons() {
+                setupResendActivationButton();
+                setupDeletePendingAccountButton();
+            }
+
+            function setupResendActivationButton() {
+                setupButton('#resendActivations', '#228b22', '#selectAllPendingAccounts', '.selectedPendingAccount:checked');
+            }
+
+            function setupDeletePendingAccountButton() {
+                setupButton('#deleteSelectedPendingAccounts', '#600', '#selectAllPendingAccounts', '.selectedPendingAccount:checked');
+            }
+
+            function selectAllPendingAccountsChange() {
+                if ($(this).attr('checked') == 'checked') {
+                    $('.selectedPendingAccount').attr('checked', 'checked');
+
+                } else {
+                    $('.selectedPendingAccount').removeAttr('checked');
+                }
+                setupPendingButtons();
+            }
+
+            function selectedPendingAccountChange() {
+                if ($('.selectedPendingAccount:checked').length == 0) {
+                    $('#selectAllPendingAccounts').removeAttr('checked');
+                } else if ($('#selectAllPendingAccounts').attr('checked') != 'checked') {
+                    $('#selectAllPendingAccounts').attr('checked', 'checked');
+                }
+                setupPendingButtons();
+            }
+
+            function resetPendingAccountSearchForm() {
+                var $form = $(this).parents('form');
+                $form.find('#PendingAccountSearchParameters_SortOrder').val('ASC');
+                $form.find('#PendingAccountSearchParameters_SearchTerm').val('');
+                $form.find('#pendingAccountsPageDropDown').val('1');
+                $form.find('#pendingAccountsPageSizeDropDown').val('15');
+                $form.submit();
+            }
+
+            function submitPendingAccountSearchForm(e) {
+                var $form = $(this);
+
+                e.preventDefault();
+
+                $form.find('#pendingAccountsPageDropDown').val('1');
+                $.post('@Url.Action("AjaxSearchPendingAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })', $form.serialize(), updatePendingAccounts);
+            }
+
+            function getPendingAccountsSearchResults() {
+                var $form = $('#PendingUsersSearchForm');
+
+                $form.find('#PendingAccountSearchParameters_SearchTerm').val();
+
+                $.get('@Url.Action("AjaxSearchPendingAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?' + $form.serialize(), updatePendingAccounts);
+        }
+
+        function updatePendingAccounts(response) {
+            if (response.errors == null) {
+                $('#pendingAccounts').html(response);
+                var $form = $('#pendingAccounts').find('#PendingUsersSearchForm');
+                $form.submit(submitPendingAccountSearchForm);
+                $form.find('#clearPendingAccountsFilter').click(resetPendingAccountSearchForm);
+                $form.find('.selectedPendingAccount').change(selectedPendingAccountChange);
+                $form.find('#selectAllPendingAccounts').change(selectAllPendingAccountsChange);
+                $form.find('.columnSort').click(pendingAccountsColumnSort);
+                $form.find('#prevPendingAccountPage').click(previousPendingAccountPageClick);
+                $form.find('#nextPendingAccountPage').click(nextPendingAccountPageClick);
+                $form.find('#pendingAccountsPageDropDown').change(pendingAccountsPageDropDownChange);
+                $form.find('#pendingAccountsPageSizeDropDown').change(pendingAccountsPageSizeDropDownChange);
+                $form.find('#deleteSelectedPendingAccounts').click(deleteSelectedPendingAccountsClick);
+                $form.find('#resendActivations').click(resendActivationsClick);
+            } else {
+                if (response.errors[0] != "Session Ended") {
+                    showMessageBox("Error", response.errors[0]);
+                } else {
+                    window.location = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@(Request.Url == null ? string.Empty : Request.Url.PathAndQuery)';
+                }
+            }
+        }
+
+        function previousPendingAccountPageClick(e) {
+            e.preventDefault();
+
+            var previousPage = parseInt($('#pendingAccountsPageDropDown').val()) - 1;
+
+            $('#pendingAccountsPageDropDown').val(previousPage);
+            getPendingAccountsSearchResults();
+        }
+
+        function nextPendingAccountPageClick(e) {
+            e.preventDefault();
+
+            var nextPage = parseInt($('#pendingAccountsPageDropDown').val()) + 1;
+
+            $('#pendingAccountsPageDropDown').val(nextPage);
+            getPendingAccountsSearchResults();
+        }
+
+        function pendingAccountsPageDropDownChange() {
+            getPendingAccountsSearchResults();
+        }
+
+        function pendingAccountsPageSizeDropDownChange() {
+            $('#pendingAccountsPageDropDown').val(1);
+            getPendingAccountsSearchResults();
+        }
+
+        function resendActivationsClick(e) {
+            e.preventDefault();
+
+            showConfirmationDialog("Resend Activation Links", "Are you sure you want to resend the activation link to the selected pending acounts?", function () {
+                var emails = new Array();
+
+                $('.selectedPendingAccount:checked').each(function (i, el) {
+                    emails[i] = $(el).attr('data-email');
+                });
+
+                $.post('@Url.Action("AjaxResendActivationLinks", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?emails=' + emails.join('&emails='), null, function (response) {
+                    if (response.errors == null) {
+                        showMessageBox("Resent Activation Emails", "Activation emails sent.");
+                    } else {
+                        showMessageBox("Error", response.errors[0]);
+                    }
+                });
+            });
+        }
+
+        function deleteSelectedPendingAccountsClick(e) {
+            e.preventDefault();
+
+            showConfirmationDialog("Delete Pending Accounts", "Are you sure you want to remove the selected pending acounts?", function () {
+                var ids = new Array();
+
+                $('.selectedPendingAccount:checked').each(function (i, el) {
+                    ids[i] = $(el).attr('data-id');
+                });
+
+                $.post('@Url.Action("AjaxRemovePendingAccounts", "UserAdminHome", new { area = "UserAdmin", entityId = Model.Id })?ids=' + ids.join('&ids='),
+                    $('#PendingUsersSearchForm').serialize(), updatePendingTotal);
+            });
+        }
+
+        function updatePendingTotal(response) {
+            updatePendingAccounts(response);
+
+            $.get('@Url.Action("AjaxGetUpdatedPendingCount", "CompanyHome", new { area = "Company", entityId = Model.Id })', function (countResponse) {
+                if (countResponse.success) {
+                    $('#showPendingAccounts').text('Pending Accounts (' + countResponse.count + ')');
+                }
+            });
+        }
+
+        function pendingAccountsColumnSort(e) {
+            e.preventDefault();
+
+            var newSortField = $(this).attr('data-column-name');
+            var currentSortField = $('#PendingAccountSearchParameters_SortField').val();
+            var sortOrder = $('#PendingAccountSearchParameters_SortOrder').val();
+
+            if (newSortField == currentSortField && sortOrder == 'ASC') {
+                $('#PendingAccountSearchParameters_SortOrder').val('DESC');
+            } else {
+                $('#PendingAccountSearchParameters_SortOrder').val('ASC');
+            }
+
+            $('#PendingAccountSearchParameters_SortField').val($(this).attr('data-column-name'));
+            getPendingAccountsSearchResults();
+        }
+
+        /* Other stuff */
+        $(document).ready(function () {
+            $(document).tooltip();
+
+            $('#backToMonthly').click(function () {
+                retrieveMonthlyChart();
+            });
+
+            var value;
+            var $container = $("#licenseTransferAmount");
+
+            $container.spinner({
+                min: 1,
+            }).focus(function () {
+                value = $container.val();
+            }).blur(function () {
+                var value1 = $container.val();
+                if (value1 < 0) {
+                    $container.val(value);
+                }
+                if (isNaN(value1)) {
+                    $container.val(value);
+                }
+            });
+
+            google.setOnLoadCallback(drawTop5Chart);
+
+            $('#showAddLicenseDialogButton').click(function (e) {
+                e.preventDefault();
+                $('#addLicensesDialog').dialog({
+                    title: "Add New Liceneses",
+                    width: "345",
+                    resizable: false,
+                    modal: true,
+                    buttons: {
+                        "Add Licenses": function () {
+                            $('#addLicenseForm').submit();
+                        },
+                        "Cancel": function () { $(this).dialog("close"); }
+                    }
+                }).dialog("open");
+            });
+
+            $('#showActiveAccounts').click(function (e) {
+                e.preventDefault();
+                $('#activeAccounts').css('display', 'block');
+                $('#pendingAccounts').css('display', 'none');
+                $('#newAccount').css('display', 'none');
+                $('#uploadAccounts').css('display', 'none');
+                $('#accountActions .active').removeClass('active');
+                $(this).parent().addClass('active');
+            });
+
+            $('#showPendingAccounts').click(function (e) {
+                e.preventDefault();
+                $('#activeAccounts').css('display', 'none');
+                $('#pendingAccounts').css('display', 'block');
+                $('#newAccount').css('display', 'none');
+                $('#uploadAccounts').css('display', 'none');
+                $('#accountActions .active').removeClass('active');
+                $(this).parent().addClass('active');
+            });
+
+            //Active
+            $('#ActiveUsersSearchForm').submit(submitActiveAccountSearchForm);
+
+            $('#clearActiveAccountsFilter').click(resetActiveAccountSearchForm);
+
+            $('#selectAllActiveAccounts').change(selectAllActiveAccountsChange);
+
+            $('.selectedActiveAccount').change(selectedActiveAccountChange);
+
+            $('#selectAllPendingAccounts').change(selectAllPendingAccountsChange);
+
+            $('#ActiveUsersSearchForm').find('.columnSort').click(activeAccountsColumnSort);
+
+            $('#prevActiveAccountPage').click(previousActiveAccountPageClick);
+
+            $('#nextActiveAccountPage').click(nextActiveAccountPageClick);
+
+            $('#activeAccountsPageDropDown').change(activeAccountsPageDropDownChange);
+
+            $('#activeAccountsPageSizeDropDown').change(activeAccountsPageSizeDropDownChange);
+
+            $('#deleteSelectedActiveAccounts').click(deleteSelectedActiveAccountsClick);
+
+            $('#assignLicenses').click(assignLicensesClick);
+
+            //Pending
+            $('#PendingUsersSearchForm').submit(submitPendingAccountSearchForm);
+
+            $('#clearPendingAccountsFilter').click(resetPendingAccountSearchForm);
+
+            $('.selectedPendingAccount').change(selectedPendingAccountChange);
+
+            $('#PendingUsersSearchForm').find('.columnSort').click(pendingAccountsColumnSort);
+
+            $('#prevPendingAccountPage').click(previousPendingAccountPageClick);
+
+            $('#nextPendingAccountPage').click(nextPendingAccountPageClick);
+
+            $('#pendingAccountsPageDropDown').change(pendingAccountsPageDropDownChange);
+
+            $('#pendingAccountsPageSizeDropDown').change(pendingAccountsPageSizeDropDownChange);
+
+            $('#resendActivations').click(resendActivationsClick);
+
+            $('#deleteSelectedPendingAccounts').click(deleteSelectedPendingAccountsClick);
+        });
+    </script>
+}
+
+@section styles{
+    <style>
+        #reportsSummaryChart p {
+            padding: 1.9em;
+            font-size: 1.75em;
+            text-align: center;
+        }
+
+        .disabledFeature p {
+            padding: 10px;
+            font-size: 0.75em;
+            text-align: justify;
+        }
+
+        #zdpDisabled p {
+            color: white;
+        }
+
+        #clearActiveAccountsFilter, #clearPendingAccountsFilter {
+            background: #f28b20;
+        }
+
+        #searchActiveAccountsButton, #searchPendingAccountsButton {
+            margin-top: 4px !important;
+        }
+
+        #activeAccounts input, #pendingAccounts input {
+            font-size: 13px;
+        }
+
+        #graphSection {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #dailyOverlay {
+            position: absolute;
+            right: 50%;
+            top: 4px;
+        }
+
+        #backToMonthly {
+            font-size: smaller;
+        }
+
+        #usageGraph {
+            background-color: white;
+            border: 1px solid #ccc;
+            display: block;
+            height: 200px;
+            margin-top: 0;
+            min-height: 200px;
+            min-width: 958px;
+            padding: 0;
+            width: 958px;
+        }
+
+        .featured h3, .areaSection h3 {
+            border-bottom: solid 1px #ddd;
+            color: #eee;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .featuredArea {
+            max-width: 50%;
+            min-width: 30%;
+        }
+
+        .floatleft {
+            float: left;
+        }
+
+        .floatright {
+            float: right;
+        }
+
+        .area {
+            float: left;
+            margin-right: 20px;
+            margin-top: 20px;
+            max-width: 308px;
+            min-height: 400px;
+            min-width: 308px;
+        }
+
+        .areaSection {
+            min-height: 377px;
+        }
+
+        .dark .summaryLabel {
+            color: #999;
+            font-size: 0.5em;
+            text-transform: uppercase;
+        }
+
+        .dark .summaryInfo {
+            font-size: 1.0em;
+            text-transform: uppercase;
+        }
+
+        .dark .summarySection {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dark .summaryUnit {
+            color: #999;
+            font-size: 0.7em;
+        }
+
+        .dark .summarySeparator {
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        #entityArea .summaryLabel {
+            background-color: #ccc;
+            font-weight: bold;
+            padding: 2px 5px;
+        }
+
+            #entityArea .summaryLabel:after {
+                content: ":";
+            }
+
+        #entityArea .summarySection {
+            margin-bottom: 15px;
+        }
+
+        #entityArea h3 {
+            margin-bottom: 20px;
+        }
+
+        #reportsArea {
+            border: 1px solid #76373C;
+            color: #fff;
+            height: 398px;
+            margin-left: 0;
+            max-width: 618px;
+            min-width: 618px;
+        }
+
+            #reportsArea h3 {
+                background-color: #76373C;
+                padding: 15px 10px;
+            }
+
+        #pbpArea {
+            background-color: #F28B20;
+            border: 1px solid #F28B20;
+            height: 188px;
+            margin-right: 0;
+            max-height: 188px;
+            max-width: 318px;
+            min-height: 188px;
+            min-width: 318px;
+        }
+
+            #pbpArea h3 {
+                background: #fff;
+                border-bottom: none;
+                color: #6c4128;
+                padding: 15px 10px;
+            }
+
+        #zdpArea {
+            background-color: #666;
+            border: 1px solid #666;
+            height: 188px;
+            margin-right: 0;
+            max-height: 188px;
+            max-width: 318px;
+            min-height: 188px;
+            min-width: 318px;
+        }
+
+            #zdpArea h3 {
+                background: #fff;
+                border-bottom: none;
+                color: #999;
+                padding: 15px 10px;
+            }
+
+
+        .simpleNumericReport {
+            float: left;
+            padding: 0 4%;
+            width: 41%;
+        }
+
+            .simpleNumericReport .reportNumber {
+                display: block;
+                font-size: 4em;
+                text-align: center;
+            }
+
+            .simpleNumericReport .reportLabel {
+                display: block;
+                font-size: .8em;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .simpleNumericReport a {
+                padding: 0;
+                text-decoration: none;
+            }
+
+                .simpleNumericReport a:hover {
+                    text-decoration: underline;
+                }
+
+        #pbpArea .simpleNumericReport {
+            border-right: solid 2px #6c4128;
+            color: #6c4128;
+        }
+
+            #pbpArea .simpleNumericReport span {
+                color: #6c4128;
+            }
+
+            #pbpArea .simpleNumericReport:last-child {
+                border: none;
+            }
+
+        #zdpArea .simpleNumericReport {
+            border-right: solid 2px #bbb;
+            color: #bbb;
+        }
+
+            #zdpArea .simpleNumericReport span {
+                color: #bbb;
+            }
+
+            #zdpArea .simpleNumericReport:last-child {
+                border: none;
+            }
+
+        #accounts {
+            display: block;
+            float: left;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .accountSection {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        #accountActions {
+            height: 32px;
+        }
+
+        ul#accountActions li {
+            display: inline;
+            line-height: 33px;
+            list-style: none outside none;
+            padding: 15px 15px 8px 15px;
+        }
+
+            ul#accountActions li a {
+                font-family: SohoStd-ExtraLight;
+                font-size: 24px;
+                line-height: 25px;
+                text-decoration: none;
+            }
+
+            ul#accountActions li.active {
+                background-color: white;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+            }
+
+        #licenseTransferAmount {
+            width: 95%;
+        }
+
+        #actionToolbar li:last-child a div {
+            border-right: none;
+        }
+    </style>
+}

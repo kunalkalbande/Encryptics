@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EnterUserNameMessage" xml:space="preserve">
+    <value>Please enter your user name or {0} email address.</value>
+  </data>
+  <data name="AnswerSecretQuestionMessage" xml:space="preserve">
+    <value>Please answer your secret question.</value>
+  </data>
+  <data name="CouldNotResendActivationMessage" xml:space="preserve">
+    <value>Could not re-send Account Activation Link!</value>
+  </data>
+  <data name="ErrorSendingAccountActivationMessage" xml:space="preserve">
+    <value>An error occurred while sending Account Activation Link!</value>
+  </data>
+  <data name="CurrentPasswordIsIncorrectOrTheNewPasswordIsInvalidMessage" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="UserNameExistsMessage" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
+  <data name="SecurityQuestion1" xml:space="preserve">
+    <value>What was your childhood nickname?</value>
+  </data>
+  <data name="SecurityQuestion2" xml:space="preserve">
+    <value>In what city did you meet your spouse/significant other?</value>
+  </data>
+  <data name="SecurityQuestion3" xml:space="preserve">
+    <value>What is the name of your favorite childhood friend?</value>
+  </data>
+  <data name="SecurityQuestion4" xml:space="preserve">
+    <value>What street did you live on in third grade?</value>
+  </data>
+  <data name="SecurityQuestion5" xml:space="preserve">
+    <value>What is the middle name of your oldest child?</value>
+  </data>
+  <data name="SecurityQuestion6" xml:space="preserve">
+    <value>What is your oldest sibling's middle name?</value>
+  </data>
+  <data name="SecurityQuestion7" xml:space="preserve">
+    <value>What school did you attend for sixth grade?</value>
+  </data>
+  <data name="SecurityQuestion8" xml:space="preserve">
+    <value>What is your oldest cousin's first and last name?</value>
+  </data>
+  <data name="SecurityQuestion9" xml:space="preserve">
+    <value>In what city or town did your mother and father meet?</value>
+  </data>
+  <data name="SecurityQuestion10" xml:space="preserve">
+    <value>Where were you when you had your first kiss?</value>
+  </data>
+  <data name="SecurityQuestion11" xml:space="preserve">
+    <value>What is the first name of the person that you first kissed?</value>
+  </data>
+  <data name="SecurityQuestion12" xml:space="preserve">
+    <value>What was the last name of your third grade teacher?</value>
+  </data>
+  <data name="SecurityQuestion13" xml:space="preserve">
+    <value>In what city does your nearest sibling live?</value>
+  </data>
+  <data name="SecurityQuestion14" xml:space="preserve">
+    <value>What is your spouse's mother's maiden name?</value>
+  </data>
+  <data name="SecurityQuestion15" xml:space="preserve">
+    <value>In what city or town was your first job?</value>
+  </data>
+  <data name="SecurityQuestion16" xml:space="preserve">
+    <value>What is the name of the place your wedding reception was held?</value>
+  </data>
+  <data name="SecurityQuestion17" xml:space="preserve">
+    <value>What is the name of a college you applied to but didn't attend?</value>
+  </data>
+  <data name="SecurityQuestion18" xml:space="preserve">
+    <value>Where were you when you first heard about 9/11?</value>
+  </data>
+  <data name="PasswordProvidedIsIncorrectMessage" xml:space="preserve">
+    <value>Email or password is incorrect.</value>
+  </data>
+  <data name="ErrorRegisteringAccountMessage" xml:space="preserve">
+    <value>An error occurred. Please go back and try again. If this problem persists, &lt;a href="mailto:{0}"&gt;contact us&lt;/a&gt;.</value>
+  </data>
+  <data name="AccountAlreadyExistsMessage" xml:space="preserve">
+    <value>Great! You're now registered. You should receive an activation email. If you've already activated proceed to log on.</value>
+  </data>
+  <data name="PleaseResendActivationMessage" xml:space="preserve">
+    <value>If you haven’t received an activation link in your email, click the button below to resend it.</value>
+  </data>
+  <data name="ActivationWasSuccessfullButLogInFailedMessage" xml:space="preserve">
+    <value>Account activation was successfull but log in failed.</value>
+  </data>
+  <data name="AccountActivationFailedErrorMessage" xml:space="preserve">
+    <value>Account activation failed.</value>
+  </data>
+  <data name="PasswordCouldNotBeUpdatedMessage" xml:space="preserve">
+    <value>Password could not be updated.</value>
+  </data>
+  <data name="CouldNotRetrieveCompanyNamesMessage" xml:space="preserve">
+    <value>Could not retrieve company names.</value>
+  </data>
+  <data name="AccountActivationFailedTryAgainMessage" xml:space="preserve">
+    <value>Account activation failed. Please try again.</value>
+  </data>
+  <data name="EnterPasswordAgainMessage" xml:space="preserve">
+    <value>Please enter your password again.</value>
+  </data>
+  <data name="UserNameDisplay" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="CurrentPasswordDisplay" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="PasswordMinimumLengthErrorMessage" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
+  <data name="PasswordNotMatchingErrorMessage" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="NewPasswordDisplay" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ConfirmNewPasswordDisplay" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="PasswordDisplay" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RememberMeDisplay" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="FirstNameDisplay" xml:space="preserve">
+    <value>first</value>
+  </data>
+  <data name="LastNameDisplay" xml:space="preserve">
+    <value>last</value>
+  </data>
+  <data name="ConfirmPasswordDisplay" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="InvalidEmailAddressFormatErrorMessage" xml:space="preserve">
+    <value>Invalid email address format</value>
+  </data>
+  <data name="SecretQuestionDisplay7" xml:space="preserve">
+    <value>Secret Question</value>
+  </data>
+  <data name="SecretQuestionAnswerDisplay" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="AgreeToTermsErrorMessage" xml:space="preserve">
+    <value>Please agree to Terms and Conditions</value>
+  </data>
+  <data name="EulaAcceptanceDisplay" xml:space="preserve">
+    <value>Licensing Agreement</value>
+  </data>
+  <data name="SecurityQuestion3AnswerDisplay" xml:space="preserve">
+    <value>Security Answer #3</value>
+  </data>
+  <data name="SecurityQuestion3Display" xml:space="preserve">
+    <value>Security Question &amp; Answer #3</value>
+  </data>
+  <data name="SecurityQuestion2AnswerDisplay" xml:space="preserve">
+    <value>Security Answer #2</value>
+  </data>
+  <data name="SecurityQuestion2Display" xml:space="preserve">
+    <value>Security Question &amp; Answer #2</value>
+  </data>
+  <data name="SecurityQuestion1AnswerDisplay" xml:space="preserve">
+    <value>Security Answer #1</value>
+  </data>
+  <data name="SecurityQuestion1Display" xml:space="preserve">
+    <value>Security Question &amp; Answer #1</value>
+  </data>
+  <data name="CouldNotLogNewUserInMessage" xml:space="preserve">
+    <value>Could not log new user in.</value>
+  </data>
+  <data name="ActivationTimeOutErrorMessage" xml:space="preserve">
+    <value>We experienced an internal error on our side. Your account should be created at this time. If you do not receive an activation email please try registering again.</value>
+  </data>
+  <data name="EmailAddressRequiredErrorMessage" xml:space="preserve">
+    <value>The email address is required.</value>
+  </data>
+  <data name="PasswordRequiredErrorMessage" xml:space="preserve">
+    <value>The password is required.</value>
+  </data>
+  <data name="PasswordResetUnsuccessfulErrorMessage" xml:space="preserve">
+    <value>Password reset request was unsuccessful.</value>
+  </data>
+  <data name="PasswordResetErrorMessage" xml:space="preserve">
+    <value>Password could not be updated.</value>
+  </data>
+  <data name="CouldNotVerifyPasswordErrorMessage" xml:space="preserve">
+    <value>Could not verify current password.</value>
+  </data>
+  <data name="AccountMayAlreadyBeActivatedErrorMessage" xml:space="preserve">
+    <value>Great! You're now registered. You should receive an activation email. If you've already activated proceed to log on.</value>
+  </data>
+  <data name="EmailAddressDisplay" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="CompanyNameDisplay" xml:space="preserve">
+    <value>company</value>
+  </data>
+  <data name="AccountStatusDisplay" xml:space="preserve">
+    <value>status</value>
+  </data>
+  <data name="LicenseTypeDisplay" xml:space="preserve">
+    <value>type</value>
+  </data>
+  <data name="DateRegisteredDisplay" xml:space="preserve">
+    <value>registered on</value>
+  </data>
+  <data name="DateLinceseCreated" xml:space="preserve">
+    <value>License Applied</value>
+  </data>
+  <data name="DateLicenseCreatedDisplay" xml:space="preserve">
+    <value>License Applied</value>
+  </data>
+  <data name="DateLicenseExpiresDisplay" xml:space="preserve">
+    <value>expires on</value>
+  </data>
+  <data name="DatePasswordChangedDisplay" xml:space="preserve">
+    <value>Password Changed</value>
+  </data>
+  <data name="NameDisplay" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="CongratulationsAccountActivatedMessage" xml:space="preserve">
+    <value>Congratulations your account has been successfully activated.</value>
+  </data>
+  <data name="MembershipDefaultUnknownErrorMessage" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="MembershipDuplicateEmailErrorMessage" xml:space="preserve">
+    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="MembershipInvalidAnswerErrorMessage" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="MembershipInvalidEmailErrorMessage" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="MembershipInvalidPasswordErrorMessage" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="MembershipInvalidQuestionErrorMessage" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="MembershipInvalidUserNameErrorMessage" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="MembershipProviderErrorErrorMessage" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="MembershipUserRejectedErrorMessage" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="PasswordChangeSuccessfullMessage" xml:space="preserve">
+    <value>Request to change password was successful. Check your email and folow the link to update your password.</value>
+  </data>
+  <data name="PasswordSuccessfullyUpdatedMessage" xml:space="preserve">
+    <value>Password was successfully updated. Please try logging in again.</value>
+  </data>
+  <data name="NextPageText" xml:space="preserve">
+    <value>next</value>
+  </data>
+  <data name="PreviousPageText" xml:space="preserve">
+    <value>prev</value>
+  </data>
+  <data name="UsageSummaryNoUsageYet" xml:space="preserve">
+    <value>No Usage Yet</value>
+  </data>
+  <data name="UsageSummaryTitle" xml:space="preserve">
+    <value>Your Usage</value>
+  </data>
+  <data name="UsageSummaryYearDisplay" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="UsageSummaryMonthDisplay" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="UsageSummaryDayDisplay" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="UsageSummaryEncryptsDisplay" xml:space="preserve">
+    <value>Encrypts</value>
+  </data>
+  <data name="UsageSummaryDecryptsDisplay" xml:space="preserve">
+    <value>Decrypts</value>
+  </data>
+  <data name="UsageSummaryPartialDisplay" xml:space="preserve">
+    <value>Partial</value>
+  </data>
+  <data name="ActiveDisplay" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="InactiveDisplay" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="NoDisplay" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="YesDisplay" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DeviceListPartialActivateDisplay" xml:space="preserve">
+    <value>Unsuspend</value>
+  </data>
+  <data name="DeviceListPartialSuspendDisplay" xml:space="preserve">
+    <value>Suspend</value>
+  </data>
+  <data name="DevicePartialAddedDisplay" xml:space="preserve">
+    <value>added:</value>
+  </data>
+  <data name="DevicePartialForgetDeviceDisplay" xml:space="preserve">
+    <value>forget</value>
+  </data>
+  <data name="DevicePartialLogoutDisplay" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="DevicePartialServerErrorDisplay" xml:space="preserve">
+    <value>Server Error</value>
+  </data>
+  <data name="DevicePartialSuspendedDisplay" xml:space="preserve">
+    <value>suspended</value>
+  </data>
+  <data name="DownloadsPartialAndroidHeading" xml:space="preserve">
+    <value>Android</value>
+  </data>
+  <data name="DownloadsPartialiOSHeading" xml:space="preserve">
+    <value>iOS</value>
+  </data>
+  <data name="DownloadsPartialMacHeading" xml:space="preserve">
+    <value>Mac</value>
+  </data>
+  <data name="DownloadsPartialTitle" xml:space="preserve">
+    <value>{0} for Email</value>
+  </data>
+  <data name="DownloadsPartialWindowsHeading" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="ManagePasswordPartialTitle" xml:space="preserve">
+    <value>Change Your Password</value>
+  </data>
+  <data name="PopoverAccountActivatedTabHeadingText" xml:space="preserve">
+    <value>Your new {0} account name is</value>
+  </data>
+  <data name="PopoverAccountActivatedTabPara1" xml:space="preserve">
+    <value>You are ready to begin using {0} software.</value>
+  </data>
+  <data name="PopoverAccountActivatedTabPara2" xml:space="preserve">
+    <value>You may now &lt;a href="#" class="closePopover"&gt;close&lt;/a&gt; this window or &lt;a href="#" class="showAccount"&gt;view&lt;/a&gt; your account details.</value>
+  </data>
+  <data name="PopoverAccountActivatedTabPara3" xml:space="preserve">
+    <value>With this account you can begin using {0} software.</value>
+  </data>
+  <data name="PopoverAccountActivatedTabTitle" xml:space="preserve">
+    <value>Thank You for Activating Your Account</value>
+  </data>
+  <data name="PopoverAccountTabConfirmPasswordLabel" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="PopoverAccountTabEmailAddressLabel" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="PopoverAccountTabFieldsRequiredNote" xml:space="preserve">
+    <value>All fields are required.</value>
+  </data>
+  <data name="PopoverAccountTabInvalidEmailErrorMessage" xml:space="preserve">
+    <value>Invalid email address format</value>
+  </data>
+  <data name="PopoverAccountTabMatchPasswordErrorMessage" xml:space="preserve">
+    <value>Must match the password</value>
+  </data>
+  <data name="PopoverAccountTabPasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PopoverAccountTabPasswordLengthError" xml:space="preserve">
+    <value>Must be at least 8 character.</value>
+  </data>
+  <data name="PopoverAccountTabRegisterButtonLabel" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="PopoverAccountTabRequiredErrorMessage" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="PopoverAccountTabTermsLabel" xml:space="preserve">
+    <value>I agree to &lt;a href="#"&gt;Terms &amp; Conditions&lt;/a&gt;</value>
+  </data>
+  <data name="PopoverAccountTabTitle" xml:space="preserve">
+    <value>Create an Account</value>
+  </data>
+  <data name="PopoverActivateTabAlmostDoneText" xml:space="preserve">
+    <value>You are almost done. Please wait while we activate your account.</value>
+  </data>
+  <data name="PopoverActivateTabCheckAccountDisplay" xml:space="preserve">
+    <value>Check &lt;email address&gt;</value>
+  </data>
+  <data name="PopoverActivateTabCongratulationsText" xml:space="preserve">
+    <value>Congratulations, you have successfully created an {0} account. We sent an activation link to your registered email address. Click the link in the email we sent to activate your account.</value>
+  </data>
+  <data name="PopoverActivateTabContactUsDisplay" xml:space="preserve">
+    <value>If you are having trouble, &lt;a href="#"&gt;contact us&lt;/a&gt;.</value>
+  </data>
+  <data name="PopoverActivateTabForAnActivationLinkDisplay" xml:space="preserve">
+    <value>for an activation link.</value>
+  </data>
+  <data name="PopoverActivateTabResendButtonText" xml:space="preserve">
+    <value>resend activation</value>
+  </data>
+  <data name="PopoverActivateTabTitle" xml:space="preserve">
+    <value>Activate Your Account</value>
+  </data>
+  <data name="PopoverActivateTabTryResendingDisplay" xml:space="preserve">
+    <value>No email? Check your spam folder or try resending the activation link.</value>
+  </data>
+  <data name="PopoverCreatePasswordTabCreatePasswordButtonText" xml:space="preserve">
+    <value>create password</value>
+  </data>
+  <data name="PopoverCreatePasswordTabPara1" xml:space="preserve">
+    <value>Your administrator has created an Encryptics acount for you using your email address.</value>
+  </data>
+  <data name="PopoverCreatePasswordTabPara2" xml:space="preserve">
+    <value>Please provide a password to activate your account.</value>
+  </data>
+  <data name="PopoverCreatePasswordTabTitle" xml:space="preserve">
+    <value>Welcome to {0}</value>
+  </data>
+  <data name="PopoverDoneAccountButtonText" xml:space="preserve">
+    <value>view your account</value>
+  </data>
+  <data name="PopoverDoneCloseButtonText" xml:space="preserve">
+    <value>close this window</value>
+  </data>
+  <data name="PopoverDoneDownloadManually" xml:space="preserve">
+    <value>If the installer did not automatically download click here</value>
+  </data>
+  <data name="PopoverDoneTabTitle" xml:space="preserve">
+    <value>thank you for downloading {0}!</value>
+  </data>
+  <data name="PopoverDownloadsTabAppStoreText" xml:space="preserve">
+    <value>Go to App Store</value>
+  </data>
+  <data name="PopoverDownloadsTabGooglePlayText" xml:space="preserve">
+    <value>Go to google play</value>
+  </data>
+  <data name="PopoverDownloadsTabHeading" xml:space="preserve">
+    <value>Your software will begin downloading shortly.</value>
+  </data>
+  <data name="PopoverDownloadsTabInstallPhoneText" xml:space="preserve">
+    <value>Click the link below to install the software on your phone.</value>
+  </data>
+  <data name="PopoverDownloadsTabSkipDownloadText" xml:space="preserve">
+    <value>click here to skip the download</value>
+  </data>
+  <data name="PopoverDownloadsTabTitle" xml:space="preserve">
+    <value>Your Account is Now Activated</value>
+  </data>
+  <data name="PopoverTabHeadingAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="PopoverTabHeadingActivate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="PopoverTabHeadingDevices" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="PopoverTabHeadingDone" xml:space="preserve">
+    <value>Done!</value>
+  </data>
+  <data name="PopoverTabHeadingDownload" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="PopoverTabHeadingDownloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="PopoverTabHeadingPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PopoverTabHeadingUsage" xml:space="preserve">
+    <value>Usage</value>
+  </data>
+  <data name="SubmitDisplay" xml:space="preserve">
+    <value>submit</value>
+  </data>
+  <data name="AuthenticationTicketHeaderName" xml:space="preserve">
+    <value>x-my-custom-header</value>
+  </data>
+  <data name="GravatarImageText" xml:space="preserve">
+    <value>image by Gravatar</value>
+  </data>
+  <data name="MenuAdminPortal" xml:space="preserve">
+    <value>Admin Portal</value>
+  </data>
+  <data name="MenuChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="MenuDownloadSoftware" xml:space="preserve">
+    <value>Download Software</value>
+  </data>
+  <data name="MenuLogIn" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="MenuLogOut" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="MenuManageAccount" xml:space="preserve">
+    <value>Manage Account</value>
+  </data>
+  <data name="MenuRegister" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="AccountLicenseTypeFree" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="AccountLicenseTypeProfessional" xml:space="preserve">
+    <value>Professional</value>
+  </data>
+  <data name="AccountLicenseTypeTrial" xml:space="preserve">
+    <value>Trial</value>
+  </data>
+  <data name="DevicesPartalNoDevicesHeading" xml:space="preserve">
+    <value>No Devices</value>
+  </data>
+  <data name="DevicesPartialLaptopImageStyle" xml:space="preserve">
+    <value>float: left;</value>
+  </data>
+  <data name="DevicesPartialNoDevicesInstructions" xml:space="preserve">
+    <value>Log in to {0} for Email from a computer or mobile device. Manage any of your {0} devices right from this website.</value>
+  </data>
+  <data name="ForgotPasswordPartialInstructions" xml:space="preserve">
+    <value>Enter your email address below and click the submit button. You will receive an email with a link. If you click on that link you can then create a new password.</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>reset password</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="ResetPasswordPartialInsructions" xml:space="preserve">
+    <value>Enter a new password and click the submit button to reset your password.</value>
+  </data>
+  <data name="AccountDetailsNotUpdatedErrorMessage" xml:space="preserve">
+    <value>Account details could not be updated.</value>
+  </data>
+  <data name="CouldNotRetrieveAccountDetailsErrorMessage" xml:space="preserve">
+    <value>Could not retrieve your account details</value>
+  </data>
+  <data name="CouldNotUpdateUserAccountErrorMessage" xml:space="preserve">
+    <value>Could not update account details (server error).</value>
+  </data>
+  <data name="FirstNameLengthErrorMessage" xml:space="preserve">
+    <value>First name must be 50 letters or less.</value>
+  </data>
+  <data name="LastNameLengthErrorMessage" xml:space="preserve">
+    <value>Last name must be 50 letters or less.</value>
+  </data>
+  <data name="ResetPasswordErrorInstructions" xml:space="preserve">
+    <value>You can &lt;a href="ForgotPassword.aspx"&gt;request&lt;/a&gt; a new link to reset your password.</value>
+  </data>
+  <data name="ResetPasswordLinkStatusBadDataErrorMessage" xml:space="preserve">
+    <value>The link you followed to reset your password is invalid.</value>
+  </data>
+  <data name="ResetPasswordLinkStatusExpiredErrorMessage" xml:space="preserve">
+    <value>The link you followed to reset your password has expired.</value>
+  </data>
+  <data name="ResetPasswordLinkStatusFailedErrorMessage" xml:space="preserve">
+    <value>Attempting to verify the validity of the link you followed to reset your password has failed for unknown reasons.</value>
+  </data>
+  <data name="ResetPasswordLinkStatusUsedErrorMessage" xml:space="preserve">
+    <value>The link you followed to reset your password has already been used. </value>
+  </data>
+  <data name="AccountActivationStatusBadDataErrorMessage" xml:space="preserve">
+    <value>The link you followed to activate your account is invalid.</value>
+  </data>
+  <data name="AccountActivationStatusExpiredErrorMessage" xml:space="preserve">
+    <value>The link you followed to activate your account has expired.</value>
+  </data>
+  <data name="AccountActivationStatusFailedErrorMessage" xml:space="preserve">
+    <value>Attempting to verify the validity of the link you followed to activate your account has failed for unknown reasons.</value>
+  </data>
+  <data name="AccountActivationStatusRemovedErrorMessage" xml:space="preserve">
+    <value>The link you followed to activate your account is no longer valid as the account you are attempting to activate has been removed.</value>
+  </data>
+  <data name="AccountActivationStatusUsedErrorMessage" xml:space="preserve">
+    <value>The link you followed to activate your account has already been used. Your account is fully active at this time. If you feel this is in error please contact support.</value>
+  </data>
+  <data name="ChangePasswordSuccessMessage" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="RemoveLoginSuccessMessage" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="SetPasswordSuccessMessage" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
+  <data name="CouldNotActivateDeviceErrorMessage" xml:space="preserve">
+    <value>Could not activate this device.</value>
+  </data>
+  <data name="CouldNotDeactivateDeviceErrorMessage" xml:space="preserve">
+    <value>Could not deactivate this device.</value>
+  </data>
+  <data name="CouldNotDeactivateDeviceSessionErrorMessage" xml:space="preserve">
+    <value>Could not deactivate the session for this device.</value>
+  </data>
+  <data name="CouldNotRemoveDeviceErrorMessage" xml:space="preserve">
+    <value>Could not remove this device for this user.</value>
+  </data>
+  <data name="CouldNotRetrieveDevicesErrorMessage" xml:space="preserve">
+    <value>Could not retrieve devices. Please try again. If this problem persists contact support.</value>
+  </data>
+  <data name="CouldNotRetrieveUserAccount" xml:space="preserve">
+    <value>Could not retrieve user account</value>
+  </data>
+  <data name="CurrentPasswordRequiredErrorMessage" xml:space="preserve">
+    <value>The Current password field is required.</value>
+  </data>
+  <data name="NewPasswordRequiredErrorMessage" xml:space="preserve">
+    <value>The New password field is required.</value>
+  </data>
+  <data name="CompanySummaryModel_EncrypticsUsage_Usage" xml:space="preserve">
+    <value>Usage</value>
+  </data>
+  <data name="CompanySummaryModel_PendingAccounts_Pending_Accounts" xml:space="preserve">
+    <value>Pending Accounts</value>
+  </data>
+  <data name="CompanySummaryModel_UserAccounts_User_Accounts" xml:space="preserve">
+    <value>User Accounts</value>
+  </data>
+  <data name="SuspendedDisplay" xml:space="preserve">
+    <value>Suspended</value>
+  </data>
+  <data name="RoleDisplay" xml:space="preserve">
+    <value>role</value>
+  </data>
+  <data name="ErrorMessageAccontLockedOut" xml:space="preserve">
+    <value>You cannot log in at this time. Your account has been locked out. Your administrator can unlock your account.</value>
+    <comment>ErrorMessageAccountLockedOut</comment>
+  </data>
+  <data name="ErrorMessageCoultNotLogIn" xml:space="preserve">
+    <value>Could not log in to server. Please try again later or contact customer support.</value>
+    <comment>Could not log in to server. Please try again later or contact customer support.</comment>
+  </data>
+  <data name="ErrorMessageCouldNotValidateCaptcha" xml:space="preserve">
+    <value>Could not validate CAPTCHA.</value>
+    <comment>Could not validate CAPTCHA.</comment>
+  </data>
+  <data name="RoleDropDown_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ErrorMessagePasswordFormat" xml:space="preserve">
+    <value>Passwords must be atleast 8 characters long, contain atleast one lower case letter, one uppercase letter and one digit.</value>
+  </data>
+  <data name="ErrorMessageCouldNotRetreivePendingAccounts" xml:space="preserve">
+    <value>Could not retrieve pending accounts.</value>
+  </data>
+  <data name="ErrorMessageCouldNotRetrieveActiveAccounts" xml:space="preserve">
+    <value>Could not retrieve active accounts.</value>
+  </data>
+  <data name="ErrorMessageCouldNotRetrieveEntityDetails" xml:space="preserve">
+    <value>Could not retrieve entity details.</value>
+  </data>
+  <data name="DisplaySearchBy" xml:space="preserve">
+    <value>Search By</value>
+  </data>
+  <data name="DisplayFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="DisplayLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="ErrorMessageMustEnterEmail" xml:space="preserve">
+    <value>Must enter an email address, first or last name.</value>
+  </data>
+  <data name="DisplaySearchFor" xml:space="preserve">
+    <value>search for</value>
+  </data>
+  <data name="ErrorMessageCouldNotRetrieveCompanyDetails" xml:space="preserve">
+    <value>Could not retrieve company details!</value>
+  </data>
+  <data name="ErrorMessageCouldNotRetrieveSuspendedAccounts" xml:space="preserve">
+    <value>Could not retreive suspended accounts.</value>
+  </data>
+  <data name="DisplayTotalViolations" xml:space="preserve">
+    <value>Total Violations</value>
+  </data>
+  <data name="DisplayRisk" xml:space="preserve">
+    <value>Risk</value>
+  </data>
+</root>

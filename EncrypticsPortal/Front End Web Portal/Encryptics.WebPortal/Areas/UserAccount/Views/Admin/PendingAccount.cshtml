@@ -1,0 +1,127 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Pending User Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(Model.CompanyName, "Dashboard", "CompanyHome", new { entityId = Model.EntityId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        @Html.ActionLink("Account Management", "ManageAccounts", "UserAdminHome", new { entityId = Model.EntityId, area = "UserAdmin" }, null)
+        &gt;
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<ul class="toolbar" id="actionToolbar">
+    <li>
+        <a href="#" id="resendActivation">
+            <div>
+                Resend Activation 
+                @*<img src="~/Images/icons/Add.png" alt="">*@
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#" id="removeUser">
+            <div>
+                Remove User
+                @*<img src="~/Images/icons/Transfer.png" alt="">*@
+            </div>
+        </a>
+    </li>
+</ul>
+
+<section class="white">
+    <fieldset style="margin-right: 20px; position: relative; margin-bottom: 20px;">
+        <legend>@ViewBag.Title</legend>
+
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.DisplayFor(model => model.UserName, "ReadOnlyField")
+
+                    @Html.LabelFor(model => model.Name)
+                    @Html.DisplayFor(model => model.Name, "ReadOnlyField")
+
+                    @Html.LabelFor(model => model.CompanyName)
+                    @Html.DisplayFor(model => model.CompanyName, "ReadOnlyField")
+
+                    @Html.LabelFor(model => model.LicenseType)
+                    @Html.DisplayFor(model => model.LicenseType, "ReadOnlyField")
+                </div>
+            </li>
+        </ol>
+        <ol class="float-right formSection">
+            <li>
+                <div class="fields">
+                    @*<button id="resendActivation">Resend Activation</button><br/><br/>*@
+                    @using (Html.BeginForm("RemovePendingAccount", "Admin", new { area = "UserAccount", entityId = Model.EntityId }, FormMethod.Post, new { id = "deleteUserForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.UserId)
+@*<input type="submit" value="Remove User" id="removeUser"/>*@
+                    }
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+</section>
+
+@Html.Partial("_ConfirmDialog")
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#resendActivation').click(function (e) {
+                e.preventDefault();
+
+                showConfirmationDialog("Resend Activation Link", "Are you sure you want to resend the activation link to this acount?", function () {
+                    $.post('@Url.Action("AjaxResendActivation", "Admin", new { area = "UserAccount", entityId = Model.EntityId, email = Model.UserName })', null, function (response) {
+                        if (response.errors == null) {
+                            showMessageBox("Resent Activation", "Activation email sent to @Model.UserName");
+                        } else {
+                            showMessageBox("Error", response.errors[0]);
+                        }
+                    });
+                });
+            });
+
+            $('#removeUser').click(function (e) {
+                e.preventDefault();
+
+                showConfirmationDialog("Delete Account", "Are you sure you want to remove this account request?", function () {
+                    $('#deleteUserForm').submit();
+                });
+            });
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            #actionToolbar li {
+                /*border-bottom: 1px solid white;*/
+                width: 50% !important;
+            }
+
+                #actionToolbar li:last-child a div {
+                    border-right: none;
+                }
+        }
+    </style>
+}

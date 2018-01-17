@@ -1,0 +1,77 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.ActiveAccountsSearchModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewData.TemplateInfo.HtmlFieldPrefix = "ActiveAccountSearchParameters";
+}
+
+@using (Html.BeginForm("AjaxSearchActiveAccounts", "UserAdminHome", new { entityId = ViewBag.EntityId, area = "UserAdmin" }, FormMethod.Post, new { id = "ActiveUsersSearchForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchType)
+    @Html.HiddenFor(m => m.SortField)
+    @Html.HiddenFor(m => m.SortOrder)
+    @Html.HiddenFor(m => m.ItemCount)
+    @Html.Hidden("SavedSearchTerm", Model.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes, new { @id = "activeAccountsPageSizeDropDown" })</div>
+        <div class="filterResults">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "smallerSearchField", placeholder = "Filter by name..." })
+            <input type="submit" name="SearchActiveAccountsButton" id="searchActiveAccountsButton" value="Apply" class="filterButton">
+            <input type="button" class="clearButton" id="clearActiveAccountsFilter" value="x" @if (string.IsNullOrEmpty(Model.SearchTerm))
+                                                                                              {<text>disabled="disabled"</text>}>
+        </div>
+        <ul class="tableActions">
+            @if (encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxAssignProLicenses") ||
+                encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxDisableActiveAccounts"))
+            {
+            <li>
+                <input type="checkbox" value="all" id="selectAllActiveAccounts" />
+            </li>
+                if (encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxAssignProLicenses"))
+                {
+            <li>
+                <input type="button" value="assign license" id="assignLicenses" disabled="disabled">
+            </li>
+                 }
+                if (encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxDisableActiveAccounts"))
+                {
+            <li>
+                <input type="button" value="disable account" id="disableSelectedActiveAccounts" disabled="disabled">
+                @*<input type="button" value="delete account" id="deleteSelectedActiveAccounts" disabled="disabled">*@
+            </li>
+                 }
+            }
+        </ul>
+    </div>
+
+    <table class="newDataTable" style="width: 100% !important">
+        <tbody>
+            @Html.DisplayFor(m => m.ActiveAccounts, "ActiveAccountsList", new { Model.PageCount, Model.CurrentPage, })
+            <tr class="tableFooter">
+                <td colspan="5">
+                    <span>@if (Model.CurrentPage > 1)
+                          {
+                        <a href="#" id="prevActiveAccountPage">&laquo; prev</a>
+                          }
+                          else
+                          {
+                        <text>&laquo; prev</text>
+                          }</span>
+                    <span class="pagingBar">Page
+                    @Html.DropDownListFor(m => m.CurrentPage, Model.PageList, new { @id = "activeAccountsPageDropDown" })
+                        of @Model.PageCount
+                    </span>
+                    <span>@if (Model.PageCount > Model.CurrentPage)
+                          {
+                        <a href="#" id="nextActiveAccountPage">next &raquo;</a>
+                          }
+                          else
+                          {
+                        <text>next &raquo;</text>
+                          }</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

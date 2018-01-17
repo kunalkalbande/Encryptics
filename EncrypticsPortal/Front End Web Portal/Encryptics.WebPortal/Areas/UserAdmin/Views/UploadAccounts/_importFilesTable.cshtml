@@ -1,0 +1,7 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAdmin.Models.ImportFileModel>
+
+<table class="newDataTable" id="">
+    @Html.Partial("_importFilesTableHeader", Model.DataItems)
+    @Html.Partial("_importFilesTableBody", Model.DataItems)
+    @Html.Partial("_importFilesTableFooter")
+</table>

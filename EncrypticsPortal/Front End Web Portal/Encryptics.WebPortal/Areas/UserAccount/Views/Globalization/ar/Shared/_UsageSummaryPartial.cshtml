@@ -1,0 +1,55 @@
+﻿@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAccount.Models.UsageSummaryModel>
+<h3 style="margin-bottom: 0">@Resources.UsageSummaryTitle</h3>
+
+<table id="pageableTable" class="dataTable">
+    @Html.Partial(Model.TableBodyPartialView, Model.DataItems)
+    @if (!Model.DataItems.Any())
+    {
+        <tr>
+            <td colspan="4" style="text-align: left" id="">@Resources.UsageSummaryNoUsageYet</td>
+        </tr>
+    }
+
+    <tr>
+        <td colspan="2" style="text-align: right" id="prevColumn"></td>
+        <td colspan="2" style="text-align: left" id="nextColumn"></td>
+    </tr>
+</table>
+<style>
+    #nextColumn {
+        left: 5%;
+    }
+
+    #prevColumn {
+        right: 5%;
+    }
+</style>
+<script>
+    function getNextPage(e) {
+        e.preventDefault();
+        changeAccountPanel('#accountControlUsagePanel', '#usageTab', '@Html.Raw(string.Format("{0}?page={1}", ViewBag.RequestPath, Model.CurrentPage + 1))', function (panel) {
+            panel.children('table').addClass('deviceTable');
+        });
+    }
+
+    function getPrevPage(e) {
+        e.preventDefault();
+        changeAccountPanel('#accountControlUsagePanel', '#usageTab', '@Html.Raw(string.Format("{0}?page={1}", ViewBag.RequestPath, Model.CurrentPage - 1))', function (panel) {
+            panel.children('table').addClass('deviceTable');
+        });
+    }
+
+    $(function () {
+        @if (Model.CurrentPage < Model.PageCount)
+        {
+            @Html.Raw(string.Format(@"$('#nextColumn').html(""<a href='#' id='nextPage'>{0} &raquo;</a>"");", Resources.NextPageText))
+            @Html.Raw(@"$('#nextPage').click(getNextPage);")
+        };
+        @if (Model.CurrentPage > 0)
+        {
+            @Html.Raw(string.Format(@"$('#prevColumn').html(""<a href='#' id='prevPage'>&laquo; {0}</a>"");", Resources.PreviousPageText))
+            @Html.Raw(@"$('#prevPage').click(getPrevPage);")
+        };
+    });
+</script>

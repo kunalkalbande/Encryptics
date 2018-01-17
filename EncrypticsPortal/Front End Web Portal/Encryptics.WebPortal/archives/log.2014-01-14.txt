@@ -1,0 +1,264 @@
+20140113154152  Initializing AuthenticationModule class.
+20140113154152  ********Initializing PipelineLoggingModule class.********
+20140113154152  Initializing AuthenticationModule class.
+20140113154152  ********Initializing PipelineLoggingModule class.********
+20140113154152  ********Beginning request.********
+20140113154152  Raw URL: /
+20140113154152  Entering OnAuthenticateRequest
+20140113154152  Entering OnPostAuthenticateRequest
+20140113154152 dilf520itzozeparuoulbgxq ********Beginning OnPostAcquireRequestState.********
+20140113154152 dilf520itzozeparuoulbgxq Session Available: True
+20140113154152 dilf520itzozeparuoulbgxq Session keys: 0
+20140113154155  ********Ending request.********
+20140113154155  ********Beginning request.********
+20140113154155  Raw URL: /Glimpse.axd?n=glimpse_request&requestId=95ab30b2-153f-4bf2-8e08-6fc7e47a510b&hash=f1cee753&callback=glimpse.data.initData
+20140113154155  Entering OnAuthenticateRequest
+20140113154155  Entering OnPostAuthenticateRequest
+20140113154155  ********Beginning OnPostAcquireRequestState.********
+20140113154155  Session Available: False
+20140113154156  ********Ending request.********
+20140113154224  ********Ending request.********
+20140113154224  ********Beginning request.********
+20140113154224  Raw URL: /Account/JsonLogin
+20140113154224  Entering OnAuthenticateRequest
+20140113154224  Entering OnPostAuthenticateRequest
+20140113154224 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154224 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154224 dl4at1zihv3erzu4ivn22qsa Session keys: 0
+20140113154225 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154225 dl4at1zihv3erzu4ivn22qsa Entering JsonLogin
+20140113154225 dl4at1zihv3erzu4ivn22qsa Entering LoginAsync
+20140113154225 dl4at1zihv3erzu4ivn22qsa UserName: cluke@encryptics.com
+20140113154225 dl4at1zihv3erzu4ivn22qsa Password: &Purpley1
+20140113154226 dl4at1zihv3erzu4ivn22qsa LoginAsync: login NOT successful.
+20140113154226 dl4at1zihv3erzu4ivn22qsa Login unsuccessful.
+20140113154226 dl4at1zihv3erzu4ivn22qsa Error. Exiting JsonLogin.
+20140113154226 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154226  ********Ending request.********
+20140113154238  ********Ending request.********
+20140113154238  ********Beginning request.********
+20140113154238  Raw URL: /Account/JsonLogin
+20140113154238  Entering OnAuthenticateRequest
+20140113154238  Entering OnPostAuthenticateRequest
+20140113154238 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154238 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154238 dl4at1zihv3erzu4ivn22qsa Session keys: 0
+20140113154238 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154238 dl4at1zihv3erzu4ivn22qsa Entering JsonLogin
+20140113154238 dl4at1zihv3erzu4ivn22qsa Entering LoginAsync
+20140113154238 dl4at1zihv3erzu4ivn22qsa UserName: cluke@encryptics.com
+20140113154238 dl4at1zihv3erzu4ivn22qsa Password: Password
+20140113154238 dl4at1zihv3erzu4ivn22qsa Initializing session
+20140113154238 dl4at1zihv3erzu4ivn22qsa LoginAsync: login successful.
+20140113154238 dl4at1zihv3erzu4ivn22qsa Login successful.
+20140113154238 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154238  ********Ending request.********
+20140113154241  ********Ending request.********
+20140113154241  ********Beginning request.********
+20140113154241  Raw URL: /Account/JsonManage
+20140113154241  Entering OnAuthenticateRequest
+20140113154241  Custom header: 2B077730CEDA655FC855661F20FA0B833291B70C335D09D90FCC2F0FA514303A81F0EF6FD65F6306D4C2DC0A548D8FB9373772F24963E7E03B5CF4922A687F574868643988F7A92DCB8890A50FBFF15DAB29609174AEB4AC412AAF31EA3F89582C8CB02A5B5A0AC94BD8D60F99DEEBEA0EF6C88AB7E3BD4E31E5AB4BA4222032290284993F0F1165BC7D24473250BADDD59CCB396023EBD8CDAC278BB91B31B426D2D7BB58C7AF6FD1188116E98818ABBFE13F556CAA1EBDE75E10673FE15B3B
+20140113154241  Logged in as cluke@encryptics.com
+20140113154241  Entering OnPostAuthenticateRequest
+20140113154241 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154241 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154241 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154241 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154242 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154242  ********Ending request.********
+20140113154259  ********Beginning request.********
+20140113154259  Raw URL: /Account/JsonRegister
+20140113154259  Entering OnAuthenticateRequest
+20140113154259  Entering OnPostAuthenticateRequest
+20140113154259 vu0twdfe3kanuys22ypadeer ********Beginning OnPostAcquireRequestState.********
+20140113154259 vu0twdfe3kanuys22ypadeer Session Available: True
+20140113154259 vu0twdfe3kanuys22ypadeer Session keys: 0
+20140113154259 vu0twdfe3kanuys22ypadeer Initializing AccountController class.
+20140113154259 vu0twdfe3kanuys22ypadeer Disposing AccountController class.
+20140113154259  ********Ending request.********
+20140113154259  ********Ending request.********
+20140113154259  ********Beginning request.********
+20140113154259  Raw URL: /Account/JsonManage
+20140113154259  Entering OnAuthenticateRequest
+20140113154259  Custom header: 2B077730CEDA655FC855661F20FA0B833291B70C335D09D90FCC2F0FA514303A81F0EF6FD65F6306D4C2DC0A548D8FB9373772F24963E7E03B5CF4922A687F574868643988F7A92DCB8890A50FBFF15DAB29609174AEB4AC412AAF31EA3F89582C8CB02A5B5A0AC94BD8D60F99DEEBEA0EF6C88AB7E3BD4E31E5AB4BA4222032290284993F0F1165BC7D24473250BADDD59CCB396023EBD8CDAC278BB91B31B426D2D7BB58C7AF6FD1188116E98818ABBFE13F556CAA1EBDE75E10673FE15B3B
+20140113154259  Logged in as cluke@encryptics.com
+20140113154259  Entering OnPostAuthenticateRequest
+20140113154259 shqa1ajf3we2gcqwrbgwk1mm ********Beginning OnPostAcquireRequestState.********
+20140113154259 shqa1ajf3we2gcqwrbgwk1mm Session Available: True
+20140113154259 shqa1ajf3we2gcqwrbgwk1mm Session keys: 0
+20140113154259 shqa1ajf3we2gcqwrbgwk1mm Initializing AccountController class.
+20140113154301 shqa1ajf3we2gcqwrbgwk1mm Entering Manage
+20140113154301 shqa1ajf3we2gcqwrbgwk1mm UserName = cluke@encryptics.com
+20140113154301 shqa1ajf3we2gcqwrbgwk1mm Old Password = Password
+20140113154301 shqa1ajf3we2gcqwrbgwk1mm New Password = &Purpley1
+20140113154301 shqa1ajf3we2gcqwrbgwk1mm Confirm Password = &Purpley1
+20140113154302 shqa1ajf3we2gcqwrbgwk1mm Token error = Unknown error
+20140113154302 shqa1ajf3we2gcqwrbgwk1mm Exiting Manage
+20140113154302 shqa1ajf3we2gcqwrbgwk1mm Disposing AccountController class.
+20140113154302  ********Ending request.********
+20140113154351  ********Ending request.********
+20140113154351  ********Beginning request.********
+20140113154351  Raw URL: /Account/JsonManage
+20140113154351  Entering OnAuthenticateRequest
+20140113154351  Custom header: 2B077730CEDA655FC855661F20FA0B833291B70C335D09D90FCC2F0FA514303A81F0EF6FD65F6306D4C2DC0A548D8FB9373772F24963E7E03B5CF4922A687F574868643988F7A92DCB8890A50FBFF15DAB29609174AEB4AC412AAF31EA3F89582C8CB02A5B5A0AC94BD8D60F99DEEBEA0EF6C88AB7E3BD4E31E5AB4BA4222032290284993F0F1165BC7D24473250BADDD59CCB396023EBD8CDAC278BB91B31B426D2D7BB58C7AF6FD1188116E98818ABBFE13F556CAA1EBDE75E10673FE15B3B
+20140113154351  Logged in as cluke@encryptics.com
+20140113154351  Entering OnPostAuthenticateRequest
+20140113154351 pop1rz1rpmatxhzbxyaublbo ********Beginning OnPostAcquireRequestState.********
+20140113154351 pop1rz1rpmatxhzbxyaublbo Session Available: True
+20140113154351 pop1rz1rpmatxhzbxyaublbo Session keys: 0
+20140113154351 pop1rz1rpmatxhzbxyaublbo Initializing AccountController class.
+20140113154354 pop1rz1rpmatxhzbxyaublbo Entering Manage
+20140113154355 pop1rz1rpmatxhzbxyaublbo UserName = cluke@encryptics.com
+20140113154355 pop1rz1rpmatxhzbxyaublbo Old Password = &Purpley1
+20140113154356 pop1rz1rpmatxhzbxyaublbo New Password = Password
+20140113154356 pop1rz1rpmatxhzbxyaublbo Confirm Password = Password
+20140113154702  Initializing AuthenticationModule class.
+20140113154702 pop1rz1rpmatxhzbxyaublbo Token error = Unknown error
+20140113154702  ********Initializing PipelineLoggingModule class.********
+20140113154702 pop1rz1rpmatxhzbxyaublbo Exiting Manage
+20140113154702 pop1rz1rpmatxhzbxyaublbo Disposing AccountController class.
+20140113154702  ********Ending request.********
+20140113154703  ********Ending request.********
+20140113154703  ********Beginning request.********
+20140113154703  Initializing AuthenticationModule class.
+20140113154703  Raw URL: /Account/JsonLogOff
+20140113154703  ********Initializing PipelineLoggingModule class.********
+20140113154703  Entering OnAuthenticateRequest
+20140113154703  ********Beginning request.********
+20140113154703  Custom header: 2B077730CEDA655FC855661F20FA0B833291B70C335D09D90FCC2F0FA514303A81F0EF6FD65F6306D4C2DC0A548D8FB9373772F24963E7E03B5CF4922A687F574868643988F7A92DCB8890A50FBFF15DAB29609174AEB4AC412AAF31EA3F89582C8CB02A5B5A0AC94BD8D60F99DEEBEA0EF6C88AB7E3BD4E31E5AB4BA4222032290284993F0F1165BC7D24473250BADDD59CCB396023EBD8CDAC278BB91B31B426D2D7BB58C7AF6FD1188116E98818ABBFE13F556CAA1EBDE75E10673FE15B3B
+20140113154703  Raw URL: /Account/JsonLogOff
+20140113154703  Logged in as cluke@encryptics.com
+20140113154703  Entering OnAuthenticateRequest
+20140113154703  Custom header: 2B077730CEDA655FC855661F20FA0B833291B70C335D09D90FCC2F0FA514303A81F0EF6FD65F6306D4C2DC0A548D8FB9373772F24963E7E03B5CF4922A687F574868643988F7A92DCB8890A50FBFF15DAB29609174AEB4AC412AAF31EA3F89582C8CB02A5B5A0AC94BD8D60F99DEEBEA0EF6C88AB7E3BD4E31E5AB4BA4222032290284993F0F1165BC7D24473250BADDD59CCB396023EBD8CDAC278BB91B31B426D2D7BB58C7AF6FD1188116E98818ABBFE13F556CAA1EBDE75E10673FE15B3B
+20140113154703  Entering OnPostAuthenticateRequest
+20140113154703  Logged in as cluke@encryptics.com
+20140113154703 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154703 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154703 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154703  Entering OnPostAuthenticateRequest
+20140113154703 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154703 dl4at1zihv3erzu4ivn22qsa Entering JsonLogoff
+20140113154703 dl4at1zihv3erzu4ivn22qsa Logging off cluke@encryptics.com
+20140113154703 dl4at1zihv3erzu4ivn22qsa Exiting JsonLogoff
+20140113154703 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154703  ********Ending request.********
+20140113154703 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154703 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154703 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154703 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154703 dl4at1zihv3erzu4ivn22qsa Entering JsonLogoff
+20140113154703 dl4at1zihv3erzu4ivn22qsa Logging off cluke@encryptics.com
+20140113154703 dl4at1zihv3erzu4ivn22qsa Exiting JsonLogoff
+20140113154703 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154703  ********Ending request.********
+20140113154711  ********Ending request.********
+20140113154711  ********Beginning request.********
+20140113154711  Raw URL: /Account/JsonLogin
+20140113154711  Entering OnAuthenticateRequest
+20140113154712  Custom header: null
+20140113154712  Exception caught during forms authentication decryption: Invalid value for 'encryptedTicket' parameter.
+20140113154712     at System.Web.Security.FormsAuthentication.Decrypt(String encryptedTicket)
+   at Encryptics.WebPortal.Modules.AuthenticationModule.OnAuthenticateRequest(Object sender, EventArgs eventArgs) in c:\Projects\Encryptics.WebPortal\Encryptics.WebPortal\Modules\AuthenticationModule.cs:line 61
+20140113154712  Entering OnPostAuthenticateRequest
+20140113154712 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154712 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154712 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154712 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154712 dl4at1zihv3erzu4ivn22qsa Entering JsonLogin
+20140113154712 dl4at1zihv3erzu4ivn22qsa Entering LoginAsync
+20140113154712 dl4at1zihv3erzu4ivn22qsa UserName: cluke@encryptics.com
+20140113154712 dl4at1zihv3erzu4ivn22qsa Password: Password
+20140113154712 dl4at1zihv3erzu4ivn22qsa Initializing session
+20140113154712 dl4at1zihv3erzu4ivn22qsa LoginAsync: login successful.
+20140113154712 dl4at1zihv3erzu4ivn22qsa Login successful.
+20140113154712 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154712  ********Ending request.********
+20140113154719  ********Ending request.********
+20140113154719  ********Beginning request.********
+20140113154719  Raw URL: /Account/JsonManage
+20140113154719  Entering OnAuthenticateRequest
+20140113154719  Custom header: EF580D21117567BDB43B9F64C199F20A2C7133D493C9EBFE2C03347677F709B4632BB12213C1883EC0FCCE289C6E119484A746EE13F60DCA69B08F372DE6D605E6CA37E3B460DE8FCFE2F5F7641FA44718813FD2D94112D7B4797FE5223299584D15C40AAA0F6B9840D19E5B0003F481D07D57390D72FA7C2F5CF7539D39CB20BDC95AB6D349FFEC1CD8363BC788898F9749EC9AD7F125AB51CFF6CE0FDC8486B684C24C1B3924DA1B46E190F16B8537023AC23845E9D6459E42123FED772E05
+20140113154719  Logged in as cluke@encryptics.com
+20140113154719  Entering OnPostAuthenticateRequest
+20140113154719 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154719 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154719 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154719 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154719 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154719  ********Ending request.********
+20140113154731  ********Ending request.********
+20140113154731  ********Beginning request.********
+20140113154731  Raw URL: /Account/JsonManage
+20140113154731  Entering OnAuthenticateRequest
+20140113154731  Custom header: EF580D21117567BDB43B9F64C199F20A2C7133D493C9EBFE2C03347677F709B4632BB12213C1883EC0FCCE289C6E119484A746EE13F60DCA69B08F372DE6D605E6CA37E3B460DE8FCFE2F5F7641FA44718813FD2D94112D7B4797FE5223299584D15C40AAA0F6B9840D19E5B0003F481D07D57390D72FA7C2F5CF7539D39CB20BDC95AB6D349FFEC1CD8363BC788898F9749EC9AD7F125AB51CFF6CE0FDC8486B684C24C1B3924DA1B46E190F16B8537023AC23845E9D6459E42123FED772E05
+20140113154731  Logged in as cluke@encryptics.com
+20140113154731  Entering OnPostAuthenticateRequest
+20140113154731 tj4tdda5ud5n13j44be1sziw ********Beginning OnPostAcquireRequestState.********
+20140113154731 tj4tdda5ud5n13j44be1sziw Session Available: True
+20140113154731 tj4tdda5ud5n13j44be1sziw Session keys: 0
+20140113154731 tj4tdda5ud5n13j44be1sziw Initializing AccountController class.
+20140113154733 tj4tdda5ud5n13j44be1sziw Entering Manage
+20140113154733 tj4tdda5ud5n13j44be1sziw UserName = cluke@encryptics.com
+20140113154733 tj4tdda5ud5n13j44be1sziw Old Password = Password
+20140113154733 tj4tdda5ud5n13j44be1sziw New Password = &Purpley1
+20140113154733 tj4tdda5ud5n13j44be1sziw Confirm Password = &Purpley1
+20140113154733 tj4tdda5ud5n13j44be1sziw Token error = Unknown error
+20140113154733 tj4tdda5ud5n13j44be1sziw Exiting Manage
+20140113154733 tj4tdda5ud5n13j44be1sziw Disposing AccountController class.
+20140113154733  ********Ending request.********
+20140113154743  ********Ending request.********
+20140113154743  ********Beginning request.********
+20140113154743  Raw URL: /Account/JsonLogOff
+20140113154743  Entering OnAuthenticateRequest
+20140113154743  Custom header: EF580D21117567BDB43B9F64C199F20A2C7133D493C9EBFE2C03347677F709B4632BB12213C1883EC0FCCE289C6E119484A746EE13F60DCA69B08F372DE6D605E6CA37E3B460DE8FCFE2F5F7641FA44718813FD2D94112D7B4797FE5223299584D15C40AAA0F6B9840D19E5B0003F481D07D57390D72FA7C2F5CF7539D39CB20BDC95AB6D349FFEC1CD8363BC788898F9749EC9AD7F125AB51CFF6CE0FDC8486B684C24C1B3924DA1B46E190F16B8537023AC23845E9D6459E42123FED772E05
+20140113154743  Logged in as cluke@encryptics.com
+20140113154743  Entering OnPostAuthenticateRequest
+20140113154743 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154743 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154743 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154743 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154743 dl4at1zihv3erzu4ivn22qsa Entering JsonLogoff
+20140113154743 dl4at1zihv3erzu4ivn22qsa Logging off cluke@encryptics.com
+20140113154743 dl4at1zihv3erzu4ivn22qsa Exiting JsonLogoff
+20140113154743 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154743  ********Ending request.********
+20140113154753  ********Ending request.********
+20140113154753  ********Beginning request.********
+20140113154753  Raw URL: /Account/JsonLogin
+20140113154753  Entering OnAuthenticateRequest
+20140113154753  Custom header: null
+20140113154753  Exception caught during forms authentication decryption: Invalid value for 'encryptedTicket' parameter.
+20140113154753     at System.Web.Security.FormsAuthentication.Decrypt(String encryptedTicket)
+   at Encryptics.WebPortal.Modules.AuthenticationModule.OnAuthenticateRequest(Object sender, EventArgs eventArgs) in c:\Projects\Encryptics.WebPortal\Encryptics.WebPortal\Modules\AuthenticationModule.cs:line 61
+20140113154753  Entering OnPostAuthenticateRequest
+20140113154753 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113154753 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113154753 dl4at1zihv3erzu4ivn22qsa Session keys: 3
+20140113154753 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113154753 dl4at1zihv3erzu4ivn22qsa Entering JsonLogin
+20140113154753 dl4at1zihv3erzu4ivn22qsa Entering LoginAsync
+20140113154753 dl4at1zihv3erzu4ivn22qsa UserName: cluke@encryptics.com
+20140113154753 dl4at1zihv3erzu4ivn22qsa Password: &Purpley1
+20140113154754 dl4at1zihv3erzu4ivn22qsa Initializing session
+20140113154754 dl4at1zihv3erzu4ivn22qsa LoginAsync: login successful.
+20140113154754 dl4at1zihv3erzu4ivn22qsa Login successful.
+20140113154754 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113154754  ********Ending request.********
+20140113154803  ********Disposing PipelineLoggingModule class.********
+20140113154833  ********Disposing PipelineLoggingModule class.********
+20140113162921  ********Ending request.********
+20140113162921  ********Beginning request.********
+20140113162921  Raw URL: /Account/JsonLogOff
+20140113162921  Entering OnAuthenticateRequest
+20140113162921  Custom header: 0EF9E67E9073FFE0EF3C1693D7FFEAC27249D6105E953852DDF967F6E5D8C3CF33FB37BE9369414A02E235555F0915B3B628D9D65C3D477057F0CAD29692E11E904A7B4F9A3CA7CA3303524266FB7D0FC846E911D8567E12FBB9D87309618F4AB7386781685B6C39B9BF1813446DFA8C95CF9BA7955EEABFAB7647FC9915ED0C4BEAF49483AB72996E7F1A07DCE7C505C5F77D3C6631C2EE4877CE5DD726FFD5D31A4F7407A6520753DAA740FA32DF777D13AD4E185E6CEB0C3D90D74FEAB105
+20140113162921  Logged in as cluke@encryptics.com
+20140113162921  Entering OnPostAuthenticateRequest
+20140113162921 dl4at1zihv3erzu4ivn22qsa ********Beginning OnPostAcquireRequestState.********
+20140113162921 dl4at1zihv3erzu4ivn22qsa Session Available: True
+20140113162921 dl4at1zihv3erzu4ivn22qsa Session keys: 0
+20140113162921 dl4at1zihv3erzu4ivn22qsa Initializing AccountController class.
+20140113162921 dl4at1zihv3erzu4ivn22qsa Entering JsonLogoff
+20140113162921 dl4at1zihv3erzu4ivn22qsa Logging off cluke@encryptics.com
+20140113162921 dl4at1zihv3erzu4ivn22qsa Exiting JsonLogoff
+20140113162921 dl4at1zihv3erzu4ivn22qsa Disposing AccountController class.
+20140113162921  ********Ending request.********

@@ -1,0 +1,7 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.ActiveAccountsSearchModel
+
+<table class="newDataTable" style="width: 100% !important">
+    @Html.Partial("_ActiveAccountsTableHeaderPartial", Model.ActiveAccounts)
+    @Html.Partial("_ActiveAccountsTableBodyPartial", Model.ActiveAccounts)
+    @Html.Partial("_ActiveAccountsTableFooterPartial", Model)
+</table>

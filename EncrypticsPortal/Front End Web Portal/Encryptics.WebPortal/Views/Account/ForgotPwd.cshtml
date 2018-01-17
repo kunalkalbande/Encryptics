@@ -1,0 +1,96 @@
+﻿@using System.Web.Configuration
+@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Models.ForgotPasswordModel
+
+@{
+    ViewBag.Title = "Reset your password";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+</div>
+
+@Html.Partial("_ErrorMessages")
+
+<section class="featured dark">
+    <p>@Resources.ForgotPasswordPartialInstructions</p>
+</section>
+
+<section class="featured light">
+    @using (Html.BeginForm("ForgotPwd", "Account", new { area = string.Empty }, FormMethod.Post, new { AutoComplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset id="forgotPwdFields">
+            <legend>Reset Password</legend>
+            <ol class="float-left formSection">
+                <li>
+                    <div class="fields">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { type = "email" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </li>
+                @*@if (string.IsNullOrEmpty(Model.SecretQuestion))
+            {
+                <input type="submit" id="btnSecretQuestion" value="Next >" />
+            }
+            else
+            {
+                <li>
+                    @Html.LabelFor(m => m.SecretQuestion)
+                    @Html.TextBoxFor(m => m.SecretQuestion)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Answer)
+                    @Html.TextBoxFor(m => m.Answer)
+                </li>
+            }*@
+            </ol>
+            <ol class="float-right formSection">
+                <li>
+                        @{
+                            bool displayCaptcha;
+                            bool.TryParse(WebConfigurationManager.AppSettings["CaptchaEnabled"], out displayCaptcha);
+                            if (displayCaptcha)
+                            {
+                                <div class="g-recaptcha" data-sitekey="@WebConfigurationManager.AppSettings["CaptchaSiteKey"]"></div>
+                            }
+                        }
+                </li>
+            </ol>
+            <div class="formActions">
+                <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+                <input type="submit" value="@Resources.ResetPassword" class="mainAction" style="float: right;" />
+            </div>
+        </fieldset>
+    }
+</section>
+
+@section Scripts {
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            $('#cancelButton').click(function () {
+                window.location = '@Url.Action("Login", "Account", new { area = string.Empty })';
+            });
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            fieldset ol {
+                float: none !important;
+            }
+
+            .formSection {
+                margin: 0 10px;
+            }
+        }
+    </style>
+}

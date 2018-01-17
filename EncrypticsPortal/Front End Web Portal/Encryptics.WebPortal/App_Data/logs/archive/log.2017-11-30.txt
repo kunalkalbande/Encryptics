@@ -1,0 +1,976 @@
+2017-11-20 20:03:06.990 INFO                            ________________________ Initializing dependency resolution.
+2017-11-20 20:06:49.422 INFO                            ________________________ Initializing dependency resolution.
+2017-11-20 20:06:52.318 INFO                            ________________________ Initializing dependency resolution.
+2017-11-20 20:06:54.132 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:06:54.158 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:06:54.232 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:06:54.249 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:06:54.280 DEBUG                           ________________________ language: en-US
+2017-11-20 20:06:54.280 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:06:54.291 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:06:54.312 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2017-11-20 20:06:54.312 DEBUG                           ________________________ QueryString:
+2017-11-20 20:06:54.312 DEBUG                           ________________________ Form:
+2017-11-20 20:06:54.325 DEBUG                           ________________________ Cookies:
+2017-11-20 20:06:54.325 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:06:54.325 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:06:54.395 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:06:54.413 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2017-11-20 20:06:54.435 WARN                            ________________________ Nothing sent in request data.
+2017-11-20 20:06:54.467 DEBUG                           ________________________ Encrypted ticket: 
+2017-11-20 20:06:54.487 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:06:54.513 INFO                            ________________________ Initializing Role Provider
+2017-11-20 20:06:54.553 INFO                            ak4el4oxl1caqsk4arytnggx ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:06:54.558 INFO                            ak4el4oxl1caqsk4arytnggx Session Available: True
+2017-11-20 20:06:54.575 INFO                            ak4el4oxl1caqsk4arytnggx Session keys: 0
+2017-11-20 20:06:54.611 INFO                            ak4el4oxl1caqsk4arytnggx ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:06:54.780 INFO                            ak4el4oxl1caqsk4arytnggx Initializing HomeController class.
+2017-11-20 20:06:54.853 INFO                            ak4el4oxl1caqsk4arytnggx Executing (GET) /
+2017-11-20 20:06:54.964 INFO                            ak4el4oxl1caqsk4arytnggx Finished executing (GET) /
+2017-11-20 20:06:55.045 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2017-11-20 20:06:55.064 INFO                            ________________________ ContextOnEndRequest
+2017-11-20 20:06:55.064 DEBUG                           ________________________ RequestType: GET
+2017-11-20 20:06:55.073 DEBUG                           ________________________ StatusCode: 302
+2017-11-20 20:06:55.089 DEBUG                           ________________________ language: en-US
+2017-11-20 20:06:55.089 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:06:55.089 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:06:55.126 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2017-11-20 20:06:55.126 DEBUG                           ________________________ QueryString:
+2017-11-20 20:06:55.136 DEBUG                           ________________________     returnUrl = /
+2017-11-20 20:06:55.136 DEBUG                           ________________________ Form:
+2017-11-20 20:06:55.136 DEBUG                           ________________________ Cookies:
+2017-11-20 20:06:55.151 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:06:55.151 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:06:55.175 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:06:55.193 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2017-11-20 20:06:55.198 WARN                            ________________________ Nothing sent in request data.
+2017-11-20 20:06:55.216 DEBUG                           ________________________ Encrypted ticket: 
+2017-11-20 20:06:55.236 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:06:55.257 INFO                            1lvk0l5sfszaoyhsanfx3qjx ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:06:55.276 INFO                            1lvk0l5sfszaoyhsanfx3qjx Session Available: True
+2017-11-20 20:06:55.294 INFO                            1lvk0l5sfszaoyhsanfx3qjx Session keys: 0
+2017-11-20 20:06:55.315 INFO                            1lvk0l5sfszaoyhsanfx3qjx ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:06:58.734 INFO                            1lvk0l5sfszaoyhsanfx3qjx Executing (GET) /Account/Login
+2017-11-20 20:06:58.910 INFO                            1lvk0l5sfszaoyhsanfx3qjx Finished executing (GET) /Account/Login
+2017-11-20 20:07:02.578 INFO                            1lvk0l5sfszaoyhsanfx3qjx Disposing AccountController class.
+2017-11-20 20:07:02.607 INFO                            1lvk0l5sfszaoyhsanfx3qjx AccountController disposed of.
+2017-11-20 20:07:02.636 INFO                            1lvk0l5sfszaoyhsanfx3qjx Disposing AccountController class.
+2017-11-20 20:07:02.663 INFO                            1lvk0l5sfszaoyhsanfx3qjx AccountController disposed of.
+2017-11-20 20:07:02.693 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2017-11-20 20:07:02.712 INFO                            ________________________ ContextOnEndRequest
+2017-11-20 20:07:02.716 DEBUG                           ________________________ RequestType: GET
+2017-11-20 20:07:02.716 DEBUG                           ________________________ StatusCode: 200
+2017-11-20 20:07:02.866 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:07:02.872 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:07:02.891 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:07:02.959 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:07:02.964 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-11-20 20:07:03.034 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:07:03.034 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:07:03.046 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:07:03.059 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:07:03.059 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:03.091 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:03.117 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:03.142 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:03.167 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:03.193 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:03.218 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:03.244 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:03.270 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:03.270 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:03.321 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:03.361 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-11-20 20:07:03.361 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:03.374 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2017-11-20 20:07:03.409 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2017-11-20 20:07:03.434 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2017-11-20 20:07:03.461 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:03.486 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/site.css
+2017-11-20 20:07:03.513 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:03.538 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:03.563 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:03.590 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:03.616 DEBUG                           ________________________ Form:
+2017-11-20 20:07:03.643 DEBUG                           ________________________ Form:
+2017-11-20 20:07:03.670 DEBUG                           ________________________ Form:
+2017-11-20 20:07:03.697 DEBUG                           ________________________ Form:
+2017-11-20 20:07:03.724 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:03.749 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:03.776 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:03.801 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:03.827 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:03.854 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:03.880 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:03.906 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:03.931 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:03.956 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:03.981 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:04.008 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:04.034 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:04.034 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:04.082 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:04.100 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:04.136 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:04.171 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2017-11-20 20:07:04.171 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2017-11-20 20:07:04.186 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/site.css
+2017-11-20 20:07:04.186 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2017-11-20 20:07:04.205 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:04.214 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:04.248 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:04.275 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:04.301 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:04.327 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:04.352 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/custom.css
+2017-11-20 20:07:04.378 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:04.403 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:04.430 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:04.456 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:04.482 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:04.482 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:04.540 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:04.547 DEBUG                           ________________________ Form:
+2017-11-20 20:07:04.582 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:04.608 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/shared.css
+2017-11-20 20:07:04.636 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:04.663 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-ui-1.12.1.js
+2017-11-20 20:07:04.689 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:04.714 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:04.740 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:04.765 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:04.792 DEBUG                           ________________________ Form:
+2017-11-20 20:07:04.818 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:04.845 DEBUG                           ________________________ Form:
+2017-11-20 20:07:04.870 DEBUG                           ________________________ Form:
+2017-11-20 20:07:04.896 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:04.923 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:04.949 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:04.975 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:05.000 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:05.028 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:05.028 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:05.070 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:05.097 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:05.123 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:05.150 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/custom.css
+2017-11-20 20:07:05.156 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:05.156 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:05.203 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:05.203 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:05.229 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:05.247 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:05.273 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:05.280 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/shared.css
+2017-11-20 20:07:05.314 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.cookie.js
+2017-11-20 20:07:05.342 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:05.367 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:05.394 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-ui-1.12.1.js
+2017-11-20 20:07:05.394 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:05.425 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:05.452 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:05.452 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:05.491 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:05.516 DEBUG                           ________________________ Form:
+2017-11-20 20:07:05.544 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:05.544 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:05.588 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:05.617 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:05.643 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2017-11-20 20:07:05.668 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:05.694 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:05.699 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:05.738 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:05.766 DEBUG                           ________________________ Form:
+2017-11-20 20:07:05.793 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate-vsdoc.js
+2017-11-20 20:07:05.822 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:05.847 DEBUG                           ________________________ Form:
+2017-11-20 20:07:05.874 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:05.900 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:05.926 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:05.934 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:05.979 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:06.006 DEBUG                           ________________________ Form:
+2017-11-20 20:07:06.034 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:06.034 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:06.090 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:06.117 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:06.145 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.cookie.js
+2017-11-20 20:07:06.155 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:06.184 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:06.184 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:06.225 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:06.251 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-3.2.1.js
+2017-11-20 20:07:06.280 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:06.280 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:06.310 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:06.338 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2017-11-20 20:07:06.345 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:06.373 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:06.373 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:06.414 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:06.420 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:06.455 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.js
+2017-11-20 20:07:06.481 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:06.507 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:06.535 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate-vsdoc.js
+2017-11-20 20:07:06.535 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:06.570 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:06.577 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:06.617 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:06.643 DEBUG                           ________________________ Form:
+2017-11-20 20:07:06.671 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.min.js
+2017-11-20 20:07:06.697 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:06.703 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:06.743 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:06.769 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:06.797 DEBUG                           ________________________ Form:
+2017-11-20 20:07:06.823 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:06.823 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:06.870 DEBUG                           ________________________ Form:
+2017-11-20 20:07:06.898 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2017-11-20 20:07:06.925 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.unobtrusive.min.js
+2017-11-20 20:07:06.951 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:06.980 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:07.008 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:07.035 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:07.061 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:07.061 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:07.102 DEBUG                           ________________________ Form:
+2017-11-20 20:07:07.129 DEBUG                           ________________________ Form:
+2017-11-20 20:07:07.155 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:07.185 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.js
+2017-11-20 20:07:07.185 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:07.222 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:07.248 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:07.274 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:07.302 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:07.329 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:07.329 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:07.378 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:07.406 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:07.433 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.min.js
+2017-11-20 20:07:07.433 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:07.452 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:07.487 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:07.497 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:07.532 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.unobtrusive.min.js
+2017-11-20 20:07:07.532 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:07.548 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-3.2.1.js
+2017-11-20 20:07:07.570 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:07.598 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2017-11-20 20:07:07.608 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:07.608 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:07.661 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:07.669 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:07.669 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.min.js
+2017-11-20 20:07:07.718 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:07.718 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:07.751 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/QCBLogo.png
+2017-11-20 20:07:07.777 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:07.806 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:07.813 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:07.851 DEBUG                           ________________________ Form:
+2017-11-20 20:07:07.880 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2017-11-20 20:07:07.908 DEBUG                           ________________________ Form:
+2017-11-20 20:07:07.935 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:07.963 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:07.991 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:08.022 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.055 DEBUG                           ________________________ Form:
+2017-11-20 20:07:08.088 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.114 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.143 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:08.174 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.200 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.200 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.255 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.260 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.min.js
+2017-11-20 20:07:08.276 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/QCBLogo.png
+2017-11-20 20:07:08.276 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.296 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.296 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:08.350 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2017-11-20 20:07:08.359 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:08.359 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:08.392 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2017-11-20 20:07:08.401 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:08.401 DEBUG                           ________________________ Form:
+2017-11-20 20:07:08.422 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:08.422 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.436 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.436 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.473 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2017-11-20 20:07:08.517 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:08.528 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:08.528 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:08.542 INFO                            ________________________ ******** Beginning request. ********: (GET)/favicon.ico
+2017-11-20 20:07:08.563 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:08.563 DEBUG                           ________________________ Form:
+2017-11-20 20:07:08.578 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:08.578 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.596 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.596 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.656 INFO                            ________________________ ******** Ending request. ********: (GET)/favicon.ico
+2017-11-20 20:07:08.844 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:08.844 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:08.857 DEBUG                           ________________________ Request Type: True
+2017-11-20 20:07:08.878 INFO                            ________________________ ******** Beginning request. ********: (GET)/__browserLink/requestData/d60143026e6f4df9bbe7e5b7ff5b31be?version=2
+2017-11-20 20:07:08.878 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:08.890 DEBUG                           ________________________     version = 2
+2017-11-20 20:07:08.890 DEBUG                           ________________________ Form:
+2017-11-20 20:07:08.901 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:08.901 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:08.901 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:08.920 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:08.943 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:07:08.949 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2017-11-20 20:07:08.984 WARN                            ________________________ Nothing sent in request data.
+2017-11-20 20:07:08.984 DEBUG                           ________________________ Encrypted ticket: 
+2017-11-20 20:07:09.026 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:09.047 INFO                            ________________________ ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:07:09.071 INFO                            ________________________ Session Available: False
+2017-11-20 20:07:09.098 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:09.159 INFO                            ________________________ ******** Ending request. ********: (GET)/__browserLink/requestData/d60143026e6f4df9bbe7e5b7ff5b31be?version=2
+2017-11-20 20:07:09.180 INFO                            ________________________ ContextOnEndRequest
+2017-11-20 20:07:09.187 DEBUG                           ________________________ RequestType: GET
+2017-11-20 20:07:09.187 DEBUG                           ________________________ StatusCode: 200
+2017-11-20 20:07:27.484 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:27.484 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:27.499 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:27.522 INFO                            ________________________ ******** Beginning request. ********: (POST)/Account/Login?returnUrl=%2F
+2017-11-20 20:07:27.529 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:27.529 DEBUG                           ________________________     returnUrl = /
+2017-11-20 20:07:27.545 DEBUG                           ________________________ Form:
+2017-11-20 20:07:27.545 DEBUG                           ________________________     __RequestVerificationToken = tZcMGQBdRBy-Rln2T8oaURcPv0DuTWT2v9AEotuzdPIudJ7qdPzJlCWCirJunpdBwX1zeeKV9Qn27rJPqpCjM7kwQ3ZiB9HubMwJm-B06lY1
+2017-11-20 20:07:27.564 DEBUG                           ________________________     UserName = croach@encryptics.com
+2017-11-20 20:07:27.564 DEBUG                           ________________________     Password = ASDFasdf7
+2017-11-20 20:07:27.578 DEBUG                           ________________________     RememberMe = false,
+2017-11-20 20:07:27.578 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:27.591 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:27.630 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:27.641 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:27.664 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:07:27.688 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2017-11-20 20:07:27.743 WARN                            ________________________ Could not deserialize as JSON.
+2017-11-20 20:07:27.750 DEBUG                           ________________________ Encrypted ticket: 
+2017-11-20 20:07:27.776 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:27.798 INFO                            koxslckci0jgmo52xdvoey12 ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:07:27.819 INFO                            koxslckci0jgmo52xdvoey12 Session Available: True
+2017-11-20 20:07:27.840 INFO                            koxslckci0jgmo52xdvoey12 Session keys: 0
+2017-11-20 20:07:27.861 INFO                            koxslckci0jgmo52xdvoey12 ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:27.995 INFO                            koxslckci0jgmo52xdvoey12 Executing (POST) /Account/Login
+2017-11-20 20:07:28.024 INFO                            koxslckci0jgmo52xdvoey12 Entering Login
+2017-11-20 20:07:28.198 INFO                            koxslckci0jgmo52xdvoey12 Entering LoginAsync
+2017-11-20 20:07:41.049 INFO                            koxslckci0jgmo52xdvoey12 UserName: croach@encryptics.com
+2017-11-20 20:07:41.516 DEBUG                           koxslckci0jgmo52xdvoey12 Token Status: 101
+2017-11-20 20:07:41.543 INFO                            koxslckci0jgmo52xdvoey12 Entering CreateFormsAuthenticationTicket.
+2017-11-20 20:07:41.543 DEBUG                           koxslckci0jgmo52xdvoey12 User authenticated: False
+2017-11-20 20:07:41.650 INFO                            koxslckci0jgmo52xdvoey12 Creating FormsAuthenticationTicket.
+2017-11-20 20:07:41.656 DEBUG                           koxslckci0jgmo52xdvoey12 User authenticated: False
+2017-11-20 20:07:41.680 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Exiting CreateFormsAuthenticationTicket.
+2017-11-20 20:07:41.705 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Initializing session
+2017-11-20 20:07:41.726 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 LoginAsync: login successful.
+2017-11-20 20:07:41.757 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Login successful.
+2017-11-20 20:07:41.791 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (POST) /Account/Login
+2017-11-20 20:07:41.830 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing AccountController class.
+2017-11-20 20:07:41.856 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 AccountController disposed of.
+2017-11-20 20:07:41.880 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing AccountController class.
+2017-11-20 20:07:41.905 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 AccountController disposed of.
+2017-11-20 20:07:41.927 INFO  croach@encryptics.com     ________________________ ******** Ending request. ********: (POST)/Account/Login?returnUrl=%2F
+2017-11-20 20:07:41.948 INFO  croach@encryptics.com     ________________________ ContextOnEndRequest
+2017-11-20 20:07:41.948 DEBUG croach@encryptics.com     ________________________ RequestType: POST
+2017-11-20 20:07:41.948 DEBUG croach@encryptics.com     ________________________ StatusCode: 302
+2017-11-20 20:07:41.969 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:41.982 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:41.982 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:42.013 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2017-11-20 20:07:42.013 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:42.030 DEBUG                           ________________________ Form:
+2017-11-20 20:07:42.030 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:42.052 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:42.061 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:42.061 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:42.075 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:42.075 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:42.114 INFO  croach@encryptics.com     ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:07:42.122 DEBUG croach@encryptics.com     ________________________ Forms Authentication cookie: BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7.
+2017-11-20 20:07:42.432 INFO  croach@encryptics.com     ________________________ Logged in as croach@encryptics.com
+2017-11-20 20:07:42.457 INFO  croach@encryptics.com     ________________________ Creating Encrytpics Principal.
+2017-11-20 20:07:42.705 INFO  croach@encryptics.com     ________________________ Requesting Entity Admin Roles.
+2017-11-20 20:07:42.907 INFO  croach@encryptics.com     ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:42.941 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:07:42.975 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session Available: True
+2017-11-20 20:07:42.998 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session keys: 3
+2017-11-20 20:07:43.018 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:43.044 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Initializing HomeController class.
+2017-11-20 20:07:43.069 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Executing (GET) /
+2017-11-20 20:07:43.094 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (GET) /
+2017-11-20 20:07:43.136 INFO  croach@encryptics.com     ________________________ ******** Ending request. ********: (GET)/
+2017-11-20 20:07:43.160 INFO  croach@encryptics.com     ________________________ ContextOnEndRequest
+2017-11-20 20:07:43.168 DEBUG croach@encryptics.com     ________________________ RequestType: GET
+2017-11-20 20:07:43.168 DEBUG croach@encryptics.com     ________________________ StatusCode: 302
+2017-11-20 20:07:43.182 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:43.182 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:43.204 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:43.225 INFO                            ________________________ ******** Beginning request. ********: (GET)/CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:43.231 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:43.231 DEBUG                           ________________________ Form:
+2017-11-20 20:07:43.245 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:43.245 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:43.245 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:43.264 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:43.264 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:43.276 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:43.298 INFO  croach@encryptics.com     ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:07:43.298 DEBUG croach@encryptics.com     ________________________ Forms Authentication cookie: BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7.
+2017-11-20 20:07:43.494 INFO  croach@encryptics.com     ________________________ Logged in as croach@encryptics.com
+2017-11-20 20:07:43.515 INFO  croach@encryptics.com     ________________________ Creating Encrytpics Principal.
+2017-11-20 20:07:43.536 INFO  croach@encryptics.com     ________________________ Requesting Entity Admin Roles.
+2017-11-20 20:07:43.736 INFO  croach@encryptics.com     ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:43.758 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:07:43.780 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session Available: True
+2017-11-20 20:07:43.801 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session keys: 3
+2017-11-20 20:07:43.807 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:07:44.026 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: Dashboard
+2017-11-20 20:07:44.031 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Controller: CompanyAdminHome
+2017-11-20 20:07:44.031 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Area: CompanyAdmin
+2017-11-20 20:07:44.043 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: CompanyAdmin/CompanyAdminHome/Dashboard
+2017-11-20 20:07:44.043 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Entity ID: 1
+2017-11-20 20:07:44.228 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:45.256 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:45.451 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: ActiveCompanies
+2017-11-20 20:07:45.451 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Controller: CompanyAdminHome
+2017-11-20 20:07:45.467 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Area: CompanyAdmin
+2017-11-20 20:07:45.467 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: CompanyAdmin/CompanyAdminHome/ActiveCompanies
+2017-11-20 20:07:45.484 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Entity ID: 1
+2017-11-20 20:07:45.695 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:45.704 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Page: 1
+2017-11-20 20:07:45.714 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 userId: 8364
+2017-11-20 20:07:45.729 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 entityId: 1
+2017-11-20 20:07:45.729 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 token: 977E7FE1-9D9B-410A-A579-A5E8266025CA
+2017-11-20 20:07:45.999 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Companies: 27
+2017-11-20 20:07:46.047 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:46.404 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing CompanyAdminHomeController class.
+2017-11-20 20:07:46.444 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 CompanyAdminHomeController disposed of.
+2017-11-20 20:07:46.452 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: ExpiredCompanies
+2017-11-20 20:07:46.463 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Controller: CompanyAdminHome
+2017-11-20 20:07:46.463 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Area: CompanyAdmin
+2017-11-20 20:07:46.484 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Action: CompanyAdmin/CompanyAdminHome/ExpiredCompanies
+2017-11-20 20:07:46.495 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Entity ID: 1
+2017-11-20 20:07:46.685 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:46.685 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Page: 1
+2017-11-20 20:07:46.707 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 userId: 8364
+2017-11-20 20:07:46.716 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 entityId: 1
+2017-11-20 20:07:46.716 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 token: 977E7FE1-9D9B-410A-A579-A5E8266025CA
+2017-11-20 20:07:46.985 DEBUG croach@encryptics.com     koxslckci0jgmo52xdvoey12 Companies: 76
+2017-11-20 20:07:47.014 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (GET) /CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:47.156 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing CompanyAdminHomeController class.
+2017-11-20 20:07:47.187 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 CompanyAdminHomeController disposed of.
+2017-11-20 20:07:47.580 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing CompanyAdminHomeController class.
+2017-11-20 20:07:47.608 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 CompanyAdminHomeController disposed of.
+2017-11-20 20:07:47.642 INFO  croach@encryptics.com     ________________________ ******** Ending request. ********: (GET)/CompanyAdmin/CompanyAdminHome
+2017-11-20 20:07:47.667 INFO  croach@encryptics.com     ________________________ ContextOnEndRequest
+2017-11-20 20:07:47.667 DEBUG croach@encryptics.com     ________________________ RequestType: GET
+2017-11-20 20:07:47.693 DEBUG croach@encryptics.com     ________________________ StatusCode: 200
+2017-11-20 20:07:47.767 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:47.806 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:47.836 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:47.865 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:47.895 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:47.928 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:47.960 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:47.992 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:48.005 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:48.058 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:48.058 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:48.110 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/shared.css
+2017-11-20 20:07:48.142 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/site.css
+2017-11-20 20:07:48.173 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2017-11-20 20:07:48.203 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:48.237 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:48.268 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:48.299 DEBUG                           ________________________ Form:
+2017-11-20 20:07:48.330 DEBUG                           ________________________ Form:
+2017-11-20 20:07:48.361 DEBUG                           ________________________ Form:
+2017-11-20 20:07:48.395 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:48.425 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:48.454 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:48.483 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:48.510 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:48.538 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:48.565 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:48.596 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:48.625 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:48.656 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:48.687 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:48.714 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:48.741 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:48.768 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:48.795 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:48.824 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:48.824 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:48.856 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:48.893 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/shared.css
+2017-11-20 20:07:48.914 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:48.945 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/site.css
+2017-11-20 20:07:48.954 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2017-11-20 20:07:48.964 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:48.964 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:49.011 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:49.041 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:49.071 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:49.101 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/bootstrap.min.css
+2017-11-20 20:07:49.131 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:49.159 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:49.188 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:49.218 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:49.218 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:49.277 DEBUG                           ________________________ Form:
+2017-11-20 20:07:49.307 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:49.307 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2017-11-20 20:07:49.357 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.cookie.js
+2017-11-20 20:07:49.388 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:49.418 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:49.449 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:49.479 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:49.510 DEBUG                           ________________________ Form:
+2017-11-20 20:07:49.539 DEBUG                           ________________________ Form:
+2017-11-20 20:07:49.569 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:49.596 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:49.624 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:49.654 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:49.684 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:49.711 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:49.738 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:49.765 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:49.796 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:49.824 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:49.824 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:49.867 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:49.895 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2017-11-20 20:07:49.924 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/bootstrap.min.css
+2017-11-20 20:07:49.934 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:49.962 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:49.993 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:50.020 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:50.026 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:50.065 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:50.073 DEBUG                           ________________________ Form:
+2017-11-20 20:07:50.112 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:50.142 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.cookie.js
+2017-11-20 20:07:50.142 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2017-11-20 20:07:50.159 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:50.169 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:50.205 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:50.233 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:50.260 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:50.291 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/umd/popper.min.js
+2017-11-20 20:07:50.318 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:50.345 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:50.345 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:50.387 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:50.414 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:50.443 DEBUG                           ________________________ Form:
+2017-11-20 20:07:50.471 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/bootstrap.min.js
+2017-11-20 20:07:50.503 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:50.510 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:50.546 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:50.573 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:50.600 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:50.632 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:50.659 DEBUG                           ________________________ Form:
+2017-11-20 20:07:50.690 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:50.717 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:50.745 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:50.773 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:50.803 DEBUG                           ________________________ Form:
+2017-11-20 20:07:50.830 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:50.857 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:50.885 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:50.917 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:50.945 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:50.976 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:51.008 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:51.014 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:51.058 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:51.089 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:51.117 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/umd/popper.min.js
+2017-11-20 20:07:51.124 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:51.154 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:51.184 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:51.184 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:51.214 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:51.256 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:51.283 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2017-11-20 20:07:51.283 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/bootstrap.min.js
+2017-11-20 20:07:51.300 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:51.309 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:51.344 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:51.381 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:51.390 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:51.434 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:51.464 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:51.464 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:51.479 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:51.502 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-3.2.1.js
+2017-11-20 20:07:51.548 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-ui-1.12.1.js
+2017-11-20 20:07:51.575 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:51.602 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:51.633 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:51.660 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:51.690 DEBUG                           ________________________ Form:
+2017-11-20 20:07:51.717 DEBUG                           ________________________ Form:
+2017-11-20 20:07:51.745 DEBUG                           ________________________ Form:
+2017-11-20 20:07:51.773 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:51.801 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:51.828 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:51.855 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:51.883 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:51.910 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:51.937 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:51.965 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:51.993 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:52.020 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:52.048 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:52.076 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:52.106 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:52.137 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:52.165 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:52.195 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:52.225 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:52.232 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:52.232 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:52.276 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:52.331 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-3.2.1.js
+2017-11-20 20:07:52.357 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:52.357 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-ui-1.12.1.js
+2017-11-20 20:07:52.377 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/custom.css
+2017-11-20 20:07:52.386 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:52.386 DEBUG                           ________________________ Form:
+2017-11-20 20:07:52.402 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:52.402 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:52.437 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:52.437 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:52.472 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:52.503 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:52.511 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:52.546 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:52.574 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/message-box.js
+2017-11-20 20:07:52.603 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:52.610 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:52.637 DEBUG                           ________________________ Form:
+2017-11-20 20:07:52.665 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/custom.css
+2017-11-20 20:07:52.674 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:52.685 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:52.685 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:52.708 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:52.718 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:52.718 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:52.739 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:52.778 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:52.815 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:52.826 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/message-box.js
+2017-11-20 20:07:52.862 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:52.891 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:52.918 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:52.948 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2017-11-20 20:07:52.979 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:53.007 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:53.038 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:53.067 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:53.076 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:53.113 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:53.121 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:53.191 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2017-11-20 20:07:53.218 DEBUG                           ________________________ Form:
+2017-11-20 20:07:53.249 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:53.277 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:53.309 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:53.336 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/QCBLogo.png
+2017-11-20 20:07:53.364 DEBUG                           ________________________ Form:
+2017-11-20 20:07:53.391 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:53.418 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:53.447 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:53.476 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:53.503 DEBUG                           ________________________ Form:
+2017-11-20 20:07:53.530 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:53.557 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:53.584 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:53.612 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:53.639 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:53.668 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/accent.png
+2017-11-20 20:07:53.699 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:53.731 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:53.731 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:53.795 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:53.825 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:53.852 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2017-11-20 20:07:53.859 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:53.871 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:53.917 DEBUG                           ________________________ Form:
+2017-11-20 20:07:53.949 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:53.981 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2017-11-20 20:07:53.981 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:54.018 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:54.046 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:54.046 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:54.091 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:54.121 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:54.148 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:54.176 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:54.183 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:54.221 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:54.229 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/icons/Transfer.png
+2017-11-20 20:07:54.265 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/QCBLogo.png
+2017-11-20 20:07:54.265 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:54.283 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:54.319 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:54.347 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:54.375 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:54.402 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:54.433 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:54.461 DEBUG                           ________________________ Form:
+2017-11-20 20:07:54.490 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:54.497 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:54.551 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:54.581 DEBUG                           ________________________ Form:
+2017-11-20 20:07:54.612 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/search.js
+2017-11-20 20:07:54.640 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:54.672 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/accent.png
+2017-11-20 20:07:54.672 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:54.710 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:54.740 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:54.768 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:54.795 DEBUG                           ________________________ Form:
+2017-11-20 20:07:54.822 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:54.852 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:54.881 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:54.910 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:54.940 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:54.940 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:54.990 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:54.997 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:55.033 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2017-11-20 20:07:55.064 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:55.095 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2017-11-20 20:07:55.095 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:55.135 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:55.166 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:55.194 DEBUG                           ________________________ Form:
+2017-11-20 20:07:55.224 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:55.251 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:55.279 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:55.307 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:55.316 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:55.355 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:55.385 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:55.413 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/search.js
+2017-11-20 20:07:55.421 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:55.451 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:55.451 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:55.495 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:55.526 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:55.555 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.min.js
+2017-11-20 20:07:55.583 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:55.610 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:55.638 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:55.638 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:55.695 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:55.704 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:55.750 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:55.778 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/icons/Transfer.png
+2017-11-20 20:07:55.778 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2017-11-20 20:07:55.796 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:55.828 DEBUG                           ________________________ Form:
+2017-11-20 20:07:55.856 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:55.887 DEBUG                           ________________________ Form:
+2017-11-20 20:07:55.914 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:55.943 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:55.974 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:56.001 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:56.028 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:56.056 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:56.083 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:56.110 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:56.110 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:56.158 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:56.185 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:56.185 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate-vsdoc.js
+2017-11-20 20:07:56.239 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:56.266 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:56.293 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:56.324 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:56.352 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:56.380 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.js
+2017-11-20 20:07:56.409 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:56.416 DEBUG                           ________________________ Form:
+2017-11-20 20:07:56.452 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:56.452 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:56.498 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/ajax.js
+2017-11-20 20:07:56.498 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:56.538 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.min.js
+2017-11-20 20:07:56.547 DEBUG                           ________________________ Form:
+2017-11-20 20:07:56.577 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:56.604 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:56.631 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:56.660 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:56.688 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:56.715 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:56.744 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:56.752 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:56.791 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:56.819 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:56.847 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.min.js
+2017-11-20 20:07:56.876 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:56.903 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:56.932 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:56.962 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:56.972 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:57.001 DEBUG                           ________________________ Form:
+2017-11-20 20:07:57.028 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:57.079 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:57.110 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:57.137 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:57.165 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate-vsdoc.js
+2017-11-20 20:07:57.175 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:57.185 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:57.217 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2017-11-20 20:07:57.260 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:57.288 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:57.319 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.js
+2017-11-20 20:07:57.326 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:57.357 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:57.385 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:57.414 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:57.422 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:57.458 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:57.486 DEBUG                           ________________________ Form:
+2017-11-20 20:07:57.514 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:57.514 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.unobtrusive.min.js
+2017-11-20 20:07:57.550 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:57.596 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:57.627 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.min.js
+2017-11-20 20:07:57.636 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:57.666 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:57.676 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:57.717 DEBUG                           ________________________ Form:
+2017-11-20 20:07:57.745 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:57.773 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:57.800 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:57.827 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/tabs.js
+2017-11-20 20:07:57.859 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:57.887 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:57.914 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:57.942 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:57.948 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:57.984 DEBUG                           ________________________ Form:
+2017-11-20 20:07:58.011 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:58.039 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:58.067 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:58.098 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:58.126 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:58.126 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:58.161 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:58.196 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/icons/01-magnify.png
+2017-11-20 20:07:58.227 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:58.256 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:58.264 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:58.306 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2017-11-20 20:07:58.317 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:58.345 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.unobtrusive.min.js
+2017-11-20 20:07:58.345 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:58.382 DEBUG                           ________________________ Form:
+2017-11-20 20:07:58.409 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:58.417 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:58.465 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:58.465 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:58.500 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/icons/Add.png
+2017-11-20 20:07:58.530 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:58.530 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:58.581 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:58.611 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:58.640 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/tabs.js
+2017-11-20 20:07:58.640 DEBUG                           ________________________ Form:
+2017-11-20 20:07:58.676 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:58.706 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:58.733 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:58.733 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:58.785 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:58.815 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/icons/01-magnify.png
+2017-11-20 20:07:58.823 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:58.823 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:58.839 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:07:58.864 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/icons/Add.png
+2017-11-20 20:07:59.146 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:59.155 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:59.184 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:59.214 DEBUG                           ________________________ Request Type: True
+2017-11-20 20:07:59.214 DEBUG                           ________________________ language: en-US
+2017-11-20 20:07:59.280 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:59.311 DEBUG                           ________________________ language: en;q=0.9
+2017-11-20 20:07:59.341 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/AjaxCheckLogin
+2017-11-20 20:07:59.369 DEBUG                           ________________________ Request Type: False
+2017-11-20 20:07:59.369 DEBUG                           ________________________ Request Type: True
+2017-11-20 20:07:59.433 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:59.464 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/images/ui-bg_flat_100_ffffff_40x100.png
+2017-11-20 20:07:59.496 INFO                            ________________________ ******** Beginning request. ********: (GET)/__browserLink/requestData/13091152057b4a69abc4a7c8b1c060f7?version=2
+2017-11-20 20:07:59.525 DEBUG                           ________________________ Form:
+2017-11-20 20:07:59.552 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:59.579 DEBUG                           ________________________ QueryString:
+2017-11-20 20:07:59.607 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:59.634 DEBUG                           ________________________ Form:
+2017-11-20 20:07:59.661 DEBUG                           ________________________     version = 2
+2017-11-20 20:07:59.691 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:59.721 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:59.748 DEBUG                           ________________________ Form:
+2017-11-20 20:07:59.775 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:59.806 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:59.833 DEBUG                           ________________________ Cookies:
+2017-11-20 20:07:59.863 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:07:59.891 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:07:59.918 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-11-20 20:07:59.947 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:07:59.977 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:08:00.005 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-11-20 20:08:00.035 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:08:00.045 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:08:00.087 DEBUG                           ________________________     __RequestVerificationToken = hYFTgAm74YuWssxB3oogbk71LL3rz-mqDmfoa4agpFcdGL8twn0oeAd25_uHyNYKwA-HXyW3ixOohxao2ftpBP5pFg_kNt_6T2ZJYLzRTeA1
+2017-11-20 20:08:00.116 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:08:00.123 INFO  croach@encryptics.com     ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:08:00.159 DEBUG                           ________________________     ASP.NET_SessionId = koxslckci0jgmo52xdvoey12
+2017-11-20 20:08:00.186 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/images/ui-bg_flat_100_ffffff_40x100.png
+2017-11-20 20:08:00.186 DEBUG croach@encryptics.com     ________________________ Forms Authentication cookie: BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7.
+2017-11-20 20:08:00.201 DEBUG                           ________________________     ASPXFORMSAUTH = BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7
+2017-11-20 20:08:00.226 INFO  croach@encryptics.com     ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-11-20 20:08:00.236 DEBUG croach@encryptics.com     ________________________ Forms Authentication cookie: BB2AFEB535A865C7E1451BC34CD80068F8FA5CA74FB7B4DF7F7702C2418B7145310BD2E4BCF0A9A6300D5F5B29A05C656713DEE562A6550E307CD67AAA479FA483E34F75DC1A01E4EBE06803DAE0C543235C0B6204E7A6A0EC3519849AEC97CB601B928D064B981C5D4A1CFD4FAFC40F896FAA03D2EC01564DC97C94DC7EE882E99970EF42853E90CB51DF91D7D4C51ABA3F52B6F9E5F51EC3CF68E143218DF7C898A8D70A75110034F45F91E37F083F24C6C67E031790A6D3355E5E40FC47EC6DE861E5C50E30CF50F5171A101B2BF81D654FF8BE71424C546BC7269505954A08A2E3BD4C37D1F365747B50E388B8A40BB7780D00E568C76B89FBDA92E5C561C17E715727E36975727B397EF13764C7.
+2017-11-20 20:08:00.416 INFO  croach@encryptics.com     ________________________ Logged in as croach@encryptics.com
+2017-11-20 20:08:00.439 INFO  croach@encryptics.com     ________________________ Creating Encrytpics Principal.
+2017-11-20 20:08:00.462 INFO  croach@encryptics.com     ________________________ Requesting Entity Admin Roles.
+2017-11-20 20:08:00.629 INFO  croach@encryptics.com     ________________________ Logged in as croach@encryptics.com
+2017-11-20 20:08:00.682 INFO  croach@encryptics.com     ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:08:00.682 INFO  croach@encryptics.com     ________________________ Creating Encrytpics Principal.
+2017-11-20 20:08:00.706 INFO  croach@encryptics.com     ________________________ ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:08:00.773 INFO  croach@encryptics.com     ________________________ Requesting Entity Admin Roles.
+2017-11-20 20:08:00.779 INFO  croach@encryptics.com     ________________________ Session Available: False
+2017-11-20 20:08:00.804 INFO  croach@encryptics.com     ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:08:00.841 INFO  croach@encryptics.com     ________________________ ******** Ending request. ********: (GET)/__browserLink/requestData/13091152057b4a69abc4a7c8b1c060f7?version=2
+2017-11-20 20:08:00.864 INFO  croach@encryptics.com     ________________________ ContextOnEndRequest
+2017-11-20 20:08:00.871 DEBUG croach@encryptics.com     ________________________ RequestType: GET
+2017-11-20 20:08:00.871 DEBUG croach@encryptics.com     ________________________ StatusCode: 200
+2017-11-20 20:08:00.976 INFO  croach@encryptics.com     ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:08:01.001 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Beginning OnPostAcquireRequestState. ********
+2017-11-20 20:08:01.023 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session Available: True
+2017-11-20 20:08:01.076 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Session keys: 3
+2017-11-20 20:08:01.101 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 ******** Exiting OnAuthenticateRequest. ********
+2017-11-20 20:08:01.301 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Executing (GET) /Account/AjaxCheckLogin
+2017-11-20 20:08:01.328 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Checking status for: croach@encryptics.com (authenticated)
+2017-11-20 20:08:01.354 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Finished executing (GET) /Account/AjaxCheckLogin
+2017-11-20 20:08:01.387 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing AccountController class.
+2017-11-20 20:08:01.411 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 AccountController disposed of.
+2017-11-20 20:08:01.435 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 Disposing AccountController class.
+2017-11-20 20:08:01.459 INFO  croach@encryptics.com     koxslckci0jgmo52xdvoey12 AccountController disposed of.
+2017-11-20 20:08:01.484 INFO  croach@encryptics.com     ________________________ ******** Ending request. ********: (GET)/Account/AjaxCheckLogin
+2017-11-20 20:08:01.507 INFO  croach@encryptics.com     ________________________ ContextOnEndRequest
+2017-11-20 20:08:01.514 DEBUG croach@encryptics.com     ________________________ RequestType: GET
+2017-11-20 20:08:01.514 DEBUG croach@encryptics.com     ________________________ StatusCode: 200

@@ -1,0 +1,29 @@
+2017-10-19 15:38:51.870 INFO                            ________________________ Initializing dependency resolution.
+2017-10-19 15:38:55.094 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-10-19 15:38:55.121 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-10-19 15:38:55.193 INFO                            ________________________ Initializing AuthenticationModule class.
+2017-10-19 15:38:55.215 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2017-10-19 15:38:55.252 DEBUG                           ________________________ language: en-US
+2017-10-19 15:38:55.252 DEBUG                           ________________________ language: en;q=0.8
+2017-10-19 15:38:55.265 DEBUG                           ________________________ Request Type: False
+2017-10-19 15:38:55.288 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2017-10-19 15:38:55.288 DEBUG                           ________________________ QueryString:
+2017-10-19 15:38:55.297 DEBUG                           ________________________ Form:
+2017-10-19 15:38:55.297 DEBUG                           ________________________ Cookies:
+2017-10-19 15:38:55.297 DEBUG                           ________________________     __utma = 111872281.1137903212.1501872072.1502161676.1502202276.9
+2017-10-19 15:38:55.312 DEBUG                           ________________________     __utmz = 111872281.1501872072.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+2017-10-19 15:38:55.360 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2017-10-19 15:38:55.381 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2017-10-19 15:38:55.404 WARN                            ________________________ Nothing sent in request data.
+2017-10-19 15:38:55.434 DEBUG                           ________________________ Encrypted ticket: 
+2017-10-19 15:38:55.461 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2017-10-19 15:38:55.490 INFO                            ________________________ Initializing Role Provider
+2017-10-19 15:38:55.627 INFO                            q11fwaoe02skxdyj2vlpuvr3 ******** Beginning OnPostAcquireRequestState. ********
+2017-10-19 15:38:55.646 INFO                            q11fwaoe02skxdyj2vlpuvr3 Session Available: True
+2017-10-19 15:38:55.665 INFO                            q11fwaoe02skxdyj2vlpuvr3 Session keys: 0
+2017-10-19 15:38:55.686 INFO                            q11fwaoe02skxdyj2vlpuvr3 ******** Exiting OnAuthenticateRequest. ********
+2017-10-19 15:38:55.847 INFO                            q11fwaoe02skxdyj2vlpuvr3 Initializing HomeController class.
+2017-10-19 15:38:55.975 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2017-10-19 15:38:56.002 INFO                            ________________________ ContextOnEndRequest
+2017-10-19 15:38:56.002 DEBUG                           ________________________ RequestType: GET
+2017-10-19 15:38:56.002 DEBUG                           ________________________ StatusCode: 500

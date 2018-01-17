@@ -1,0 +1,60 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'popper.js',
+1 verbose cli   '--save' ]
+2 info using npm@1.1.37
+3 info using node@v0.6.20
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 verbose config file C:\Users\Courtney\.npmrc
+6 verbose config file C:\Program Files (x86)\nodejs\etc\npmrc
+7 verbose config file C:\Program Files (x86)\nodejs\node_modules\npm\npmrc
+8 verbose read json C:\Users\Courtney\Documents\Git\encryptics.webportal\package.json
+9 verbose read json C:\Users\Courtney\Documents\Git\encryptics.webportal\package.json
+10 verbose cache add [ 'popper.js', null ]
+11 silly cache add name=undefined spec="popper.js" args=["popper.js",null]
+12 verbose parsed url { pathname: 'popper.js', path: 'popper.js', href: 'popper.js' }
+13 silly lockFile 5433a80c-popper-js popper.js
+14 verbose lock popper.js C:\Users\Courtney\AppData\Roaming\npm-cache\5433a80c-popper-js.lock
+15 silly lockFile 5433a80c-popper-js popper.js
+16 verbose addNamed [ 'popper.js', '' ]
+17 verbose addNamed [ null, '' ]
+18 silly lockFile a3dc68a3-popper-js popper.js@
+19 verbose lock popper.js@ C:\Users\Courtney\AppData\Roaming\npm-cache\a3dc68a3-popper-js.lock
+20 silly addNameRange { name: 'popper.js', range: '', hasData: false }
+21 verbose url raw popper.js
+22 verbose url resolving [ 'https://registry.npmjs.org/', './popper.js' ]
+23 verbose url resolved https://registry.npmjs.org/popper.js
+24 info retry registry request attempt 1 at 11:27:45
+25 http GET https://registry.npmjs.org/popper.js
+26 info retry will retry, error on last attempt: Error: SSL Error: CERT_UNTRUSTED
+27 info retry registry request attempt 2 at 11:27:55
+28 http GET https://registry.npmjs.org/popper.js
+29 info retry will retry, error on last attempt: Error: SSL Error: CERT_UNTRUSTED
+30 info retry registry request attempt 3 at 11:28:55
+31 http GET https://registry.npmjs.org/popper.js
+32 silly lockFile a3dc68a3-popper-js popper.js@
+33 error Error: SSL Error: CERT_UNTRUSTED
+33 error     at ClientRequest.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\main.js:440:26)
+33 error     at ClientRequest.g (events.js:156:14)
+33 error     at ClientRequest.emit (events.js:67:17)
+33 error     at HTTPParser.parserOnIncomingClient [as onIncoming] (http.js:1256:7)
+33 error     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:91:29)
+33 error     at CleartextStream.socketOnData [as ondata] (http.js:1288:20)
+33 error     at CleartextStream._push (tls.js:375:27)
+33 error     at SecurePair.cycle (tls.js:734:20)
+33 error     at EncryptedStream.write (tls.js:130:13)
+33 error     at Socket.ondata (stream.js:38:26)
+33 error  [Error: SSL Error: CERT_UNTRUSTED]
+34 error You may report this log at:
+34 error     <http://github.com/isaacs/npm/issues>
+34 error or email it to:
+34 error     <npm-@googlegroups.com>
+35 error System Windows_NT 6.2.9200
+36 error command "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "popper.js" "--save"
+37 error cwd C:\Users\Courtney\Documents\Git\encryptics.webportal
+38 error node -v v0.6.20
+39 error npm -v 1.1.37
+40 error message SSL Error: CERT_UNTRUSTED
+41 verbose exit [ 1, true ]

@@ -1,0 +1,71 @@
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalServer.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalServer.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\Google.ProtocolBuffers.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalCommon.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\ProtoCommon.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\ProtoServer.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\ServicesCommon.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\EncrypticsServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalCommon.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\ProtoCommon.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\ProtoServer.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\ServicesCommon.pdb
+C:\GIT Repository\raptor\PortalServer\bin\Release\EncrypticsServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServer\obj\Release\PortalServer.csprojResolveAssemblyReference.cache
+C:\GIT Repository\raptor\PortalServer\obj\Release\PortalServer.Properties.Resources.resources
+C:\GIT Repository\raptor\PortalServer\obj\Release\PortalServer.csproj.GenerateResource.Cache
+C:\GIT Repository\raptor\PortalServer\obj\Release\PortalServer.dll
+C:\GIT Repository\raptor\PortalServer\obj\Release\PortalServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\Google.ProtocolBuffers.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ProtoCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ProtoServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\EncrypticsServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ProtoCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ProtoServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\bin\Release\EncrypticsServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Release\PortalServer.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Release\PortalServer.Properties.Resources.resources
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Release\PortalServer.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Release\PortalServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Release\PortalServer.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalServer.dll.config
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalServer.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalServer.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\EncrypticsAPI.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\bin\Release\EncrypticsAPI.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\obj\Release\PortalServer.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\obj\Release\PortalServer.Properties.Resources.resources
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\obj\Release\PortalServer.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\obj\Release\PortalServer.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServer\obj\Release\PortalServer.pdb
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalServer.dll.config
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalServer.dll
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalServer.pdb
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalCommon.dll
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalServerDataAccess.dll
+E:\Encryptics\synerzip\PortalServer\bin\Release\ServicesCommon.dll
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalCommon.pdb
+E:\Encryptics\synerzip\PortalServer\bin\Release\PortalServerDataAccess.pdb
+E:\Encryptics\synerzip\PortalServer\bin\Release\ServicesCommon.pdb
+E:\Encryptics\synerzip\PortalServer\bin\Release\EncrypticsAPI.pdb
+E:\Encryptics\synerzip\PortalServer\obj\Release\PortalServer.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\PortalServer\obj\Release\PortalServer.Properties.Resources.resources
+E:\Encryptics\synerzip\PortalServer\obj\Release\PortalServer.csproj.GenerateResource.Cache
+E:\Encryptics\synerzip\PortalServer\obj\Release\PortalServer.dll
+E:\Encryptics\synerzip\PortalServer\obj\Release\PortalServer.pdb

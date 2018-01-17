@@ -1,0 +1,6 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model Encryptics.WebPortal.Areas.UserAccount.Models.DeviceType
+@{
+    string imageLocation = Url.Content(string.Format("~/Images/{0}{1}.png?v=2", Model.GetDisplay(), ViewData["SessionStatus"]));
+}
+<img src="@imageLocation" alt=""/>

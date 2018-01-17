@@ -1,0 +1,246 @@
+﻿@using System.Web.Configuration
+@model Encryptics.WebPortal.Models.LoginModel
+
+@{
+    Layout = string.Empty;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login - @WebConfigurationManager.AppSettings["CompanyName"] Administration Portal</title>
+    @*<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />*@
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <style>
+        body {
+            background-color: #e2e2e2;
+            border-top: none;
+            font-family: ProximaNova-Regular, Verdana, Helvetica;
+        }
+
+        #loginHeader {
+            width: 50%;
+            margin: 50px auto 45px auto;
+            text-align: center;
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            #loginHeader {
+                width: 90%;
+            }
+        }
+
+        #loginHeader .site-title {
+            padding-left: 0;
+        }
+
+        #body {
+            background-color: #e2e2e2;
+        }
+
+        #loginForm {
+            margin-left: auto;
+            margin-right: auto;
+            width: 45%;
+            border: none;
+            padding: 25px;
+            float: none;
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            #loginForm {
+                width: 90%;
+                padding: 4%;
+            }
+
+            #logoImage {
+                width: 95%;
+            }
+        }
+
+        #loginForm fieldset {
+            margin: 0;
+        }
+
+        #loginForm input {
+            width: 97%;
+        }
+
+        #loginForm label {
+            font-family: SohoStd-ExtraLight;
+            color: #7f7674;
+            font-weight: normal;
+            font-size: 1em;
+            text-transform: none;
+        }
+
+        #loginForm ol {
+            border-top: solid 1px #bbbab9;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            #loginForm ol {
+                width: 95%;
+            }
+        }
+
+        #loginForm input[type=submit] {
+            background: #fff;
+            display: block;
+            border: solid 1px #ddd;
+            color: #f28b20;
+            padding: 6px 15px;
+            width: 100%;
+            margin: 0 auto;
+            font-weight: normal;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            #loginForm input[type=submit]:hover {
+                background: #e2e2e2;
+            }
+
+        #loginForm li a:hover {
+            background-color: inherit;
+            color: #8aacdc;
+        }
+
+        #passwordUtilsItem {
+            text-align: right;
+        }
+
+            #passwordUtilsItem a {
+                float: left;
+                padding-top: 4px;
+                color: #bbbab9;
+            }
+
+                #passwordUtilsItem a:hover {
+                    background: none;
+                    color: #8aacdc;
+                }
+
+        #createAccount {
+            font-family: SohoStd-ExtraLight;
+            text-align: center;
+        }
+
+            #createAccount a:hover {
+                background: none;
+                color: #8aacdc;
+            }
+
+        footer {
+            border-top: none;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            footer {
+                margin-top: 60px;
+            }
+        }
+
+        footer div {
+            color: #bfb7b5;
+            font-size: 1.4em;
+        }
+
+        #loginForm .validation-summary-errors li {
+            color: #f28b20;
+        }
+
+        .field-validation-error span {
+            color: #f28b20;
+        }
+    </style>
+    @Styles.Render("~/Content/themes/encryptics/css")
+    @Styles.Render("~/Content/custom-css")
+    @Scripts.Render("~/bundles/jquery", "~/bundles/modernizr", "~/bundles/jqueryui", "~/bundles/ajax", "~/bundles/jqueryval")
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div id="loginHeader">
+                <p class="site-title">
+                    <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                        <img src="/Images/LAndingPage-logo.png" id="logoImage" /></a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div id="body">
+        <section class="content-wrapper clear-fix">
+
+            @Html.Partial("_SuccessMessage")
+            @Html.Partial("_ErrorMessages")
+
+            <section id="loginForm" class="white">
+                <h3>@Html.Raw(ViewBag.Title)</h3>
+
+                @if (!string.IsNullOrEmpty(ViewBag.SessionEnded))
+                {
+                    <div class="aside">@ViewBag.SessionEnded</div>
+                }
+                @using (Html.BeginForm("Login", "Account", new { area = string.Empty, returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { AutoComplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <fieldset>
+                        <legend>Log in Form</legend>
+                        <ol>
+                            <li>
+                                @Html.TextBoxFor(m => m.UserName, new { placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.UserName)
+                            </li>
+                            <li>
+                                @if (Model != null && Model.PasswordVisible)
+                                {
+                                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                }
+                            </li>
+                            <li>
+                                @{
+                                    bool displayCaptcha;
+                                    bool.TryParse(WebConfigurationManager.AppSettings["CaptchaEnabled"], out displayCaptcha);
+                                    if (displayCaptcha)
+                                    {
+                                        <div class="g-recaptcha" data-sitekey="@WebConfigurationManager.AppSettings["CaptchaSiteKey"]"></div>
+                                    }
+                                }
+                            </li>
+                            <li>
+                                <input id="btnSubmit" type="submit" value="Log in" /></li>
+                            <li id="passwordUtilsItem">
+                                @Html.ActionLink("I forgot my password", "ForgotPwd", "Account")
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.HiddenFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                            </li>
+                        </ol>
+                    </fieldset>
+                }
+            </section>
+        </section>
+    </div>
+    <section class="content-wrapper clear-fix">
+        <div id="createAccount">
+            New to @WebConfigurationManager.AppSettings["CompanyName"]? @Html.ActionLink("Create an account", "Register", "Account", new { area = string.Empty })
+        </div>
+    </section>
+    <footer>
+        <div class="content-wrapper">
+            &copy; @DateTime.Now.Year @WebConfigurationManager.AppSettings["CompanyName"] &#8212; @HttpContext.Current.Application["Version"]
+        </div>
+    </footer>
+</body>
+</html>

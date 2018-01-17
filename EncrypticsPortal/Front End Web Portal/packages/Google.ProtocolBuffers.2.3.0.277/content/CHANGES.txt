@@ -1,0 +1,52 @@
+===============================================================================
+Welcome to the C# port of Google Protocol Buffers, written by Jon Skeet
+(skeet@pobox.com) based on the work of many talented people.
+
+For more information about this port, visit its homepage:
+http://protobuf-csharp-port.googlecode.com
+
+For more information about Protocol Buffers in general, visit the project page 
+for the C++, Java and Python project:
+http://protobuf.googlecode.com
+===============================================================================
+RELEASE NOTES - Version 2.3.0.277
+===============================================================================
+
+Features:
+- Added cls_compliance option to generate attributes indicating 
+  non-CLS-compliance.
+- Added file_extension option to control the generated output file's extension.
+- Added umbrella_namespace option to place the umbrella class into a nested
+  namespace to address issues with proto files having the same name as a 
+  message it contains.
+- Added output_directory option to set the output path for the source file(s).
+- Added ignore_google_protobuf option to avoid generating code for includes 
+  from the google.protobuf package.
+- Added the LITE framework (Google.ProtoBuffersLite.dll) and the ability to
+  generate code with "option optimize_for = LITE_RUNTIME;".
+- Added ability to invoke protoc.exe from within ProtoGen.exe.
+- Upgraded to protoc.exe (2.3) compiler.
+
+Fixes:
+- Issue 9:	Class cannot be static and sealed error
+- Issue 12:	default value for enumerate fields must be filled out
+
+Other:
+- Rewrite of build using MSBbuild instead of NAnt
+- Moved to NUnit Version 2.2.8.0
+- Changed to using secure .snk for releases
+
+===============================================================================
+RELEASE NOTES - Version 0.9.1
+===============================================================================
+
+Fixes:
+- issue 10:	Incorrect encoding of packed fields when serialized
+
+===============================================================================
+RELEASE NOTES - Version 0.9.0
+===============================================================================
+
+- Initial release
+
+===============================================================================

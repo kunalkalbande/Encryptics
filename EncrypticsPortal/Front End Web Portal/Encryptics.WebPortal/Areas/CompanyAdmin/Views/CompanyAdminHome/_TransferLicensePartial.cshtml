@@ -1,0 +1,38 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@using Encryptics.WebPortal.Helpers
+@model TransferLicenseModel
+
+@using (Html.BeginForm("TransferLicenses", "CompanyAdminHome", new { area = "CompanyAdmin" }, FormMethod.Post, new { id = "transferLicensesForm" }))
+{ 
+    @Html.AntiForgeryToken()
+    <fieldset style="margin-right: 20px; position: relative; margin-bottom: 20px;">
+        <legend>Manage Company Details</legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.FromEntityId)
+                    @Html.HiddenFor(m => m.FromEntityId)
+                    @Html.ValidationMessageFor(m => m.FromEntityId)
+                    @Html.TextBoxFor(m => m.FromEntityName, new { @class = "searchField", @placeholder = "Type a name to begin searching" }) @Html.ValidationMessageFor(m => m.FromEntityName)<br />
+                    @Html.RadioButtonFor(m => m.FromLicensePool, "AvailablePool", new { @checked = "checked" })&nbsp;@LicensePool.AvailablePool.GetDisplay()&nbsp;@Html.RadioButtonFor(m => m.FromLicensePool, "ActivePool")&nbsp;@LicensePool.ActivePool.GetDisplay()
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.ToEntityId)
+                    @Html.HiddenFor(m => m.ToEntityId)
+                    @Html.ValidationMessageFor(m => m.ToEntityId)
+                    @Html.TextBoxFor(m => m.ToEntityName, new { @class = "searchField", @placeholder = "Type a name to begin searching" }) @Html.ValidationMessageFor(m => m.ToEntityName)<br />
+                    @Html.RadioButtonFor(m => m.ToLicensePool, "AvailablePool", new { @checked = "checked" })&nbsp;@LicensePool.AvailablePool.GetDisplay()&nbsp;@Html.RadioButtonFor(m => m.ToLicensePool, "ActivePool")&nbsp;@LicensePool.ActivePool.GetDisplay()
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.TransferAmount)
+                    @Html.TextBoxFor(m => m.TransferAmount)
+                    @Html.ValidationMessageFor(m => m.TransferAmount)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

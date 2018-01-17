@@ -1,0 +1,346 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.AccountOverviewModel
+
+@{
+    ViewBag.Title = "Suspended Account Details";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(Model.Account.CompanyName, "Dashboard", "CompanyHome", new { entityId = Model.Account.EntityId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        @Html.ActionLink("Account Management", "ManageAccounts", "UserAdminHome", new { entityId = Model.Account.EntityId, area = "UserAdmin" }, null)
+        &gt;
+        <span>@Model.Account.Name</span>
+    </h4>
+</div>
+
+
+@Html.Partial("_SuspendedAccountAdminPartial", Model.Account)
+
+<section class="tabbed">
+    <ul class="tabs">
+        <li id="accountTab" class="activeTab"><a href="#" id="showAccountDetails" class="tab" data-show-page="accountView">account details</a></li>
+        <li id="usageTab"><a href="#" id="showUsageDetails" class="tab" data-show-page="usageView">encryptics usage</a></li>
+        <li id="deviceTab"><a href="#" id="showDeviceDetails" class="tab" data-show-page="devicesView">registered devices</a></li>
+    </ul>
+    <div id="accountView" class="tabPage">
+        @Html.Partial("_UserAccountPartial", Model.Account)
+    </div>
+    <div id="usageView" class="tabPage hidden">
+        @Html.Partial("_UsageSummaryPartial", Model.Usage)
+    </div>
+    <div id="devicesView" class="tabPage hidden">
+        @Html.Partial("_UserDevicesPartial", Model.Devices, new ViewDataDictionary { { "EntityId", Model.Account.EntityId }, { "UserId", Model.Account.UserId } })
+    </div>
+</section>
+
+@section styles
+{
+    <style>
+        .tabPage {
+            height: 400px;
+        }
+
+        #accountDetailsContainer {
+            margin-top: 10px;
+        }
+
+        #accountDetails {
+            width: 65%;
+            float: left;
+            text-align: center;
+        }
+
+            #accountDetails table {
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            #accountDetails td:first-child {
+                text-align: right;
+            }
+
+            #accountDetails th {
+                text-align: right;
+                font-weight: normal;
+                color: #999;
+                font-size: 18px;
+                padding-right: 2px;
+                width: 20%;
+            }
+
+            #accountDetails td, #accountDetails td span {
+                text-align: left;
+                color: #666;
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            #accountDetails td {
+                width: 60%;
+            }
+
+        #avatar {
+            width: 35%;
+            float: right;
+            text-align: center;
+        }
+
+            #avatar span {
+                float: left;
+                text-align: right;
+                margin-right: 30%;
+                margin-top: 65px;
+            }
+
+                #avatar span a:not(:hover) {
+                    color: #999;
+                    text-decoration: underline #999;
+                }
+
+        #actionToolbar li:last-child a div {
+            border-right: none;
+        }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            #actionToolbar {
+                min-height: 40px;
+            }
+
+                #actionToolbar li {
+                    /*border-bottom: 1px solid white;*/
+                    width: 50% !important;
+                }
+
+                    #actionToolbar li a div {
+                        border-bottom: 1px solid white;
+                    }
+
+                    #actionToolbar li:nth-child(2) a div {
+                        border-right: none;
+                    }
+
+            #accountDetailsContainer {
+                margin-top: 0;
+            }
+
+            #accountDetails table {
+                margin: 1% 0;
+            }
+
+            #accountDetails td {
+                padding: 0.25em 0;
+                width: 80%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            #accountDetails th {
+                width: 42% !important;
+            }
+
+            #avatar {
+                display: none;
+            }
+
+            #accountDetails {
+                width: 100%;
+                float: none;
+                text-align: center;
+            }
+
+            .main-content section {
+                margin-top: 5px;
+            }
+
+            .tabs {
+                height: auto;
+            }
+
+            ul.tabs li {
+                padding: 5px 2px;
+                border: 1px solid #ccc;
+                margin: 2px 0;
+                display: block;
+            }
+
+                ul.tabs li.activeTab {
+                    border: 1px solid orange;
+                }
+
+                    ul.tabs li.activeTab a {
+                        font-weight: bold;
+                    }
+
+                ul.tabs li a, .tab {
+                    display: block;
+                    width: 100%;
+                }
+
+            #actionToolbar li {
+                width: 42%;
+            }
+
+            #rightSide {
+                display: none;
+            }
+
+            #leftSide {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('.tab').click(function (e) {
+                e.preventDefault();
+
+                if (!$(this).parent().hasClass('activeTab')) {
+                    $(".tabs .activeTab").removeClass('activeTab');
+                    $(this).parent().addClass('activeTab');
+                    $('.tabPage').addClass('hidden');
+                    $('#' + $(this).attr('data-show-page')).removeClass('hidden');
+                }
+            });
+
+            $('.toolbar li ul li a').click(submitForm);
+
+            $('.toolbar li a').click(submitForm);
+
+            //var dialogWidth = "425";
+
+            //if (isPhone) {
+            //    dialogWidth = "365";
+            //}
+
+            //$('#transferAccountDialog').dialog({
+            //    autoOpen: false,
+            //    dialogClass: "no-close",
+            //    title: "Transfer Account",
+            //    width: dialogWidth,
+            //    modal: true,
+            //    resizable: false,
+            //    buttons: {
+            //        "OK": function () {
+            //            var $form = $('#transferAccountForm');
+            //            $.validator.unobtrusive.parse($form);
+            //            if ($form.valid()) {
+            //                $(this).dialog("close");
+            //                $form.submit();
+            //            }
+            //        },
+            //        "Cancel": function () { $(this).dialog("close"); }
+            //    }
+            //});
+
+            //$('.searchField').autocomplete({
+            //    source: getCompanyNames,
+            //    minLength: 2,
+            //    focus: changeSelection,
+            //    select: changeSelection
+            //});
+
+            @* $('#changeRoleDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Change User Role",
+                width: dialogWidth,
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "OK": function () {
+                        var $form = $('#changeRoleForm');
+                        $.validator.unobtrusive.parse($form);
+                        if ($form.valid()) {
+                            $(this).dialog("close");
+                            $form.submit();
+                        }
+                    },
+                    "Cancel": function () { $(this).dialog("close"); }
+                }
+            });
+
+            $('#assignLicenseForm').submit(function (e) {
+                var $form = $(this);
+
+                e.preventDefault();
+
+                showConfirmationDialog("Assign Pro License", "Are you sure you want to assign a Pro license to @Model.Account.Name?", function () {
+                    $form.off('submit');
+                    $form.submit();
+                });
+            });*@
+
+           @* $('#removeLicenseForm').submit(function (e) {
+                var $form = $(this);
+
+                e.preventDefault();
+
+                showConfirmationDialog("Remove Pro License", "Are you sure you want to remove the Pro license from @Model.Account.Name?", function () {
+                    $form.off('submit');
+                    $form.submit();
+                });
+            });*@
+
+            $('#usageView #nextPage').unbind('click').click(changeUsagePage).attr('data-page', 2); // kludge
+        });
+
+        function submitForm(e) {
+            if ($(this).attr('href') != "#") return;
+
+            e.preventDefault();
+
+            if ($(this).attr('data-form-to-submit') != null) {
+                $('#' + $(this).attr('data-form-to-submit')).submit();
+            } else if ($(this).attr('data-dialog-to-open') != null) {
+                $('#' + $(this).attr('data-dialog-to-open')).dialog('open');
+            }
+        }
+
+        //function changeSelection(event, ui) {
+        //    event.preventDefault();
+        //    $(this).val(ui.item.label);
+        //    $(this).siblings('input[type=hidden]').val(ui.item.value);
+        //}
+
+        @*function getCompanyNames(request, response) {
+            $.get('@Url.Action("GetCompanySearchResults", "CompanyAdminHome", new { area = "CompanyAdmin" })', { searchTerm: request.term }, function (data) {
+                response(data);
+            });
+        }*@
+
+        function changeUsagePage(e) {
+            var pageNumber = parseInt($(this).attr('data-page'));
+
+            e.preventDefault();
+
+            $.get('@Url.Action("AjaxUsage", "Admin", new { entityId = Model.Account.EntityId, userId = Model.Account.UserId })', { page: pageNumber }, function (response) {
+                if (response.success) {
+                    $('#usageView').html(response.Data);
+                    $('#usageView').find('#nextPage').attr('data-page', pageNumber + 1).unbind('click').click(changeUsagePage);
+                    $('#usageView').find('#prevPage').attr('data-page', pageNumber - 1).unbind('click').click(changeUsagePage);
+                }
+            });
+        }
+    </script>
+}

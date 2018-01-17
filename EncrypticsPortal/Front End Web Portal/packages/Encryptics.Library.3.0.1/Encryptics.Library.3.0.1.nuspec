@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Encryptics.Library</id>
+    <version>3.0.1</version>
+    <title>Encryptics Library</title>
+    <authors>Encryptics LLC</authors>
+    <owners>Encryptics LLC</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Encryptics .NET Library for creating and decrypting SAFE files.</description>
+    <dependencies>
+      <dependency id="Google.ProtocolBuffers" version="2.3.0.277" />
+    </dependencies>
+  </metadata>
+</package>

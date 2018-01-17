@@ -1,0 +1,2142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7E8853A-3DC1-4EF5-9ACB-30499A0B9787}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Encryptics.WebPortal</RootNamespace>
+    <AssemblyName>Encryptics.WebPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryptics.Common">
+      <HintPath>..\packages\Encryptics.Common.1.0.1\lib\net35\Encryptics.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryptics.Cryptography">
+      <HintPath>..\packages\Encryptics.Cryptography.1.0.1\lib\net35\Encryptics.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryptics.Cryptography.Fips, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Encryptics.Cryptography.Fips.1.0.4\lib\net35\Encryptics.Cryptography.Fips.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryptics.Library">
+      <HintPath>..\packages\Encryptics.Library.3.0.1\lib\net35\Encryptics.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\packages\Glimpse.AspNet.1.6.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\packages\Glimpse.1.8.1\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Elmah">
+      <HintPath>..\packages\Glimpse.Elmah.1.1.1\lib\net40\Glimpse.Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc4">
+      <HintPath>..\packages\Glimpse.Mvc4.1.5.2\lib\net40\Glimpse.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.DataTable.Net.Wrapper">
+      <HintPath>..\packages\Google.DataTable.Net.Wrapper.3.1.0.0\lib\Google.DataTable.Net.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>..\packages\Google.ProtocolBuffers.2.3.0.277\lib\net20\Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO, Version=3.9.1.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
+      <HintPath>..\packages\LumenWorksCsvReader.3.9.1\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocol.Extensions.1.0.0\lib\net45\Microsoft.IdentityModel.Protocol.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.WsFederation, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.WsFederation.3.1.0\lib\net45\Microsoft.Owin.Security.WsFederation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\microsoft-web-helpers.2.1.20710.2\lib\net40\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extended">
+      <HintPath>..\packages\NLog.Extended.2.1.0.1\lib\net45-full\NLog.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectSerializer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ObjectSerializer\ObjectSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thinktecture.IdentityModel">
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.4\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionResults\JsonpResult.cs" />
+    <Compile Include="Areas\CompanyAdmin\Controllers\TransferLicensesController.cs" />
+    <Compile Include="CertificateValidator.cs" />
+    <Compile Include="DependencyResolution\MockPortalService.cs" />
+    <Compile Include="Filters\AuthActionFilterAttribute.cs" />
+    <Compile Include="Filters\NoCacheGlobalActionFilter.cs" />
+    <Compile Include="Areas\CompanyAdmin\Controllers\SearchController.cs" />
+    <Compile Include="Areas\CompanyAdmin\Controllers\SoftwareReleasesController.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\CompanyAdminModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\CompanyEncrypticsUsageModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\CompanySearchModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\SearchResultsModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\SoftwareReleaseModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\TransferLicenseModel.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\UserSearchModel.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyDomainController.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyProductVersionController.cs" />
+    <Compile Include="Areas\Company\Controllers\DistributionGroupController.cs" />
+    <Compile Include="Areas\Company\Controllers\PolicyBasedProtectionController.cs" />
+    <Compile Include="Areas\Company\Controllers\ReportsController.cs" />
+    <Compile Include="Areas\Company\Controllers\UsageRightsGroupController.cs" />
+    <Compile Include="Areas\Company\Models\CompanyProductVersionModel.cs" />
+    <Compile Include="Areas\Company\Models\DistributionGroupMemberModel.cs" />
+    <Compile Include="Areas\Company\Models\DistributionGroupModel.cs" />
+    <Compile Include="Areas\Company\Models\EmailTemplateModel.cs" />
+    <Compile Include="Areas\Company\Models\UsageRightsGroupMemberModel.cs" />
+    <Compile Include="Areas\Company\Models\UsageRightsGroupModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\UserEmailModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\EditableUserAccountModel.cs" />
+    <Compile Include="Areas\UserAdmin\Controllers\UploadAccountsController.cs" />
+    <Compile Include="Areas\Company\Controllers\ZeroDayProtectionController.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\PBPUnencryptedJustification.cs" />
+    <Compile Include="Areas\Company\Models\ZDPSettingsModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\AccountsListItemModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyDLPSettingsModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyDomainModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyType.cs" />
+    <Compile Include="Areas\Company\Models\CompanyUsageSummaryModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\ActiveAccountsListItemModel.cs" />
+    <Compile Include="Areas\Company\Models\DLPPolicyModel.cs" />
+    <Compile Include="Areas\Company\Models\DLPRuleModel.cs" />
+    <Compile Include="Areas\Company\Models\DLPRulesVisibilityModel.cs" />
+    <Compile Include="Areas\Company\Models\DLPRuleTypeModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\ImportFilesModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\ManageCompanyAccountsModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\PendingAccountsListItemModel.cs" />
+    <Compile Include="Areas\Company\Models\PendingUserAccountStatus.cs" />
+    <Compile Include="Areas\Company\Models\ReportDefinitionModel.cs" />
+    <Compile Include="Areas\Company\Models\ReportParametersModel.cs" />
+    <Compile Include="Areas\Company\Models\Reports\Malware\GwMalwareFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Company\Models\Reports\Malware\GwMalwareFileType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Company\Models\Reports\Malware\GwMalwareFileTypeRisk.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Company\Models\Reports\Malware\GwMalwareRisk.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Company\Models\Reports\Malware\GWReportDefinition.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\DlpRuleType.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\DlpRuleViolationCount.cs" />
+    <Compile Include="Areas\Company\Models\Reports\UserEncryptionCount.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\DlpUserViolationCount.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\DlpViolation.cs" />
+    <Compile Include="Areas\Company\Models\Reports\PBP\PBPReportDefinition.cs" />
+    <Compile Include="Areas\Company\Models\UserEncryptionModel.cs" />
+    <Compile Include="Areas\UserAccount\Controllers\AdminController.cs" />
+    <Compile Include="Areas\UserAccount\Models\AccountOverviewModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\AccountType.cs" />
+    <Compile Include="Areas\UserAdmin\Controllers\UserAdminHomeController.cs" />
+    <Compile Include="Areas\UserAdmin\Models\AccountsFileUploadModel.cs" />
+    <Compile Include="Areas\UserAdmin\Models\UserSearchParametersModel.cs" />
+    <Compile Include="Attributes\MinValueAttribute.cs" />
+    <Compile Include="Controllers\WebPortalController.cs" />
+    <Compile Include="CustomConfiguration\AdminPortalConfiguration.cs" />
+    <Compile Include="Filters\AuthorizeActionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\PortalServiceAwareController.cs" />
+    <Compile Include="Filters\DisabledAttribute.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Filters\ValidateHttpAntiForgeryTokenAttribute.cs" />
+    <Compile Include="Helpers\DataTableConverter.cs" />
+    <Compile Include="Helpers\HtmlHelperExtension.cs" />
+    <Compile Include="Helpers\HtmlPrefixScopeExtensions.cs" />
+    <Compile Include="Helpers\TimeZoneHelper.cs" />
+    <Compile Include="IdentityModel\EncrypticsRoleProvider.cs" />
+    <Compile Include="Models\LicenseTransferModel.cs" />
+    <Compile Include="Models\SoftwareReleaseProductModel.cs" />
+    <Compile Include="Models\VersionInfo.cs" />
+    <Compile Include="Models\VersionInfoModelBinder.cs" />
+    <Compile Include="Models\VersionSeverity.cs" />
+    <Compile Include="Models\VersionStatus.cs" />
+    <Compile Include="Models\WebPortalRole.cs" />
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CorsConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\DependencyConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\CompanyAdmin\CompanyAdminAreaRegistration.cs" />
+    <Compile Include="Areas\CompanyAdmin\Models\CompanyListItemModel.cs" />
+    <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
+    <Compile Include="Areas\Company\Models\CompanyDetailsModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanySummaryModel.cs" />
+    <Compile Include="Areas\Company\Models\LicensingModel.cs" />
+    <Compile Include="Areas\Reseller\ResellerAreaRegistration.cs" />
+    <Compile Include="Areas\CompanyAdmin\Controllers\CompanyAdminHomeController.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyHomeController.cs" />
+    <Compile Include="Areas\UserAccount\Controllers\DeviceController.cs" />
+    <Compile Include="Areas\UserAccount\Controllers\UserHomeController.cs" />
+    <Compile Include="Areas\UserAccount\Models\DeviceModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\InsertableUserAccountModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\UsageSummaryModel.cs" />
+    <Compile Include="Areas\UserAccount\Models\UserAccountModel.cs" />
+    <Compile Include="Areas\UserAccount\UserAccountAreaRegistration.cs" />
+    <Compile Include="Areas\UserAdmin\UserAdminAreaRegistration.cs" />
+    <Compile Include="Configuration\CorsConfiguration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="DependencyResolution\StructureMapControllerActivator.cs" />
+    <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
+    <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="Filters\CorsOnlyAttribute.cs" />
+    <Compile Include="Filters\ExceptionHandlingFilterAttribute.cs" />
+    <Compile Include="Filters\TraceActionFilterAttribute.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AntiForgeryTokenHelper.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\ControllerErrorHelper.cs" />
+    <Compile Include="Helpers\BooleanExtension.cs" />
+    <Compile Include="Helpers\PasswordHasher.cs" />
+    <Compile Include="Helpers\ViewRenderer.cs" />
+    <Compile Include="IdentityModel\EncrypticsPrincipal.cs" />
+    <Compile Include="IdentityModel\LoggedOutIdentity.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\BooleanDisplayValuesAttribute.cs" />
+    <Compile Include="Models\ContactInfoModel.cs" />
+    <Compile Include="Models\IModelData.cs" />
+    <Compile Include="Modules\EncrypticsHttpModule.cs" />
+    <Compile Include="Modules\JsonContentTypeModule.cs" />
+    <Compile Include="Models\PageableViewModel.cs" />
+    <Compile Include="Models\TokenStatus.cs" />
+    <Compile Include="Modules\AuthenticationModule.cs" />
+    <Compile Include="Modules\PipelineLoggingModule.cs" />
+    <Compile Include="Modules\PostLoginRedirectModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PortalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\WebFormGlobalizationViewEngine.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Custom.css" />
+    <Content Include="Content\Shared.ar.css" />
+    <Content Include="Content\Shared.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\encryptics\external\jquery\jquery.js" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_100_bbbbbb_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_100_ffffff_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_55_fbf9ee_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_75_e2e2e2_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-bg_flat_95_fef1ec_40x100.png" />
+    <Content Include="Content\themes\encryptics\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\encryptics\images\ui-icons_342e2e_256x240.png" />
+    <Content Include="Content\themes\encryptics\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\encryptics\images\ui-icons_818285_256x240.png" />
+    <Content Include="Content\themes\encryptics\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\encryptics\index.html" />
+    <Content Include="Content\themes\encryptics\jquery-ui.css" />
+    <Content Include="Content\themes\encryptics\jquery-ui.js" />
+    <Content Include="Content\themes\encryptics\jquery-ui.min.css" />
+    <Content Include="Content\themes\encryptics\jquery-ui.min.js" />
+    <Content Include="Content\themes\encryptics\jquery-ui.structure.css" />
+    <Content Include="Content\themes\encryptics\jquery-ui.structure.min.css" />
+    <Content Include="Content\themes\encryptics\jquery-ui.theme.css" />
+    <Content Include="Content\themes\encryptics\jquery-ui.theme.min.css" />
+    <Content Include="Encryptics.Cryptography.Fips.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\UserAccount\Views\Web.config" />
+    <Content Include="Areas\UserAdmin\Views\Web.config" />
+    <Content Include="Areas\CompanyAdmin\Views\Web.config" />
+    <Content Include="Areas\Company\Views\Web.config" />
+    <Content Include="Areas\Reseller\Views\Web.config" />
+    <Content Include="Areas\UserAccount\Views\UserHome\Dashboard.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\CompanyAdminHome\Dashboard.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyHome\Dashboard.cshtml" />
+    <Content Include="Areas\UserAccount\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserAccountDetailsPartial.cshtml" />
+    <Content Include="Images\bg4.png" />
+    <Content Include="Images\Download.png" />
+    <Content Include="Images\icons\01-magnify.png" />
+    <Content Include="Images\icons\14-bothways.png" />
+    <Content Include="Images\icons\40-forward.png" />
+    <Content Include="Images\icons\50-plus.png" />
+    <Content Include="Images\icons\Add.png" />
+    <Content Include="Images\icons\house.png" />
+    <Content Include="Images\icons\Transfer.png" />
+    <Content Include="Images\icons\TransferAlt.png" />
+    <Content Include="Images\LandingPage-logo.png" />
+    <Content Include="Images\LaptopGrey.png" />
+    <Content Include="Images\LaptopOrange.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\MobileGrey.png" />
+    <Content Include="Images\MobileOrange.png" />
+    <Content Include="Images\Security.png" />
+    <Content Include="Images\Success.png" />
+    <Content Include="Images\tinyloader1.gif" />
+    <Content Include="Images\tinyloader2.gif" />
+    <Content Include="installer\ios\manifest.plist" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\UserAccount\Views\Shared\_DevicesPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_DeviceListPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UsageSummaryListPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UsageSummaryPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\_CompanyTablePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\_CompanyListPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_DownloadsPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_ManagePasswordPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserAccountDetailsPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\UserHome\ChangePassword.cshtml" />
+    <Content Include="Areas\UserAccount\Views\UserHome\Manage.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_DevicePartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\DisplayTemplates\DeviceType.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\DisplayTemplates\DeviceSessionStatus.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UserAccountDetailsPartial.cshtml" />
+    <Content Include="Scripts\ajax.js" />
+    <Content Include="Scripts\confirm-dialog.js" />
+    <Content Include="Scripts\info-messages.js" />
+    <Content Include="Scripts\jquery-ui-1.11.1.js" />
+    <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\message-box.js" />
+    <Content Include="Scripts\mobile-check.js" />
+    <Content Include="Scripts\rainbowvis.js" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserDeviceTablePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\SearchResults.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\Index.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\PendingAccount.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_CompaniesPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\CompanyAdminHome\_TransferLicensePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\CompanyAdminHome\_AddNewCompanyPartial.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CheckableCompanyDomainModel.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_TransferAccount.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_ChangeAccountRole.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\_NewUserAccountPartial.cshtml" />
+    <Content Include="Content\webfonts\24E818_2A_0.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\24E818_2A_0.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\24E818_2A_0.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\24E818_34_0.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\24E818_34_0.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\24E818_34_0.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_0_0.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_0_0.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_0_0.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_1_0.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_1_0.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\webfonts\260969_1_0.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EULA.pdf" />
+    <Content Include="Scripts\tabs.js" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AuthorizedAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\ManageAccounts.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyHome\EditCompanySettings.cshtml" />
+    <Content Include="App_Code\ViewHelper.cshtml" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetGrantableRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.PortalRoleListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwareReleasesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwareRelease.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\CompanyAdmin\Views\SoftwareReleases\_AddNewSoftwareReleasePartial.cshtml" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwarePlatformsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwarePlatform.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\CompanyAdmin\Views\SoftwareReleases\Index.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\SoftwareReleases\_VersionTable.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\EditorTemplates\SoftwareReleaseModel.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\DisplayTemplates\SoftwareReleaseModel.cshtml" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\CompanyAdmin\Views\SoftwareReleases\Edit.cshtml" />
+    <Content Include="packages.config" />
+    <Content Include="custom.config" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyEmailTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\_SuspendedAccounts.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\SuspendedAccountsList.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\SuspendedAccountsListItemModel.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\SuspendedAccount.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_SuspendedAccountAdminPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTablePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTableHeaderPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTableBodyPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTableFooterPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\DisplayTemplates\SuspendedAccountsListItemModel.cshtml" />
+    <None Include="Service References\PortalService\portalservice.disco" />
+    <Content Include="Views\Shared\_CompanyBreadcrumbs.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyProductVersionModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\CompanyProductVersionModel.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyProductVersion\_VersionTable.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyProductVersion\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ReadOnlyField.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\AddNewUser.cshtml" />
+    <Content Include="Views\Globalization\ar\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UsageSummaryListPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UserAccountDetailsPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UsageSummaryPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DownloadsPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_ManagePasswordPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_ManagePasswordPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_ManagePasswordPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DevicePartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DevicesPartial.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\LicensingModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyDomainList.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyDomainModel.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\ActiveAccountsListItemModel.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\ActiveAccountsList.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\ActiveAccount.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyHome\EditCompanyDetails.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\ReviewPendingAccounts.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_EditPendingAccountInfo.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyDomain\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Reports\RetrieveReportResults.cshtml" />
+    <Content Include="Areas\Company\Views\Reports\PrintChartData.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\ConfigurePolicies.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\CompanyDomainModel.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\AssignRules.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\_PBPRuleTypes.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\_PBPRules.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\DLPRuleModel.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\_PBPRuleDetails.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\_PBPEnableRule.cshtml" />
+    <Content Include="Areas\Company\Views\PolicyBasedProtection\_PBPNewRuleDetails.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\EditorTemplates\EditableUserAccountModel.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\Manage.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_AccountAdminPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\EditorTemplates\UserSearchLocation.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\DisplayTemplates\ActiveAccountsListItemModel.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Shared\DisplayTemplates\PendingAccountsListItemModel.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_PendingAccountsTablePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_ActiveAccountsTableBodyPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_PendingAccountsTableBodyPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_ActiveAccountsTableFooterPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_PendingAccountsTableHeaderPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_PendingAccountsTableFooterPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_ActiveAccountsPartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_PendingAccountsPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserAccountPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserDevicesPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Shared\_UserDeviceDetailPartial.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\_ActiveAccounts.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UserAdminHome\_PendingAccounts.cshtml" />
+    <Content Include="Areas\Company\Views\ZeroDayProtection\ConfigureSettings.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyHome\_EmailTemplatePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\CompanyAdminHome\ActiveCompanies.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\CompanyAdminHome\ExpiredCompanies.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\TransferLicenses\Index.cshtml" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\DEVELOPMENT.pubxml" />
+    <None Include="Properties\PublishProfiles\Localhost.pubxml" />
+    <None Include="Properties\PublishProfiles\PRODUCTION.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <None Include="Service References\PortalService\configuration.svcinfo" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccountActivationConfig.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccountActivationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccountActivationStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccountActivationWithPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccountRegistrationStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AuthorizedAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.Company.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyDLPConfig.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyDLPSummaryReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyDomain.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyEmailTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyGeneology.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyGWConfig.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyUsageCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.Decryption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.Device.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DeviceListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPPolicy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPRule.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPRulesVisibility.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPRuleType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPTerm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPViolationsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPViolationsRuleOverviewByRuleTypeReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.DLPViolationsRuleTypeOverviewReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.Encryption.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.EntityRoleUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ExpireTokenSessionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupUsersArchivedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccountActivationLinkStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccountDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyDevicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyDLPConfigResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyDLPSummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyDomainsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyGeneologyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyGWConfigResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDeviceDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDeviceListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPJustificationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPPoliciesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPRulesVisibilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPRuleTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPViolationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPViolationsRuleOverviewByRuleTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetDLPViolationsRuleTypeOverviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetEncryptionDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetEntityRoleUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetEntityUsageSummariesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetGrantableCompaniesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetGrantableRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetImportUsersAccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetImportUsersRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetLexiconDLPTermsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetMalwareFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetMalwareFileTypeRiskProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetMalwareFileTypesOverviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetMalwareFileTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetMalwareRiskOverviewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetPendingAccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetResetPasswordLinkStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwarePlatformsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwareReleasesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByDecryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByExpirationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByDecryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopUsersByEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopUsersByViolationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopViolatedDLPRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersArchivedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersArchivedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserCompaniesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserDecryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetGrantableRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserEmailsSentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserEntityRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserSecurityQuestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserUsageRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserUsageSummaryByMonthResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ImportUsersAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ImportUsersRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyDLPTermResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyDLPTermResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyDomainResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyDomainResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertCompanyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertDLPPublicationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.PortalRoleListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertDLPRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertDLPRuleResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertGWPublicationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertGWPublicationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertImportUsersRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertImportUsersRequestResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertLicenseTransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertLicenseTransferResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertRequestUserTransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertRequestUserTransferResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertResetPasswordRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertServerKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertServerKeysResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserAdminCompaniesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserAdminCompaniesStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserLicenseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserLicenseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsersByBulkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsersByBulkResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUserSecurityQuestionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.LogDebugRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.MalwareFilesReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.MalwareFileTypeRiskProfileReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.MalwareFileTypesOverviewReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.MalwareRiskOverviewReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.PendingUserAccountListReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.PortalRoleListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyDLPTermResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyDLPTermResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyDomainResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyDomainResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveCompanyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveDLPRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveDLPRuleResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemovePendingAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUserAdminCompaniesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUserAdminCompaniesStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUserDeviceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUserLicensesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ResendRequestUserTransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ResetPasswordLinkStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SecurityQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwarePlatform.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwareRelease.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TokenAuth.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TokenLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByDecryptionsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByEncryptionsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByExpirationReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopUsersByDLPViolationsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopUsersByEncryptionsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopViolatedDLPRulesReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateAccessGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateAccessGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyDLPConfigResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyDLPSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyGWConfigResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyLexiconsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDeviceActivationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDeviceActivationStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDeviceStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRuleDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRuleDetailsStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRuleStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRuleStatusStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRulesVisibilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDLPRulesVisibilityStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateGWSettingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdatePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdatePasswordStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateRequestUserTransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateRequestUserTransferStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserAdminStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserAdminStatusStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserCompanyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserContactInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserResetPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserSecurityQuestionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUnlockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUsageRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUsageRightsStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageRightsGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageRightsGroupUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserAccountListReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserEmail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserLogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserUsageRights.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ValidateTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\UserAccount\Views\Admin\Emails.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_emailListItem.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Admin\_EmailTablePartial.cshtml" />
+    <None Include="Service References\PortalService\configuration91.svcinfo" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_distributionGroupTable.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\Details.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_groupMemberTable.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_groupMemberTableBody.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_groupMemberTableFooter.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_groupMemberTableHeader.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\AddGroupMember.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\UploadFile.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\UploadSuccessful.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\UploadedFiles.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importFilesTable.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importFilesTableHeader.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importFilesTableBody.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importFilesTableFooter.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\UploadedAccounts.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importedAccountsTable.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importedAccountsTableHeader.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importedAccountsTableBody.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\_importedAccountsTableFooter.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\UploadAccounts\ReviewPendingAccounts.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\Index.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_usageRightsGroupTable.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_usageRightsGroupTableHeader.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_usageRightsGroupTableBody.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_usageRightsGroupTableFooter.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\Details.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\Create.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\Edit.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_groupMemberTable.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_groupMemberTableBody.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_groupMemberTableFooter.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\_groupMemberTableHeader.cshtml" />
+    <Content Include="Areas\Company\Views\UsageRightsGroup\AddGroupMember.cshtml" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccessGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AccessGroupUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\STAGING.pubxml" />
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.AuthorizedAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyEmailTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyGeneology.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.CompanyUsageCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.EntityRoleUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupUsersArchivedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetAccessGroupUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetCompanyGeneologyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetEntityRoleUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetGrantableRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetImportUsersAccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetImportUsersRequestsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwarePlatformsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetSoftwareReleasesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByDecryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesByExpirationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByDecryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByEncryptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersArchivedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserAuthorizedActionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserEntityRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.GetUserUsageRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ImportUsersAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.ImportUsersRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertAccessGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertImportUsersRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertImportUsersRequestResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.PortalRoleListItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwarePlatform.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.SoftwareRelease.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByDecryptionsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByEncryptionsReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.TopCompaniesByExpirationReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateAccessGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateAccessGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateCompanyEmailTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDeviceActivationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateDeviceActivationStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUnlockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUsageRightsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UpdateUserUsageRightsStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageRightsGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageRightsGroupUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UsageSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserLogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PortalService\Encryptics.WebPortal.PortalService.UserUsageRights.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\CompanyAdmin\Views\Search\_searchForm.cshtml" />
+    <Content Include="Views\Shared\_CompanyBreadcrumbs.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyProductVersionModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\CompanyProductVersionModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ReadOnlyField.cshtml" />
+    <Content Include="Views\Globalization\ar\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UsageSummaryListPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UserAccountDetailsPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_UsageSummaryPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DownloadsPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_ManagePasswordPartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_ManagePasswordPartial.Mobile.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DevicePartial.cshtml" />
+    <Content Include="Areas\UserAccount\Views\Globalization\ar\Shared\_DevicesPartial.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\LicensingModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyDomainList.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyDomainModel.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\PendingAccountsList.cshtml" />
+    <Content Include="Areas\UserAdmin\Views\Shared\DisplayTemplates\PendingAccountsListItemModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\CompanyDomainModel.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\EditorTemplates\DLPRuleModel.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_ActiveAccountsTablePartial.cshtml" />
+    <Content Include="Areas\CompanyAdmin\Views\Search\_ActiveAccountsTableHeaderPartial.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\Index.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_distributionGroupTableHeader.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_distributionGroupTableFooter.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\_distributionGroupTableBody.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\Edit.cshtml" />
+    <Content Include="Areas\Company\Views\DistributionGroup\Create.cshtml" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Service References\PortalService\portalservice.wsdl" />
+    <None Include="Service References\PortalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Account\Activate.cshtml" />
+    <Content Include="Views\Account\Resend.cshtml" />
+    <Content Include="Views\Account\ForgotPwd.cshtml" />
+    <Content Include="Views\Shared\_PageableTableViewPartial.cshtml" />
+    <Content Include="Views\Account\_ManagePasswordPartial.cshtml" />
+    <Content Include="Views\Account\ActivatePassword.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
+    <Content Include="Views\Account\_ForgotPwdPartial.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\_ResetPwdPartial.cshtml" />
+    <Content Include="Views\Shared\_FormSubmitSuccessful.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ContactInfoModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Globalization\ar\Shared\_FormSubmitSuccessful.cshtml" />
+    <Content Include="Views\Account\_ResetPwdError.cshtml" />
+    <Content Include="Views\Shared\_FormSubmitSuccessful.Mobile.cshtml" />
+    <Content Include="Views\Shared\_ErrorMessages.cshtml" />
+    <Content Include="Views\Shared\_SuccessMessage.cshtml" />
+    <Content Include="Views\Shared\_ConfirmDialog.cshtml" />
+    <Content Include="Views\Shared\_MessageBox.cshtml" />
+    <Content Include="Views\Shared\_LoginFormPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\_Announcements.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Account\ActivateDevice.cshtml" />
+    <Content Include="Views\Home\adfsSignin.cshtml" />
+    <Content Include="Views\Account\WebLogin.cshtml" />
+    <None Include="Web.Development.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.WhiteLabeled.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\logs\archive\" />
+    <Folder Include="Areas\Reseller\Controllers\" />
+    <Folder Include="Areas\Reseller\Models\" />
+    <Folder Include="Areas\Reseller\Views\Shared\" />
+    <Folder Include="Areas\UserAccount\Views\Device\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\PortalService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.ar.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WhiteLabeled|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

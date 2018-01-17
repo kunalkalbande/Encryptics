@@ -1,0 +1,181 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.Company.Models.UsageRightsGroupModel>
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Manage Usage Rights Groups";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+@Html.Partial("_ErrorMessages")
+
+<ul class="toolbar" id="actionToolbar">
+    @if (encrypticsUser.HasPermission("Company/UsageRightsGroup/Create"))
+    {
+        <li>
+            <a href="#" id="addGroup">
+                <div>
+                    Add New Group 
+                    <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>
+    }
+</ul>
+
+<section class="white">
+    @if (encrypticsUser.HasPermission("Company/UsageRightsGroup/Delete"))
+    {
+        using (Html.BeginForm("Delete", "UsageRightsGroup", new { entityId = ViewBag.CompanyId }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="dataTableToolbar">
+            <ul class="tableActions">
+                <li>
+                    <input type="checkbox" value="all" id="selectAll" /></li>
+                <li>
+                    <input type="submit" value="disable groups" id="deleteSelectedGroups" disabled="disabled"></li>
+            </ul>
+        </div>
+        @Html.Partial("_usageRightsGroupTable")
+        }
+    }
+</section>
+
+<div class="dialog" id="groupDialog"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var dialogWidth = "400";
+        var $dialog = $('#groupDialog');
+
+        if (isPhone) {
+            dialogWidth = "350";
+        }
+
+        $dialog.dialog({
+            autoOpen: false,
+            dialogClass: "no-close",
+            title: "Add Usage Rights Group",
+            width: dialogWidth,
+            height: 800,
+            modal: true,
+            resizable: false,
+            open: function () {
+                $dialog.css('overflow', 'hidden'); //this line does the actual hiding
+            },
+            buttons: {
+                "OK": function () {
+                    var $form = $(this).find('form');
+
+                    $.validator.unobtrusive.parse($form);
+
+                    if ($form.valid()) {
+                        $(this).dialog("close");
+                        $form.submit();
+                    }
+                },
+                "Cancel": function () { $(this).dialog("close"); }
+            }
+        });
+
+        function initializeElements() {
+            $('#addGroup').click(addGroup);
+
+            $('.editGroup').click(editGroup);
+
+            //$('#deleteSelectedGroups').click(removeGroups);
+
+            $('.selectedGroup').change(selectGroup);
+
+            $('#selectAll').change(selectAll);
+
+            $('#CurrentPage').change(currentPageChange);
+        }
+
+        function addGroup(e) {
+            e.preventDefault();
+
+            $dialog.html(getWaitPanel()).dialog("open");
+
+            $.get('@Href(Url.Action("Create", new { entityId = ViewBag.CompanyId, currentPage = Model.CurrentPage, pageSize = Model.PageSize }))', null, function (response) {
+                $dialog.html($(response)).css("overflow-y", "auto");
+            });
+        }
+
+        function editGroup(e) {
+            var groupId = $(this).attr('data-id');
+
+            e.preventDefault();
+
+            $dialog.html(getWaitPanel()).dialog('option', 'title', 'Edit Usage Rights Group').dialog("open");
+
+            $.get('@Href(Url.Action("Edit", new { entityId = ViewBag.CompanyId, currentPage = Model.CurrentPage, pageSize = Model.PageSize }))', { groupId: groupId }, function (response) {
+                $dialog.html($(response)).css("overflow-y", "auto");
+            });
+        }
+
+        @*function removeGroups() {
+            var groupIds = new Array();
+
+            $('.selectedGroup:checked').each(function () {
+                groupIds.push($(this).attr('data-id'));
+            });
+
+            ajaxPost('@Href(Url.Action("Delete", new { entityId = ViewBag.CompanyId, currentPage = Model.CurrentPage, pageSize = Model.PageSize }))', { groupIds: groupIds }, function (response) {
+                $('#usageRightsGroupsTable').replaceWith($(response));
+                initializeElements();
+            }, function () {
+                console.log('error');
+            }, function () {
+                console.log("complete");
+            });
+        }*@
+
+        function selectGroup() {
+            var itemsSelected = $('.selectedGroup:checked').length > 0;
+
+            $('#deleteSelectedGroups').attr('disabled', !itemsSelected);
+            $('#selectAll').attr('checked', itemsSelected);
+        }
+
+        function selectAll() {
+            var checked = $('#selectAll').attr('checked') == 'checked';
+            $('.selectedGroup').attr('checked', checked);
+            var itemsSelected = $('.selectedGroup:checked').length > 0;
+
+            $('#deleteSelectedGroups').attr('disabled', !itemsSelected);
+        }
+
+        function currentPageChange() {
+            var currentPage = $(this).val();
+            window.location = '@Url.Action("Index")?currentPage=' + currentPage;
+        }
+
+        $(function () {
+            initializeElements();
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        #deleteSelectedGroups {
+            color: rgb(34, 139, 34);
+            border: none;
+            background: none;
+            font-size: 13px;
+        }
+
+            #deleteSelectedGroups:disabled {
+                color: rgb(187, 187, 187);
+            }
+
+        .selectColumn {
+            width: 5% !important;
+        }
+    </style>
+}

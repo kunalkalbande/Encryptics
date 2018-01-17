@@ -1,0 +1,50 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.EditableUserAccountModel
+
+@Html.AntiForgeryToken()
+@*@Html.ValidationSummary("The following items are missing/invalid:")*@
+
+<fieldset>
+    <legend>Registration Form</legend>
+    @Html.Hidden("CompanyId", @ViewData["CompanyId"].ToString())
+    @Html.Hidden("CompanyName", @ViewData["CompanyName"].ToString())
+
+    <ol>
+        <li>
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "initField" })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.ConfirmUserName)
+            @Html.TextBoxFor(m => m.ConfirmUserName)
+            @Html.ValidationMessageFor(m => m.ConfirmUserName)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.TextBoxFor(m => m.PhoneNumber)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.DownloadSoftware)
+            @Html.RadioButtonFor(m => m.DownloadSoftware, "true") Yes
+                    @Html.RadioButtonFor(m => m.DownloadSoftware, "false") No
+                    @Html.ValidationMessageFor(m => m.DownloadSoftware, null, new Dictionary<string, object> { { "style", "z-index: 2;" } })
+        </li>
+        <li>
+            @Html.LabelFor(m => m.AssignLicense)
+            @Html.RadioButtonFor(m => m.AssignLicense, "true") Yes
+                    @Html.RadioButtonFor(m => m.AssignLicense, "false") No
+                    @Html.ValidationMessageFor(m => m.AssignLicense)
+        </li>
+    </ol>
+</fieldset>
+<input type="submit" value="Add Account" />

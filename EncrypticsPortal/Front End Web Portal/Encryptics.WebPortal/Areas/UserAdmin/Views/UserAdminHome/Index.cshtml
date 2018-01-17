@@ -1,0 +1,24 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+
+@{
+    ViewBag.Title = "Account Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1><img alt="" class="gravatarIcon @ViewBag.MainRole" src="http://www.gravatar.com/avatar/@ViewBag.UserNameMD5Hash?s=36&d=identicon" style="margin-right: 10px; vertical-align: middle;" />@ViewBag.Title.</h1>
+                <h2 class="greenBackground whiteText">@ViewBag.Message</h2>
+                <h2 class="maroonBackground whiteText">@ViewBag.ErrorMessage</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+
+@Html.ActionLink("Return to Dashboard", "Index", "CompanyHome", new {area="Company", id=ViewBag.CompanyId}, null)
+
+@Html.Partial("_")

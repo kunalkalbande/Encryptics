@@ -1,0 +1,38 @@
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\PortalCommon.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\PortalCommon.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.dll
+C:\GIT Repository\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll.config
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalServerDataAccess\obj\Release\PortalServerDataAccess.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll.config
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\PortalServerDataAccess.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\PortalServerDataAccess.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\PortalCommon.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\ServicesCommon.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\PortalCommon.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\bin\Release\ServicesCommon.pdb
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Release\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Release\PortalServerDataAccess.dll
+E:\Encryptics\synerzip\PortalServerDataAccess\obj\Release\PortalServerDataAccess.pdb

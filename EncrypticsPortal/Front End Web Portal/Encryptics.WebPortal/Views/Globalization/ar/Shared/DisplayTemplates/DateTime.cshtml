@@ -1,0 +1,15 @@
+﻿@using System.Globalization
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    if (encrypticsUser != null && Model.HasValue)
+    {
+        var localDateTime = Model.FromUTC(encrypticsUser.UTCOffset, encrypticsUser.UsesDST);
+
+        if (localDateTime.HasValue)
+        {
+    @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(localDateTime.Value.Month) @localDateTime.Value.Day @localDateTime.Value.Year
+        }
+    }
+}
+

@@ -1,0 +1,24 @@
+C:\GIT Repository\raptor\PortalCommon\bin\Release\PortalCommon.dll
+C:\GIT Repository\raptor\PortalCommon\bin\Release\PortalCommon.pdb
+C:\GIT Repository\raptor\PortalCommon\obj\Release\PortalCommon.dll
+C:\GIT Repository\raptor\PortalCommon\obj\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\obj\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\obj\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\bin\Release\PortalCommon.dll.config
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\bin\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\bin\Release\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\bin\Release\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\bin\Release\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\obj\Release\PortalCommon.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\obj\Release\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\PortalCommon\obj\Release\PortalCommon.pdb
+E:\Encryptics\synerzip\PortalCommon\bin\Release\PortalCommon.dll.config
+E:\Encryptics\synerzip\PortalCommon\bin\Release\PortalCommon.dll
+E:\Encryptics\synerzip\PortalCommon\bin\Release\PortalCommon.pdb
+E:\Encryptics\synerzip\PortalCommon\bin\Release\ServicesCommon.dll
+E:\Encryptics\synerzip\PortalCommon\bin\Release\ServicesCommon.pdb
+E:\Encryptics\synerzip\PortalCommon\obj\Release\PortalCommon.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\PortalCommon\obj\Release\PortalCommon.dll
+E:\Encryptics\synerzip\PortalCommon\obj\Release\PortalCommon.pdb

@@ -1,0 +1,223 @@
+﻿@model Encryptics.WebPortal.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = string.Empty;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Encryptics Administration Portal</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <style>
+        body {
+            background-color: #e2e2e2;
+            border-top: none;
+            font-family: ProximaNova-Regular, Verdana, Helvetica;
+        }
+
+        #loginHeader {
+            width: 50%;
+            margin: 50px auto 45px auto;
+            text-align: center;
+        }
+
+        @@media only screen and (max-device-width:736px) {
+            #loginHeader {
+                width: 90%;
+                /*margin: 10px auto 20px auto;*/
+            }
+        }
+
+        #loginHeader .site-title {
+            padding-left: 0;
+        }
+
+        #body {
+            background-color: #e2e2e2;
+        }
+
+        #loginForm {
+            margin-left: auto;
+            margin-right: auto;
+            width: 45%;
+            border: none;
+            padding: 25px;
+            float: none;
+        }
+
+        @@media only screen and (max-device-width:736px) {
+            #loginForm {
+                width: 90%;
+                padding: 4%;
+            }
+
+            #logoImage {
+                width: 95%;
+            }
+        }
+
+        #loginForm fieldset {
+            margin: 0;
+        }
+
+        #loginForm input {
+            width: 97%;
+        }
+
+        #loginForm label {
+            font-family: SohoStd-ExtraLight;
+            color: #7f7674;
+            font-weight: normal;
+            font-size: 1em;
+            text-transform: none;
+        }
+
+        #loginForm ol {
+            border-top: solid 1px #bbbab9;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        @@media only screen and (max-device-width:736px) {
+            #loginForm ol {
+                width: 95%;
+            }
+        }
+
+        #loginForm input[type=submit] {
+            background: #fff;
+            display: block;
+            border: solid 1px #ddd;
+            color: #f28b20;
+            padding: 6px 15px;
+            width: 100%;
+            margin: 0 auto;
+            font-weight: normal;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+            #loginForm input[type=submit]:hover {
+                background: #e2e2e2;
+            }
+
+        #loginForm li a:hover {
+            background-color: inherit;
+            color: #8aacdc;
+        }
+
+        #passwordUtilsItem {
+            text-align: right;
+        }
+
+            #passwordUtilsItem a {
+                float: left;
+                padding-top: 4px;
+                color: #bbbab9;
+            }
+
+                #passwordUtilsItem a:hover {
+                    background: none;
+                    color: #8aacdc;
+                }
+
+        #createAccount {
+            font-family: SohoStd-ExtraLight;
+            text-align: center;
+        }
+
+            #createAccount a:hover {
+                background: none;
+                color: #8aacdc;
+            }
+
+        footer {
+            border-top: none;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        @@media only screen and (max-device-width:736px) {
+            footer {
+                margin-top: 60px;
+            }
+        }
+
+        footer div {
+            color: #bfb7b5;
+            font-size: 1.4em;
+        }
+
+        #loginForm .validation-summary-errors li {
+            color: #f28b20;
+        }
+
+        .field-validation-error span {
+            color: #f28b20;
+        }
+    </style>
+    @Styles.Render("~/Content/themes/encryptics/css")
+    @Scripts.Render("~/bundles/jquery", "~/bundles/modernizr", "~/bundles/jqueryui", "~/bundles/ajax", "~/bundles/jqueryval")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div id="loginHeader">
+                <p class="site-title">
+                    <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                        <img src="~/Images/LandingPage-logo.png" id="logoImage" /></a>
+                </p>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <section class="content-wrapper clear-fix">
+            <section id="loginForm" class="white">
+                <h3>Session Expired &mdash; Log In</h3>
+
+                <div class="aside">For security purposes you must log in to continue</div>
+                @using (Html.BeginForm("Login", "Account", new { area = string.Empty, returnUrl = ViewBag.ReturnUrl }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <fieldset>
+                        <legend>Log in Form</legend>
+                        <ol>
+                            <li>
+                                @Html.TextBoxFor(m => m.UserName, new { placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.UserName)
+                            </li>
+                            <li>
+                                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </li>
+                            <li>
+                                <input type="submit" value="Log in" /></li>
+                            <li id="passwordUtilsItem">
+                                @Html.ActionLink("I forgot my password", "ForgotPwd", "Account")
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.HiddenFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                            </li>
+                        </ol>
+                    </fieldset>
+                }
+            </section>
+        </section>
+    </div>
+    <section class="content-wrapper clear-fix">
+        <div id="createAccount">
+            New to Encryptics? @Html.ActionLink("Create an account", "Register", "Account", new { area = string.Empty })
+        </div>
+    </section>
+    <footer>
+        <div class="content-wrapper">
+            &copy; @DateTime.Now.Year Encryptics &#8212; @HttpContext.Current.Application["Version"]
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,219 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    string companyName = (ViewBag.CompanyName ?? ViewBag.CompanyName as string) ?? "Company Dashboard";
+    ViewBag.Title = "Manage Group Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.CurrentPage = Model.GroupMempers.CurrentPage;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@Model.GroupName</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+        @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+        &gt;
+        @Html.ActionLink("Distribution Groups", "Index", "DistributionGroup", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+        &gt;
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<ul class="toolbar" id="actionToolbar">
+    @if (encrypticsUser.HasPermission("Company/DistributionGroup/AddGroupMember"))
+    {
+        <li>
+            <a href="#" id="addGroupMember">
+                <div>
+                    Add Group Member 
+                      <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>
+    }
+</ul>
+
+<section class="white">
+    @Html.Partial("Edit")
+</section>
+
+<section class="white">
+    @if (encrypticsUser.HasPermission("Company/DistributionGroup/RemoveGroupMember"))
+    {
+        using (Html.BeginForm("RemoveGroupMember", "DistributionGroup", new { entityId = ViewBag.CompanyId, groupId = Model.GroupId }))
+        {
+        @Html.AntiForgeryToken()
+        <div class="dataTableToolbar">
+            <ul class="tableActions">
+                <li>
+                    <input type="checkbox" value="all" id="selectAll" /></li>
+                <li>
+                    <input type="submit" value="remove members" id="removeSelectedMembers" disabled="disabled"></li>
+            </ul>
+        </div>
+        @Html.Partial("_groupMemberTable", Model.GroupMempers)
+        }
+    }
+</section>
+
+<div class="dialog" id="groupMemberDialog"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var dialogWidth = "400";
+        var $dialog = $('#groupMemberDialog');
+
+        if (isPhone) {
+            dialogWidth = "350";
+        }
+
+        $dialog.dialog({
+            autoOpen: false,
+            dialogClass: "no-close",
+            title: "Add Group Member",
+            width: dialogWidth,
+            height: 400,
+            modal: true,
+            resizable: false,
+            open: function () {
+                $dialog.css('overflow', 'hidden'); //this line does the actual hiding
+            },
+            buttons: {
+                "OK": function () {
+                    var $form = $(this).find('form');
+
+                    $.validator.unobtrusive.parse($form);
+
+                    if ($form.valid()) {
+                        $(this).dialog("close");
+                        $form.submit();
+                    }
+                },
+                "Cancel": function () { $(this).dialog("close"); }
+            }
+        });
+
+        function changeSelection(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $(this).siblings('input[type=hidden]').val(ui.item.value);
+        }
+
+        function getActiveAccounts(request, response) {
+            var token = $("#filterForm").find('input[name=__RequestVerificationToken]').val();
+
+            $.get('@Url.Action("AjaxSearchActiveAccounts")', { searchTerm: request.term, RequestVerificationToken: token }, function (data) {
+                console.log(data);
+                response(data);
+            });
+        }
+
+        function initializeElements() {
+            $('#addGroupMember').click(addGroupMember);
+
+            //$('#removeSelectedMembers').click(removeGroups);
+
+            $('.selectedMember').change(selectMember);
+
+            $('#selectAll').change(selectAll);
+
+            $('#CurrentPage').change(currentPageChange);
+
+            $('#cancelButton').click(function (e) {
+                e.preventDefault();
+
+                window.location = '@Url.Action("Index", "DistributionGroup", new { entityId = ViewBag.CompanyId, area = "Company" })';
+            });
+        }
+
+        function addGroupMember(e) {
+            e.preventDefault();
+
+            $dialog.html(getWaitPanel()).dialog("open");
+
+            $.get('@Href(Url.Action("AddGroupMember", new { entityId = ViewBag.CompanyId, groupID = Model.GroupId, currentPage = Model.GroupMempers.CurrentPage, pageSize = Model.GroupMempers.PageSize }))', null, function (response) {
+                $dialog.html($(response));
+
+                $('#UserName').autocomplete({
+                    source: getActiveAccounts,
+                    minLength: 2,
+                    focus: changeSelection,
+                    select: changeSelection
+                });
+            });
+        }
+
+        @*function removeGroups() {
+            var groupMemberIds = new Array();
+            var $form = $(this).parents('form');
+            var token = $form.find('input[name=__RequestVerificationToken]').val();
+
+            $('.selectedGroup:checked').each(function () {
+                groupMemberIds.push($(this).attr('data-id'));
+            });
+
+            ajaxPost('@Href(Url.Action("RemoveGroupMember", new { entityId = ViewBag.CompanyId, groupId = Model.GroupId, currentPage = Model.GroupMempers.CurrentPage, pageSize = Model.GroupMempers.PageSize }))', { groupMemberIds: groupMemberIds, RequestVerificationToken: token }, function (response) {
+                $('#distributionGroupsTable').replaceWith($(response));
+                initializeElements();
+            }, function () {
+                console.log('error');
+            }, function () {
+                console.log("complete");
+            });
+        }*@
+
+        function selectMember() {
+            var itemsSelected = $('.selectedMember:checked').length > 0;
+
+            $('#removeSelectedMembers').attr('disabled', !itemsSelected);
+            $('#selectAll').attr('checked', itemsSelected);
+        }
+
+        function selectAll() {
+            var checked = $('#selectAll').attr('checked') == 'checked';
+            $('.selectedMember').attr('checked', checked);
+            var itemsSelected = $('.selectedMember:checked').length > 0;
+
+            $('#removeSelectedMembers').attr('disabled', !itemsSelected);
+        }
+
+        function currentPageChange() {
+            var currentPage = $(this).val();
+            window.location = '@Url.Action("Index")?currentPage=' + currentPage;
+        }
+
+        $(function () {
+            initializeElements();
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        #removeSelectedMembers {
+            color: rgb(34, 139, 34);
+            border: none;
+            background: none;
+            font-size: 13px;
+        }
+
+            #removeSelectedMembers:disabled {
+                color: rgb(187, 187, 187);
+            }
+
+        .selectColumn {
+            width: 5% !important;
+        }
+    </style>
+}

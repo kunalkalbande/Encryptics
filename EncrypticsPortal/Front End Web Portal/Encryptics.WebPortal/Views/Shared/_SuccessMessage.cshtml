@@ -1,0 +1,13 @@
+﻿@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="ui-widget" id="successMessage">
+        <div class="ui-state-highlight ui-corner-all viewMessage">
+            <dl>
+                <dt><span class="ui-icon ui-icon-info"></span>
+                    <dd id="message">@Html.Raw(ViewData["SuccessMessage"])</dd>
+                <dd><a href="#" id="hideSuccessMessage" class="hideMessage">hide</a></dd>
+            </dl>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/info-messages")
+}

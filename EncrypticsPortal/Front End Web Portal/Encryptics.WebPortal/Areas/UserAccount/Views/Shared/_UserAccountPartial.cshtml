@@ -1,0 +1,83 @@
+﻿@using System.Security.Cryptography
+@using System.Text
+@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+<div id="accountDetailsContainer">
+    <div id="accountDetails">
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.UserName):</th>
+                <td>@Html.DisplayFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Name):</th>
+                <td>@Html.DisplayFor(m => m.Name)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.CompanyName):</th>
+                <td>@Html.DisplayFor(m => m.CompanyName)</td>
+            </tr>
+            <tr>
+                <td style="-webkit-column-span: all; column-span: all;">&nbsp;</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.PrimaryRole): </th>
+                <td>@(Model.PrimaryRole != null ? Html.DisplayFor(m => m.PrimaryRole.RoleName) : new MvcHtmlString("User"))</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.LicenseType):</th>
+                <td>@Html.DisplayFor(m => m.LicenseType)@if (Model.DateLicenseExpires > DateTime.MinValue && Model.DateLicenseExpires <= DateTime.Now)
+                                                        {<span class="orangeText allCaps">&nbsp;expired</span>}</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.AccountStatus):</th>
+                <td>@Html.DisplayFor(m => m.AccountStatus)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.DateRegistered):</th>
+                <td>@Html.DisplayFor(m => m.DateRegistered)</td>
+            </tr>
+            @if (Model.DateLicenseExpires > DateTime.MinValue)
+            {
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.DateLicenseExpires):</th>
+                    <td>@Html.DisplayFor(m => m.DateLicenseExpires)</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <th>&nbsp;</th>
+                    <td>&nbsp;</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div id="avatar">
+        <span>
+            <img src="https://www.gravatar.com/avatar/@ComputeHash(Model.UserName)?s=200&d=identicon"/>
+            <br />
+            <a href="https://www.gravatar.com" target="_new">image by Gravatar</a>
+        </span>
+    </div>
+</div>
+@functions {
+    public string ComputeHash(string email)
+    {
+        // Convert the input string to a byte array and compute the hash. 
+        byte[] data = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(Model.UserName));
+
+        // Create a new Stringbuilder to collect the bytes 
+        // and create a string.
+        var sBuilder = new StringBuilder();
+
+        // Loop through each byte of the hashed data  
+        // and format each one as a hexadecimal string. 
+        for (int i = 0; i < data.Length; i++)
+        {
+            sBuilder.Append(data[i].ToString("x2"));
+        }
+
+        // Return the hexadecimal string. 
+        return sBuilder.ToString();
+    }
+}

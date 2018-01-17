@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsListItemModel>
+
+<thead>
+    <tr>
+        <th class="selectColumn" style="width: 5%"></th>
+        <th class="userNameColumn"><a href="#" class="columnSort" data-column-name="Email">@Html.DisplayNameFor(m => m.UserName)</a></th>
+        <th class="firstNameColumn" style="width: 10%"><a href="#" class="columnSort" data-column-name="First_Name">@Html.DisplayNameFor(m => m.FirstName)</a></th>
+        <th class="lastNameColumn" style="width: 10%"><a href="#" class="columnSort" data-column-name="Last_Name">@Html.DisplayNameFor(m => m.LastName)</a></th>
+        <th class="companyNameColumn" style="width: 10%"><a href="#" class="columnSort" data-column-name="Company_Name">@Html.DisplayNameFor(m => m.CompanyName)</a></th>
+        <th class="accountTypeColumn" style="width: 10%"><a href="#" class="columnSort" data-column-name="License_Reserved">@Html.DisplayNameFor(m => m.IsLicenseReserved)</a></th>
+    </tr>
+</thead>

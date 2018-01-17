@@ -1,0 +1,16 @@
+﻿@using Encryptics.WebPortal.IdentityModel
+@using Encryptics.WebPortal.PortalService
+@using StructureMap
+@functions
+{
+    public static EncrypticsPrincipal GetEncrypticsUser()
+    {
+        var portalService = ObjectFactory.GetInstance<PortalServiceSoap>();
+        
+        var encrypticsUser = User as EncrypticsPrincipal ?? new EncrypticsPrincipal(User.Identity, portalService);
+
+        ((IDisposable)portalService).Dispose();
+        
+        return encrypticsUser;
+    }
+}

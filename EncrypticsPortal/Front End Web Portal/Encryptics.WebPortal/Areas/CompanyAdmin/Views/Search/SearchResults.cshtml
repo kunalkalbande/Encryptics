@@ -1,0 +1,915 @@
+﻿@model Encryptics.WebPortal.Areas.CompanyAdmin.Models.SearchResultsModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+
+    ViewBag.Title = "Search Results";
+
+    if (Model != null && !string.IsNullOrEmpty(Model.SearchTerm))
+    {
+        ViewBag.Title = "Search Results - " + Model.SearchTerm;
+    }
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+        Search Results
+    </h4>
+</div>
+
+@if (Model != null && (Model.CompanySearchResults.ItemCount > 0 || Model.ActiveAccountSearchParameters.ItemCount > 0 || Model.PendingAccountSearchParameters.ItemCount > 0))
+{
+    <section class="tabbed">
+        <ul class="tabs">
+            <li id="companiesTab" @if (Model.CompanySearchResults.ItemCount > 0)
+                                  {<text>class="activeTab"</text>}><a href="#" class="tab" data-show-page="companies">Companies (@Model.CompanySearchResults.ItemCount)</a></li>
+            <li id="activeAccountsTab"@if (Model.CompanySearchResults.ItemCount == 0 && Model.ActiveAccountSearchParameters.ItemCount > 0)
+                                      {<text>class="activeTab"</text>}><a href="#" class="tab" data-show-page="activeAccounts" id="activeAccountsTabTitle">Active Users (@Model.ActiveAccountSearchParameters.ItemCount)</a></li>
+            <li id="suspendedAccountsTab"@if (Model.CompanySearchResults.ItemCount == 0 && Model.SuspendedAccountSearchParameters.ItemCount > 0 && Model.ActiveAccountSearchParameters.ItemCount == 0)
+                                         {<text>class="activeTab"</text>}><a href="#" class="tab" data-show-page="suspendedAccounts" id="suspendedAccountsTabTitle">Suspended Users (@Model.SuspendedAccountSearchParameters.ItemCount)</a></li>
+            <li id="pendingAccountsTab"@if (Model.CompanySearchResults.ItemCount == 0 && Model.ActiveAccountSearchParameters.ItemCount == 0 && Model.SuspendedAccountSearchParameters.ItemCount == 0)
+                                       {<text>class="activeTab"</text>}><a href="#" class="tab" data-show-page="pendingAccounts" id="pendingAccountsTabTitle">Pending Users (@Model.PendingAccountSearchParameters.ItemCount)</a></li>
+        </ul>
+        <div id="accounts">
+            <div class="waitingOverlay hidden"></div>
+            <div class="tabPage @if (Model.CompanySearchResults.ItemCount == 0)
+                                {<text>hidden</text>}" id="companies">@Html.Partial("_CompaniesPartial", Model.CompanySearchResults)
+            </div>
+            <div class="tabPage @if (Model.CompanySearchResults.ItemCount > 0 || Model.ActiveAccountSearchParameters.ItemCount == 0)
+                                {<text>hidden</text>}" id="activeAccounts">@Html.Partial("_ActiveAccountsPartial", Model.ActiveAccountSearchParameters)
+            </div>
+            <div class="tabPage @if (Model.CompanySearchResults.ItemCount > 0 || Model.ActiveAccountSearchParameters.ItemCount > 0)
+                                {<text>hidden</text>}" id="suspendedAccounts">@Html.Partial("_SuspendedAccountsPartial", Model.SuspendedAccountSearchParameters)
+            </div>
+            <div class="tabPage @if (Model.CompanySearchResults.ItemCount > 0 || Model.ActiveAccountSearchParameters.ItemCount > 0)
+                                {<text>hidden</text>}" id="pendingAccounts">@Html.Partial("_PendingAccountsPartial", Model.PendingAccountSearchParameters)
+            </div>
+        </div>
+    </section>
+
+    @Html.Partial("_ConfirmDialog")
+}
+else
+{
+    <h2>No Results Available</h2>
+}
+
+@section styles{
+    <style>
+        #SearchTerm {
+            padding-top: 6px;
+            padding-bottom: 4px;
+        }
+
+        #accounts {
+            position: relative;
+        }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .tabs {
+                height: auto;
+            }
+
+            ul.tabs li {
+                padding: 5px 2px;
+                border: 1px solid #ccc;
+                margin: 2px 0;
+                display: block;
+            }
+
+                ul.tabs li.activeTab {
+                    border: 1px solid orange;
+                }
+
+                    ul.tabs li.activeTab a {
+                        font-weight: bold;
+                    }
+
+                ul.tabs li a, .tab {
+                    display: block;
+                    width: 100%;
+                }
+
+            .dataTableToolbar {
+                height: auto;
+            }
+
+                .dataTableToolbar .tableActions {
+                    display: inline-block;
+                }
+
+            .tableActions li {
+                display: inline-block;
+            }
+
+                .tableActions li:first-child {
+                    padding: 3px 8px;
+                }
+
+            .companyNameColumn, .firstNameColumn, .lastNameColumn, .accountTypeColumn {
+                display: none;
+            }
+
+            .userNameColumn {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .selectColumn {
+                width: 1% !important;
+            }
+        }
+    </style>
+}
+
+@section scripts
+{
+    <script>
+        // postify.js
+        // Converts an object to an ASP.NET MVC  model-binding-friendly format
+        // Author: Nick Riggs
+        // http://www.nickriggs.com
+
+        $.postify = function(value) {
+            var result = {};
+
+            var buildResult = function(object, prefix) {
+                for (var key in object) {
+
+                    var postKey = isFinite(key)
+                        ? (prefix != "" ? prefix : "") + "[" + key + "]"
+                        : (prefix != "" ? prefix + "." : "") + key;
+
+                    switch (typeof(object[key])) {
+                    case "number":
+                    case "string":
+                    case "boolean":
+                        result[postKey] = object[key];
+                        break;
+                    case "object":
+                        if (object[key].toUTCString)
+                            result[postKey] = object[key].toUTCString().replace("UTC", "GMT");
+                        else {
+                            buildResult(object[key], postKey != "" ? postKey : key);
+                        }
+                    }
+                }
+            };
+
+            buildResult(value, "");
+
+            return result;
+        };
+    </script>
+    <script>
+        var waitCount = 0;
+
+        $(function() {
+            // tab switch function
+            $('.tab').click(function(e) {
+                e.preventDefault();
+
+                if (!$(this).parent().hasClass('activeTab')) {
+                    $(".tabs .activeTab").removeClass('activeTab');
+                    $(this).parent().addClass('activeTab');
+                    $('.tabPage').addClass('hidden');
+                    $('#' + $(this).attr('data-show-page')).removeClass('hidden');
+                }
+            });
+
+            // initialize control event handlers
+            initializeCompanyControls();
+            initializeActiveAccountControls();
+            initializeSuspendedAccountControls();
+            initializePendingAccountControls();
+        });
+
+        function showWaitingOverlay() {
+            waitCount++;
+
+            //$('.tabPage:not(.hidden)>div>.waitingOverlay').removeClass('hidden');
+            $('#accounts>.waitingOverlay').removeClass('hidden');
+        }
+
+        function hideWaitingOverlay() {
+            waitCount--;
+
+            if (waitCount <= 0) {
+                $('.waitingOverlay').addClass('hidden');
+            }
+        }
+
+        function showErrors(errorResponse) {
+            //waitCount = 1;
+
+            //hideWaitingOverlay();
+
+            ajaxPostError(errorResponse, function(errors) {
+                var $errorList = $('<ul></ul>');
+
+                $.each(errors, function(nguid, elem) {
+                    var $listItem = $('<li></li>');
+                    var $icon = $('<span></span>').addClass('ui-icon ui-icon-alert').css('float', 'left');
+                    var $message = $('<span></span>').css('float', 'right').css('width', '92%').append(elem);
+
+                    $listItem.append($icon).append($message);
+                    $errorList.append($listItem);
+                });
+
+                showMessageBox("Error", $errorList);
+            });
+        }
+
+        // initialize action buttons such as assign pro license or resend activation etc.
+
+        function setupButton(buttonSelector, enabledColor, selectAllSelector, checkBoxSelector) {
+            var $button = $(buttonSelector);
+
+            if ($(checkBoxSelector).length == 0) {
+                $button.attr('disabled', 'disabled').css('color', '#bbb');
+                $(selectAllSelector).attr('value', 'all').css('color', '#228b22 !important');
+            } else if ($button.attr('disabled') == 'disabled') {
+                $button.removeAttr('disabled').css('color', enabledColor);
+                $(selectAllSelector).attr('value', 'none').css('color', '#bbb');
+            }
+        }
+
+        function setupSortColumn($form, newSortField) {
+            var currentSortField = $form.find('#SortField').val();
+            var sortOrder = $form.find('#SortOrder').val();
+
+            if (newSortField == currentSortField && sortOrder == 'ASC') {
+                $form.find('#SortOrder').val('DESC');
+            } else {
+                $form.find('#SortOrder').val('ASC');
+            }
+
+            $form.find('#SortField').val(newSortField);
+        }
+
+        function searchAccountsResponse(response, updateSuccessful) {
+            if (response.errors != null && response.errors.length > 0) {
+                $('<div/>').html('<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>' + response.errors[0] + '</p>').dialog({
+                    title: "Errors",
+                    width: "345",
+                    modal: true,
+                    resizable: false,
+                    closeOnEscape: true,
+                    closeText: 'Close',
+                    buttons: {
+                        "OK": function() { $(this).dialog("close"); }
+                    }
+                });
+            } else {
+                updateSuccessful();
+            }
+        }
+
+        function updateActiceSuspendedUsersTabs(response) {
+            var $suspendedAccountsForm = $('#suspendedAccounts>form');
+            var $activeAccountsForm = $('#activeAccounts>form');
+            if (response.success !== undefined && !response.success) {
+                showErrors(response);
+            }
+            searchActiveAccounts($activeAccountsForm);
+            searchSuspendedAccounts($suspendedAccountsForm);
+        }
+
+        /* Company Tab Functions */
+
+        function initializeCompanyControls() {
+            $('#nextCompanyPage').click(nextCompanyPageClick);
+            $('#prevCompanyPage').click(previousCompanyPageClick);
+            $('#companies #PageSize').change(companiesChangePageSize);
+            $('#companies #CurrentPage').change(companiesChangeCurrentPage);
+        }
+
+        function searchCompanies($form) {
+            showWaitingOverlay();
+            $.post('@Url.Action("AjaxSearchCompanies", "Search", new {area = "CompanyAdmin"})', $form.serialize(), searchCompaniesResponse);
+        }
+
+        function searchCompaniesResponse(response) {
+            $('#companies').html(response);
+            initializeCompanyControls();
+            hideWaitingOverlay();
+        }
+
+        // next button
+
+        function nextCompanyPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchCompanies($form);
+        }
+
+        //previous button
+
+        function previousCompanyPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchCompanies($form);
+        }
+
+        // current page and page size drop downs
+
+        function companiesChangeCurrentPage() {
+            var $form = $(this).parents('form');
+
+            searchCompanies($form);
+        }
+
+        function companiesChangePageSize() {
+            var $form = $(this).parents('form');
+
+            $form.find('#CurrentPage').val(1);
+
+            searchCompanies($form);
+        }
+
+        /* Active Accounts Tab Functions */
+
+        function initializeActiveAccountControls() {
+            $('#nextActiveAccountPage').click(nextActiveAccountPageClick);
+            $('#prevActiveAccountPage').click(previousActiveAccountPageClick);
+            $('#activeAccounts #PageSize').change(activeAccountChangePageSize);
+            $('#activeAccounts #CurrentPage').change(activeAccountChangeCurrentPage);
+            $('#selectAllActiveAccounts').change(selectAllActiveAccountsChange);
+            $('.selectedActiveAccount').change(selectedActiveAccountChange);
+                                                                                                @*$('#deleteSelectedActiveAccounts').click(deleteSelectedActiveAccountsClick);*@
+            $('#disableSelectedActiveAccounts').click(disableSelectedActiveAccountsClick);
+            $('#assignLicenses').click(assignLicensesClick);
+            $('#activeAccounts .columnSort').click(activeAccountsColumnSort);
+        }
+
+        function setupActiveButtons() {
+            setupAssignLicenseButton();
+            setupDisableActiveAccountsButton();
+                                                                                                @*setupDeleteActiveAccountsButton();*@
+        }
+
+        function setupAssignLicenseButton() {
+            setupButton('#assignLicenses', '#228b22', '#selectAllActiveAccounts', '.selectedActiveAccount:checked');
+        }
+
+        function setupDisableActiveAccountsButton() {
+            setupButton('#disableSelectedActiveAccounts', '#600', '#selectAllActiveAccounts', '.selectedActiveAccount:checked');
+        }
+
+                                                        @*//function setupDeleteActiveAccountsButton() {
+        //    setupButton('#deleteSelectedActiveAccounts', '#600', '#selectAllActiveAccounts', '.selectedActiveAccount:checked');
+        //}*@
+
+        function searchActiveAccounts($form) {
+            var url = '@Url.Action("AjaxSearchActiveAccounts", "Search", new {area = "CompanyAdmin"})';
+
+            showWaitingOverlay();
+
+            ajaxGetSetup(url, function(token) {
+                ajaxPost(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', searchActiveAccountResponse, showErrors, hideWaitingOverlay);
+            });
+        }
+
+        function searchActiveAccountResponse(response) {
+            searchAccountsResponse(response, function() {
+                $('#activeAccounts').html(response);
+                $('#activeAccountsTabTitle').text('Active Users (' + $('#activeAccounts form input[name="ItemCount"]').attr('value') + ')');
+                initializeActiveAccountControls();
+                //hideWaitingOverlay();
+            });
+            //if (response.errors != null && response.errors.length > 0) {
+            //    $('<div/>').html('<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>' + response.errors[0] + '</p>').dialog({
+            //        title: "Errors",
+            //        width: "345",
+            //        modal: true,
+            //        resizable: false,
+            //        closeOnEscape: true,
+            //        closeText: 'Close',
+            //        buttons: {
+            //            "OK": function () { $(this).dialog("close"); }
+            //        }
+            //    });
+            //} else {
+            //    $('#activeAccounts').html(response);
+
+            //    $('#activeAccountsTabTitle').text('Active Accounts(' + $('#activeAccounts form input[name="ItemCount"]').attr('value') + ')');
+
+            //    initializeActiveAccountControls();
+            //}
+        }
+
+        // next button
+
+        function nextActiveAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchActiveAccounts($form);
+        }
+
+        //previous button
+
+        function previousActiveAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchActiveAccounts($form);
+        }
+
+        // page size and current page controls
+
+        function activeAccountChangeCurrentPage() {
+            var $form = $(this).parents('form');
+
+            searchActiveAccounts($form);
+        }
+
+        function activeAccountChangePageSize() {
+            var $form = $(this).parents('form');
+
+            $form.find('#CurrentPage').val(1);
+
+            searchActiveAccounts($form);
+        }
+
+        // select all checkbox
+
+        function selectAllActiveAccountsChange() {
+            if ($(this).attr('checked') == 'checked') {
+                $('.selectedActiveAccount').attr('checked', 'checked');
+
+            } else {
+                $('.selectedActiveAccount').removeAttr('checked');
+            }
+            setupActiveButtons();
+        }
+
+        // checkboxes on each row
+
+        function selectedActiveAccountChange() {
+            if ($('.selectedActiveAccount:checked').length == 0) {
+                $('#selectAllActiveAccounts').removeAttr('checked');
+            } else if ($('#selectAllActiveAccounts').attr('checked') != 'checked') {
+                $('#selectAllActiveAccounts').attr('checked', 'checked');
+            }
+
+            setupActiveButtons();
+        }
+
+        function activeAccountsColumnSort(e) {
+            var $form = $(this).parents('form');
+            var newSortField = $(this).attr('data-column-name');
+
+            e.preventDefault();
+
+            setupSortColumn($form, newSortField);
+            searchActiveAccounts($form);
+        }
+
+        function disableSelectedActiveAccountsClick(e) {
+            var $form = $(this).parents('form');
+            var url = '@Url.Action("AjaxDisableActiveAccounts", "Search", new {area = "CompanyAdmin"})?' + $form.serialize();
+
+            e.preventDefault();
+
+                                                                                    @*showConfirmationDialog("Delete Active Account", "Are you sure you want to delete the selected accounts?", function () {*@
+            var userIds = { userIds: [] };
+
+            $('.selectedActiveAccount:checked').each(function(i, el) {
+                userIds.userIds.push({ id: $(el).attr('data-id'), eid: $(el).attr('data-entity-id') });
+            });
+
+            showWaitingOverlay();
+
+            ajaxGetSetup(url, function(token) {
+                ajaxPost(url, token, $.postify(userIds), 'application/x-www-form-urlencoded', 'json', updateActiceSuspendedUsersTabs, showErrors, hideWaitingOverlay);
+            });
+
+                                                                                    @*/});*@
+        }
+
+                                                                @*function deleteSelectedActiveAccountsClick(e) {
+            var $form = $(this).parents('form');
+
+            e.preventDefault();
+
+            showConfirmationDialog("Delete Active Account", "Are you sure you want to delete the selected accounts?", function () {
+                var userIds = { userIds: [] };
+
+                $('.selectedActiveAccount:checked').each(function (i, el) {
+                    userIds.userIds.push({ id: $(el).attr('data-id'), eid: $(el).attr('data-entity-id') });
+                });
+
+                $.post('@Url.Action("AjaxRemoveActiveAccounts", "Search", new { area = "CompanyAdmin" })?' + $form.serialize(), $.postify(userIds), searchActiveAccountResponse);
+            });
+        }*@
+
+        function assignLicensesClick(e) {
+            var $form = $(this).parents('form');
+            var url = '@Url.Action("AjaxAssignProLicenses", "Search", new {area = "CompanyAdmin"})?' + $form.serialize();
+
+            e.preventDefault();
+
+            showConfirmationDialog("Assign Licenses", "Are you sure you want to assign licenses to the selected accounts?", function() {
+                var userIds = { userIds: [] };
+
+                $('.selectedActiveAccount:checked').each(function(i, el) {
+                    userIds.userIds.push({ id: $(el).attr('data-id'), eid: $(el).attr('data-entity-id') });
+                });
+
+                showWaitingOverlay();
+
+                ajaxGetSetup(url, function(token) {
+                    ajaxPost(url, token, $.postify(userIds), 'application/x-www-form-urlencoded', 'json', assignLicensesResponse, showErrors, hideWaitingOverlay);
+                });
+                                                                                                                @*$.post('@Url.Action("AjaxAssignProLicenses", "Search", new { area = "CompanyAdmin" })?' + $form.serialize(), $.postify(userIds), searchActiveAccountResponse);*@
+            });
+        }
+
+        function assignLicensesResponse(response) {
+            if (response.success !== undefined) {
+                if (!response.success) showErrors(response);
+                else searchActiveAccounts($('#activeAccounts>form'));
+            }
+        }
+
+        /* Suspended Accounts Tab Functions */
+
+        function initializeSuspendedAccountControls() {
+            $('#nextSuspendedAccountPage').click(nextSuspendedAccountPageClick);
+            $('#prevSuspendedAccountPage').click(previouSuspendedAccountPageClick);
+            $('#suspendedAccounts #PageSize').change(suspendedAccountChangePageSize);
+            $('#suspendedAccounts #CurrentPage').change(suspendedAccountChangeCurrentPage);
+            $('#selectAllSuspendedAccounts').change(selectAllSuspendedAccountsChange);
+            $('.selectedSuspendedAccount').change(selectedSuspendedAccountChange);
+            $('#enableSelectedSuspendedAccounts').click(enableSelectedSuspendedAccountsClick);
+            $('#suspendedAccounts .columnSort').click(activeAccountsColumnSort);
+        }
+
+        function setupSuspendedButtons() {
+            setupEnableActiveAccountsButton();
+            //setupDeleteActiveAccountsButton();
+        }
+
+        function setupEnableActiveAccountsButton() {
+            setupButton('#enableSelectedSuspendedAccounts', '#600', '#selectAllSuspendedAccounts', '.selectedSuspendedAccount:checked');
+        }
+
+        // next button
+
+        function nextSuspendedAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchSuspendedAccounts($form);
+        }
+
+        //previous button
+
+        function previouSuspendedAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchSuspendedAccounts($form);
+        }
+
+        function searchSuspendedAccounts($form) {
+            var url = '@Url.Action("AjaxSearchSuspendedAccounts", "Search", new {area = "CompanyAdmin"})';
+
+            showWaitingOverlay();
+
+            ajaxGetSetup(url, function(token) {
+                ajaxPost(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', searchSuspendedAccountResponse, showErrors, hideWaitingOverlay);
+            });
+        }
+
+        function searchSuspendedAccountResponse(response) {
+            searchAccountsResponse(response, function() {
+                $('#suspendedAccounts').html(response);
+                $('#suspendedAccountsTabTitle').text('Suspended Users (' + $('#suspendedAccounts form input[name="ItemCount"]').attr('value') + ')');
+                initializeSuspendedAccountControls();
+                //hideWaitingOverlay();
+            });
+            //if (response.errors != null && response.errors.length > 0) {
+            //    $('<div/>').html('<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>' + response.errors[0] + '</p>').dialog({
+            //        title: "Errors",
+            //        width: "345",
+            //        modal: true,
+            //        resizable: false,
+            //        closeOnEscape: true,
+            //        closeText: 'Close',
+            //        buttons: {
+            //            "OK": function () { $(this).dialog("close"); }
+            //        }
+            //    });
+            //} else {
+            //    $('#activeAccounts').html(response);
+
+            //    $('#activeAccountsTabTitle').text('Active Accounts(' + $('#activeAccounts form input[name="ItemCount"]').attr('value') + ')');
+
+            //    initializeActiveAccountControls();
+            //}
+        }
+
+        // page size and current page controls
+
+        function suspendedAccountChangePageSize() {
+            var $form = $(this).parents('form');
+
+            $form.find('#CurrentPage').val(1);
+
+            searchSuspendedAccounts($form);
+        }
+
+        function suspendedAccountChangeCurrentPage() {
+            var $form = $(this).parents('form');
+
+            searchSuspendedAccounts($form);
+        }
+
+        // select all checkbox
+
+        function selectAllSuspendedAccountsChange() {
+            if ($(this).attr('checked') == 'checked') {
+                $('.selectedSuspendedAccount').attr('checked', 'checked');
+
+            } else {
+                $('.selectedSuspendedAccount').removeAttr('checked');
+            }
+            setupSuspendedButtons();
+        }
+
+        // checkboxes on each row
+
+        function selectedSuspendedAccountChange() {
+            if ($('.selectedSuspendedAccount:checked').length == 0) {
+                $('#selectAllSuspendedAccounts').removeAttr('checked');
+            } else if ($('#selectAllSuspendedAccounts').attr('checked') != 'checked') {
+                $('#selectAllSuspendedAccounts').attr('checked', 'checked');
+            }
+
+            setupSuspendedButtons();
+        }
+
+        function enableSelectedSuspendedAccountsClick(e) {
+            var $form = $(this).parents('form');
+            var url = '@Url.Action("AjaxEnableSuspendedAccounts", "Search", new {area = "CompanyAdmin"})?' + $form.serialize();
+
+            e.preventDefault();
+
+            //showConfirmationDialog("Delete Active Account", "Are you sure you want to delete the selected accounts?", function () {
+            var userIds = { userIds: [] };
+
+            $('.selectedSuspendedAccount:checked').each(function(i, el) {
+                userIds.userIds.push({ id: $(el).attr('data-id'), eid: $(el).attr('data-entity-id') });
+            });
+
+            showWaitingOverlay();
+
+            ajaxGetSetup(url, function(token) {
+                ajaxPost(url, token, $.postify(userIds), 'application/x-www-form-urlencoded', 'json', updateActiceSuspendedUsersTabs, showErrors, hideWaitingOverlay);
+            });
+        }
+
+        /* Pending Accounts Tab Functions */
+
+        function initializePendingAccountControls() {
+            $('#nextPendingAccountPage').click(nextPendingAccountPageClick);
+            $('#prevPendingAccountPage').click(previousPendingAccountPageClick);
+            $('#pendingAccounts #PageSize').change(pendingAccountChangePageSize);
+            $('#pendingAccounts #CurrentPage').change(pendingAccountChangeCurrentPage);
+            $('#selectAllPendingAccounts').change(selectAllPendingAccountsChange);
+            $('.selectedPendingAccount').change(selectedPendingAccountChange);
+            $('#resendActivations').click(resendActivationsClick);
+            $('#deleteSelectedPendingAccounts').click(deleteSelectedPendingAccountsClick);
+            $('#pendingAccounts .columnSort').click(pendingAccountsColumnSort);
+        }
+
+        function setupPendingButtons() {
+            setupResendActivationButton();
+            setupDeletePendingAccountButton();
+        }
+
+        function setupResendActivationButton() {
+            setupButton('#resendActivations', '#228b22', '#selectAllPendingAccounts', '.selectedPendingAccount:checked');
+        }
+
+        function setupDeletePendingAccountButton() {
+            setupButton('#deleteSelectedPendingAccounts', '#600', '#selectAllPendingAccounts', '.selectedPendingAccount:checked');
+        }
+
+        function searchPendingAccounts($form) {
+            var url = '@Url.Action("AjaxSearchPendingAccounts", "Search", new {area = "CompanyAdmin"})';
+
+            showWaitingOverlay();
+
+            ajaxGetSetup(url, function (token) {
+                ajaxPost(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', searchPendingAccountResponse, showErrors, hideWaitingOverlay);
+            });
+        }
+
+        function searchPendingAccountResponse(response) {
+            searchAccountsResponse(response, function() {
+                $('#pendingAccounts').html(response);
+                $('#pendingAccountsTabTitle').text('Pending Users (' + $('#pendingAccounts form input[name="ItemCount"]').attr('value') + ')');
+                initializePendingAccountControls();
+            });
+            //if (response.errors != null && response.errors.length > 0) {
+            //    $('<div/>').html('<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>' + response.errors[0] + '</p>').dialog({
+            //        title: "Errors",
+            //        width: "345",
+            //        modal: true,
+            //        resizable: false,
+            //        closeOnEscape: true,
+            //        closeText: 'Close',
+            //        buttons: {
+            //            "OK": function () { $(this).dialog("close"); }
+            //        }
+            //    });
+            //} else {
+            //    $('#pendingAccounts').html(response);
+
+            //    $('#pendingAccountsTabTitle').text('Pending Accounts(' + $('#pendingAccounts form input[name="ItemCount"]').attr('value') + ')');
+
+            //    initializePendingAccountControls();
+            //}
+        }
+
+        // next button
+
+        function nextPendingAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchPendingAccounts($form);
+        }
+
+        //previous button
+
+        function previousPendingAccountPageClick(e) {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#CurrentPage');
+            var nextPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(nextPage);
+
+            searchPendingAccounts($form);
+        }
+
+        // page size and current page controls
+
+        function pendingAccountChangeCurrentPage() {
+            var $form = $(this).parents('form');
+            searchPendingAccounts($form);
+        }
+
+        function pendingAccountChangePageSize() {
+            var $form = $(this).parents('form');
+            $form.find('#CurrentPage').val(1);
+            searchPendingAccounts($form);
+        }
+
+        // select all checkbox
+
+        function selectAllPendingAccountsChange() {
+            if ($(this).attr('checked') == 'checked') {
+                $('.selectedPendingAccount').attr('checked', 'checked');
+
+            } else {
+                $('.selectedPendingAccount').removeAttr('checked');
+            }
+            setupPendingButtons();
+        }
+
+        // checkboxes on each row
+
+        function selectedPendingAccountChange() {
+            if ($('.selectedPendingAccount:checked').length == 0) {
+                $('#selectAllPendingAccounts').removeAttr('checked');
+            } else if ($('#selectAllPendingAccounts').attr('checked') != 'checked') {
+                $('#selectAllPendingAccounts').attr('checked', 'checked');
+            }
+
+            setupPendingButtons();
+        }
+
+        function pendingAccountsColumnSort(e) {
+            var $form = $(this).parents('form');
+            var newSortField = $(this).attr('data-column-name');
+
+            e.preventDefault();
+
+            setupSortColumn($form, newSortField);
+            searchPendingAccounts($form);
+        }
+
+        function deleteSelectedPendingAccountsClick(e) {
+            var $form = $(this).parents('form');
+            var url = '@Url.Action("AjaxRemovePendingAccounts", "Search", new {area = "CompanyAdmin"})?' + $form.serialize();
+
+            e.preventDefault();
+
+            showConfirmationDialog("Delete Pending Accounts", "Are you sure you want to remove the selected pending acounts?", function() {
+                var userIds = { userIds: [] };
+
+                $('.selectedPendingAccount:checked').each(function(i, el) {
+                    userIds.userIds.push({ id: $(el).attr('data-id'), eid: $(el).attr('data-entity-id'), email: $(el).attr('data-email') });
+                });
+
+                showWaitingOverlay();
+
+                ajaxGetSetup(url, function(token) {
+                    ajaxPost(url, token, JSON.stringify(userIds), 'application/json', 'json', function(response) {
+                        if (response.success !== undefined) {
+                            if (response.errors !== undefined && response.errors.length > 0) {
+                                showErrors(response);
+                            }
+                        }
+
+                        searchPendingAccounts($('#pendingAccounts>form'));
+                    }, showErrors, hideWaitingOverlay);
+                });
+            });
+        }
+
+        function resendActivationsClick(e) {
+            e.preventDefault();
+
+            showConfirmationDialog("Resend Activation Links", "Are you sure you want to resend the activation link to the selected pending acounts?", function() {
+                var emails = new Array();
+                var url = '@Url.Action("AjaxResendActivationLinks", "UserAdminHome", new {area = "UserAdmin"})';
+
+                $('.selectedPendingAccount:checked').each(function(i, el) {
+                    emails[i] = $(el).attr('data-email');
+                });
+
+                showWaitingOverlay();
+
+                ajaxGetSetup(url, function(token) {
+                    ajaxPost(url, token, $.postify(emails), 'application/x-www-form-urlencoded', 'json', function(response) {
+                        if (response.success !== undefined) {
+                            if (response.success) {
+                                showMessageBox("Resent Activation Emails", "Activation emails sent.");
+                            } else if (response.errors !== undefined && response.errors.length > 0) {
+                                showErrors(response);
+                            }
+                        }
+                        $('.selectedPendingAccount:checked').removeProp('checked');
+                        $('#selectAllPendingAccounts').removeProp('checked');
+                        setupPendingButtons();
+                    }, showErrors, hideWaitingOverlay);
+                });
+            });
+        }
+    </script>
+    }

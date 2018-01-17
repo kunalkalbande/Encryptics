@@ -1,0 +1,313 @@
+﻿@using System.Security.Cryptography
+@using System.Text
+@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+<div id="accountDetailsContainer">
+    <div id="avatar">
+        <span>
+            <img src="https://www.gravatar.com/avatar/@ComputeHash(Model.UserName)?s=300&d=identicon"/>
+            <br />
+            <a href="https://www.gravatar.com" target="_new">image by Gravatar</a>
+        </span>
+    </div>
+    <div id="accountDetails">
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.UserName):</th>
+                <td>@Html.DisplayFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Name):</th>
+                <td><span id="name">@Html.DisplayFor(m => m.Name)&nbsp;<a href="#" id="editNameLink">edit</a></span>@using (Html.BeginForm())
+                                                                                                                    {@Html.AntiForgeryToken()@Html.HiddenFor(m => m.EntityId)@Html.HiddenFor(m => m.UserId)<span id="editableName" style="display: none;">@Html.EditorFor(m => m.FirstName) @Html.EditorFor(m => m.LastName) <a href="#" id="editNameSubmit"></a></span>}</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.CompanyName):</th>
+                <td>@Html.DisplayFor(m => m.CompanyName)</td>
+            </tr>
+            <tr>
+                <td style="-webkit-column-span: all; column-span: all;">&nbsp;</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.LicenseType):</th>
+                <td>@Model.LicenseType.GetDisplay()</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.AccountStatus):</th>
+                <td>@Html.DisplayFor(m => m.AccountStatus)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.DateRegistered):</th>
+                <td>@Html.DisplayFor(m => m.DateRegistered)</td>
+            </tr>
+            @if (Model.DateLicenseExpires > DateTime.MinValue)
+            {
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.DateLicenseExpires):</th>
+                    <td>@Html.DisplayFor(m => m.DateLicenseExpires)</td>
+                </tr>
+
+            }
+            else
+            {
+                <tr>
+                    <th>&nbsp;</th>
+                    <td>&nbsp;</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<style>
+    #accountDetails {
+        /*background: honeydew;*/
+        float: left;
+        text-align: center;
+    }
+
+    @@media screen and (max-width: 1024px) {
+        #accountDetails {
+            width: 60%;
+        }
+
+            #accountDetails td, #accountDetails th {
+                font-size: 20px;
+            }
+    }
+
+    @@media screen and (max-width: 480px) {
+        #accountDetails {
+            width: 100%;
+        }
+    }
+
+    #accountDetailsContainer {
+        margin-top: 6%;
+    }
+
+    #accountDetails table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    #accountDetails td:first-child {
+        text-align: right;
+    }
+
+    #accountDetails th {
+        text-align: right;
+        font-weight: normal;
+        color: #999;
+        padding-right: 2px;
+        width: 33%;
+    }
+
+    #accountDetails td, #accountDetails td span {
+        text-align: left;
+        color: #666;
+        font-weight: bold;
+    }
+
+    #accountDetails td {
+        width: 60%;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+
+    @@media screen and (max-width: 1024px) {
+        #accountDetails th {
+            font-size: 20px;
+        }
+
+        #accountDetails td, #accountDetails td span {
+            font-size: 22px;
+        }
+    }
+
+    @@media screen and (max-width: 480px) {
+        #accountDetails th, #accountDetails td, #accountDetails td span {
+            font-size: 16px;
+        }
+    }
+
+    #avatar {
+        float: right;
+    }
+
+        #avatar span {
+            text-align: right;
+        }
+
+    @@media screen and (max-width: 1024px) {
+        #avatar {
+            /*background: aliceblue;*/
+            overflow: hidden;
+            text-align: center;
+            width: 40%;
+        }
+
+            #avatar img {
+                width: 45%;
+            }
+
+            #avatar a {
+                margin-left: 49px;
+            }
+    }
+
+    @@media screen and (max-width: 480px) {
+        #avatar {
+            text-align: right;
+            margin: -4% 0 3% 0;
+            width: 40%;
+        }
+
+            #avatar span {
+                float: right;
+            }
+
+            #avatar img {
+                width: 100px;
+            }
+    }
+
+    #avatar span a:not(:hover) {
+        color: #999;
+        text-decoration: underline #999;
+    }
+
+    #name a {
+        color: #F28B20;
+        text-decoration: underline;
+    }
+
+    #editableName input[type=text] {
+        background-color: #eee;
+        border: 1px solid #999;
+        width: 37%;
+        height: 25px;
+        margin: -4px -2px -4px 0;
+        padding: 0 2px;
+    }
+
+    @@media screen and (max-width: 1024px) {
+        #editableName input[type=text] {
+            font-size: 22px;
+        }
+    }
+
+    @@media screen and (max-width: 480px) {
+        #editableName input[type=text] {
+            font-size: 16px;
+        }
+    }
+
+
+    #editNameSubmit {
+        background: url(https://www.encryptics.com/img/bg3.png);
+        padding: 5px 10px;
+        text-align: center;
+        color: white;
+        font-family: arial;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-left: -2px;
+    }
+
+        #editNameSubmit:hover {
+            color: black;
+        }
+
+        #editNameSubmit:after {
+            content: " >";
+            color: black;
+            font-size: 24px;
+        }
+</style>
+
+<script>
+    $(function () {
+        $('#editNameLink').click(showNameEditor);
+        $('#editNameSubmit').click(submitNameChanges);
+        var $form = $('#accountDetails').find('form');
+        $form.find('#FirstName').keydown(submitNameChangeFilter);
+        $form.find('#LastName').keydown(submitNameChangeFilter);
+    });
+
+    function showNameEditor(e) {
+        e.preventDefault();
+        $('#name').css('display', 'none');
+        $('#editableName').css('display', 'inline');
+    }
+
+    function submitNameChanges(e) {
+        var $form = $('#accountDetails').find('form');
+        var formData = $form.serializeObject();
+        var $button = $form.find('#editNameSubmit');
+        var buttonBackgroundCss = 'url(https://www.encryptics.com/img/bg3.png)'; // $button.css('background');
+        var $editLink = $('#editNameLink');
+        var url = '@Url.Action("AjaxUpdateAccount", "UserHome", new { area = "UserAccount" })';
+
+        e.preventDefault();
+
+        $button.unbind('click').css('background', 'gray');
+
+        ajaxGetSetup(url, function(token) {
+            ajaxPost(url, token, formData, function (response) {
+                ajaxPostSuccessful(response, function () {
+                    $('#name').html(formData.FirstName + ' ' + formData.LastName + '&nbsp;').append($editLink);
+                    $('#editNameLink').click(showNameEditor);
+                }, function (errors) {
+                    var errorString = errors.join('\n');
+                    alert('Failed: ' + errorString);
+                });
+                $('#editNameSubmit').click(submitNameChanges);
+            }, function () {
+                alert('@Resources.CouldNotUpdateUserAccountErrorMessage');
+            }, function () {
+                $('#name').css('display', 'inline');
+                $('#editableName').css('display', 'none');
+                $button.css('background', buttonBackgroundCss).click(submitNameChanges);
+            });
+        });
+    }
+
+    function submitNameChangeFilter(e) {
+        switch (e.keyCode) {
+            case 13:
+                submitNameChanges(e);
+                break;
+            case 27:
+                $('#name').css('display', 'inline');
+                $('#editableName').css('display', 'none');
+                $('#accountDetails').find('form').get(0).reset();
+                break;
+        }
+    }
+</script>
+
+@functions {
+    public string ComputeHash(string email)
+    {
+        // Convert the input string to a byte array and compute the hash. 
+        byte[] data = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(Model.UserName));
+
+        // Create a new Stringbuilder to collect the bytes 
+        // and create a string.
+        var sBuilder = new StringBuilder();
+
+        // Loop through each byte of the hashed data  
+        // and format each one as a hexadecimal string. 
+        for (int i = 0; i < data.Length; i++)
+        {
+            sBuilder.Append(data[i].ToString("x2"));
+        }
+
+        // Return the hexadecimal string. 
+        return sBuilder.ToString();
+    }
+}

@@ -1,0 +1,8 @@
+﻿@using Encryptics.WebPortal.Areas.UserAdmin.Models
+@model UserSearchParametersModel.UserSearchLocation
+
+@foreach (var value in Enum.GetValues(typeof(UserSearchParametersModel.UserSearchLocation)))
+{
+    @Html.RadioButtonFor(m => m, value)
+    @Html.Label(value.ToString())
+}

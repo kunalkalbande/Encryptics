@@ -1,0 +1,277 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@using Encryptics.WebPortal.Models
+@model PageableViewModel<SoftwareReleaseModel>
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Software Releases";
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+        @ViewBag.Title
+    </h4>
+</div>
+
+@if (encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/Create"))
+{<div class="dataTableToolbar">
+    <ul class="toolbar" id="actionToolbar">
+        <li>
+            <a href="#" id="createNewRelease">
+                <div>
+                    Create Release 
+                       <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>
+    </ul>
+    </div>
+}
+
+<section class="tabbed">
+    <ul class="tabs">
+        @foreach (SoftwareReleaseProductModel productLine in ViewBag.Platforms)
+        {
+            <li class="activeTab"><a href="#" class="tab">@productLine.ProductName</a></li>
+        }
+    </ul>
+
+    @foreach (SoftwareReleaseProductModel productLine in ViewBag.Platforms)
+    {
+        var productId = productLine.ProductId;
+        <div class="tabPage">
+            <form>
+                @if (encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/SetGlobalMinimum") || encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/Activate"))
+                {<div class="dataTableToolbar">
+                    <ul class="tableActions">
+                        @if (encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/SetGlobalMinimum"))
+                        {
+                            <li>
+                                <input type="button" value="set global minimum" class="setGlobalMiniumum" data-product-id="@productId" disabled="disabled">
+                            </li>
+                        }
+                        @if (encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/Activate"))
+                        {
+                            <li>
+                                <input type="button" value="activate version" class="activateVersion" data-product-id="@productId "disabled="disabled">
+                            </li>
+                        }
+                    </ul>
+                </div>}
+            </form>
+            @Html.Partial("_VersionTable", Model.DataItems.Where(x => x.ProductId == productId), new ViewDataDictionary { { "CurrentPage", Model.CurrentPage } })
+        </div>
+
+    }
+</section>
+
+<div style="clear: both" class="dialog" id="createNewReleaseDialog"></div>
+
+@*<div id="releaseNotesDialog" class="dialog">
+    <textarea readonly="readonly" rows="15" cols="80" id="releaseNotesTextArea"></textarea>
+</div>*@
+
+<div style="clear: both" class="dialog" id="editReleaseDialog"></div>
+
+@using (Html.BeginForm("SetGlobalMinimum", "SoftwareReleases", FormMethod.Post, new { id = "globalMinimumForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("versionId")
+}
+
+@using (Html.BeginForm("Activate", "SoftwareReleases", FormMethod.Post, new { id = "activateVersionForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("versionId")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            var dialogWidth = "425";
+            
+            if (isPhone) {
+                dialogWidth = "356";
+            }
+            
+            $('#createNewReleaseDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Create New Software Release Version",
+                width: dialogWidth,
+                height: "635",
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "OK": function () {
+                        submitDialogForm($('#addNewReleaseForm'), $(this));
+                    },
+                    "Cancel": function () {
+                        $(this).html('').dialog("close");
+                    }
+                }
+            });
+
+            $('#editReleaseDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Edit Software Release",
+                width: dialogWidth,
+                height: "550",
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "OK": function () {
+                        submitDialogForm($('#editReleaseForm'), $(this));
+                    },
+                    "Cancel": function () {
+                        $(this).html('').dialog("close");
+                    }
+                }
+            });
+
+            $('#createNewRelease').click(function (e) {
+                e.preventDefault();
+
+                $('#createNewReleaseDialog').html(getWaitPanel()).dialog("open");
+
+                $.get('@Href(Url.Action("Create"))', null, function (response) {
+                    $('#createNewReleaseDialog').html($(response));
+                });
+            });
+
+            $(".softwareRelease").click(function (e) {
+                var versionId = $(this).attr('data-id');
+
+                e.preventDefault();
+
+                $('#editReleaseDialog').html(getWaitPanel()).dialog("open");
+
+                $.get('@Href(Url.Action("Edit"))', { versionId: versionId }, function (response) {
+                    $('#editReleaseDialog').html($(response));
+                });
+            });
+
+            $('.selectedVersion').click(function () {
+                var productId = $(this).attr('data-product-id');
+
+                $('.selectedVersion').not($(this)).attr('checked', false);
+
+                if ($('.selectedVersion').length > 0) {
+                    $('.setGlobalMiniumum[data-product-id=' + productId + ']').attr('disabled', false);
+                    $('.activateVersion[data-product-id=' + productId + ']').attr('disabled', false);
+                } else {
+                    $('.setGlobalMiniumum[data-product-id=' + productId + ']').attr('disabled', true);
+                    $('.activateVersion[data-product-id=' + productId + ']').attr('disabled', true);
+                }
+            });
+
+            $('.setGlobalMiniumum').click(function () {
+                updateReleaseVersion($('#globalMinimumForm'));
+            });
+
+            $('.activateVersion').click(function () {
+                updateReleaseVersion($('#activateVersionForm'));
+            });
+        });
+
+        function submitDialogForm($form, $dialog) {
+            $.validator.unobtrusive.parse($form);
+
+            if ($form.valid()) {
+                $dialog.dialog("close");
+                $form.submit();
+            }
+        }
+
+        function updateReleaseVersion($form) {
+            var selectedVersion = $('.selectedVersion:checked').attr('data-id');
+
+            console.log(selectedVersion);
+
+            $form.find('#versionId').val(selectedVersion);
+            $form.submit();
+        }
+    </script>
+}
+
+@section styles
+{
+    <style>
+        .onoffswitch {
+            width: 84px;
+        }
+
+        .onoffswitch-inner:before {
+            content: "MAJOR";
+            padding-left: 5px;
+        }
+
+        .onoffswitch-inner:after {
+            content: "MINOR";
+            padding-right: 7px;
+        }
+
+        .onoffswitch-switch {
+            width: 17px;
+            height: 17px;
+            margin: 0;
+            border: 2px solid #999999;
+            right: 63px;
+        }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .tableActions li {
+                float: left;
+                width: 45%;
+            }
+
+                .tableActions li:first-child {
+                    margin-bottom: 7px;
+                }
+
+            .versionTable {
+                margin-top: 14%;
+            }
+
+            .selectColumn {
+                width: 1% !important;
+            }
+
+            .versionColumn {
+                width: 70%;
+            }
+
+            .downloadColumn, .releaseNotesColumn {
+                display: none; 
+            }
+
+            .formSection li .fields {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .formSection li .fields input, .formSection li .fields textarea, .formSection li .fields select {
+                width: 95%;
+            }
+
+            .formSection li .fields #ReleaseNotes {
+                width: 95%;
+            }
+        }
+    </style>
+}

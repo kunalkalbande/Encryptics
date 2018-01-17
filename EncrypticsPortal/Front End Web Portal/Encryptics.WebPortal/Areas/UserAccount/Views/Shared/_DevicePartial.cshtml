@@ -1,0 +1,32 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@using Encryptics.WebPortal.Properties
+@model DeviceModel
+@Html.DisplayFor(m => m.HasActiveSession, new { DeviceStatus = Model.Status })
+@Html.DisplayFor(m => m.Type, new { SessionStatus = Model.HasActiveSession ? "Orange" : "Grey" })
+<div class="deviceName"><span class="hiddenDeviceName">@Html.DisplayFor(m => m.Name)</span>@Html.DisplayFor(m => m.Name)</div>
+<div class="deviceField">
+    <span>@Resources.DevicePartialAddedDisplay</span>&nbsp;@Html.DisplayFor(m => m.DateDeployed)
+</div>
+@{
+    string extraButtonClass = Model.Status == DeviceStatus.Active ? string.Empty : "inactiveButton";
+}
+<div class="deviceButtons">
+    <ul>
+        <li class="@extraButtonClass" style="float:left">@if (Model.HasActiveSession)
+            {
+                <a href="#" class="logoffDeviceButton" data-token-id="@Model.TokenId" data-page="@ViewData["CurrentPage"]">@Resources.DevicePartialLogoutDisplay</a>
+            }
+            else
+            {
+                @Resources.DevicePartialLogoutDisplay
+            }
+        </li>
+        <li style="float:left"><a href="#" class="@(Model.Status == DeviceStatus.Active ? Html.Raw("suspendDeviceButton") : Html.Raw("activateDeviceButton"))" data-id="@Model.Id" data-page="@ViewData["CurrentPage"]"></a></li>
+        <li class="deviceActionLast @extraButtonClass" style="float:left"><a href="#" class="forgetDeviceButton" data-id="@Model.Id" data-page="@ViewData["CurrentPage"]">@Resources.DevicePartialForgetDeviceDisplay</a></li>
+    </ul>
+</div>
+<div class="deviceCardError"><h3>@Resources.DevicePartialServerErrorDisplay</h3></div>
+<div class="deviceSuspended" style="@if (Model.Status != DeviceStatus.Active)
+                                    {
+                                        @Html.Raw("display:block")
+                                    }"><div class="deviceSessionStatusSuspended">@Resources.DevicePartialSuspendedDisplay</div></div>

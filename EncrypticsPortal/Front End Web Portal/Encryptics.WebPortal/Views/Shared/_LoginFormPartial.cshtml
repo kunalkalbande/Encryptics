@@ -1,0 +1,30 @@
+﻿@model Encryptics.WebPortal.Models.LoginModel
+<section id="loginForm" class="white">
+    <h3>Portal &mdash; Log In</h3>
+    @using (Html.BeginForm("Login", "Account", new { area = string.Empty, ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Email" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li>
+                    <input type="submit" value="Log in" /></li>
+                <li id="passwordUtilsItem">
+                    @Html.ActionLink("I forgot my password", "ForgotPwd", "Account")
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.HiddenFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                </li>
+            </ol>
+        </fieldset>
+    }
+</section>

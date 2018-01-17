@@ -1,0 +1,20 @@
+﻿@using System.Globalization
+@using Encryptics.WebPortal.Areas.UserAccount.Models
+@model IEnumerable<UsageSummaryModel>
+
+<tr>
+    <th style="text-align: right">@Html.DisplayNameFor(model => model.Year)</th>
+    <th style="text-align: right;">@Html.DisplayNameFor(model => model.Month)</th>
+    <th style="width:10%; text-align: right;">@Html.DisplayNameFor(model => model.Encrypts)</th>
+    <th style="width:20%; text-align: right; white-space: nowrap;">@Html.DisplayNameFor(model => model.Decrypts)</th>
+</tr>
+
+@foreach (UsageSummaryModel item in Model)
+{
+    <tr id="@Html.DisplayFor(modelItem => item.Id)">
+        <td>@Html.DisplayFor(modelItem => item.Year)</td>
+        <td>@CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.Month ?? 0)</td>
+        <td><div style="width: 60px; text-align: right">@Html.DisplayFor(modelItem => item.Encrypts)</div></td>
+        <td><div style="width: 120px; text-align: right">@Html.DisplayFor(modelItem => item.Decrypts)</div></td>
+    </tr>
+}

@@ -1,0 +1,61 @@
+﻿@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAccount.Models.DeviceModel>
+@if (Model.DataItems.Any())
+{
+    <div id="devices">
+        @Html.Partial("_DeviceListPartial", Model.DataItems, new ViewDataDictionary { { "CurrentPage", Model.CurrentPage } })
+        <span id="prevDevicesPage" class="pageNavigation prevPage">
+            @if (Model.CurrentPage > 0)
+            {
+                <a href='#' id='prevPage' data-page="@(Model.CurrentPage - 1)">&laquo; @Resources.PreviousPageText</a>
+            }
+        </span>
+        <span id="nextDevicesPage" class="pageNavigation nextPage">
+            @if (Model.CurrentPage < Model.PageCount)
+            {
+                <a href='#' id='nextPage' data-page="@(Model.CurrentPage + 1)">@Resources.NextPageText &raquo;</a>
+            }
+        </span>
+    </div>
+}
+else
+{
+    string imageLocation = Url.Content("~/Images/LaptopGrey.png");
+    <div id="noDevices">
+        <img src="@imageLocation" alt="" style="@Resources.DevicesPartialLaptopImageStyle">
+        <div>
+            <h2>@Resources.DevicesPartalNoDevicesHeading</h2>
+            <p>@Resources.DevicesPartialNoDevicesInstructions</p>
+        </div>
+    </div>
+}
+<script>
+    $(function () {
+        $('.deviceName').hover(function () {
+            $(this).find('.hiddenDeviceName').css('display', 'block').css('top', $(this).css('top')).css('left', $(this).css('left'));
+        }, function () {
+            $(this).find('.hiddenDeviceName').css('display', 'none');
+        });
+    });
+</script>
+<style>
+    span.nextPage {
+        left: 5%;
+    }
+
+    span.prevPage {
+        right: 5%;
+    }
+
+    .hiddenDeviceName {
+        display: none;
+        background: honeydew;
+        margin: 0;
+        padding: 0;
+        border: 1px black solid;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 200;
+    }
+</style>

@@ -1,0 +1,10 @@
+﻿<div id="siteSearch" style="display: inline;">
+    @using (Html.BeginForm("SearchResults", "Search", new { area = "CompanyAdmin" }, FormMethod.Post, new { id = "siteSearchForm", name = "siteSearchForm", style = "display: inline;" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.TextBox("siteSearchTerm", string.Empty, new { placeholder = "Search...", @class = "reduceFont", style = "/*width: 200px;*/", maxlength = "100" })
+        <a href="javascript:document.getElementById('siteSearchForm').submit()">
+            <img src="~/Images/icons/01-magnify.png" alt="" style="vertical-align: text-bottom;">
+        </a>
+    }
+</div>

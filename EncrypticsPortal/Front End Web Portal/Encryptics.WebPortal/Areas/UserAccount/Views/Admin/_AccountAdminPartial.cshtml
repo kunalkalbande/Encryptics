@@ -1,0 +1,108 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@model UserAccountModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+<ul class="toolbar" id="actionToolbar">
+    <li>
+        <a href="#">
+            <div>Account</div>
+        </a>
+        <ul style="width: 239px; z-index: 2">
+            @if (encrypticsUser.HasPermission("UserAccount/Admin/Manage"))
+            {
+                <li><a href="@Url.Action("Manage", new { entityId = Model.EntityId, userId = Model.UserId })">
+                    <div>Edit Details</div>
+                </a></li>
+            }
+            @*@if (encrypticsUser.HasPermission("UserAccount/Admin/Emails"))
+            {
+                *@<li><a href="@Url.Action("Emails", new { entityId = Model.EntityId, userId = Model.UserId })">
+                    <div>Email History</div>
+                </a></li>
+            @*}*@
+            @if (Model.IsSuspended && encrypticsUser.HasPermission("UserAccount/Admin/ActivateAccount"))
+            {
+                <li><a href="#" id="activateAccount" data-form-to-submit="activateAccountForm">
+                    <div>@UserActionForm("ActivateAccount", "Activate Account", "activateAccountForm")</div>
+                </a></li>
+            }
+            @*@if (!Model.IsSuspended && encrypticsUser.HasPermission("UserAccount/Admin/RemoveAccount"))
+            {
+                <li><a href="#" id="removeAccount" data-form-to-submit="removeAccountForm">
+                    <div>@UserActionForm("SuspendAccount", "Remove Account", "removeAccountForm")</div>
+                </a></li>
+            }*@
+            @if (Model.IsLockedOut && encrypticsUser.HasPermission("UserAccount/Admin/UnlockAccount"))
+            {
+                <li><a href="#" id="unlockAccount" data-form-to-submit="unlockAccountForm">
+                    <div>@UserActionForm("UnlockAccount", "Unlock Account", "unlockAccountForm")</div>
+                </a></li>
+            }
+            @if (encrypticsUser.HasPermission("UserAccount/Admin/TransferAccount"))
+            {
+                if (encrypticsUser.CompanyCount > 1)
+                {
+                <li><a href="#" id="transferAccount" data-dialog-to-open="transferAccountDialog">
+                    <div>Transfer Account</div>
+                </a></li>
+                }
+            }
+            @if (encrypticsUser.HasPermission("UserAccount/Admin/SuspendAccount"))
+            {
+                <li><a href="#" id="suspendAccount" data-form-to-submit="suspendAccountForm">
+                    <div>@UserActionForm("SuspendAccount", "Suspend Account", "suspendAccountForm")</div>
+                </a></li>
+            }
+        </ul>
+    </li>
+
+    @if (Model.LicenseType == AccountType.Free && encrypticsUser.HasPermission("UserAccount/Admin/AssignLicense"))
+    {
+        <li><a href="#" id="assignLicense" data-form-to-submit="assignLicenseForm">
+            <div>
+                @UserActionForm("AssignLicense", "Assign License", "assignLicenseForm")
+            </div>
+        </a></li>
+    }
+    @if (Model.LicenseType == AccountType.Professional && encrypticsUser.HasPermission("UserAccount/Admin/RemoveLicense"))
+    {
+        <li><a href="#" id="removeLicense" data-form-to-submit="removeLicenseForm">
+            <div>
+                @UserActionForm("RemoveLicense", "Remove License", "removeLicenseForm")
+            </div>
+        </a></li>
+    }
+
+    @if (encrypticsUser.HasPermission("UserAccount/Admin/ResetPassword"))
+    {
+        <li>
+            <a href="#" id="resetPassword" data-form-to-submit="resetPasswordForm">
+                <div>@UserActionForm("ResetPassword", "reset password", "resetPasswordForm")</div>
+            </a>
+        </li>
+    }
+    @if (encrypticsUser.HasPermission("UserAccount/Admin/ChangeAccountRole"))
+    {
+        <li>
+            <a href="#" id="changeRole" data-dialog-to-open="changeRoleDialog">
+                <div>Change Role</div>
+            </a>
+        </li>
+    }
+</ul>
+
+@helper UserActionForm(string actionName, string buttonText, string formId = "")
+{
+    @buttonText
+    using (Html.BeginForm(actionName, "Admin", new { entityId = Model.EntityId }, FormMethod.Post, new { id = formId }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.EntityId)
+    @Html.HiddenFor(m => m.UserName)
+    @Html.HiddenFor(m => m.PrimaryRole)
+    }
+}

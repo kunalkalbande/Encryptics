@@ -1,0 +1,29 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel
+
+<tr @if (Model.HasValidationErrors)
+        
+    {<text>class="ui-state-error" </text>}>
+    @using (Html.BeginCollectionItem("newPendingAccounts"))
+    {
+        <td>
+            @if (Model.HasValidationErrors)
+            {
+                <div style="position: absolute;" title="@Model.ValidationError">
+                    <span class="ui-icon ui-icon-info" style="margin: 6px 0 0 6px;"></span>
+                </div>
+            }
+            <div style="float: left; width: 3%; margin-top: 37px; padding-left: 10px">
+                <input type="checkbox" class="selectedAccount" />
+            </div>
+            <div style="float: left; border-right: 1px solid gray; border-left: 1px solid gray; margin-left: 5px; padding: 2px 40px;">
+                @Html.TextBoxFor(m => m.UserName, new { placeholder = "Email" }) <br />
+                @Html.TextBoxFor(m => m.FirstName, new { placeholder = "First Name" }) @Html.TextBoxFor(m => m.LastName, new { placeholder = "Last Name" })
+            </div>
+            <div style="float: right; margin-top: 34px; margin-right: 50px;">
+                @Html.ToggleFor(x => x.AssignLicense, "onoffswitch-inner-text")
+            </div>
+        </td>
+    }
+</tr>
+

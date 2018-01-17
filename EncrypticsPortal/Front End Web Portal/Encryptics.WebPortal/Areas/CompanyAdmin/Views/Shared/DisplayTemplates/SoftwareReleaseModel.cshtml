@@ -1,0 +1,24 @@
+﻿@using Encryptics.WebPortal.IdentityModel
+@model Encryptics.WebPortal.Areas.CompanyAdmin.Models.SoftwareReleaseModel
+
+<tr>
+    <td class="selectColumn">
+        <input type="checkbox" class="selectedVersion" data-id="@Model.VersionId" data-product-id="@Model.ProductId"/></td>
+    <td class="versionColumn">@if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/Edit"))
+        {
+        <a href="#" class="softwareRelease" data-id="@Model.VersionId">@Html.DisplayFor(m => m.Version)</a>
+        }
+        else
+        {
+        @Html.DisplayFor(m => m.Version)
+        }
+        @if (Model.IsGlobalMinimumVersion)
+        {
+            <text> (Global Minimum Version)</text>
+        }
+    </td>
+    <td class="downloadColumn">@Html.DisplayFor(m => m.DownloadUri)</td>
+    <td class="releaseNotesColumn">Release Notes</td>
+    <td>@Html.DisplayFor(m => m.ReleaseType)</td>
+    <td>@Html.DisplayFor(m => m.Status)</td>
+</tr>

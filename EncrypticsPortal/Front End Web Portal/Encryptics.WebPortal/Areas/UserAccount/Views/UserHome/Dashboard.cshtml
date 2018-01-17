@@ -1,0 +1,357 @@
+﻿@using System.Web.Configuration
+@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+
+@{
+    ViewBag.Title = "Account Details";
+        //var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @* @if (encrypticsUser.CompanyCount > 1 || encrypticsUser.IsInRole("Administrator"))
+        {
+            *@<a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+        @*<text>&gt;</text>*@
+        &gt;
+        @*}*@
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+@Html.Partial("_SuccessMessage")
+
+<ul class="toolbar" id="actionToolbar">
+    <li>
+        <a href="@Url.Action("Manage")">
+            <div>
+                Edit Account Details
+            </div>
+        </a>
+    </li>
+</ul>
+
+<section class="tabbed">
+    <ul class="tabs">
+        <li id="accountTab" class="activeTab"><a href="#" id="showAccountDetails" class="tab" data-show-page="accountView">account</a></li>
+        <li id="usageTab"><a href="#" id="showUsageDetails" class="tab" data-show-page="usageView">usage</a></li>
+        <li id="deviceTab"><a href="#" id="showDeviceDetails" class="tab" data-show-page="devicesView">devices</a></li>
+        <li id="passwordTab"><a href="#" id="showPasswordForm" class="tab" data-show-page="passwordView">change password</a></li>
+        <li id="downloadsTab"><a href="#" id="showDownloads" class="tab" data-show-page="downloadsView">software downloads</a></li>
+    </ul>
+    <div style="position: relative">
+        <div class="waitingOverlay hidden"></div>
+        <div id="accountView" class="tabPage">
+            @Html.Partial("_UserAccountPartial")
+        </div>
+        <div id="usageView" class="tabPage hidden">
+            @Html.Action("ViewUsage")
+        </div>
+        <div id="devicesView" class="tabPage hidden">
+            @Html.Action("ViewDevices", "Device")
+        </div>
+        <div id="passwordView" class="tabPage hidden">
+            @Html.Action("ManagePassword")
+        </div>
+        <div id="downloadsView" class="tabPage hidden">
+            @Html.Action("Downloads")
+        </div>
+    </div>
+</section>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/tabs")
+    <script>
+        window.getParameterByName = function (name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.href);
+            if (results == null) return "";
+            else return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        var isMobile = {
+            Android: function () {
+                return navigator.userAgent.match(/Android/i) ? true : false;
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+            },
+            iOS: function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+            },
+            iPad: function () {
+                return navigator.userAgent.match(/iPad/i) ? true : false;
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i) ? true : false;
+            },
+            any: function () {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+            }
+        };
+
+        function showWaitingOverlay() {
+            //waitCount++;
+
+            //$('.tabPage:not(.hidden)>div>.waitingOverlay').removeClass('hidden');
+            $('.waitingOverlay').removeClass('hidden');
+        }
+
+        function hideWaitingOverlay() {
+            //waitCount--;
+
+            //if (waitCount <= 0) {
+            $('.waitingOverlay').addClass('hidden');
+            //}
+        }
+
+        $(function () {
+            setupPasswordForm();
+
+            $('#usageView #nextPage').unbind('click').click(changeUsagePage).attr('data-page', 2); // kludge
+            
+            var winDownloadLink = '@WebConfigurationManager.AppSettings["WinDownloadLink"]';
+            var macDownloadLink = '@WebConfigurationManager.AppSettings["MacDownloadLink"]';
+            
+            var isAutoDownload = @ViewBag.AutoDownload;
+
+            if (!isMobile.any() && isAutoDownload != undefined && isAutoDownload == 1) {
+
+                var finishedText = '';
+
+                var downloadLocation = '';
+                if (navigator.appVersion.indexOf("Win") != -1) {
+                    downloadLocation = winDownloadLink;
+
+                    finishedText = 'Congratulations! You have just completed registration of Encryptics for Email. The download of the application will begin automatically. Install and login using the account you just created. Contact support if you require any assistance at 512-649-8185.';
+                }
+                else if (navigator.appVersion.indexOf("Mac") != -1) {
+                    downloadLocation = macDownloadLink;
+
+                    finishedText = 'Congratulations! You have just completed registration of Encryptics for Email. The download of the application will begin automatically. Install and login using the account you just created. Contact support if you require any assistance at 512-649-8185.';
+                }
+                else
+                    finishedText = 'Congratulations! You have successfully completed the registration.';
+
+                $('#message').text(finishedText);
+
+                if (((!$.browser.msie) || ($.browser.msie && parseFloat($.browser.version) >= 9))) {
+                    document.location = downloadLocation;
+                }
+            }
+
+        });
+
+        function setupPasswordForm() {
+            $('#changePasswordButton').remove();
+            $('#passwordView .leftSide form fieldset').append('<input type="submit" value="change password" id="changePasswordButton" style="float: right;" />');
+            $('#changePasswordForm').submit(submitPasswordForm);
+        }
+
+        function submitPasswordForm(e) {
+            var $form = $(this);
+            var formData = $form.serialize();
+            var url = $form.attr('action');
+            var $errorMessageSection = $form.find('#errorMessages');
+
+            e.preventDefault();
+
+            $errorMessageSection.html('');
+            showWaitingOverlay();
+
+            if ($form.valid()) {
+                ajaxGetSetup(url, function (token) {
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: formData,
+                        headers: {
+                            'X-XSRF-Token': token
+                        },
+                        success: function (response) {
+                            if (response.success !== undefined && response.success) {
+                                $('#passwordView').html(response.Data);
+                                setupPasswordForm();
+                            } else if (response.errors !== undefined && response.errors.length > 0) {
+                                $form.find("input[type=password]").val("");
+                                $errorMessageSection.html('');
+                                for (var i = 0; i < response.errors.length; i++) {
+                                    $errorMessageSection.append(response.errors[i] + ' ');
+                                }
+                            }@{
+                                bool displayCaptcha;
+                                bool.TryParse(WebConfigurationManager.AppSettings["CaptchaEnabled"], out displayCaptcha);
+                                if (displayCaptcha)
+                                {
+                                     @(@"
+                            grecaptcha.reset();")
+                                }
+                             }
+                        },
+                        error: ajaxPostError,
+                        complete: hideWaitingOverlay
+                    });
+                });
+            }
+        }
+
+        function changeTab(newTab, newView) {
+            $('.activeTab').removeClass('activeTab');
+            $('.activeView').removeClass('activeView').addClass('inactiveView');
+            newTab.addClass('activeTab');
+            newView.removeClass('inactiveView').addClass('activeView');
+        }
+
+        function changeUsagePage(e) {
+            var pageNumber = parseInt($(this).attr('data-page'));
+
+            e.preventDefault();
+
+            $.get('@Url.Action("JsonUsage", "UserHome")', { page: pageNumber }, function (response) {
+                console.log(response);
+                if (response.success) {
+                    $('#usageView').html(response.Data);
+                    $('#usageView').find('#nextPage').attr('data-page', pageNumber + 1).unbind('click').click(changeUsagePage);
+                    $('#usageView').find('#prevPage').attr('data-page', pageNumber - 1).unbind('click').click(changeUsagePage);
+                }
+            });
+        }
+    </script>
+}
+
+@section styles
+{
+    <style>
+        .tabPage {
+            height: 434px;
+        }
+
+        #accountDetailsContainer {
+            margin-top: 10px;
+        }
+
+        #accountDetails {
+            width: 65%;
+            float: left;
+            text-align: center;
+        }
+
+            #accountDetails table {
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            #accountDetails td:first-child {
+                text-align: right;
+            }
+
+            #accountDetails th {
+                text-align: right;
+                font-weight: normal;
+                color: #999;
+                font-size: 18px;
+                padding-right: 2px;
+                width: 20%;
+            }
+
+            #accountDetails td, #accountDetails td span {
+                text-align: left;
+                color: #666;
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            #accountDetails td {
+                width: 60%;
+            }
+
+        #avatar {
+            width: 35%;
+            float: right;
+            text-align: center;
+        }
+
+            #avatar span {
+                float: left;
+                text-align: right;
+                margin-right: 30%;
+                margin-top: 65px;
+            }
+
+                #avatar span a:not(:hover) {
+                    color: #999;
+                    text-decoration: underline #999;
+                }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            #avatar {
+                display: none;
+            }
+
+            #accountDetails {
+                width: 100%;
+                float: none;
+                text-align: center;
+            }
+
+                #accountDetails th {
+                    width: 42% !important;
+                }
+
+                #accountDetails td {
+                    padding: 0.25em 0;
+                    width: 80%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+            .main-content section {
+                margin-top: 5px;
+            }
+
+            .tabs {
+                height: auto;
+            }
+
+            ul.tabs li {
+                padding: 5px 2px;
+                border: 1px solid #ccc;
+                margin: 2px 0;
+                display: block;
+            }
+
+                ul.tabs li.activeTab {
+                    border: 1px solid orange;
+                }
+
+                    ul.tabs li.activeTab a {
+                        font-weight: bold;
+                    }
+
+                ul.tabs li a, .tab {
+                    display: block;
+                    width: 100%;
+                }
+
+            #actionToolbar li {
+                width: 42%;
+            }
+
+            #rightSide {
+                display: none;
+            }
+
+            #leftSide {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+}

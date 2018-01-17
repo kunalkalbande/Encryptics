@@ -1,0 +1,55 @@
+﻿@using Microsoft.Web.Helpers
+@{
+    ViewBag.Title = "Upload Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="white">
+    @using (Html.BeginForm("Index", "UploadAccounts", new { entityId = ViewBag.CompanyId }, FormMethod.Post, new { @encType = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend></legend>
+            <p>You can upload a comma delimited text file to create many accounts at one time. The file must have a file extension of ".txt" or ".csv" and contain column heading names containing the words "email", "first" and "last".</p>
+            @FileUpload.GetHtml(allowMoreFilesToBeAdded: false, name: "fileUpload", uploadText: "Upload File")
+        </fieldset>    
+    }
+</section>
+
+@section styles
+{
+    <style>
+        .file-upload {
+            margin: 10px 0;
+        }
+
+            .file-upload input[type="file"] {
+                border: none;
+            }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .formActions {
+                width: 92%;
+            }
+        }
+    </style>
+}
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $('.file-upload-buttons input[type="submit"]').addClass('mainAction').css('float', 'right');
+            $('.file-upload-buttons').addClass('formActions').prepend($('<input type="button" value="Cancel" style="float: left;" id="cancelButton" />'));
+            $('#cancelButton').click(function () {
+                window.location = '@Url.Action("Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" })';
+            });
+        });
+    </script>
+}
+
+

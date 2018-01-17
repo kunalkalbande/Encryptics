@@ -1,0 +1,44 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.ActiveAccountsSearchModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchType)
+    @Html.HiddenFor(m => m.SortField)
+    @Html.HiddenFor(m => m.SortOrder)
+    @Html.HiddenFor(m => m.ItemCount)
+    @Html.HiddenFor(m => m.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes)</div>
+        @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxAssignProLicenses") || 
+            encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxDisableActiveAccounts"))
+        {
+            <ul class="tableActions">
+                <li>
+                    <input type="checkbox" value="all" id="selectAllActiveAccounts" />
+
+                </li>
+                @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxAssignProLicenses"))
+                {
+                <li>
+                    <input type="button" value="assign license" id="assignLicenses" disabled="disabled">
+                </li>
+                }
+                @* @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxRemoveActiveAccounts"))
+            {<li>
+                <input type="button" value="disable account" id="deleteSelectedActiveAccounts" disabled="disabled"></li>@*}*@
+                @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxDisableActiveAccounts"))
+                {
+                <li>
+                    <input type="button" value="disable account" id="disableSelectedActiveAccounts" disabled="disabled">
+                </li>
+                }
+            </ul>
+        }
+    </div>
+    @Html.Partial("_ActiveAccountsTablePartial")
+}
