@@ -793,6 +793,7 @@ E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Cookies.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.dll
+E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.WsFederation.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Practices.ServiceLocation.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Web.Helpers.dll
@@ -867,6 +868,7 @@ E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.xml
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.xml
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.WsFederation.xml
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Practices.ServiceLocation.xml
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Newtonsoft.Json.xml
@@ -934,4 +936,5 @@ E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\ar\Encryptics.WebPortal.resources.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.pdb
-E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csprojResolveAssemblyReference.cache
+E:\Encryptics\synerzip\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.dll
+E:\Encryptics\synerzip\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.xml

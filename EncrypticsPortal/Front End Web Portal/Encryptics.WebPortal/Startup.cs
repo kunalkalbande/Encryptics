@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Web.Helpers;
+using Microsoft.Owin.Security.Google;
 
 [assembly: OwinStartup(typeof(Encryptics.WebPortal.Startup))]
 
@@ -105,7 +106,15 @@ namespace Encryptics.WebPortal
 
                      }
                  });
-               AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+                app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
+                {
+                    AuthenticationType = "Google",
+                    CallbackPath = new PathString("/google"),
+                    ClientId = "828032771696-1igqmtj83g649uf2f8t36n61roqj7c21.apps.googleusercontent.com",
+                    ClientSecret = "rDRjrLFYyTE9DmGy97HmHg_J",
+                   
+                });
+                AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
             }
             catch (Exception ex)
             {

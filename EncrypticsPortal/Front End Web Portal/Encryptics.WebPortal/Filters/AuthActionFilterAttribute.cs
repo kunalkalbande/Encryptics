@@ -16,6 +16,7 @@ namespace Encryptics.WebPortal.Filters
             var httpContext = filterContext.HttpContext;
             if (httpContext.Session["auth"] != null && (!httpContext.Request.IsAuthenticated))
             {
+                Trace.TraceInformation(String.Format("Enter in Authentication using {0} so redirecting to {0} authentication page", httpContext.Session["auth"].ToString()));
 
                 httpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
                              httpContext.Session["auth"].ToString());
