@@ -1,0 +1,139 @@
+﻿@using System.Configuration
+@using Encryptics.WebPortal.Properties
+@{
+    var urlReferrer = Url.Content("~/Images//Download.png");
+}
+<style>
+    .downloadsSections {
+        padding-top: 0;
+        padding-left: 15px;
+        float: left;
+        width: 100%;
+    }
+
+        .downloadsSections h3 {
+            margin-bottom: 20px;
+        }
+
+        .downloadsSections ul {
+            margin-top: 0 !important;
+            margin-left: 5% !important;
+        }
+
+        .downloadsSections h4 {
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            clear: both;
+        }
+
+        .downloadsSections li {
+            list-style: none;
+            padding: 0 !important;
+        }
+
+    #leftSide {
+        width: 60%;
+        float: left;
+    }
+
+    #rightSide {
+        width: 40%;
+        float: right;
+    }
+
+    .platformSection {
+        height: 130px;
+    }
+
+    #leftColumnDownloads {
+        width: 50%;
+        float: left;
+    }
+
+    #rightColumnDownloads {
+        width: 50%;
+        float: right;
+    }
+
+    .platformSection ul {
+        height: 70%;
+    }
+
+    @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+
+        #leftSide {
+            width: 100%;
+            float: none;
+        }
+
+        #rightSide {
+            display: none;
+        }
+
+        .platformSection {
+            height: auto;
+            margin: 5% 0;
+        }
+
+        #leftColumnDownloads {
+            width: 100%;
+            float: none;
+        }
+
+        #rightColumnDownloads {
+            width: 100%;
+            float: none;
+        }
+    }
+</style>
+
+<div id="leftSide">
+    <div class="downloadsSections">
+        <h3 style="text-align: left !important">@string.Format(Resources.DownloadsPartialTitle, ConfigurationManager.AppSettings["CompanyName"])</h3>
+        <div id="leftColumnDownloads">
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialWindowsHeading</h4>
+                <ul>
+                    <li><a href="@ViewBag.WindowsLink1">Click here to download</a></li>
+                    <!--@*
+                            <h4 style="margin-top: 4%;">Microsoft Outlook Plugin:</h4>
+                            <li><h4 style="margin-top: 4%;">Windows Application:</h4><a href="@ViewBag.WindowsLink2">Click here to download</a></li>
+                    <li>
+                        <h4 style="margin-top: 4%;">For Outlook 2007 users:</h4>
+                        <a href="@ViewBag.WindowsLink2">@DisplayFileName(ViewBag.WindowsLink2)</a>
+                    </li>*@-->
+                </ul>
+            </div>
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialMacHeading</h4>
+                <ul>
+                    <li><a href="@ViewBag.MacLink" target="_new">Click here to download</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightColumnDownloads">
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialAndroidHeading</h4>
+                <ul>
+                    <li><a href="@ViewBag.AndroidLink" target="_new">Click here to download</a></li>
+                </ul>
+            </div>
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialiOSHeading</h4>
+                <ul>
+                    <li><a href="@ViewBag.iOSLink" target="_new">Click here to download</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rightSide">
+        <div>
+            <!-- <img src="@Html.Raw(urlReferrer)" /> -->
+        </div>
+    </div>
+@helper DisplayFileName(string filePath)
+{
+    @filePath.Substring(filePath.LastIndexOf('/') + 1)
+}

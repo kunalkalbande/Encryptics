@@ -1,0 +1,82 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Helpers
+@model DLPRuleModel
+
+<table style="width: 450px;">
+    <tr>
+        <td style="vertical-align: top">@Html.LabelFor(m => m.Description)</td>
+        @if (Model.PolicyId == DLPPolicyId.UserPolicies)
+        {
+            <td>@Html.TextAreaFor(m => m.Description, new { style = "width: 298px;" }) @Html.ValidationMessageFor(m => m.Description)</td>
+        }
+        else
+        {
+            <td>@Html.ValueFor(m => m.Description)</td>
+        }
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.Enabled)</td>
+        <td>
+            @Html.RadioButtonFor(m => m.Enabled, true) Yes
+                @Html.RadioButtonFor(m => m.Enabled, false) No
+        </td>
+    </tr>
+    @if (Model.PolicyId == DLPPolicyId.WhiteBlackList)
+    {
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top">@Html.LabelFor(m => m.BWList)</td>
+            <td>
+                <input type="text" id="newBWItem" style="width: 300px" /><input type="button" value="Add" id="btnAddBWList" class="float-right orangeBackground" style="margin-top: 3px" /><br />
+                @Html.ListBoxFor(m => m.BWList, new SelectList(Model.BWList, Model.BWList), new { size = 6, style="height: auto; margin: 10px 0;" })<br />
+                <input type="button" value="Remove" id="btnRemoveBWList" class="float-right orangeBackground" disabled="disabled" />
+            </td>
+        </tr>
+    }
+    else
+    {
+        if (Model.RuleTypeId == 31)
+        {
+        <tr>
+            <td>@Html.LabelFor(m => m.Severity)</td>
+            <td>
+                <div class="readOnlyField">Must Encrypt@*Model.Severity.GetDisplay()*@@Html.Hidden("Severity", 1)</div>
+            </td>
+        </tr>
+        }
+        else
+        {
+        <tr>
+            <td>@Html.LabelFor(m => m.DefaultDRM)</td>
+            <td>@Html.DropDownListFor(m => m.DefaultDRM, EnumHelper.SelectListFor(Model.DefaultDRM))</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Severity)</td>
+            <td>@Html.DropDownListFor(m => m.Severity, EnumHelper.SelectListFor(Model.Severity))</td>
+        </tr>            
+        }
+    }
+    @if (!string.IsNullOrEmpty(Model.Terms) && Model.PolicyId != DLPPolicyId.UserPolicies && Model.PolicyId != DLPPolicyId.WhiteBlackList && Model.PolicyId != DLPPolicyId.Attachments)
+    {
+        <tr>
+            <td style="vertical-align: top;">@Html.LabelFor(m => m.Terms)</td>
+            <td style="vertical-align: top;">@Html.ValueFor(m => m.Terms)<br />@Html.ValidationMessageFor(m => m.Terms)</td>
+        </tr>
+    }
+    @if (!string.IsNullOrEmpty(Model.Formats))
+    {
+        <tr>
+            <td style="vertical-align: top;">@Html.LabelFor(m => m.Formats)</td>
+            <td style="vertical-align: top;">@Html.ValueFor(m => m.Formats)</td>
+        </tr>
+    }
+    @if (Model.PolicyId == DLPPolicyId.UserPolicies)
+    {
+        <tr>
+            <td style="vertical-align: top;">@Html.LabelFor(m => m.Terms)</td>
+            <td style="vertical-align: top;">@Html.TextBoxFor(m => m.Terms) @Html.ValidationMessageFor(m => m.Terms)</td>
+        </tr>
+    }
+</table>

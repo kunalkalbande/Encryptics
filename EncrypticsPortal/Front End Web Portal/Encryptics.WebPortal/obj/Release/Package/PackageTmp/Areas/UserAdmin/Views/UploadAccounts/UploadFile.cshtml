@@ -1,0 +1,99 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.AccountsFileUploadModel
+@using Encryptics.WebPortal.Helpers
+@{
+    ViewBag.Title = "Uploaded Files";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="featured dark">
+    <p>Here you can upload a file to import accounts. Currently we support a simple format for uploading accounts. The format is a comma delimited text file (commonly a .CSV file). This file only needs to contain an email address and optionally the first and last name of each user. The file must also contain a header row with the headings "email", "first" and "last". With the column headings the column order is not important as long as the headings appear and the data rows are in the same order. You can also @Html.ActionLink("download", "SampleFile") a sample .CSV file for reference. </p>
+</section>
+
+<section class="tabbed">
+    <ul class="tabs">
+        <li class="">@Html.ActionLink("Files Uploaded", "UploadedFiles", new { entityId = ViewBag.CompanyId })</li>
+        <li class="activeTab">@Html.ActionLink("Upload a File", "UploadFile", new { entityId = ViewBag.CompanyId })</li>
+    </ul>
+
+    <div class="tabPage">
+        @using (Html.BeginForm(Html.BeginForm("UploadFile", "UploadAccounts", new { entityId = ViewBag.CompanyId }, FormMethod.Post, new { @encType = "multipart/form-data" })))
+        {
+            <fieldset>
+                <legend></legend>
+                @Html.AntiForgeryToken()
+                <ul>
+                    <li>Will the accounts uploaded require licenses? @Html.ToggleFor(m => m.ReserveLicenses)</li>
+                    <li>Will the users that receive activation emails already have the software installed? @Html.ToggleFor(m => m.SoftwarePreinstalled)</li>
+                    <li>Select a file to upload<input type="file" name="uploadedFile" /></li>
+                </ul>
+                <div class="formActions">
+                    <input type="button" value="Cancel" id="cancelButton" />
+                    <input type="submit" value="Upload File" class="mainAction" />
+                </div>
+            </fieldset>
+        }
+    </div>
+</section>
+
+@section styles{
+    <style>
+        .tabbed ul {
+            list-style: none;
+        }
+
+        .tabPage ul {
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+
+        .onoffswitch {
+            display: inline-block;
+            top: 9px;
+        }
+
+        .onoffswitch-switch {
+            margin: 6px !important;
+        }
+
+        input[type=file] {
+            margin-left: 10px;
+            border: none;
+            border: 2px solid #bfb7b5;
+            font-size: smaller;
+            color: #999;
+            background-color: #eee;
+            font-family: Trebuchet, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        #cancelButton {
+            float: left;
+        }
+
+        .mainAction {
+            float: right;
+        }
+
+        .dark a {
+            color: orange;
+            text-decoration: none;
+        }
+
+            .dark a:hover {
+                color: #6690CB;
+                text-decoration: underline;
+            }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .formActions {
+                width: 92%;
+            }
+        }
+    </style>
+}

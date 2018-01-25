@@ -1,0 +1,161 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model CompanyDetailsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit Company";
+}
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="white">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset style="/*margin-right: 20px; position: relative; margin-bottom: 20px; */">
+            <legend>Manage Company Details</legend>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Name)
+            @Html.HiddenFor(model => model.LicenseSummary.ActiveLicenses)
+            @Html.HiddenFor(model => model.LicenseSummary.AvailableLicenses)
+            @Html.HiddenFor(model => model.LicenseSummary.UsedLicenses)
+            @Html.HiddenFor(model => model.ContactInfo.Phone)
+            @Html.HiddenFor(model => model.ContactInfo.Fax)
+            @Html.HiddenFor(model => model.ContactInfo.Mobile)
+            @Html.HiddenFor(model => model.ParentId)
+
+            <ol class="float-left formSection">
+                <li>
+                    <h3>company info</h3>
+
+                    <div class="fields">
+
+                        @Html.LabelFor(model => model.Name)
+                        @Html.DisplayFor(model => model.Name, "ReadOnlyField")
+
+
+                        @Html.LabelFor(model => model.Abbreviation)
+                        @Html.TextBoxFor(model => model.Abbreviation, new { maxLength = 10 })
+                        @Html.ValidationMessageFor(model => model.Abbreviation)
+                    </div>
+                </li>
+                <li>
+                    <h3>additional info</h3>
+                    <div class="fields">
+                        @Html.LabelFor(model => model.ParentCompanyName)
+                        @Html.DisplayFor(model => model.ParentCompanyName, "ReadOnlyField")
+
+                        @Html.LabelFor(model => model.CreatedDate)
+
+                        <div class="readOnlyField">
+                            @Html.DisplayFor(m => m.CreatedDate)
+                        </div>
+                    </div>
+                </li>
+                @*<li>
+                    <h3>company settings</h3>
+                    <div class="fields">
+                        @if (Model.IsCustomEmailTemplateEnabled)
+                        {
+                            @Html.LabelFor(model => model.IsCustomEmailTemplateEnabled)
+                            @Html.ToggleFor(model => model.IsCustomEmailTemplateEnabled)    
+                        }
+                    </div>
+                </li>*@
+            </ol>
+            <ol class="float-right formSection">
+                <li>
+                    <h3>company contacts</h3>
+                    <div class="fields">@Html.LabelFor(model => model.Contact1)
+                        @Html.TextBoxFor(model => model.Contact1, new { maxLength = 50 })
+                        @Html.ValidationMessageFor(model => model.Contact1)
+
+                        @Html.LabelFor(model => model.Contact1PhoneNumber)
+                        @Html.TextBoxFor(model => model.Contact1PhoneNumber, new { maxLength = 50 })
+                        @Html.ValidationMessageFor(model => model.Contact1PhoneNumber)
+
+                        @Html.LabelFor(model => model.Contact2)
+                        @Html.TextBoxFor(model => model.Contact2, new { maxLength = 50 })
+                        @Html.ValidationMessageFor(model => model.Contact2)
+
+                        @Html.LabelFor(model => model.Contact2PhoneNumber)
+                        @Html.TextBoxFor(model => model.Contact2PhoneNumber, new { maxLength = 50 })
+                        @Html.ValidationMessageFor(model => model.Contact2PhoneNumber)
+                    </div>
+                </li>
+                <li>
+                    <h3>contact info</h3>
+                    <div class="fields">
+                        @Html.LabelFor(model => model.ContactInfo.Email)
+                        @Html.TextBoxFor(model => model.ContactInfo.Email, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.Email)
+
+                        @Html.LabelFor(model => model.ContactInfo.Address1)
+                        @Html.TextBoxFor(model => model.ContactInfo.Address1, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.Address1)
+
+                        @Html.LabelFor(model => model.ContactInfo.Address2)
+                        @Html.TextBoxFor(model => model.ContactInfo.Address2, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.Address2)
+
+                        @Html.LabelFor(model => model.ContactInfo.City)
+                        @Html.TextBoxFor(model => model.ContactInfo.City, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.City)
+
+                        @Html.LabelFor(model => model.ContactInfo.State)
+                        @Html.TextBoxFor(model => model.ContactInfo.State, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.State)
+
+                        @Html.LabelFor(model => model.ContactInfo.ZipCode)
+                        @Html.TextBoxFor(model => model.ContactInfo.ZipCode, new { maxLength = 20 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.ZipCode)
+
+                        @Html.LabelFor(model => model.ContactInfo.Country)
+                        @Html.TextBoxFor(model => model.ContactInfo.Country, new { maxLength = 100 })
+                        @Html.ValidationMessageFor(model => model.ContactInfo.Country)
+                    </div>
+                </li>
+            </ol>
+            <div class="formActions">
+                <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+                <input type="submit" value="Update" class="mainAction" style="float: right;" />
+            </div>
+        </fieldset>
+    }
+</section>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#cancelButton').click(function (e) {
+                e.preventDefault();
+                window.location = '@Url.Action("Dashboard", "CompanyHome", new { area = "Company", entityId = Model.Id })';
+            });
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        fieldset {
+            margin-right: 20px;
+        }
+
+        @@media only screen and (device-width: 768px) {
+            fieldset {
+                margin-right: 5px;
+            }
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            fieldset ol {
+                float: none !important;
+            }
+        }
+    </style>
+}

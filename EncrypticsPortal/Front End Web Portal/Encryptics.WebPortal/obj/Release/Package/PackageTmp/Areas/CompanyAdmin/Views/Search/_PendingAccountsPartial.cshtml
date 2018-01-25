@@ -1,0 +1,31 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsSearchModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchType)
+    @Html.HiddenFor(m => m.SortField)
+    @Html.HiddenFor(m => m.SortOrder)
+    @Html.HiddenFor(m => m.ItemCount)
+    @Html.HiddenFor(m => m.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes)</div>
+        @if (encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxResendActivationLinks") || 
+            encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxRemovePendingAccounts"))
+        {<ul class="tableActions">
+            <li>
+                <input type="checkbox" value="all" id="selectAllPendingAccounts" /></li>
+            @if (encrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxResendActivationLinks"))
+            {<li>
+                <input type="button" value="resend activation" id="resendActivations" disabled="disabled"></li>}
+            @if (encrypticsUser.HasPermission("CompanyAdmin/Search/AjaxRemovePendingAccounts"))
+            {<li>
+                <input type="button" value="delete account" id="deleteSelectedPendingAccounts" disabled="disabled"></li>}
+        </ul>}
+    </div>
+    @Html.Partial("_PendingAccountsTablePartial")
+}

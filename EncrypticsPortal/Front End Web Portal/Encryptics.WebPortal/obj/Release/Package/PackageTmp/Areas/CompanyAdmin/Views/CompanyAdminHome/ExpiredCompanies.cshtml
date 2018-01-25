@@ -1,0 +1,17 @@
+﻿@model Encryptics.WebPortal.Areas.CompanyAdmin.Models.CompanySearchModel
+
+@using (Html.BeginForm("ExpiredCompanies", "CompanyAdminHome", FormMethod.Post, new { id = ViewData.TemplateInfo.HtmlFieldPrefix + "_FilterForm", @class = "filterForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("SavedSearchTerm", Model.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(model => model.PageSize, Model.PageSizes)</div>
+        <div class="filterResults">
+            @Html.TextBoxFor(m => m.SearchTerm, new { placeholder = "Filter by name...", @class = "reduceFont searchField" })
+            <input type="submit" name="@Html.Raw(ViewData.TemplateInfo.HtmlFieldPrefix)_SearchCompaniesButton" id="@Html.Raw(ViewData.TemplateInfo.HtmlFieldPrefix)_SearchCompaniesButton" value"Apply" class="filterButton reduceFont">
+            <input type="button" class="clearButton" id="@Html.Raw(ViewData.TemplateInfo.HtmlFieldPrefix)_ClearCompaniesFilter" value="x" @if (string.IsNullOrEmpty(Model.SearchTerm)){<text>disabled="disabled"</text>}>
+        </div>
+        <h3>@ViewBag.Title</h3>
+    </div>
+    @Html.Partial("_CompanyTablePartial", Model)
+}

@@ -1,0 +1,79 @@
+﻿@using Encryptics.WebPortal.IdentityModel
+@model Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsSearchModel
+
+@{
+    ViewData.TemplateInfo.HtmlFieldPrefix = "PendingAccountSearchParameters"; 
+}
+
+@*<div style="position: relative">
+    <div class="waitingOverlay hidden"></div>*@
+@using (Html.BeginForm("AjaxSearchPendingAccounts", "UserAdminHome", new { entityId = ViewBag.EntityId, month = ViewBag.Month, year = ViewBag.Year, area = "UserAdmin" }, FormMethod.Post, new { id = "PendingUsersSearchForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.SearchType)
+    @Html.HiddenFor(m => m.SortField)
+    @Html.HiddenFor(m => m.SortOrder)
+    @Html.HiddenFor(m => m.ItemCount)
+    @Html.Hidden("SavedSearchTerm", Model.SearchTerm)
+    <div class="dataTableToolbar">
+        <div class="pagingBar">Show @Html.DropDownListFor(m => m.PageSize, Model.PageSizes, new { @id = "pendingAccountsPageSizeDropDown" })</div>
+        <div class="filterResults">
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "smallerSearchField", placeholder = "Filter by name..." })
+            <input type="submit" name="SearchPendingAccountsButton" id="searchPendingAccountsButton" value="Apply" class="filterButton">
+            <input type="button" class="clearButton" id="clearPendingAccountsFilter" value="x" @if (string.IsNullOrEmpty(Model.SearchTerm))
+                                                                                               {<text>disabled="disabled"</text>}>
+        </div>
+        <ul class="tableActions">
+            @if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxResendActivationLinks") ||
+                EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxRemovePendingAccounts"))
+            {
+            <li>
+                <input type="checkbox" value="all" id="selectAllPendingAccounts" />
+            </li>
+                if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxResendActivationLinks"))
+                {
+            <li>
+                <input type="button" value="resend activation" id="resendActivations" disabled="disabled">
+            </li>
+                }
+                if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("UserAdmin/UserAdminHome/AjaxRemovePendingAccounts"))
+                {
+            <li>
+                <input type="button" value="delete account" id="deleteSelectedPendingAccounts" disabled="disabled">
+            </li>
+                }
+            }
+        </ul>
+    </div>
+    
+    <table class="newDataTable" style="width: 100% !important">
+        <tbody>
+            @Html.DisplayFor(m => m.PendingAccounts, "PendingAccountsList", new { Model.PageCount, Model.CurrentPage })
+            <tr class="tableFooter">
+                <td colspan="5">
+                    <span>@if (Model.CurrentPage > 1)
+                          {
+                        <a href="#" id="prevPendingAccountPage">&laquo; prev</a>
+                          }
+                          else
+                          {
+                        <text>&laquo; prev</text>
+                          }</span>
+                    <span class="pagingBar">Page
+                    @Html.DropDownListFor(m => m.CurrentPage, Model.PageList, new { @id = "pendingAccountsPageDropDown" })
+                        of @Model.PageCount
+                    </span>
+                    <span>@if (Model.PageCount > Model.CurrentPage)
+                          {
+                        <a href="#" id="nextPendingAccountPage">next &raquo;</a>
+                          }
+                          else
+                          {
+                        <text>next &raquo;</text>
+                          }</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+@*</div>*@

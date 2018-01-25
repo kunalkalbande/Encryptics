@@ -1,0 +1,18 @@
+﻿@model Encryptics.WebPortal.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<div style="width: 50%; float: left">
+    @Html.Partial("_ManageAcctDetailsPartal")
+</div>
+<div style="width: 50%; float: right">
+    @Html.Partial("_ManagePasswordPartial")
+</div>
+
+
+@Scripts.Render("~/bundles/jqueryval")

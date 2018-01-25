@@ -1,0 +1,8 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel>
+
+<table class="newDataTable" id="">
+    @Html.Partial("_importedAccountsTableHeader", Model.DataItems)
+    @Html.Partial("_importedAccountsTableBody", Model.DataItems)
+    @Html.Partial("_importedAccountsTableFooter")
+</table>
+

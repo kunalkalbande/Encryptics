@@ -1,0 +1,44 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Add New User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(Model.CompanyName, "Dashboard", "CompanyHome", new {area = "Company", entityId = Model.EntityId}, null)
+            <text>&gt;</text>
+        }
+        <span>Add New User</span>
+    </h4>
+</div>
+
+<section class="white" id="newAccount">
+    @Html.Partial("_NewUserAccountPartial")
+</section>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#cancelButton').click(function (e) {
+                e.preventDefault();
+                window.location = '@Url.Action("Dashboard", "CompanyHome", new { area = "Company", entityId = Model.EntityId })';
+            });
+        });
+    </script>
+}

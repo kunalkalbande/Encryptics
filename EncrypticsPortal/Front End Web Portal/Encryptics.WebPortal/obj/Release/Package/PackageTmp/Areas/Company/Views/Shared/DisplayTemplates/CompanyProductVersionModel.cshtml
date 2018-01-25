@@ -1,0 +1,38 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model CompanyProductVersionModel
+
+<tr>
+    <td class="selectColumn">
+        <input type="checkbox" class="selectedVersion" data-id="@Model.VersionId" data-product-id="@Model.ProductId" /></td>
+    <td>
+        <a href="@Html.DisplayFor(m => m.Url)">@Html.DisplayFor(m => m.VersionNumber)</a>@{
+            if (Model.IsCompanyVersion || Model.IsGlobalMinimumVersion)
+            {
+            <text>(</text>
+                if (Model.IsCompanyVersion)
+                {
+            <text>Current Company Version</text>
+                }
+                if (Model.IsCompanyVersion && Model.IsGlobalMinimumVersion)
+                {
+            <text>, </text>
+                }
+                if (Model.IsGlobalMinimumVersion)
+                {
+            <text>Global Minimum Version</text>
+                }
+            <text>)</text>
+            }
+        }
+    </td>
+    <td><a href="#" class="releaseNotes" data-notes="@Model.ReleaseNotes">Release Notes</a></td>
+    <td>@Html.DisplayFor(m => m.Severity)</td>
+    @*<td>@if (Model.Status == CompanyProductVersionModel.VersionStatus.Pending)
+        {
+            <button>Approve</button>
+        }
+        else
+        {
+            <button>Roll Back</button>
+        }</td>*@
+</tr>

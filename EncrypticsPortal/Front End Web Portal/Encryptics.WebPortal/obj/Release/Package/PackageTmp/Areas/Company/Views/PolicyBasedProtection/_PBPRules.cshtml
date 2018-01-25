@@ -1,0 +1,33 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model IEnumerable<DLPRuleModel>
+
+@*@if (Model.Any())
+{*@
+    <ul class="tableActions">
+        <li>
+            <a href="#" class="selectAll">Enable All</a></li>
+        <li>
+            <a href="#" class="clearAll">Disable All</a></li>
+        @if (ViewBag.PolicyId == DLPPolicyId.UserPolicies)
+        {
+            <li>
+                <a href="#" class="addRule" data-rule-type-id="@ViewBag.RuleTypeId">new rule</a></li>
+        }
+    </ul>
+    <ul class="policyItemList">
+        @foreach (var ruleModel in Model)
+        {
+            <li class="rule">
+                @Html.Partial("_PBPEnableRule", ruleModel)
+            </li>
+        }
+    </ul>
+    <ul class="tableActions">
+        <li>
+            <a href="#policies" class="scrollToTop">scroll to top</a></li>
+    </ul>
+@*}
+else
+{
+    <div>No rules to show.</div>
+}*@

@@ -1,0 +1,14 @@
+﻿@if (ViewData["Announcements"] != null)
+{
+    <div class="ui-widget" id="announcements">
+        <div class="ui-corner-all" style="padding: .7em; margin-bottom: 15px; background: aliceblue; border: 1px solid #6690CB;">
+            <dl style="width: 98%; position: relative;">
+                <dt style="margin-bottom: 5px;"><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                    <strong>Alert:</strong></dt>
+                <dd id="message">@Html.Raw(ViewData["Announcements"])</dd>
+                <dd><a href="#" id="hideAnnouncements" class="hideMessage">hide</a></dd>
+            </dl>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/info-messages")
+}

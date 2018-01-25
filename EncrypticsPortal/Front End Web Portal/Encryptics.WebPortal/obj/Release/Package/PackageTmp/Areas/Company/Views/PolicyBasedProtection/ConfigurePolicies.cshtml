@@ -1,0 +1,824 @@
+﻿@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.PortalService
+@model Encryptics.WebPortal.Areas.Company.Models.CompanyDLPSettingsModel
+
+@{
+    ViewBag.Title = "Manage PBP Policies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var companyId = new { entityId = ViewBag.CompanyId, area = "Company" };
+    var pbpSettingsForm = new { id = "PBPSettingsForm" };
+    var pbpPublishForm = new { id = "PBPPublishForm" };
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var companyName = ViewBag.CompanyName as string;
+    companyName = string.IsNullOrEmpty(companyName) ? "Company Name Not Found" : companyName;
+}
+
+@Html.Partial("_ErrorMessages")
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+
+        @Html.ActionLink(companyName, "Dashboard", "CompanyHome", companyId, null)
+        &gt;
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<section class="featured dark">
+    <p>Encryptics Policy Based Protection scans content to identify and protect sensitive data. The following policies define patterns that are used to identify sensitive data, and actions are taken based on the defined settings.</p>
+    <p>Changes to these settings are persisted, but must be published to the client applications before they will take effect.</p>
+    @using (Html.BeginForm("Publish", "PolicyBasedProtection", companyId, FormMethod.Post, pbpPublishForm))
+    {
+        @Html.AntiForgeryToken()
+        <div class="formActions">
+            <input type="button" class="singleAction" value="Publish" id="PublishButton" />
+        </div>
+    }
+</section>
+
+<section class="featured light" id="generalPBPSettings">
+    <h2>Settings</h2>
+    @using (Html.BeginForm("UpdateSettings", "PolicyBasedProtection", companyId, FormMethod.Post, pbpSettingsForm))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul>
+            <li>
+                @Html.CheckBoxFor(m => m.EnableDLP)
+                Turn on Policy-Based Encryption     
+                <div class="aside">
+                    Policy-Based Encryption enables you to define rules based on your company’s security policies. Use this option to enforce pre-defined policies from the list below, or create your own custom rules. The settings you choose will apply automatically to all messages sent from Encryptics users in this company
+                </div>
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.EnablePassiveMode)
+                Passive mode         
+                <div class="aside">
+                    Passive mode will record all violations based on the rules you set below. Use this mode to gather metrics without notifying the user or enforcing encryptions.
+                </div>
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.EncryptUponViolation)
+                Encrypt on first violation     
+       
+                <div class="aside">
+                    This option will scan messages until a violation is found. When the first violation is found, the scan will end and the message will be encrypted without notifying the user. Note: because the scan ends as soon as the first violation is found, this option will not provide complete violation reports.
+                </div>
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.OneAndDone)
+                Notify user on first violation     
+       
+                <div class="aside">
+                    This option will scan messages until a violation is found. When the first violation is found, the scan will end, notify the user of the violation, and provide the option to edit the message or cancel without sending. Note: because the scan ends as soon as the first violation is found, this option will not provide complete violation reports.
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                @Html.CheckBoxFor(m => m.EnableAlwaysEncrypt)
+                Encrypt All Outgoing Messages
+           
+                <div class="aside">
+                    This option overrides other settings and requires that all messages sent must be secured by Encryptics.
+                </div>
+            </li>
+            <li>Define Data Rights Management (DRM) Settings 
+       
+                @Html.DropDownListFor(m => m.DefaultDRMForAlwaysEncrypt, EnumHelper.SelectListFor(Model.DefaultDRMForAlwaysEncrypt), new { id = "DRMTypeDropDown" })
+                <div class="aside">
+                    DRM settings enable you to manage the usage of data. In other words, you control what recipients can do with messages they receive. Use this option to prevent Forward, Copy, Print, and/or Save functions on recipient devices. The settings you choose will apply automatically to all messages sent from Encryptics users in this company.
+                </div>
+            </li>
+        </ul>
+    }
+</section>
+
+<a id="policies"></a>
+<section class="featured light">
+    <h2>Policies</h2>
+    @if (Model.Policies.Any())
+    {
+        <ul class="policyList ui-accordion ui-widget ui-helper-reset" role="tablist">
+            @foreach (var item in Model.Policies)
+            {
+                <li>
+                    <h2 role="tab" data-policy-id="@item.Id" data-entity-id="@ViewBag.CompanyId" class="policyHeader">@*<a href="#">*@
+                        @if (item.IsUsedByCompany)
+                        {
+                            <span class="ui-icon ui-icon-check" style="display: inline-block;"></span>
+                        }
+                        @item.Description
+                        @*</a>*@</h2>
+                    <div class="waitingBackground ruleTypes">&nbsp;</div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="">No Policies associated with this Company</div>
+    }
+</section>
+
+<div id="RuleDetails" class="dialog"></div>
+<div id="MessageDialog" class="dialog"></div>
+@Html.Partial("_ConfirmDialog")
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            var dialogWidth = 515;
+
+            if (isPhone) {
+                dialogWidth = 356;
+            }
+
+            $(window).on('load', function() {
+                if ($('#EnablePassiveMode').is(":checked")) {
+                    $('#EncryptUponViolation').removeAttr('checked');
+                    $('#OneAndDone').removeAttr('checked');
+                    $('#EncryptUponViolation').prop("disabled", true);
+                    $('#OneAndDone').prop("disabled", true);
+                }
+                if ($('#EnableAlwaysEncrypt').is(":checked")) {
+                    $('#DRMTypeDropDown').prop("disabled", false);
+                    $('#EnableDLP').removeAttr('checked');
+                    $('#EnablePassiveMode').removeAttr('checked');
+                    $('#EncryptUponViolation').removeAttr('checked');
+                    $('#OneAndDone').removeAttr('checked');
+                    $('#EnablePassiveMode').prop("disabled", true);
+                    $('#EncryptUponViolation').prop("disabled", true);
+                    $('#OneAndDone').prop("disabled", true);
+                }
+
+            });
+
+            window.tokenURL = '/UserAdmin/UserAdminHome/AjaxSearchActiveAccounts';
+
+            $("#RuleDetails").dialog({ autoOpen: false, modal: true, show: 'fade', hide: 'fade', width: dialogWidth, height: 520 });
+
+            $(".ui-accordion").accordion({
+                active: false,
+                collapsible: true,
+                activate: expandPBPPolicyTab,
+                heightStyle: "content"
+            });
+
+            $(window).bind('onbeforeunload', null);
+
+            $('#PBPSettingsForm').submit(submitPBPSettingsForm);
+
+            $('#DRMTypeDropDown').prop("disabled", !$('#EnableAlwaysEncrypt').is(':checked'));
+
+            $('#EnableAlwaysEncrypt').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#DRMTypeDropDown').prop("disabled", false);
+                    $('#EnableDLP').removeAttr('checked');
+                    $('#EnablePassiveMode').removeAttr('checked');
+                    $('#EncryptUponViolation').removeAttr('checked');
+                    $('#OneAndDone').removeAttr('checked');
+                    $('#EnablePassiveMode').prop("disabled", true);
+                    $('#EncryptUponViolation').prop("disabled", true);
+                    $('#OneAndDone').prop("disabled", true);
+                } else {
+                    $('#DRMTypeDropDown').prop("disabled", true);
+                }
+                updateDLPSettings();
+            });
+
+            $('#DRMTypeDropDown').change(updateDLPSettings);
+
+            $('#EncryptUponViolation').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#OneAndDone').removeAttr('checked');
+                }
+                updateDLPSettings();
+            });
+
+            $('#OneAndDone').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#EncryptUponViolation').removeAttr('checked');
+                }
+                updateDLPSettings();
+            });
+
+            $('#EnableDLP').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#EnablePassiveMode').prop("disabled", false);
+                    $('#EncryptUponViolation').prop("disabled", false);
+                    $('#OneAndDone').prop("disabled", false);
+                    $("#EnableAlwaysEncrypt").removeAttr('checked');
+                    $('#DRMTypeDropDown').prop("disabled", true);
+                } else {
+                    $('#EnablePassiveMode').removeAttr('checked');
+                    $('#EncryptUponViolation').removeAttr('checked');
+                    $('#OneAndDone').removeAttr('checked');
+                    $('#EnablePassiveMode').prop("disabled", true);
+                    $('#EncryptUponViolation').prop("disabled", true);
+                    $('#OneAndDone').prop("disabled", true);
+                }
+                updateDLPSettings();
+            });
+
+            $('#EnablePassiveMode').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#EncryptUponViolation').removeAttr('checked');
+                    $('#OneAndDone').removeAttr('checked');
+                    $('#EncryptUponViolation').prop("disabled", true);
+                    $('#OneAndDone').prop("disabled", true);
+                } else {
+                    $('#EncryptUponViolation').prop("disabled", false);
+                    $('#OneAndDone').prop("disabled", false);
+                }
+                updateDLPSettings();
+            });
+
+            $('#PublishButton').click(submitPBPPublishForm);
+
+        });
+
+        function expandPBPPolicyTab(event, ui) {
+            if (ui.newHeader.length > 0 && ui.newPanel.html() === "&nbsp;") {
+                var entityId = ui.newHeader.attr('data-entity-id');
+                var policyId = ui.newHeader.attr('data-policy-id');
+
+                getRuleTypes(entityId, policyId, ui.newPanel);
+            }
+        }
+
+        function getRuleTypes(entityId, policyId, newPanel) {
+            $.get('@Href(Url.Action("GetRuleTypes", companyId))', { policyId: policyId }, function (response) {
+                newPanel.removeClass('waitingBackground').html($(response).accordion({
+                    active: false,
+                    collapsible: true,
+                    activate: expandRuleTypesTab,
+                    heightStyle: "content"
+                }));
+            });
+        }
+
+        function expandRuleTypesTab(event, ui) {
+            if (ui.newHeader.length > 0 && ui.newPanel.html() == "&nbsp;") {
+                var entityId = ui.newHeader.attr('data-entity-id');
+                var policyId = ui.newHeader.attr('data-policy-id');
+                var ruleTypeId = ui.newHeader.attr('data-rule-type-id');
+
+                getRules(entityId, policyId, ruleTypeId, ui.newPanel);
+            }
+        }
+
+        function getRules(entityId, policyId, ruleTypeId, newPanel) {
+            $.get('@Href(Url.Action("GetRules", companyId))', { policyId: policyId, ruleTypeId: ruleTypeId }, function (response) {
+                newPanel.removeClass('waitingBackground').html(response);
+                newPanel.children().find('a.selectAll').click(selectAllRules);
+                newPanel.children().find('a.clearAll').click(clearAllRules);
+                newPanel.children().find('input.enableRule').change(enableRule);
+                newPanel.children().find('a.addRule').click(addNewRule);
+                newPanel.children().find('a.deleteRule').click(deleteRule);
+                newPanel.children().find('a.editRule').click(editRule);
+            });
+        }
+
+        function selectAllRules(e) {
+            e.preventDefault();
+            $(this).parents('.rulesList').find('input.enableRule').prop('checked', true).change();
+        }
+
+        function clearAllRules(e) {
+            e.preventDefault();
+            $(this).parents('.rulesList').find('input.enableRule').prop('checked', false).change();
+        }
+
+        function enableRule() {
+            var ruleCheckBox = $(this);
+            var ruleEnableForm = ruleCheckBox.parent();
+
+            updateCheckMarks(ruleCheckBox);
+
+            $.post('@Href(Url.Action("EnableRule", companyId))', ruleEnableForm.serialize(), function () {
+                dataChanged();
+            });
+        }
+
+        function updateCheckMarks(ruleCheckBox) {
+            if (ruleCheckBox.parents('ul.policyItemList').find('input.enableRule:checked').length == 0) {
+                ruleCheckBox.parents('.rulesList').siblings('h4').children('span.ui-icon.ui-icon-check').remove();
+
+            } else {
+                if (ruleCheckBox.parents('.rulesList').siblings('h4').children('span.ui-icon.ui-icon-check').length == 0) {
+                    ruleCheckBox.parents('.rulesList').siblings('h4').children('span.ui-accordion-header-icon').after('<span class="ui-icon ui-icon-check" style="display: inline-block;"></span>');
+                }
+                if (ruleCheckBox.parents('div.ruleTypes').siblings('h2').children('span.ui-icon.ui-icon-check').length == 0) {
+                    ruleCheckBox.parents('div.ruleTypes').siblings('h2').children('span.ui-accordion-header-icon').after('<span class="ui-icon ui-icon-check" style="display: inline-block;"></span>');
+                }
+            }
+
+            if (ruleCheckBox.parents('div.ruleTypes').find('span.ui-icon.ui-icon-check').length == 0) {
+                ruleCheckBox.parents('div.ruleTypes').siblings('h2').children('span.ui-icon.ui-icon-check').remove();
+            }
+        }
+
+        function addNewRule(e) {
+            e.preventDefault();
+            var $ruleList = $(this).parents('ul.tableActions').siblings('ul.policyItemList');
+
+            $.get('@Href(Url.Action("GetNewUserRuleDetails", companyId))?ruleTypeId=' + $(this).attr('data-rule-type-id'), null,
+                function (response) {
+                    displayRuleDetailsDialog(response, function (saveResponse) {
+                        var $newRule = $(saveResponse.newRule);
+                        var $listItem = $('<li/>').addClass('rule').html($newRule);
+
+                        $ruleList.append($listItem);
+
+                        $listItem.find('.deleteRule').click(deleteRule);
+                        $listItem.find('.editRule').click(editRule);
+                        $listItem.find('input#Enabled').change(enableRule);
+
+                        updateCheckMarks($listItem.find('input#Enabled'));
+                    });
+                }
+            );
+        }
+
+        function editRule(e) {
+            var $rule = $(this);
+            var $ruleCheckBox = $rule.siblings('input[type="checkbox"]');;
+            var ruleId = $rule.attr('data-rule-id');
+            var entityRuleId = $rule.attr('data-entity-rule-id');
+
+            e.preventDefault();
+
+            $.get('@Href(Url.Action("GetRuleDetails", companyId))', { ruleId: ruleId, entityRuleId: entityRuleId },
+                function (response) {
+                    displayRuleDetailsDialog(response, function (saveResponse) {
+                        $rule.text(saveResponse.description);
+
+                        if (saveResponse.enabled) {
+                            $ruleCheckBox.attr('checked', 'checked');
+                        } else {
+                            $ruleCheckBox.removeAttr('checked');
+                        }
+
+                        updateCheckMarks($ruleCheckBox);
+                    });
+                }
+            );
+        }
+
+        function deleteRule(e) {
+            var $deleteRuleButton = $(this);
+            var $ruleEnableForm = $deleteRuleButton.parent();
+            var $deleteRule = $deleteRuleButton.parents('li.rule');
+
+            e.preventDefault();
+
+            showConfirmationDialog("Delete User Rule", "Are you sure you want to remove this user defined rule?", function () {
+                $.post('@Href(Url.Action("RemoveUserRule", companyId))', $ruleEnableForm.serialize(), function (response) {
+                    handleAjaxResponse(response, false, function () {
+                        dataChanged();
+                        var $checkBox = $deleteRule.find('input#Enabled');
+                        $checkBox.removeAttr('checked');
+                        updateCheckMarks($checkBox);
+                        $deleteRule.remove();
+                    });
+                });
+            });
+            }
+
+            function displayRuleDetailsDialog(response, afterSave) {
+                var $ruleDetailsDialog = $("#RuleDetails");
+
+                $ruleDetailsDialog.dialog({
+                    buttons: {
+                        "Save": function () {
+                            var $form = $ruleDetailsDialog.find("form");
+
+                            confirmSaveRule($ruleDetailsDialog, $form, afterSave);
+                        },
+                        "Cancel": function () { closeDialog($ruleDetailsDialog); }
+                    }
+                });
+
+                $ruleDetailsDialog.empty();
+                $ruleDetailsDialog.dialog({ title: 'Rule Settings' });
+                $ruleDetailsDialog.html(response);
+                $ruleDetailsDialog.find('#BWList').change(function () {
+                    if ($(this).val() == null) {
+                        $('#btnRemoveBWList').attr('disabled', 'disabled');
+
+                        return;
+                    }
+
+                    $('#btnRemoveBWList').removeAttr('disabled');
+                });
+                $ruleDetailsDialog.find("#BWList option").attr('selected', false);
+                $ruleDetailsDialog.find('#newBWItem').keydown(keyPressed);
+                $ruleDetailsDialog.find('form').submit(function (e) {
+                    e.preventDefault();
+                });
+                $ruleDetailsDialog.find("#Terms").keydown(ignoreReturnKey);
+                $ruleDetailsDialog.find('#btnAddBWList').click(addNewTermToBWListClick);
+                $ruleDetailsDialog.find('#btnRemoveBWList').click(removeTermFromBWListClick);
+                $ruleDetailsDialog.dialog("open");
+            }
+
+            function confirmSaveRule($dialog, $form, afterSave) {
+                var regexString = $form.find('#RegexTerm').val();
+
+                $dialog.find('#BWList option').attr('selected', 'selected');
+
+                if (regexString.length > 0) {
+                    var $terms = $form.find('#Terms');
+                    if ($terms.length > 0) {
+                        var termsValue = $form.find('#Terms').val();
+                        var regexPattern = new RegExp(regexString, "im");
+
+                        if (termsValue.length > 0 && !regexPattern.test(termsValue)) {
+                            alert('The term(s) added do not meet the format required.');
+                            return;
+                        }
+
+                        // Tried to add attributes and let jquery validation do it's thing but it didnt' work.
+                        //$terms.attr('data-val', 'true');
+                        //$terms.attr('data-val-regex', 'The term(s) added do not meet the format required');
+                        //$terms.attr('data-val-regex-pattern', regexString);
+                        //$terms.attr('data-val-required', 'Required');
+                    }
+                }
+
+                $form.validate({
+                    debug: true
+                });
+
+                if ($form.valid()) {
+                    if ($form.find('input#Enabled[value="True"]').attr('checked') == 'checked') {
+                        saveRule($dialog, $form, afterSave);
+                    } else {
+                        confirmDisabled($form, $dialog, afterSave);
+                    }
+                }
+            }
+
+            function confirmDisabled(form, dialog, afterSave) {
+                var $confirmDiag = new $('<div id="dialog" title="Confirmation"><p>You are saving this rule without enabling it. Is this what you want to do?</p></div>');
+                $confirmDiag.dialog({
+                    buttons: {
+                        "Yes": function () {
+                            saveRule($confirmDiag, form, afterSave);
+                            closeDialog($confirmDiag);
+                            $confirmDiag.remove();
+                            closeDialog(dialog);
+                        },
+                        "No": function () {
+                            closeDialog($confirmDiag);
+                            $confirmDiag.remove();
+                        }
+                    }
+                });
+            }
+
+            function saveRule(dialog, form, afterSave) {
+                $.post(form.attr('action'), form.serialize(), function (response) {
+                    if (response.status === "success") {
+                        dataChanged();
+                        afterSave(response);
+                    } else {
+                        showMessageDialog("Error", response.message);
+                    }
+                    closeDialog(dialog);
+                });
+            }
+
+            function ignoreReturnKey(keyEvent) {
+                var keyCode = keyEvent.keyCode || keyEvent.which;
+
+                if (keyCode === 13) {
+                    keyEvent.preventDefault();
+                }
+            }
+
+            function keyPressed(keyEvent) {
+                var keyCode = keyEvent.keyCode || keyEvent.which;
+
+                if (keyCode === 13) {
+                    keyEvent.preventDefault();
+                    keyEvent.stopPropagation();
+
+                    addNewTermToBWList($(this), $(this.form).get(0));
+                }
+            }
+
+            function addNewTermToBWList($newTermTextBox, ruleForm) {
+                var regexPattern = new RegExp(ruleForm.RegexTerm.value, "im");
+                var newText = $newTermTextBox.attr('value');
+
+                if (!regexPattern.test(newText)) {
+                    alert('The term entered does not match the expected format for this rule.');
+                } else if (newText.length > 0) {
+                    var selectList = $newTermTextBox.siblings('select#BWList');
+                    var newKey = selectList.children().length;
+
+                    selectList.append($('<option>', { key: newKey }).text(newText));
+                    $newTermTextBox.attr('value', '');
+                }
+            }
+
+            function addNewTermToBWListClick() {
+                addNewTermToBWList($(this).siblings("input#newBWItem"), $(this.form).get(0));
+            }
+
+            function removeTermFromBWListClick() {
+                $(this).attr('disabled', 'disabled').siblings("select#BWList").find(':selected').remove();
+            }
+
+            function closeDialog(dialog) {
+                if (dialog == null) {
+                    $(this).dialog("close");
+                } else {
+                    dialog.dialog("close");
+                }
+            }
+
+            function handleAjaxResponse(response, showSuccessMessage, successMethod) {
+                if (response.status !== "success") {
+                    if (response.message === "Session expired.") {
+                        location.href = '@Href(Url.Action("Login", "Account", new { area = string.Empty }))?returnUrl=' + encodeURI(document.url);
+                    } else {
+                        displayErrorMessage(response.message);
+                    }
+                } else {
+                    if (successMethod != null) {
+                        successMethod();
+                        if (showSuccessMessage) {
+                            displaySuccessMessage(response.message);
+                        }
+                    }
+                }
+        }
+
+        function dataChanged() {
+            //$(window).bind('onbeforeunload', function () {
+            //    return 'Hold on! We saved your changes, but, if you leave before clicking Publish, these changes will not be enforced.';
+            //});
+        }
+
+        function displaySuccessMessage(message) {
+            if (message != null && message.length > 0) {
+                showMessageDialog("Success", message);
+            }
+        }
+
+        function displayErrorMessage(message) {
+            if (message != null && message.length > 0) {
+                showMessageDialog("Error", message);
+            }
+        }
+
+        function showMessageDialog(dialogTitle, dialogMessage) {
+            $('#MessageDialog').html(dialogMessage).dialog({
+                title: dialogTitle,
+                width: "345",
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "OK": function () { $(this).dialog("close"); }
+                }
+            }).dialog("open");
+        }
+
+        function submitPBPPublishForm(e) {
+            var $form = $('#PBPPublishForm');
+
+            e.preventDefault();
+
+            postPBPSettingsForm($form);
+        };
+
+        function postPBPPublishForm($form) {
+            var url = $form.attr('action');
+
+            ajaxGetSetup(url, function (token) {
+                ajaxPostForm(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', updatePBPSuccessful, updatePBPError, completedPost);
+            });
+        }
+
+        function updateDLPSettings() {
+            $('#PBPSettingsForm').submit();
+        }
+
+        function submitPBPSettingsForm(e) {
+            var $form = $('#PBPSettingsForm');
+
+            e.preventDefault();
+
+            postPBPSettingsForm($form);
+        }
+
+        function postPBPSettingsForm($form) {
+            var url = $form.attr('action');
+
+            //ajaxGetSetup(url, function (token) {
+            //    ajaxPost(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', updateActiveTotal, showErrors, hideWaitingOverlay);
+            //});
+
+            ajaxGetSetup(url, function (token) {
+                ajaxPostForm(url, token, $form.serialize(), 'application/x-www-form-urlencoded', 'text', updatePBPSuccessful, updatePBPError, completedPost);
+            });
+        }
+
+        function updatePBPSuccessful(response) {
+            if (response.errors === undefined) {
+                var jsonMessage = JSON.parse(response.responseText);
+
+                displaySuccessMessage(jsonMessage.message);
+            } else {
+                if (response.errors[0] !== "Session Ended") {
+                    showMessageBox("Error", response.errors[0]);
+                } else {
+                    window.location = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@(Request.Url == null ? string.Empty : Request.Url.PathAndQuery)';
+                }
+            }
+        }
+
+        function updatePBPError(response) {
+            displayErrorMessage(response.message);
+        }
+
+        function completedPost() {
+            // Do something general after either success or fail
+        }
+
+    </script>
+}
+
+@section styles
+{
+    <style>
+        .enabled {
+            font-weight: bold;
+        }
+
+        .ui-accordion li h2 {
+            margin-bottom: 0 !important;
+        }
+
+        .waitingBackground {
+            background: url(https://www.encryptics.com/img/NewRegistration/ajax-loader-blue-2.gif) center center no-repeat;
+        }
+
+        .topActions {
+            border-bottom: solid 1px #bfb7b5;
+            border-top: none;
+            padding-bottom: 20px;
+            padding-top: 0;
+        }
+
+        .policyList {
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+        }
+
+        .policyTitle {
+            font-weight: bold;
+        }
+
+        .policyDescription {
+            color: #7f7674;
+            font-size: 0.9em;
+            padding-bottom: 15px;
+            padding-right: 25px;
+            text-align: justify;
+        }
+
+        .policyControls {
+            padding: 10px 0;
+        }
+
+            .policyControls input[type="checkbox"] {
+                border-bottom: solid 1px #bfb7b5;
+            }
+
+        .policyItemList {
+            border: solid 1px #eee9e7;
+            list-style: none;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+            .policyItemList li {
+                border-top: solid 1px #eee9e7;
+                padding: 10px;
+            }
+
+                .policyItemList li input {
+                    margin-right: 10px;
+                }
+
+                .policyItemList li:first-child {
+                    border-top: none;
+                }
+
+        .policyList li {
+            list-style: none;
+        }
+
+        .policyName {
+            margin-top: 25px;
+        }
+
+        .selectAll, .clearAll, .addRule, .scrollToTop, .deleteRule {
+            /*border: solid 1px #bfb7b5;*/
+            padding: 5px 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .deleteRule {
+            border: 1px solid #ddd;
+        }
+
+        .featured {
+            padding: 25px 15px !important;
+        }
+
+            .featured p {
+                text-align: justify;
+            }
+
+            .featured h2 {
+                border-bottom: solid 1px #bfb7b5;
+            }
+
+        .aside {
+            color: #7f7674;
+            font-size: 0.9em;
+            padding: 15px 0;
+            padding-right: 25px;
+            text-align: justify;
+        }
+
+        #generalPBPSettings ul {
+            list-style: none;
+            margin-bottom: 45px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 99%;
+        }
+
+            #generalPBPSettings ul li {
+                border-bottom: solid 1px #eeebea;
+                padding: 10px;
+            }
+
+                #generalPBPSettings ul li:first-child {
+                    border-top: solid 1px #eeebea;
+                }
+
+        #generalPBPSettings input[type="checkbox"], #generalPBPSettings select {
+            float: right;
+        }
+
+        #generalPBPSettings select {
+            font-size: 1.0em;
+            margin-top: -4px;
+            width: 360px;
+        }
+
+        #btnRemoveBWList:disabled {
+            background: gray !important;
+            color: black;
+        }
+
+        @@media only screen and (device-width: 768px) {
+            #DRMTypeDropDown {
+                width: 275px !Important;
+            }
+        }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .rulesList .tableActions li {
+                display: block;
+                margin-bottom: 5px;
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    </style>
+}
+
+@helper Info(IHtmlString helpText)
+{
+    <span class="ui-icon ui-icon-info" style="display: inline-block" title="@helpText"/>
+}

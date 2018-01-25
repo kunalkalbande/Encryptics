@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Encryptics Web Portal";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                More stuff can go here...
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Don't have an account? Register now!</h5>
+        @Html.ActionLink("Register", "Register", "Account") now for an Encryptics® account and then activate your devices in a matter of minutes.
+    </li>
+
+    <li class="two">
+        <h5>Forget your password?</h5>
+        If you've forgotten your password, you can @Html.ActionLink("Request a Reset", "ForgotPwd" , "Account").
+    </li>
+
+    <li class="three">
+        <h5>Didn't receive your Activation Link email?</h5>
+        If you haven't received an email within 30 minutes of registering, you can @Html.ActionLink("Resend Activation Link", "Resend", "Account").
+    </li>
+</ol>

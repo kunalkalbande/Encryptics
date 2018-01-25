@@ -6,5 +6,2264 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\EncrypticsPortal</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Code/ViewHelper.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyDomain/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyHome/Dashboard.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyHome/EditCompanyDetails.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyHome/EditCompanySettings.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyHome/_EmailTemplatePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyProductVersion/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/CompanyProductVersion/_VersionTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/AddGroupMember.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/Create.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/Details.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/Edit.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_distributionGroupTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_distributionGroupTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_distributionGroupTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_distributionGroupTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_groupMemberTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_groupMemberTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_groupMemberTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/DistributionGroup/_groupMemberTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/AssignRules.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/ConfigurePolicies.cshtml">
+      <publishTime>12/28/2017 19:14:35</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/_PBPEnableRule.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/_PBPNewRuleDetails.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/_PBPRuleDetails.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/_PBPRules.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/PolicyBasedProtection/_PBPRuleTypes.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Reports/PrintChartData.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Reports/RetrieveReportResults.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/DisplayTemplates/CheckableCompanyDomainModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/DisplayTemplates/CompanyDomainList.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/DisplayTemplates/CompanyDomainModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/DisplayTemplates/CompanyProductVersionModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/DisplayTemplates/LicensingModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/EditorTemplates/CompanyDomainModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/EditorTemplates/CompanyProductVersionModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/EditorTemplates/DLPRuleModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Shared/_Announcements.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/AddGroupMember.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/Create.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/Details.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/Edit.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_groupMemberTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_groupMemberTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_groupMemberTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_groupMemberTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_usageRightsGroupTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_usageRightsGroupTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_usageRightsGroupTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/UsageRightsGroup/_usageRightsGroupTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/Web.config">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Company/Views/ZeroDayProtection/ConfigureSettings.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/CompanyAdminHome/ActiveCompanies.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/CompanyAdminHome/Dashboard.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/CompanyAdminHome/ExpiredCompanies.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/CompanyAdminHome/_AddNewCompanyPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/CompanyAdminHome/_TransferLicensePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/SearchResults.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_ActiveAccountsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_ActiveAccountsTableBodyPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_ActiveAccountsTableFooterPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_ActiveAccountsTableHeaderPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_ActiveAccountsTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_CompaniesPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_PendingAccountsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_PendingAccountsTableBodyPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_PendingAccountsTableFooterPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_PendingAccountsTableHeaderPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_PendingAccountsTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_searchForm.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_SuspendedAccountsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_SuspendedAccountsTableBodyPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_SuspendedAccountsTableFooterPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_SuspendedAccountsTableHeaderPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Search/_SuspendedAccountsTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/DisplayTemplates/ActiveAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/DisplayTemplates/PendingAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/DisplayTemplates/SoftwareReleaseModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/DisplayTemplates/SuspendedAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/EditorTemplates/SoftwareReleaseModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/EditorTemplates/UserSearchLocation.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/_CompanyListPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Shared/_CompanyTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/SoftwareReleases/Edit.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/SoftwareReleases/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/SoftwareReleases/_AddNewSoftwareReleasePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/SoftwareReleases/_VersionTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/TransferLicenses/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/CompanyAdmin/Views/Web.config">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/Reseller/Views/Web.config">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/ActiveAccount.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/Emails.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/Manage.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/PendingAccount.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/SuspendedAccount.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_AccountAdminPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_ChangeAccountRole.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_emailListItem.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_EmailTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_SuspendedAccountAdminPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Admin/_TransferAccount.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_DevicePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_DevicesPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_DownloadsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_ManagePasswordPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_ManagePasswordPartial.Mobile.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_UsageSummaryListPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_UsageSummaryPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_UserAccountDetailsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Globalization/ar/Shared/_UserAccountDetailsPartial.Mobile.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/DisplayTemplates/DeviceSessionStatus.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/DisplayTemplates/DeviceType.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/EditorTemplates/EditableUserAccountModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_DeviceListPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_DevicePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_DevicesPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_DownloadsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_ManagePasswordPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_ManagePasswordPartial.Mobile.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UsageSummaryListPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UsageSummaryPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserAccountDetailsPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserAccountDetailsPartial.Mobile.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserAccountPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserDeviceDetailPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserDevicesPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Shared/_UserDeviceTablePartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/UserHome/ChangePassword.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/UserHome/Dashboard.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/UserHome/Manage.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/Web.config">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAccount/Views/_ViewStart.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/ActiveAccountsList.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/ActiveAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/PendingAccountsList.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/PendingAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/SuspendedAccountsList.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Shared/DisplayTemplates/SuspendedAccountsListItemModel.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/Index.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/ReviewPendingAccounts.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/UploadedAccounts.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/UploadedFiles.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/UploadFile.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/UploadSuccessful.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_EditPendingAccountInfo.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importedAccountsTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importedAccountsTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importedAccountsTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importedAccountsTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importFilesTable.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importFilesTableBody.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importFilesTableFooter.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UploadAccounts/_importFilesTableHeader.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/AddNewUser.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/ManageAccounts.cshtml">
+      <publishTime>12/28/2017 19:14:13</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/_ActiveAccounts.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/_NewUserAccountPartial.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/_PendingAccounts.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/UserAdminHome/_SuspendedAccounts.cshtml">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Areas/UserAdmin/Views/Web.config">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/ar/Encryptics.WebPortal.resources.dll">
+      <publishTime>01/25/2018 14:47:13</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_2A_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_2A_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_2A_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_34_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_34_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/24E818_34_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_0_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_0_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_0_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_1_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_1_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Content/webfonts/260969_1_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.AspNet.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.Core.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.Consumer.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OAuth.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/DotNetOpenAuth.OpenId.RelyingParty.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Encryptics.Common.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Encryptics.Cryptography.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Encryptics.Cryptography.Fips.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Encryptics.Cryptography.Fips.txt">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="bin/Encryptics.Library.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Encryptics.WebPortal.dll">
+      <publishTime>01/25/2018 14:47:13</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Glimpse.AspNet.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Core.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Elmah.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Mvc4.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Google.DataTable.Net.Wrapper.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Google.ProtocolBuffers.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/LumenWorks.Framework.IO.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CSharp.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocol.Extensions.dll">
+      <publishTime>08/19/2014 10:01:54</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>05/04/2017 11:53:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>05/04/2017 11:53:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>05/04/2017 11:53:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>05/04/2017 11:53:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>05/04/2017 11:53:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.WsFederation.dll">
+      <publishTime>05/04/2017 11:53:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Helpers.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Mono.Math.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/11/2017 15:16:33</publishTime>
+    </File>
+    <File Include="bin/NLog.config">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="bin/NLog.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/NLog.Extended.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/nunit.framework.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ObjectSerializer.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/Org.Mentalis.Security.Cryptography.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 13:00:52</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/StructureMap.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Composition.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Data.Entity.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Services.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>08/19/2014 10:03:34</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.Serialization.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.ServiceModel.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Transactions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.OData.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/System.Windows.Forms.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/Thinktecture.IdentityModel.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.Data.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.WebData.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>12/19/2017 12:05:06</publishTime>
+    </File>
+    <File Include="Content/Custom.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/EULA.pdf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/Shared.ar.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/Shared.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/external/jquery/jquery.js">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_100_bbbbbb_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_100_ffffff_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_55_fbf9ee_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_75_e2e2e2_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-bg_flat_95_fef1ec_40x100.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-icons_342e2e_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-icons_454545_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-icons_818285_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/index.html">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.js">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.min.js">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.structure.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.structure.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.theme.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/themes/encryptics/jquery-ui.theme.min.css">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_2A_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_2A_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_2A_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_34_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_34_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/24E818_34_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_0_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_0_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_0_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_1_0.eot">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_1_0.ttf">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Content/webfonts/260969_1_0.woff">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="custom.config">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="Encryptics.Cryptography.Fips.txt">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/19/2017 12:05:03</publishTime>
+    </File>
+    <File Include="Images/accent.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/bg4.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/bullet.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/Download.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/heroAccent.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/01-magnify.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/14-bothways.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/40-forward.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/50-plus.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/Add.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/house.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/Transfer.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/icons/TransferAlt.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/LandingPage-logo.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/LaptopGrey.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/LaptopOrange.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/logo.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/MobileGrey.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/MobileOrange.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList0.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList1.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList2.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList3.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList4.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList5.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList6.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList7.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList8.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/orderedList9.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/Security.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/Success.png">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/tinyloader1.gif">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Images/tinyloader2.gif">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="installer/ios/manifest.plist">
+      <publishTime>12/19/2017 12:05:05</publishTime>
+    </File>
+    <File Include="NLog.config">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/18/2018 15:20:13</publishTime>
+    </File>
+    <File Include="Scripts/ajax.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/confirm-dialog.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/info-messages.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.min.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.1.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min-1.11.1.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cookie.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/message-box.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/mobile-check.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/rainbowvis.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/search.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/tabs.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccessGroup.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccessGroupUser.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccountActivationConfig.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccountActivationResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccountActivationStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccountActivationWithPasswordResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AccountRegistrationStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.AuthorizedAction.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.Company.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyDLPConfig.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyDLPSummaryReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyDomain.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyEmailTemplate.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyGeneology.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyGWConfig.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyListItem.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.CompanyUsageCount.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.Decryption.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.Device.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DeviceListItem.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPPolicy.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPRule.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPRulesVisibility.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPRuleType.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPTerm.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPViolationsReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPViolationsRuleOverviewByRuleTypeReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.DLPViolationsRuleTypeOverviewReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.Encryption.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.EntityRoleUser.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ExpireTokenSessionResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccessGroupDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccessGroupsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccessGroupUsersArchivedResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccessGroupUsersResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccountActivationLinkStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccountDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetAccountsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyDevicesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyDLPConfigResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyDLPSummaryResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyDomainsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyEmailTemplateResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyGeneologyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetCompanyGWConfigResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDeviceDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDeviceListResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPJustificationsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPPoliciesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPRuleResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPRulesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPRulesVisibilityResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPRuleTypesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPViolationsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPViolationsRuleOverviewByRuleTypeResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetDLPViolationsRuleTypeOverviewResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetEncryptionDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetEntityRoleUsersResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetEntityUsageSummariesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetGrantableCompaniesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetGrantableRolesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetImportUsersAccountsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetImportUsersRequestsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetLexiconDLPTermsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetMalwareFilesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetMalwareFileTypeRiskProfileResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetMalwareFileTypesOverviewResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetMalwareFileTypesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetMalwareRiskOverviewResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetPendingAccountsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetResetPasswordLinkStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetSoftwarePlatformsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetSoftwareReleasesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopCompaniesByDecryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopCompaniesByEncryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopCompaniesByExpirationResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByDecryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopCompaniesUsageSummariesByEncryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopUsersByEncryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopUsersByViolationsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetTopViolatedDLPRulesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUsageRightsGroupDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUsageRightsGroupsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersArchivedResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUsageRightsGroupUsersResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserAuthorizedActionResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserAuthorizedActionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserCompaniesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserDecryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserEmailsSentResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserEncryptionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserEntityRolesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserSecurityQuestionResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserUsageRightsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.GetUserUsageSummaryByMonthResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ImportUsersAccount.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ImportUsersRequest.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertAccessGroupResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertAccessGroupResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertAccessGroupUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertAccessGroupUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyDLPTermResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyDLPTermResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyDomainResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyDomainResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertCompanyResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertDLPPublicationResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertDLPRuleResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertDLPRuleResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertEntityRoleUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertEntityRoleUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertEntityRoleUsersResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertGWPublicationResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertGWPublicationResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertImportUsersRequestResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertImportUsersRequestResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertLicenseTransferResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertLicenseTransferResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertRequestUserTransferResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertRequestUserTransferResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertResetPasswordRequestResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertServerKeyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertServerKeysResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertSoftwareReleaseResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsageRightsGroupResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsageRightsGroupUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserAdminCompaniesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserAdminCompaniesStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserLicenseResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserLicenseResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsersByBulkResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUsersByBulkResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.InsertUserSecurityQuestionsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.LogDebugRecordResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.MalwareFilesReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.MalwareFileTypeRiskProfileReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.MalwareFileTypesOverviewReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.MalwareRiskOverviewReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.PendingUserAccountListReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.PortalRoleListItem.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveAccessGroupUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyDLPTermResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyDLPTermResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyDomainResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyDomainResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveCompanyResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveDLPRuleResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveDLPRuleResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemovePendingAccountResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUsageRightsGroupUserResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUserAdminCompaniesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUserAdminCompaniesStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUserDeviceResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUserLicensesResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.RemoveUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ResendRequestUserTransferResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ResetPasswordLinkStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.SecurityQuestion.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.SoftwarePlatform.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.SoftwareRelease.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TokenAuth.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TokenLoginResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopCompaniesByDecryptionsReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopCompaniesByEncryptionsReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopCompaniesByExpirationReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopUsersByDLPViolationsReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopUsersByEncryptionsReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.TopViolatedDLPRulesReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateAccessGroupResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateAccessGroupResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyDLPConfigResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyDLPSettingsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyEmailTemplateResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyGWConfigResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyLexiconsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateCompanyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDeviceActivationResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDeviceActivationStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDeviceStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRuleDetailsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRuleDetailsStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRuleStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRuleStatusStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRulesVisibilityResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateDLPRulesVisibilityStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateEntitySoftwareReleaseStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateGWSettingResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdatePasswordResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdatePasswordStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateRequestUserTransferResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateRequestUserTransferStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseActiveStatusStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseGlobalMinimumStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateSoftwareReleaseResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupResult.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUsageRightsGroupStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserAdminStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserAdminStatusStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserCompanyResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserContactInfoResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserPasswordResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserResetPasswordResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserSecurityQuestionResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserStatusResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserUnlockResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserUsageRightsResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UpdateUserUsageRightsStatus.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UsageRightsGroup.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UsageRightsGroupUser.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UsageSummary.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserAccount.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserAccountListReport.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserEmail.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserLoginResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserLogoutResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.UserUsageRights.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Service References/PortalService/Encryptics.WebPortal.PortalService.ValidateTokenResponse.datasource">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/Activate.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ActivateDevice.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ActivatePassword.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPwd.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>01/24/2018 11:16:09</publishTime>
+    </File>
+    <File Include="Views/Account/Manage.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/Resend.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/_ForgotPwdPartial.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/_ManagePasswordPartial.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/_ResetPwdError.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Account/_ResetPwdPartial.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Globalization/ar/Shared/DisplayTemplates/DateTime.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Globalization/ar/Shared/_FormSubmitSuccessful.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Home/AccessDenied.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Home/adfsSignin.cshtml">
+      <publishTime>01/02/2018 16:47:48</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Home/UnderConstruction.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/DateTime.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/Enum.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/ReadOnlyField.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/ContactInfoModel.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_CompanyBreadcrumbs.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_ConfirmDialog.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_ErrorMessages.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_FormSubmitSuccessful.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_FormSubmitSuccessful.Mobile.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/11/2018 12:44:57</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.Mobile.cshtml">
+      <publishTime>01/11/2018 12:45:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginFormPartial.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>01/05/2018 13:53:07</publishTime>
+    </File>
+    <File Include="Views/Shared/_MessageBox.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_PageableTableViewPartial.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_SuccessMessage.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/19/2017 12:05:04</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/24/2018 14:23:59</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

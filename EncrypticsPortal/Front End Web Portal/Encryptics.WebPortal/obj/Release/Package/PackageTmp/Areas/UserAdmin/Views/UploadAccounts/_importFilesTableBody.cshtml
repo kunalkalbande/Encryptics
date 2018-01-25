@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAdmin.Models.ImportFileModel>
+
+<tbody>
+    @foreach (var importFile in Model)
+    {
+        <tr>
+            <td class="selectColumn">
+                <input type="checkbox" class="selectedGroup" name="groupIds" value="@importFile.Id" /></td>
+            <td>@Html.ActionLink(importFile.FileName, "UploadedAccounts", new { entityId =ViewBag.CompanyId, importFileId = importFile.Id })</td>
+            <td>@Html.DisplayFor(m => importFile.DateUploaded)</td>
+        </tr>
+    }
+    <tr></tr>
+</tbody>

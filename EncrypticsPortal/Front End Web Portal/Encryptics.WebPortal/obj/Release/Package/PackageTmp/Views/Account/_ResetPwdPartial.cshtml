@@ -1,0 +1,31 @@
+﻿@using Encryptics.WebPortal.Properties
+@model Encryptics.WebPortal.Models.ResetPasswordModel
+@{
+    string token = ViewBag.AntiForgeryToken;
+}
+<p>@Resources.ResetPasswordPartialInsructions</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        @Html.HiddenFor(m => m.ActivationCode)
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.Hash)
+        @Html.Hidden("AjaxToken", token)
+        <legend>Reset Password</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+        </ol>
+        <div style="min-height: 75px">
+            @Html.ValidationSummary()
+        </div>
+        <a href="#" class="button">@Resources.ResetPassword <span>&gt;</span></a>
+    </fieldset>
+}

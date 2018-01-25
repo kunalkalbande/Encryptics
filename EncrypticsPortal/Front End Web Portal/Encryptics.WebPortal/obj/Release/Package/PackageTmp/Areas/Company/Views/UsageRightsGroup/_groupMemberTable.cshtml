@@ -1,0 +1,7 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.Company.Models.UsageRightsGroupMemberModel>
+
+<table class="newDataTable" id="usageRightsGroupsTable">
+    @Html.Partial("_groupMemberTableHeader", Model.DataItems)
+    @Html.Partial("_groupMemberTableBody", Model.DataItems)
+    @Html.Partial("_groupMemberTableFooter")
+</table>

@@ -1,0 +1,15 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model DateTime?
+@if (Model.HasValue)
+{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    if (encrypticsUser != null)
+    {
+        var localDateTime = Model.FromUTC(encrypticsUser.UTCOffset, encrypticsUser.UsesDST);
+
+        if (localDateTime.HasValue)
+        {
+    @localDateTime.Value.ToShortDateString()
+        }
+    }
+}

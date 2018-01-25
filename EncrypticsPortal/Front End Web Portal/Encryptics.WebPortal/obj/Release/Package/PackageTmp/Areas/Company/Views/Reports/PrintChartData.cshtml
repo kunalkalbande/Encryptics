@@ -1,0 +1,86 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.ReportParametersModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>PBP Graph</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/custom/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/rainbowvis")
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable('@Html.Raw(Model.ChartDataJson)');
+            var numberOfRows = data.getNumberOfRows();
+
+            if (numberOfRows > 0) {
+                var chart = new google.visualization.PieChart($(document.body).get(0));
+                var height = $(window).height();
+                var colors = ['#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C'];
+
+                if (numberOfRows > 5)
+                    colors = getChartColors(numberOfRows);
+
+                chart.draw(data, {
+                    colors: colors,
+                    height: height,
+                    title: '@Html.Raw(Model.ReportName)',
+                    legend: { alignment: 'center' },
+                    chartArea: {
+                        left: 10,
+                        top: 120
+                    },
+                    titleTextStyle: {
+                        fontSize: 20,
+                        bold: true
+                    }
+                });
+
+                window.print();
+            }
+        }
+
+        function getChartColors(numberOfItems) {
+            var rainbow = new Rainbow();
+            var colorArray = new Array();
+
+            rainbow.setNumberRange(1, numberOfItems);
+            rainbow.setSpectrum('#349ae9', '#cccccc');
+
+            for (var i = 0; i < numberOfItems; i++) {
+                var hexColour = rainbow.colourAt(i + 1);
+                colorArray[i] = '#' + hexColour;
+            }
+
+            return colorArray;
+        }
+
+        $(function () {
+            $(window).resize(function () {
+                drawChart();
+            });
+        });
+    </script>
+    <style>
+        #ChartOverlay {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 5px; /* chartArea top  */
+            left: 5px; /* chartArea left */
+            z-index: 2000;
+        }
+    </style>
+</head>
+    <body>
+    </body>
+</html>

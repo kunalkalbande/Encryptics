@@ -1,0 +1,32 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel>
+
+@{
+    ViewBag.Title = "Uploaded Accounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    string companyName = (ViewBag.CompanyName ?? ViewBag.CompanyName as string) ?? "Company Dashboard";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+                <img src="~/Images/icons/house.png" alt="" /></a>
+            <text>&gt;</text>
+        }
+        @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+        &gt;
+        @Html.ActionLink("Uploaded Files", "Index", new { entityId = ViewBag.CompanyId })
+        &gt;
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<section class="featured light">
+    @Html.Partial("_importedAccountsTable")
+</section>

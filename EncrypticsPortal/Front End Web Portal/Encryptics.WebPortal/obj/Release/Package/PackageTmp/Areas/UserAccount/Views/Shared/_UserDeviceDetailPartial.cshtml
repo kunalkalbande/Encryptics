@@ -1,0 +1,36 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@using Encryptics.WebPortal.Properties
+@model DeviceModel
+<td id="deviceType" style="width:15%">
+    <div class="deviceSuspended" style="@if (Model.Status != DeviceStatus.Active){@Html.Raw("display:block")}">
+        <div class="deviceSessionStatusSuspended">@Resources.DevicePartialSuspendedDisplay</div>
+    </div>
+    @Html.DisplayFor(m => m.HasActiveSession, new { DeviceStatus = Model.Status })
+    @Html.DisplayFor(m => m.Type, new { SessionStatus = Model.HasActiveSession ? "Orange" : "Grey" })
+</td>
+<td>
+    <div class="deviceSuspended" style="@if (Model.Status != DeviceStatus.Active){@Html.Raw("display:block")}"></div>
+    <span id="deviceName">@Html.DisplayFor(m => m.Name)</span><br />
+    <span>@Resources.DevicePartialAddedDisplay</span>&nbsp;@Html.DisplayFor(m => m.DateDeployed)
+</td>
+<td style="width:15%">
+    <ul id="deviceActions">
+        <li>
+            @if (Model.HasActiveSession)
+            {
+                <a href="#" class="logDeviceOutButton" data-token-id="@Model.TokenId" data-entity-id="@ViewData["EntityId"]" data-user-id="@ViewData["UserId"]" data-page="@ViewData["CurrentPage"]">@Resources.DevicePartialLogoutDisplay</a>
+            }
+            else
+            {
+                <span class="disabledLogout">@Resources.DevicePartialLogoutDisplay</span>
+            }
+        </li>
+        <li>
+            <a href="#" class="suspendDeviceButton" data-id="@Model.Id" data-entity-id="@ViewData["EntityId"]" @if (Model.Status == DeviceStatus.Suspended){@Html.Raw("style=\"display:none\"")}>@Resources.DeviceListPartialSuspendDisplay</a>
+            <a href="#" class="activateDeviceButton" data-id="@Model.Id" data-entity-id="@ViewData["EntityId"]" @if (Model.Status == DeviceStatus.Active){@Html.Raw("style=\"display:none\"")}>@Resources.DeviceListPartialActivateDisplay</a>
+        </li>
+        <li>
+            <a href="#" class="forgetDeviceButton" data-id="@Model.Id" data-entity-id="@ViewData["EntityId"]" data-user-id="@ViewData["UserId"]" data-page="@ViewData["CurrentPage"]">@Resources.DevicePartialForgetDeviceDisplay</a>
+        </li>
+    </ul>
+</td>

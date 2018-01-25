@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.Company.Models.CompanyProductVersionModel>
+
+<table class="newDataTable">
+    <thead>
+        <tr>
+            <th class="selectColumn">&nbsp;</th>
+            <th>@Html.DisplayNameFor(m => m.VersionNumber)</th>
+            <th>@Html.DisplayNameFor(m => m.ReleaseNotes)</th>
+            <th>@Html.DisplayNameFor(m => m.Severity)</th>
+            @*<th>&nbsp;</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var version in Model)
+        {
+            @Html.DisplayFor(m => version)
+        }
+        <tr class="hidden"></tr>
+    </tbody>
+</table>

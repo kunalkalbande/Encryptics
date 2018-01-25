@@ -1,0 +1,7 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel>
+
+<table class="newDataTable" id="distributionGroupsTable">
+    @Html.Partial("_distributionGroupTableHeader", Model.DataItems)
+    @Html.Partial("_distributionGroupTableBody", Model.DataItems)
+    @Html.Partial("_distributionGroupTableFooter")
+</table>

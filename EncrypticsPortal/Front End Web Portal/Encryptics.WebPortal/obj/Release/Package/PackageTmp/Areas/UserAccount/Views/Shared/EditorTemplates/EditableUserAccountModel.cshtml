@@ -1,0 +1,56 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.EditableUserAccountModel
+
+@using (Html.BeginForm())
+{
+    <fieldset style="position: relative; margin: 0;">
+        <legend>Edit User Details</legend>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.EntityId)
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.UserName)
+        @Html.HiddenFor(m => m.CompanyName)
+        @Html.HiddenFor(m => m.AccountStatus)
+        @Html.HiddenFor(m => m.LicenseType)
+        @Html.HiddenFor(m => m.DatePasswordChanged)
+        <ol class="float-left formSection">
+            <li>
+                @Html.LabelFor(m => m.CompanyName)
+                @Html.DisplayFor(m => m.CompanyName, "ReadOnlyField")
+            </li>
+            <li>
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { maxLength = 50 })
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { maxLength = 50 })
+                @Html.ValidationMessageFor(m => m.LastName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.AccountStatus)
+                @Html.DisplayFor(m => m.AccountStatus, "ReadOnlyField")
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LicenseType)
+                @Html.DisplayFor(m => m.LicenseType, "ReadOnlyField")
+            </li>
+            @*<li>
+                @Html.LabelFor(m => m.DatePasswordChanged)
+                @Html.DisplayFor(m => m.DatePasswordChanged, "ReadOnlyField")
+            </li>*@
+            <li>
+                <div class="readOnlyField">
+                    @Html.DisplayFor(m => m.DatePasswordChanged)
+                </div>
+            </li>
+        </ol>
+
+        @Html.EditorFor(m => m.ContactInfo)
+
+        <div class="formActions">
+            <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+            <input type="submit" value="Update" class="mainAction" style="float: right;" />
+        </div>
+    </fieldset>
+}

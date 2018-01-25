@@ -1,0 +1,125 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Models
+@model PageableViewModel<CompanyProductVersionModel>
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Company Product Versions";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="tabbed">
+    <ul class="tabs">
+        @foreach (SoftwareReleaseProductModel productLine in ViewBag.Platforms)
+        {
+            <li class="activeTab"><a href="#" class="tab">@productLine.ProductName</a></li>
+        }
+    </ul>
+    @foreach (SoftwareReleaseProductModel productLine in ViewBag.Platforms)
+    {
+        var productId = productLine.ProductId;
+        <div class="tabPage">
+            <form>
+                @if (encrypticsUser.HasPermission("Company/CompanyProductVersion/SetCompanyVersion"))
+                {
+                    <div class="dataTableToolbar">
+                        <ul class="tableActions">
+                            <li>
+                                <input type="button" value="set company version" class="approveSelectedVersions" disabled="disabled" data-product-id="@productId"></li>
+                        </ul>
+                    </div>
+                }
+            </form>
+
+            @Html.Partial("_VersionTable", Model.DataItems, new ViewDataDictionary { { "CurrentPage", Model.CurrentPage } })
+        </div>
+    }
+</section>
+
+<div id="releaseNotesDialog" class="dialog">
+    <textarea readonly="readonly" rows="15" cols="80" id="releaseNotesTextArea"></textarea>
+</div>
+
+@using (Html.BeginForm("SetCompanyVersion", "CompanyProductVersion", new { area = "Company" }, FormMethod.Post, new { id = "companyVersionForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("entityId", (long)ViewBag.CompanyId)
+    @Html.Hidden("versionId")
+}
+
+@section styles
+{
+    <style>
+        #releaseNotesTextArea {
+            width: auto;
+            resize: none;
+        }
+
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            #releaseNotesTextArea {
+                width: 90%;
+            }
+
+            #releaseNotesDialog {
+                padding-left: 5%;
+            }
+        }
+    </style>
+}
+
+@section scripts{
+    <script>
+        $(function () {
+            var dialogWidth = "702";
+
+            if (isPhone) {
+                dialogWidth = "356";
+            }
+
+            var $releaseNotesDialog = $('#releaseNotesDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "View Release Notes",
+                width: dialogWidth,
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "Close": function () { $(this).dialog("close"); }
+                }
+            });
+
+            $('.approveSelectedVersions').click(function () {
+                var selectedVersion = $('.selectedVersion:checked').attr('data-id');
+
+                $('#companyVersionForm').find('#versionId').val(selectedVersion);
+                $('#companyVersionForm').submit();
+            });
+
+            $('.releaseNotes').click(function (e) {
+                e.preventDefault();
+
+                var releaseNotes = $(this).attr('data-notes');
+
+                $('#releaseNotesTextArea').val(releaseNotes);
+
+                $releaseNotesDialog.dialog("open");
+            });
+
+            $('.selectedVersion').click(function () {
+                var productId = $(this).attr('data-product-id');
+
+                $('.selectedVersion').not($(this)).attr('checked', false);
+
+                if ($('.selectedVersion').length > 0) {
+                    $('.approveSelectedVersions[data-product-id=' + productId + ']').attr('disabled', false);
+                } else {
+                    $('.approveSelectedVersions[data-product-id=' + productId + ']').attr('disabled', true);
+                }
+            });
+        })
+    </script>
+}

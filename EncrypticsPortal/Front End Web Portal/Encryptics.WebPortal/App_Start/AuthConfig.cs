@@ -5,6 +5,8 @@ namespace Encryptics.WebPortal
     public static class AuthConfig
     {
         public static string UserName;
+        public static bool LogOut = false;
+        public static string AuthType;
         public static void RegisterAuth()
         {
             // To let users of this site log in using their accounts from other sites such as Microsoft, Facebook, and Twitter,

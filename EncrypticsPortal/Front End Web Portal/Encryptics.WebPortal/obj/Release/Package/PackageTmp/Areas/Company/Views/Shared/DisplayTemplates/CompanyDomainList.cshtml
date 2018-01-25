@@ -1,0 +1,20 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model IEnumerable<CompanyDomainModel>
+
+<table class="miniTable">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Domain)</th>
+        <th class="right" id="domainCreatedDateHeader">@Html.DisplayNameFor(m => m.CreatedDate)</th>
+    </tr>
+    @foreach (var domain in Model.Take(3))
+    {
+        @Html.DisplayFor(m => domain)
+    }
+    @if (Model.ToArray().Length > 3)
+    {
+        <tr>
+            <td colspan="2" class="tableAction">@Html.ActionLink("view all domains", string.Empty, "CompanyDomain", new { @id = ViewData["CompanyId"] }, null)</td>
+        </tr>
+    }
+</table>
+

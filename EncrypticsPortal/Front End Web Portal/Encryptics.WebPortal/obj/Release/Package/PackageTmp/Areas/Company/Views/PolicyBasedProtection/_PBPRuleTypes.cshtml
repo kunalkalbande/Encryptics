@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.Company.Models.DLPRuleTypeModel>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var ruleType in Model)
+            {
+            <li>
+                <h4 data-entity-id="@ViewBag.CompanyId" data-policy-id="@ruleType.PolicyId" data-rule-type-id="@ruleType.Id">
+                    @if (ruleType.IsUsed)
+                        {
+                            <span class="ui-icon ui-icon-check" style="display: inline-block;"></span>    
+                        }
+                    @Html.Raw(ruleType.Description)
+                </h4>
+                <div class="waitingBackground rulesList">&nbsp;</div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div>No Rule Types found</div>
+}

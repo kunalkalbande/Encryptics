@@ -1,0 +1,19 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DistributionGroupMemberModel
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.AntiForgeryToken()
+        <legend></legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.HiddenFor(m => m.UserId)
+                    @Html.TextBoxFor(m => m.UserName, new{@placeHolder=@"Type an email address to begin searching"})
+                    @*@Html.ValidationMessageFor(m => m.UserName )*@
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

@@ -1,0 +1,27 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model IEnumerable<Encryptics.WebPortal.Areas.Company.Models.UsageRightsGroupModel>
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+<tbody>
+    @foreach (var group in Model)
+    {
+        var groupClosure = group;
+        <tr>
+            <td class="selectColumn">
+                <input type="checkbox" class="selectedGroup" name="groupIds" value="@group.GroupId" /></td>
+            <td>@if (encrypticsUser.HasPermission("Company/UsageRightsGroup/Details")) 
+                {
+                <a href="@Url.Action("Details", new { entityId = ViewBag.CompanyId, groupId = groupClosure.GroupId })" data-id="@group.GroupId">@Html.DisplayFor(m => group.GroupName)</a>
+                }
+                else
+                {
+                @Html.DisplayFor(m => group.GroupName)
+                }</td>
+            <td>@Html.DisplayFor(m => group.MemberCount)</td>
+            <td>@Html.BooleanDisplayFor(m => groupClosure.IsActive)</td>
+        </tr>
+    }
+    <tr></tr>
+</tbody>

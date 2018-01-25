@@ -1,0 +1,19 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+
+@using (Html.BeginForm("ChangeAccountRole", "Admin", new { entityId = Model.EntityId }, FormMethod.Post, new { id = "changeRoleForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.UserName)
+    <fieldset>
+        <legend></legend>
+        <ol class="formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.PrimaryRole)
+                    @Html.DropDownListFor(m => m.AdminPortalRoleId, (IEnumerable<SelectListItem>)ViewBag.RoleDropdownList)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

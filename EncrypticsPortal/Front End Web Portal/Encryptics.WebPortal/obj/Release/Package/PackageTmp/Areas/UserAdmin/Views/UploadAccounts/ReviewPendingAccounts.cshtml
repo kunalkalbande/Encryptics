@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel>
+
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Review Pending Accounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool showDownload = false;
+    if (ViewBag.PromptForDownload != null)
+    {
+        showDownload = (bool)ViewBag.PromptForDownload;
+    }
+    string companyName = (ViewBag.CompanyName ?? ViewBag.CompanyName as string) ?? string.Empty;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        @Html.ActionLink("Upload Accounts", "Index", "UploadAccounts", new { entityId = ViewBag.CompanyId, area = "UserAdmin" }, null)
+        &gt; 
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+@using (Html.BeginForm("ReviewPendingAccounts", "UploadAccounts", new { entityId = ViewData["CompanyId"] }))
+{
+    @Html.AntiForgeryToken()
+    <div style="margin-bottom: 20px">
+        <label for="showDownloadButton">Make the Encryptics for Email Download Available?</label>
+        <input name="showDownloadButton" type="radio" value="false" data-val="true" data-val-required="You must select Yes or No to deterine if the user will be able to download Encrytpics for Email after creating their password." @(ViewBag.PromptForDownload == null ? string.Empty : showDownload ? "checked='checked'" : string.Empty)>
+        Yes
+        <input name="showDownloadButton" type="radio" value="true" @(ViewBag.PromptForDownload == null ? string.Empty : !showDownload ? "checked='checked'" : string.Empty)>
+        No
+        <span class="field-validation-valid" data-valmsg-for="showDownloadButton" data-valmsg-replace="true"></span>
+    </div>
+    
+    <section id="reviewItems" class="white">
+        @if (Model.Any())
+        {
+            <fieldset>
+                <legend></legend>
+                <div class="dataTableToolbar">
+                    <ul class="tableActions">
+                        <li>
+                            <input type="checkbox" value="all" id="selectAllAccounts" /></li>
+                        <li>
+                            <input type="button" value="delete accounts" id="deleteSelectedAccounts" disabled="disabled"></li>
+                    </ul>
+                </div>
+                <table class="newDataTable" id="newAccountsTable">
+                    <tbody id="editorRows">
+                        @foreach (var item in Model)
+                        {
+                            Html.RenderPartial("_EditPendingAccountInfo", item);
+                        }
+                        <tr class="hidden"></tr>
+                    </tbody>
+                </table>
+                <div class="formActions">
+                    <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+                    <input type="submit" value="Add Users" class="mainAction" style="float: right;" />
+                </div>
+            </fieldset>
+        }
+        else
+        {
+            <p>No items to display.</p>
+        }
+
+    </section>
+    
+}
+
+@Html.Partial("_ConfirmDialog")
+
+@section styles{
+    <style>
+        .onoffswitch-inner-text:before {
+            content: "Pro";
+        }
+
+        .onoffswitch-inner-text:after {
+            content: "Free";
+            padding-right: 6px;
+        }
+
+        tr.ui-state-error td {
+            border: inherit;
+            background: inherit;
+        }
+
+        #newAccountsTable {
+            margin-bottom: 25px;
+        }
+    </style>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('form').on('submit', function (e) {
+                e.preventDefault();
+                if ($(this).valid()) {
+                    $('input[type="submit"]').attr('disabled', 'disabled');
+                    console.log('submitting');
+                    this.submit();
+                }
+            });
+
+            $('#selectAllAccounts').change(function () {
+                if ($('#selectAllAccounts').attr('checked') == 'checked') {
+                    $('.selectedAccount:unchecked').attr('checked', 'checked');
+                }
+                else {
+                    $('.selectedAccount:checked').removeAttr('checked');
+                }
+
+                setupButton('#deleteSelectedAccounts', '#228b22', '#selectAllAccounts', '.selectedAccount:checked');
+            });
+
+            $('.selectedAccount').change(function () {
+                if ($('.selectedAccount:checked').length > 0)
+                    $('#selectAllAccounts').attr('checked', 'checked');
+                else
+                    $('#selectAllAccounts').removeAttr('checked');
+
+                setupButton('#deleteSelectedAccounts', '#228b22', '#selectAllAccounts', '.selectedAccount:checked');
+            });
+
+            $('#deleteSelectedAccounts').click(function () {
+                showConfirmationDialog("Delete Accounts", "Are you sure you want to remove this account?", function () {
+                    $('.selectedAccount:checked').parents('tr').remove();
+                    $('#selectAllAccounts').removeAttr('checked');
+                    setupButton('#deleteSelectedAccounts', '#228b22', '#selectAllAccounts', '.selectedAccount:checked');
+                    if ($('#newAccountsTable tr').length == 1) {
+                        $('#reviewItems').html('<p>No items to display.</p>');
+                    }
+                });
+            });
+
+            $('#cancelButton').click(function () {
+                window.location = '@Url.Action("Index", "UploadAccounts", new { entityId = ViewBag.CompanyId, area = "UserAdmin" })';
+            });
+        });
+
+        function setupButton(buttonSelector, enabledColor, selectAllSelector, checkBoxSelector) {
+            var $button = $(buttonSelector);
+
+            if ($(checkBoxSelector).length == 0) {
+                $button.attr('disabled', 'disabled').css('color', '#bbb');
+                $(selectAllSelector).attr('value', 'all').css('color', '#228b22 !important');
+            } else if ($button.attr('disabled') == 'disabled') {
+                $button.removeAttr('disabled').css('color', enabledColor);
+                $(selectAllSelector).attr('value', 'none').css('color', '#bbb');
+            }
+        }
+    </script>
+}

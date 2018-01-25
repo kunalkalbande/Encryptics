@@ -1,0 +1,128 @@
+﻿@using System.Web.Configuration
+@using Encryptics.WebPortal.Helpers
+@using Encryptics.WebPortal.IdentityModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - @WebConfigurationManager.AppSettings["CompanyName"] Administration Portal</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/themes/encryptics/css")
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+    @Styles.Render("~/Content/custom-css")
+    <script>
+        returnUrl = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@HttpUtility.UrlEncode((Request.Url == null ? string.Empty : Request.Url.PathAndQuery))';
+    </script>
+</head>
+<body>
+    <header>
+        <div id="barContainer" style="margin-top: -12px">
+            <div style="height: 12px; margin: 0 auto;">
+                <div class="coloredBar orangeBackground">
+                </div>
+                <div class="coloredBar blueBackground">
+                </div>
+                <div class="coloredBar greenBackground">
+                </div>
+                <div class="coloredBar maroonBackground">
+                </div>
+            </div>
+        </div>
+        <div id="headerBar">
+            <div class="content-wrapper">
+                <div id="logoContainer" style="float: left;">
+                    <p class="site-title">
+                        @Html.ImageLink(Url.Content("~/Images/logo.png"), "Encrytpics Logo", "Index", "Home", new { area = "" }, null, new { height = "20" })
+                    </p>
+                </div>
+
+                <div id="headerSection" style="float: right;">
+                    <div style="float: right;">
+                        <section id="login" style="float: right; margin: 0;">
+                            @if (Request.IsAuthenticated)
+                            {
+                                ViewData.TemplateInfo.HtmlFieldPrefix = string.Empty;
+
+                                if (EncrypticsPrincipal.CurrentEncrypticsUser.HasPermission("CompanyAdmin/Search/SearchResults") && EncrypticsPrincipal.CurrentEncrypticsUser.CompanyCount > 1)
+                                {
+                                @Html.Partial("~/Areas/CompanyAdmin/Views/Search/_searchForm.cshtml")
+                                }
+                                @Html.ActionLink("My Account", string.Empty, "UserHome", new { area = "UserAccount" }, new { title = "Manage" })
+                                using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                }
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink" })
+                                @Html.ActionLink("Log in", "Login", "Account", null, new { id = "loginLink" })
+                            }
+                        </section>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </header>
+
+    <div id="body">
+        @RenderSection("featured", false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+    <footer>
+        <div class="content-wrapper">
+            <div id="helpInfo">
+                <h4>@WebConfigurationManager.AppSettings["CompanyName"] Support:</h4>
+                <p>@WebConfigurationManager.AppSettings["SupportPhone"]</p>
+                <p><a href="mailto:@WebConfigurationManager.AppSettings["SupportEmail"]">@WebConfigurationManager.AppSettings["SupportEmail"]</a></p>
+            </div>
+            <div id="copyrightInfo">&copy; @DateTime.Now.Year @WebConfigurationManager.AppSettings["CompanyName"] &#8212; @HttpContext.Current.Application["Version"]</div>
+        </div>
+    </footer>
+    @Html.Partial("_MessageBox")
+    <script>
+        var processKeyDown = true; // kludge :(
+        var isTablet = window.matchMedia("only screen and (device-width: 768px)").matches;
+        var isPhone = window.matchMedia("only screen and (max-device-width:736px), only screen and (width:375px)").matches;
+
+        function testDST() {
+            var date1 = new Date('3/9/2015');
+            var date2 = new Date('11/2/2015');
+
+            return date1.getTimezoneOffset() != date2.getTimezoneOffset();
+        }
+
+        $(function () {
+            $.cookie("tzo", new Date().getTimezoneOffset(), { expires: 1 });
+            $.cookie("dst", testDST(), { expires: 1 });
+
+            $('#hideErrorMessage').click(function (e) {
+                e.preventDefault();
+                $("#errorMessages").hide("highlight", {}, 600);
+            });
+            
+            $('#hideSuccessMessage').click(function (e) {
+                e.preventDefault();
+                $("#successMessage").hide("highlight", {}, 600);
+            });
+            
+            ajaxGet('@Url.Action("AjaxCheckLogin", "Account", new { area = string.Empty })', function (response) {
+                if (!response.success && response.redirect) {
+                    window.location = '@Url.Action("SessionEnded", "Account", new { area = string.Empty })?returnUrl=@HttpUtility.UrlEncode((Request.Url == null ? string.Empty : Request.Url.PathAndQuery))';
+                }
+            }, function (errorResponse) {
+                console.log(errorResponse);
+            });
+        });
+    </script>
+</body>
+</html>
+@Scripts.Render("~/bundles/jquery", "~/bundles/modernizr", "~/bundles/jqueryui", "~/bundles/ajax")
+@RenderSection("scripts", false)

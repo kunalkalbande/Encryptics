@@ -121,12 +121,9 @@ namespace Encryptics.WebPortal.Controllers
             ViewBag.Title = "Portal &mdash; Log In";
             ViewBag.SessionEnded = string.Empty;
             Session["Model"] = model;
-            Trace.TraceInformation(String.Format("Get Tenant details"));
-
             string tenant = GetTenantId(model);
             if (!string.IsNullOrEmpty(tenant))
             {
-                Trace.TraceInformation(String.Format("user tenant is {0}", tenant));
 
                 AuthenticateUser(model);
                 return null;
@@ -134,8 +131,6 @@ namespace Encryptics.WebPortal.Controllers
             }
             else if (string.IsNullOrEmpty(model.Password) && !model.PasswordVisible)
             {
-                Trace.TraceInformation(String.Format("no tenant available so entering forms authentication"));
-
                 model.PasswordVisible = true;
                 return RedirectToAction("Login", "Account", new { area = string.Empty, returnUrl = "/" });
 
@@ -310,18 +305,9 @@ namespace Encryptics.WebPortal.Controllers
         public async Task<ActionResult> LogOff()
         {
             Request.Cookies.Clear();
-            string callbackUrl=string.Empty;
-            if (Session["auth"]!=null&&Session["auth"].ToString()=="Google")
-            {
-                var url = Url.Action("SignOutCallback", "Home", routeValues: null, protocol: Request.Url.Scheme);
-                callbackUrl = string.Format("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue={0}", url);
 
-            }
             await LogUserOff();
-            if(!string.IsNullOrEmpty(callbackUrl))
-            {
-                return Redirect(callbackUrl);
-            }
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -935,6 +921,19 @@ namespace Encryptics.WebPortal.Controllers
         [HttpGet,AuthActionFilterAttribute]
         public ViewResult SessionEnded(string returnUrl)
         {
+
+            if (AuthConfig.LogOut && HttpContext.User.Identity.IsAuthenticated)
+            {
+               
+                string callbackUrl = Url.Action("SignOutCallback", "Home", routeValues: null, protocol: Request.Url.Scheme);
+                HttpContext.GetOwinContext().Authentication.SignOut(
+                    new AuthenticationProperties { RedirectUri = callbackUrl },
+                 AuthConfig.AuthType, Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.AuthenticationType, Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
+               
+            }
+            AuthConfig.LogOut = false;
+            AuthConfig.AuthType = string.Empty;
+
             ViewBag.ReturnUrl = returnUrl;
             ViewBag.Title = "Session Expired &mdash; Log In";
             ViewBag.SessionEnded = "For security purposes you must log in to continue";
@@ -1145,15 +1144,10 @@ namespace Encryptics.WebPortal.Controllers
             //System.IdentityModel.Services.WSFederationAuthenticationModule.FederatedSignOut(null, new Uri("https://localhost:44356/Home/Index"));
 
             //  HttpContext.GetOwinContext().Authentication.SignOut(Session["auth"].ToString(), Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
-            Trace.TraceInformation(String.Format("Entering LogUserOff"));
-
             if (Session["auth"]!=null)
             {
-                Trace.TraceInformation(String.Format("Loggingout From {0}.", Session["auth"].ToString()));
-
+                AuthConfig.LogOut = true;
                 string callbackUrl = Url.Action("SignOutCallback", "Home", routeValues: null, protocol: Request.Url.Scheme);
-
-               
                 HttpContext.GetOwinContext().Authentication.SignOut(
                     new AuthenticationProperties { RedirectUri = callbackUrl },
                    Session["auth"].ToString(), Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.AuthenticationType, Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
@@ -1806,10 +1800,6 @@ namespace Encryptics.WebPortal.Controllers
         }
         public ActionResult SetUserDetails()
         {
-            Trace.TraceInformation(String.Format("User Authentication successful using {0}.", Session["auth"].ToString()));
-            Trace.TraceInformation(String.Format("Entering getUSerDetails"));
-
-
             var cli = new WebClient();
             var jsonstring = JsonConvert.SerializeObject(Session["Model"]);
             string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/getUserIdentifier");

@@ -1,0 +1,29 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.Company.Models.UsageRightsGroupMemberModel>
+
+<tfoot>
+    <tr class="tableFooter">
+        <td colspan="4">
+            <span>@if (Model.CurrentPage > 1)
+                  {
+                <a href="#" id="previousGroupPage">&laquo; prev</a>
+                  }
+                  else
+                  {
+                <text>&laquo; prev</text>
+                  }</span>
+            <span class="pagingBar">Page
+                    @Html.DropDownListFor(m => m.CurrentPage, Model.PageList, new { @id = "pageDropDown" })
+                of @Model.PageCount
+            </span>
+            <span>@if (Model.PageCount > Model.CurrentPage)
+                  {
+                <a href="#" id="nextGroupPage">next &raquo;</a>
+                  }
+                  else
+                  {
+                <text>next &raquo;</text>
+                  }</span>
+        </td>
+    </tr>
+</tfoot>
+

@@ -1,0 +1,7 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsSearchModel
+
+<table class="newDataTable" style="width: 100% !important">
+    @Html.Partial("_PendingAccountsTableHeaderPartial", Model.PendingAccounts)
+    @Html.Partial("_PendingAccountsTableBodyPartial", Model.PendingAccounts)
+    @Html.Partial("_PendingAccountsTableFooterPartial")
+</table>

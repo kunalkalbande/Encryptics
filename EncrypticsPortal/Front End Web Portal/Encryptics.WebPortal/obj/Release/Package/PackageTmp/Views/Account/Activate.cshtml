@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Account created";
+}
+
+@*<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Thanks for registering—we just sent you an email.</h2>
+</hgroup>*@
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+</div>
+
+<section class="featured dark">
+    <p>Check your <span style="font-weight: bold; color: white;">@ViewBag.UserName</span> inbox for an email from us&#8212;
+        make sure to check the email address you used to register your Encryptics account. 
+    Follow the link in the email to activate your account and complete the Registration process.</p>
+    <p>@Html.ActionLink(@"Didn't get the email?", "Resend", "Account", new { @style = "color: white;" })</p>
+</section>
+

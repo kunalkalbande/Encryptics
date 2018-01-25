@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Encryptics.WebPortal.Areas.CompanyAdmin.Models.SoftwareReleaseModel>
+
+<table class="newDataTable versionTable">
+    <thead>
+        <tr>
+            <th class="selectColumn">&nbsp;</th>
+            <th class="versionColumn">@Html.DisplayNameFor(m => m.Version)</th>
+            <th class="downloadColumn">@Html.DisplayNameFor(m => m.DownloadUri)</th>
+            <th class="releaseNotesColumn">@Html.DisplayNameFor(m => m.ReleaseNotes)</th>
+            <th>@Html.DisplayNameFor(m => m.ReleaseType)</th>
+            <th>@Html.DisplayNameFor(m => m.Status)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var version in Model)
+        {
+            @Html.DisplayFor(m => version)
+        }
+        <tr class="hidden"></tr>
+    </tbody>
+</table>

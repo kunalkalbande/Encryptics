@@ -1,0 +1,29 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.EmailTemplateModel
+
+<div class="waiting overlay hidden top"></div>
+<div class="overlay transparent hidden"></div>
+
+@using (Html.BeginForm("AjaxUpdateEmailTemplate", "CompanyHome", new { area = "Company" }, FormMethod.Post, new { id = "emailTemplateForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.TemplateType)
+    <fieldset>
+        <legend>Create New Company</legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.Header)
+                    @Html.TextAreaFor(m => m.Header, 9, 0, null)
+                    @Html.ValidationMessageFor(m => m.Header)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.Body)
+                    @Html.TextAreaFor(m => m.Body, 9, 0, null)
+                    @Html.ValidationMessageFor(m => m.Body)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

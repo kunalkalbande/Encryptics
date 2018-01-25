@@ -45,6 +45,7 @@ namespace Encryptics.WebPortal
                                 string user = AuthConfig.UserName;
                                 AuthConfig.UserName = string.Empty;
                                 n.ProtocolMessage.SetParameter("login_hint", user);
+                                n.ProtocolMessage.SetParameter("AlwaysRequireAuthentication", "true");
                                 return Task.FromResult(0);
                             },
                             SecurityTokenValidated = n =>

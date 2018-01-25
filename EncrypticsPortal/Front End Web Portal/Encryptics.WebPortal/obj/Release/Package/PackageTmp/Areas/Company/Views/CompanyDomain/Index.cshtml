@@ -1,0 +1,181 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model IEnumerable<CompanyDomainModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Manage Company Domains";
+    var companyName = ViewBag.CompanyName as string;
+    companyName = string.IsNullOrEmpty(companyName) ? "Company Name Not Found" : companyName;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+@if (encrypticsUser.HasPermission("Company/CompanyDomain/AddDomain"))
+{
+    <ul class="toolbar" id="actionToolbar">
+        <li>
+            <a href="#" id="createNewCompanyDomains">
+                <div>
+                    Create New Domain
+                    <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <div id="createNewCompanyDomainDialog" class="hidden">
+        @using (Html.BeginForm("AddDomain", "CompanyDomain", new { entityId = ViewBag.CompanyId }, FormMethod.Post))
+        {
+            <fieldset>
+                <legend></legend>
+                <ol class="float-left formSection">
+                    <li>
+                        <div class="fields">
+                            @Html.AntiForgeryToken()
+                            @Html.Label("", "Domain to Add")
+                            @Html.TextBox("domainName", null, new { data_val_required = "Must enter a domain name." })
+                        </div>
+                    </li>
+                </ol>
+            </fieldset>
+        }
+    </div>
+}
+
+<section class="white">
+    @if (encrypticsUser.HasPermission("Company/CompanyDomain/RemoveDomain"))
+    {
+        <div class="dataTableToolbar">
+            <ul class="tableActions">
+                <li>
+                    <input type="checkbox" value="all" id="selectAllDomains" /></li>
+                <li>
+                    <input type="button" value="delete domains" id="deleteSelectedDomains" disabled="disabled"></li>
+            </ul>
+        </div>
+    }
+    <table class="newDataTable domainTable">
+        <tr>
+            <th>&nbsp;</th>
+            <th>@Html.DisplayNameFor(m => m.Domain)</th>
+            <th>@Html.DisplayNameFor(m => m.CreatedDate)</th>
+        </tr>
+        @foreach (var domain in Model)
+        {
+            @Html.DisplayFor(m => domain, "CheckableCompanyDomainModel")
+        }
+        <tr class="hidden"></tr>
+    </table>
+</section>
+
+@Html.Partial("_ConfirmDialog")
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#createNewCompanyDomainDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Transfer Licenses",
+                width: "425",
+                modal: true,
+                resizable: false,
+                buttons: {
+                    "OK": function () {
+                        var $form = $(this).children('form');
+                        $.validator.unobtrusive.parse($form);
+                        if ($form.valid()) {
+                            $(this).dialog("close");
+                            $form.submit();
+                        }
+                    },
+                    "Cancel": function () { $(this).dialog("close"); }
+                }
+            });
+
+            $('#createNewCompanyDomains').click(function (e) {
+                e.preventDefault();
+                $('#createNewCompanyDomainDialog').dialog('open');
+            });
+
+            $('#deleteSelectedDomains').click(function (e) {
+                e.preventDefault();
+
+                showConfirmationDialog("Delete Domain Name", "Are you sure you want to remove these domains from this entity?", function () {
+                    var ids = [];
+
+                    $('.selectedDomain:checked').each(function (i, el) {
+                        ids.push($(el).attr('data-id'));
+                    });
+
+                    window.location = '@Url.Action("RemoveDomain", new { entityId = ViewBag.CompanyId })?domainIds=' + ids.join('&domainIds=');
+                });
+            });
+
+            $('#selectAllDomains').change(function () {
+                if ($('#selectAllDomains').attr('checked') == 'checked') {
+                    $('.selectedDomain:unchecked').attr('checked', 'checked');
+                }
+                else {
+                    $('.selectedDomain:checked').removeAttr('checked');
+                }
+
+                setupButton('#deleteSelectedDomains', '#228b22', '#selectAllDomains', '.selectedDomain:checked');
+            });
+
+            $('.selectedDomain').change(function () {
+                if ($('.selectedDomain:checked').length > 0)
+                    $('#selectAllDomains').attr('checked', 'checked');
+                else
+                    $('#selectAllDomains').removeAttr('checked');
+
+                setupButton('#deleteSelectedDomains', '#228b22', '#selectAllDomains', '.selectedDomain:checked');
+            });
+        });
+
+        function setupButton(buttonSelector, enabledColor, selectAllSelector, checkBoxSelector) {
+            var $button = $(buttonSelector);
+
+            if ($(checkBoxSelector).length == 0) {
+                $button.attr('disabled', 'disabled').css('color', '#bbb');
+                $(selectAllSelector).attr('value', 'all').css('color', '#228b22 !important');
+            } else if ($button.attr('disabled') == 'disabled') {
+                $button.removeAttr('disabled').css('color', enabledColor);
+                $(selectAllSelector).attr('value', 'none').css('color', '#bbb');
+            }
+        }
+    </script>
+}
+
+@section styles{
+    <style>
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .domainTable tr td:first-child {
+                width: 1%;
+            }
+
+            .domainTable tr td:last-child {
+                width: 15%;
+            }
+        }
+    </style>
+}

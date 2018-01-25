@@ -1,0 +1,567 @@
+﻿@using System.Data
+@using Encryptics.WebPortal.Areas.Company.Models
+@model ReportParametersModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    ViewBag.Title = "Reports";
+    var companyName = ViewBag.CompanyName as string;
+    companyName = string.IsNullOrEmpty(companyName) ? "Company Name Not Found" : companyName;
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(companyName, "Dashboard", "CompanyHome", new { entityId = ViewBag.CompanyId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        <span>@ViewBag.Title</span>
+    </h4>
+</div>
+
+<section class="white">
+    @using (Html.BeginForm("RetrieveReportResults", "Reports", new { entityId = Model.EntityId }, FormMethod.Post, new { id = "ReportParameters" }))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset style="position: relative">
+            <legend></legend>
+            @Html.HiddenFor(model => model.EntityId)
+
+            <ol class="float-left formSection" id="reportSelectionColumn">
+                <li>
+                    @Html.LabelFor(model => model.SelectedReportId)
+                    @Html.DropDownListFor(model => model.SelectedReportId, Model.ReportNames, new { size = 8, style = "height: auto;" })
+                    @Html.ValidationMessageFor(m => m.SelectedReportId)
+                </li>
+            </ol>
+            <ol class="float-left formSection" id="paramatersColumn">
+                <li>
+                    @Html.LabelFor(model => model.StartDate)
+                    @Html.TextBoxFor(model => model.StartDate, "{0:MM/dd/yyyy}", new { @class = "date" })
+                    @Html.ValidationMessageFor(m => m.StartDate)
+
+                    @Html.LabelFor(model => model.EndDate)
+                    @Html.TextBoxFor(model => model.EndDate, "{0:MM/dd/yyyy}", new { @class = "date" })
+                    @Html.ValidationMessageFor(m => m.EndDate)
+
+                    @Html.LabelFor(model => model.TopCount, new { @class = Model.ShowTopCount ? string.Empty : "hidden", id = "labelForTopCount" })
+                    @Html.DropDownListFor(model => model.TopCount, ReportParametersModel.TopCounts, new { @class = Model.ShowTopCount ? string.Empty : "hidden" })
+                    @Html.ValidationMessageFor(m => m.TopCount)
+
+                    @*@Html.LabelFor(model => model.SelectedFileType, new { @class = Model.ShowFileTypes ? string.Empty : "hidden", id = "labelForFileTypes" })
+                    @Html.DropDownListFor(model => model.SelectedFileType, Model.FileTypes, new { @class = Model.ShowFileTypes ? string.Empty : "hidden" })
+                    @Html.ValidationMessageFor(m => m.SelectedFileType)*@
+                </li>
+            </ol>
+            <ol class="float-right" id="formButtons">
+                <li>
+                    <input type="submit" id="RunReport" value="Run Report" title="Click here to run or re-run (resets the display data) this report for the given date range." />
+                </li>
+                @if (Model.ReportData != null && (Model.TotalRecords > 0 || Model.ReportData.Rows.Count > 0))
+                {
+                    <li>
+                        <input type="button" value="Export CSV" id="DownloadCSVExport" title="Click here to generate a CSV file for the current report for the given date range." />
+                    </li>
+                }
+            </ol>
+        </fieldset>
+    }
+</section>
+
+@if (Model.ReportData != null)
+{
+    if (Model.TotalRecords > 0 || Model.ReportData.Rows.Count > 0)
+    {
+
+        if (Model.ShowGraphOnly)
+        {
+    <div id="ChartArea" class="section whiteSection">
+        <div id="PieChartGraph" style="width: 900px; height: 600px"></div>
+        <div id="TotalOverlay">Total : <span style="font-weight: bold;">@Html.Raw(Model.TotalRecords)</span></div>
+        <div id="PrintButtonOverlay">
+            <input type="button" value="Print Graph" class="PrintGraphButton" />
+        </div>
+    </div>
+        }
+        else
+        {
+    <div id="GraphDialog" class="dialog">
+        <div id="GraphData" style="height: 100%; width: 100%"></div>
+        <div id="ChartOverlay">
+            <input type="button" value="Print Graph" class="PrintGraphButton" />
+        </div>
+    </div>
+    
+    <section class="white">
+        <h3>@Model.ReportName</h3>
+        @using (Html.BeginForm("RetrieveReportResults", "Reports", new { entityId = Model.EntityId }, FormMethod.Post, new { id = "ReportResults" }))
+        {
+            <fieldset style="margin-left: 0;">
+                <legend></legend>
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.EntityId)
+                @Html.HiddenFor(model => model.OrderBy)
+                @Html.HiddenFor(model => model.OrderByDir)
+                @Html.HiddenFor(model => model.SelectedReportId)
+                @Html.HiddenFor(model => model.StartDate)
+                @Html.HiddenFor(model => model.EndDate)
+                @Html.HiddenFor(model => model.TopCount)
+                @Html.HiddenFor(model => model.ShowFileTypes)
+                @Html.HiddenFor(model => model.SelectedFileType)
+                <div class="dataTableToolbar">
+                    @if (Model.IsGraphyAvailable)
+                    {
+                        <input type="button" value="Show Graph" style="background: #F28B20;" id="ShowGraph" title="Click here to display a Pie Chart of the data below." />
+                    }
+                    <div class="pagingBar">Show @Html.DropDownListFor(model => model.PageSize, ReportParametersModel.PageSizes, new { @style = "margin-top: 2px", @id = "PageSizeDropDown" })</div>
+                </div>
+                <table class="newDataTable">
+                    <thead>
+                        <tr>
+                            @foreach (DataColumn column in Model.ReportData.Columns)
+                            {
+                                object styleAttr = string.Empty;
+
+                                if (column.ExtendedProperties.Contains("Width"))
+                                {
+                                    styleAttr = string.Format("style=\"width: {0} !important\"", column.ExtendedProperties["Width"]);
+                                }
+
+                                <th @Html.Raw(styleAttr)><a href="#" class="columnHeading" data-column-name="@column.ColumnName">@column.Caption@if (Model.OrderBy == column.ColumnName)
+                                                                                                                                                {
+                                    @Html.Raw("&nbsp;" + (Model.OrderByDir == "ASC" ? @"<span class=""ui-icon ui-icon-triangle-1-s""></span>" : @"<span class=""ui-icon ui-icon-triangle-1-n""></span>"))
+                                                                                                                                                }</a></th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DataRow row in Model.ReportData.Rows)
+                        {
+                            <tr>
+                                @foreach (DataColumn col in Model.ReportData.Columns)
+                                {
+                                    <td>
+                                        @(col.ExtendedProperties.Contains("Format") ? string.Format(col.ExtendedProperties["Format"].ToString(), row[col.ColumnName]) : row[col.ColumnName])
+                                    </td>
+                                }
+                            </tr>
+                        }
+                        <tr class="hidden"></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background-color: white;">
+                            <td colspan="@Model.ReportData.Columns.Count"><span>@if (Model.Page > 1)
+                                                                                {
+                                <a href="#" id="previousPage">&laquo; prev</a>
+                                                                                }
+                                                                                else
+                                                                                {
+                                <text>&laquo; prev</text>
+                                                                                }</span>
+                                <span class="pagingBar">Page @Html.DropDownListFor(model => model.Page, Model.PageList, new { @style = "margin-top: 2px", @id = "PageDropDown" }) of @Model.PageCount</span>
+                                <span>@if (Model.PageCount > Model.Page)
+                                      {
+                                    <a href="#" id="nextPage">next &raquo;</a>
+                                      }
+                                      else
+                                      {
+                                    <text>next &raquo;</text>
+                                      }</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </fieldset>
+        }
+    </section> 
+        }
+    }
+    else
+    {
+    <section class="white">
+        <p class="innerSection">There is no data for this report during the time period selected.</p>
+    </section>
+    }
+}
+
+@section styles{
+    <style>
+        #reportSelectionColumn {
+            width: 36%;
+        }
+
+        #paramatersColumn {
+            width: 23%;
+        }
+
+        @@media only screen and (device-width: 768px) {
+            #reportSelectionColumn {
+                width: 45%;
+            }
+
+            #paramatersColumn {
+                width: 15%;
+            }
+        }
+
+        #formButtons {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+            #formButtons input[type="submit"], #formButtons input[type="button"] {
+                background: darkkhaki;
+            }
+
+        @@media only screen and (max-device-width:736px), only screen and (width: 375px) {
+            #reportSelectionColumn, #paramatersColumn, #formButtons {
+                float: none;
+                width: 100%;
+                margin: 0;
+            }
+
+            #formButtons {
+                position: static;
+                padding-left: 2.5%;
+                padding-top: 5%;
+            }
+
+            .formSection select {
+                width: 100%;
+            }
+        }
+
+        #ChartDataMissing {
+            margin-top: 20px;
+            font-size: 24px;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+            top: 20%;
+            padding-left: 22px;
+            text-indent: -22px;
+        }
+
+        #ChartArea {
+            margin-top: 20px;
+            min-width: 927px;
+            width: 927px;
+            position: relative;
+        }
+
+        .innerSection select {
+            width: auto;
+            font-size: 13px;
+            height: 19px;
+        }
+
+        #TotalOverlay {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 70px; /* chartArea top  */
+            left: 115px; /* chartArea left */
+        }
+
+        #PrintButtonOverlay {
+            width: 168px;
+            height: 200px;
+            position: absolute;
+            top: 20px;
+            right: 0;
+        }
+
+        .disabled {
+            color: #aaa !important;
+        }
+
+        .previousPage, .nextPage {
+            padding: 0 15px !important;
+            font-size: 18px !important;
+            font-weight: bold;
+        }
+
+        #DownloadCSVExport {
+            width: 8em;
+        }
+
+        #RunReport {
+            width: 8em;
+        }
+
+        #ShowGraph {
+            font-size: 13px;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .PrintGraphButton {
+            display: inherit;
+            background: darkkhaki !important;
+        }
+
+        .columnHeading {
+            display: inherit;
+        }
+
+            .columnHeading .ui-icon {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+        @@media only screen and (device-width: 768px), only screen and (width: 375px) {
+            #StartDate, #EndDate, #SelectedFileType, #TopCount {
+                width: 200px !Important;
+            }
+
+            #StartDate, #EndDate, #TopCount {
+                width: 95% !Important;
+            }
+
+            .PrintGraphButton {
+                display: none;
+                position: absolute;
+                bottom: 7px;
+                right: 25px;
+            }
+        }
+    </style>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/rainbowvis")
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", { packages: ["corechart", "table"], 'language': '@Html.Raw(UICulture)' });
+    </script>
+    <script>
+        var pageCount;
+        var sortDirection;
+        @(Model.IsGraphyAvailable ? Html.Raw(" var dataObject = " + Model.ChartDataJson + ";") : Html.Raw("var dataObject = {};"))
+        var chartData = new google.visualization.DataTable(dataObject, 0.6);
+        var reportsWithTopCounts = [@Html.Raw(Model.ShowTopCountFor.Aggregate(string.Empty, (current, next) => string.IsNullOrEmpty(current) ? string.Format("{0}", next) : string.Format("{0}, {1}", current, next)))];
+        var reportsWithShowFiles = [@Html.Raw(Model.ShowFileListFor.Aggregate(string.Empty, (current, next) => string.IsNullOrEmpty(current) ? string.Format("{0}", next) : string.Format("{0}, {1}", current, next)))];
+
+        $(function () {
+            @Html.Raw(string.Format(@"pageCount = {0};", Model.PageCount))
+            @if (!string.IsNullOrEmpty(Model.OrderByDir))
+            {
+            @Html.Raw(string.Format(@"        sortDirection = ""{0}"";", Model.OrderByDir))    
+            }
+
+            $('.date').datepicker({ dateFormat: "mm/dd/yy" });
+
+            $('#SelectedReportId').change(function () {
+                showExtraFields();
+            });
+
+            $('#PageSizeDropDown').change(function () {
+                $('#ResetForm').val('false');
+                $('#Page').val(1);
+                $('#PageSize').val($('#PageSizeDropDown').val());
+                $('#ReportResults').submit();
+            });
+
+            $('#PageDropDown').change(function () {
+                $('#Page').val($('#PageDropDown').val());
+                $('#ReportResults').submit();
+            });
+
+            $('#nextPage').click(function (e) {
+                var currentPage = parseInt($('#PageDropDown').val());
+                if (currentPage < pageCount) {
+                    e.preventDefault();
+                    $('#PageDropDown').val(currentPage + 1);
+                    $('#ReportResults').submit();
+                }
+            });
+
+            $('#previousPage').click(function (e) {
+                var currentPage = parseInt($('#PageDropDown').val());
+
+                if (currentPage > 1) {
+                    e.preventDefault();
+                    $('#PageDropDown').val(currentPage - 1);
+                    $('#ReportResults').submit();
+                }
+            });
+
+            $('.columnHeading').click(function (e) {
+                var columnName = $(this).attr('data-column-name');
+
+                e.preventDefault();
+
+                $('#PageDropDown').val(1);
+                if ($('#OrderBy').val() == columnName) {
+                    if (sortDirection == 'ASC') {
+                        $('#OrderByDir').val('DESC');
+                    } else if (sortDirection == 'DESC') {
+                        $('#OrderByDir').val('ASC');
+                    }
+                } else {
+                    $('#OrderByDir').val('ASC');
+                }
+
+                $('#OrderBy').val(columnName);
+                $('#ReportResults').submit();
+            });
+
+            $('#DownloadCSVExport').click(function (e) {
+                e.preventDefault();
+                if ($('#ReportResults').valid()) {
+                    window.location.href = '@Href(string.Format("~/Company/Reports/DownloadCsv/{0}?", Model.EntityId))' + $('#ReportResults').serialize();
+                }
+            });
+            var dialogWidth = 800;
+            var dialogHeight = 800;
+
+            if (isPhone) {
+                dialogWidth = 356;
+                dialogHeight = 425;
+            }
+
+            $("#GraphDialog").dialog({
+                autoOpen: false,
+                resizable: true,
+                dialogClass: "no-close",
+                modal: true,
+                width: dialogWidth,
+                height: dialogHeight,
+                title: '@Model.ReportName',
+                show: 'fade',
+                hide: 'fade',
+                open: function () {
+                    $('#GraphDialog').css('overflow', 'hidden');
+                },
+                resize: function () {
+                    getReportData();
+                }
+            });
+
+            $('#ShowGraph').click(function () {
+                $("#GraphDialog").dialog({ buttons: { "Close": function () { $(this).dialog("close"); } } }).dialog('open');
+
+                getReportData();
+            });
+
+            $('.PrintGraphButton').click(function (e) {
+                e.preventDefault();
+
+                window.open('@Href(string.Format("~/Company/Reports/PrintChartData/{0}?", Model.EntityId))' + $('#ReportResults').serialize());
+            });
+        });
+
+        function showExtraFields() {
+            showFileTypesDropDown();
+            showTopCountsDropDown();
+        }
+
+        function isInArray(value, array) {
+            return array.indexOf(value) > -1;
+        }
+
+        function showTopCountsDropDown() {
+            if (isInArray(parseInt($('#SelectedReportId').val()[0]), reportsWithTopCounts)) {
+                $('#TopCount').removeClass('hidden');
+                $('#labelForTopCount').removeClass('hidden');
+            } else {
+                $('#TopCount').addClass('hidden');
+                $('#labelForTopCount').addClass('hidden');
+            }
+        }
+
+        function showFileTypesDropDown() {
+            if (isInArray(parseInt($('#SelectedReportId').val()[0]), reportsWithShowFiles)) {
+                $('#SelectedFileType').removeClass('hidden');
+                $('#labelForFileTypes').removeClass('hidden');
+            } else {
+                $('#SelectedFileType').addClass('hidden');
+                $('#labelForFileTypes').addClass('hidden');
+            }
+        }
+
+        function getReportData() {
+            var $chartContainer = $('#GraphData'); // GraphDialog
+
+            var height = $('#GraphDialog').height() * 2;
+            var width = $('#GraphDialog').width() * 2;
+
+            $chartContainer.html('');
+            var numberOfItems = chartData.getNumberOfRows();
+
+            if (numberOfItems == 0) {
+                $chartContainer.html('<div id="ChartDataMissing" style="width: 25%; left: 15%;">Graph not available at this time.</div>');
+                return;
+            }
+
+            var chartColors = ['#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C'];
+
+            if (numberOfItems > 5)
+                chartColors = getChartColors(numberOfItems, '#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C');
+
+            var options = {
+                colors: chartColors,
+                chartArea: { left: 10, top: 0, height: height, width: width },
+                legend: { alignment: 'center' }
+            };
+
+            var chart = new google.visualization.PieChart($chartContainer.get(0));
+
+            chart.draw(chartData, options);
+        }
+
+        if ($('#PieChartGraph').length > 0)
+            google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var numberOfRows = chartData.getNumberOfRows();
+
+            if (numberOfRows > 0) {
+                var chart = new google.visualization.PieChart($('#PieChartGraph').get(0));
+                var colors = ['#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C'];
+
+                if (numberOfRows > 5)
+                    colors = getChartColors(numberOfRows, '#349AE9', '#CCCCCC', '#F28B20', '#5E894A', '#76373C');
+
+                chart.draw(chartData, {
+                    colors: colors,
+                    title: '@Html.Raw(Model.ReportName)',
+                    chartArea: { width: 1000, height: 1000, top: 200, left: 100 },
+                    legend: { alignment: 'center' },
+                    titleTextStyle: {
+                        fontSize: 20,
+                        bold: true
+                    }
+                });
+            } else {
+                $('#ChartArea').html('<div id="ChartDataMissing" style="width: 25%; left: 15%;">Graph not available at this time.</div>');
+            }
+        }
+
+        function getChartColors(numberOfColors, color1, color2, color3, color4, color5) {
+            var rainbow = new Rainbow();
+            var colorArray = new Array();
+
+            rainbow.setNumberRange(1, numberOfColors);
+            rainbow.setSpectrum(color1, color2, color3, color4, color5);
+
+            for (var i = 0; i < numberOfColors; i++) {
+                var hexColour = rainbow.colourAt(i + 1);
+                colorArray[i] = '#' + hexColour;
+            }
+
+            return colorArray;
+        }
+    </script>
+}

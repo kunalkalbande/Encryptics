@@ -1,0 +1,24 @@
+﻿@{
+    //ViewBag.MainRole = @Roles.GetRolesForUser(User.Identity.Name).FirstOrDefault();
+}
+@if (Request.IsAuthenticated)
+{
+    <text>
+    Hello, @Html.ActionLink(User.Identity.Name, string.Empty, "UserHome", new { area = "UserAccount" }, new { @class = "username " + ViewBag.MainRole, title = "Manage" }) @*(@ViewBag.MainRole)*@
+    @using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+    }
+   
+
+
+    </text>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Register", "Register", "Account", null, new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", null, new { id = "loginLink" })</li>
+    </ul>
+}

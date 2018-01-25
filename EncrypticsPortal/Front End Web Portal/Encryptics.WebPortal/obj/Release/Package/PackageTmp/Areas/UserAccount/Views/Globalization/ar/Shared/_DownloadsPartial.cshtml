@@ -1,0 +1,96 @@
+﻿@using System.Configuration
+@using Encryptics.WebPortal.Properties
+@{
+    var urlReferrer = Url.Content("~/Images/Download.png");
+}
+<style>
+    .downloadsSections {
+        padding-top: 0;
+        padding-left: 15px;
+        float: left;
+        width: 100%;
+    }
+
+        .downloadsSections h3 {
+            margin-bottom: 20px;
+        }
+
+        .downloadsSections ul {
+            margin-top: 0 !important;
+            margin-left: 5% !important;
+        }
+
+        .downloadsSections h4 {
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            clear: both;
+        }
+
+        .downloadsSections li {
+            list-style: none;
+            padding: 0 !important;
+        }
+
+    #leftSide {
+        width: 60%;
+        float: left;
+    }
+
+    #rightSide {
+        width: 40%;
+        float: right;
+    }
+
+    .platformSection {
+        height: 130px;
+    }
+</style>
+
+<div id="leftSide">
+    <div class="downloadsSections">
+        <h3 style="text-align: right !important">@Resources.DownloadsPartialTitle</h3>
+        <div style="width: 50%; float: left;">
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialWindowsHeading</h4>
+                <ul style="height: 70%;">
+                    <li><a href="@ViewBag.WindowsLink1">Click here to download</a></li>
+                    <!-- @DisplayFileName(ViewBag.WindowsLink1) -->
+                    @*<li>
+                        <h4 style="margin-top: 4%;">For Outlook 2007 users:</h4>
+                        <a href="@ViewBag.WindowsLink2">@DisplayFileName(ViewBag.WindowsLink2)</a>
+                    </li>*@
+                </ul>
+            </div>
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialMacHeading</h4>
+                <ul style="/*background-color: aliceblue*/">
+                    <li><a href="@ViewBag.MacLink">Click here to download</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="width: 50%; float: right;">
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialAndroidHeading</h4>
+                <ul style="height: 70%;">
+                    <li><a href="@ViewBag.AndroidLink" target="_new">@Resources.PopoverDownloadsTabGooglePlayText</a></li>
+                </ul>
+            </div>
+            <div class="platformSection">
+                <h4>@Resources.DownloadsPartialiOSHeading</h4>
+                <ul style="/*background-color: aliceblue*/">
+                    <li><a href="@ViewBag.iOSLink" target="_new">@Resources.PopoverDownloadsTabAppStoreText</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rightSide">
+    <div style="background-color: aliceblue; float: right">
+        <img src="@Html.Raw(urlReferrer)" />
+    </div>
+</div>
+@helper DisplayFileName(string filePath)
+{
+    @filePath.Substring(filePath.LastIndexOf('/')+1)
+}

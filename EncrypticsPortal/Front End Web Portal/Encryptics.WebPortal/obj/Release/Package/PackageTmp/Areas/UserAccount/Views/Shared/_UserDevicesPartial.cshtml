@@ -1,0 +1,235 @@
+﻿@using System.Configuration
+@using Encryptics.WebPortal.Properties
+@using Encryptics.WebPortal.Models
+@using Encryptics.WebPortal.Areas.UserAccount.Models
+@model PageableViewModel<DeviceModel>
+
+<div style="height: 100%; position: relative; z-index: 1;">
+    @if (Model.DataItems.Any())
+    { 
+        @Html.Partial("_UserDeviceTablePartial")
+    }
+    else
+    {
+        var imageLocation = Url.Content("~/Images/LaptopGrey.png");
+        <div id="noDevices">
+            <img src="@imageLocation" alt="" style="@Resources.DevicesPartialLaptopImageStyle">
+            <div>
+                <h2>@Resources.DevicesPartalNoDevicesHeading</h2>
+                <p>@string.Format(Resources.DevicesPartialNoDevicesInstructions, ConfigurationManager.AppSettings["CompanyName"])</p>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    var inactiveDisplayText = '@Resources.InactiveDisplay';
+
+    $(function () {
+        $('#nextDevicesPage').click(changeDevicePage);
+        $('.logDeviceOutButton').click(logDeviceOut);
+        $('.suspendDeviceButton').click(suspendDevice);
+        $('.activateDeviceButton').click(activateDevice);
+        $('.forgetDeviceButton').click(forgetDevice);
+    });
+
+    function changeDevicePage(e) {
+        var pageNumber = parseInt($(this).attr('data-page'));
+        var entityId = parseInt($(this).attr('data-entity-id'));
+        var userId = parseInt($(this).attr('data-user-id'));
+
+        e.preventDefault();
+
+        $('#devicesView').children('.waitingOverlay').removeClass('hidden');
+
+        $.get('@Url.Action("AjaxDevices", "Device")', { page: pageNumber, entityId: entityId, userId: userId, viewPath: "_UserDevicesPartial" }, refreshDevices);
+    }
+
+    function refreshDevices(response) {
+        if (response.success) {
+            $('#devicesView').html(response.html);
+            $('#devicesView').find('#nextDevicesPage').click(changeDevicePage);
+            $('#devicesView').find('#prevDevicesPage').click(changeDevicePage);
+            $('#devicesView').find('.logDeviceOutButton').click(logDeviceOut);
+            $('#devicesView').find('.suspendDeviceButton').click(suspendDevice);
+            $('#devicesView').find('.activateDeviceButton').click(activateDevice);
+            $('#devicesView').find('.forgetDeviceButton').click(forgetDevice);
+            $('#devicesView').children('.waitingOverlay').addClass('hidden');
+        }
+    }
+
+    function logDeviceOut(e) {
+        var $logoutButton = $(this);
+        var tokenId = parseInt($logoutButton.attr('data-token-id'));
+        var entityId = parseInt($(this).attr('data-entity-id'));
+        var userId = parseInt($(this).attr('data-user-id'));
+        var $deviceType = $logoutButton.parents('tr').children('#deviceType');
+        var url = '@Url.Action("AjaxDeactivateSession", "Device")';
+
+        e.preventDefault();
+
+        ajaxGetSetup(url, function(token) {
+            ajaxPostJson(url, token, { deviceId: tokenId, entityId: entityId, userId: userId }, function (response) {
+                if (response.success) {
+                    var $img = $deviceType.find('img');
+                    var $newSpan = $('<span/>').addClass('disabledLogout');
+
+                    $img.attr('src', $img.attr('src').replace("Orange", "Grey"));
+                    $deviceType.find('span.deviceSessionStatusActive').removeClass('deviceSessionStatusActive').addClass('deviceSessionStatusInactive').text(inactiveDisplayText);
+                    $newSpan.text($logoutButton.text());
+                    $logoutButton.parent().html($newSpan);
+                }
+            });
+        });
+    }
+
+    function suspendDevice(e) {
+        var $suspendButton = $(this);
+        var deviceId = parseInt($suspendButton.attr('data-id'));
+        var entityId = parseInt($(this).attr('data-entity-id'));
+        var url = '@Url.Action("AjaxDeactivateDevice", "Device")';
+
+        ajaxGetSetup(url, function (token) {
+            ajaxPostJson(url, token, { deviceId: deviceId, entityId: entityId }, function (response) {
+                if (response.success) {
+                    $suspendButton.css('display', 'none').siblings('.activateDeviceButton').css('display', 'inline');
+                    $suspendButton.parents('tr').find('.deviceSuspended').css('display', 'block');
+                    $suspendButton.parents('tr').find('.deviceSessionStatusInactive').addClass('whiteText');
+                }
+            });
+        });
+
+        e.preventDefault();
+    }
+
+    function activateDevice(e) {
+        var $activateButton = $(this);
+        var deviceId = parseInt($activateButton.attr('data-id'));
+        var entityId = parseInt($(this).attr('data-entity-id'));
+        var url = '@Url.Action("AjaxActivateDevice", "Device")';
+
+        ajaxGetSetup(url, function (token) {
+            ajaxPostJson(url, token, { deviceId: deviceId, entityId: entityId }, function (response) {
+                if (response.success) {
+                    $activateButton.css('display', 'none').siblings('.suspendDeviceButton').css('display', 'inline');
+                    $activateButton.parents('tr').find('.deviceSuspended').css('display', 'none');
+                    $activateButton.parents('tr').find('.deviceSessionStatusInactive').removeClass('whiteText');
+                }
+            });
+        });
+        
+        e.preventDefault();
+    }
+
+    function forgetDevice(e) {
+        var $nextDeviceButton = $('#devicePagingSection').find('#nextDevicesPage');
+        var $deviceTableBody = $(this).parents('tbody');
+        var $deviceToRemove = $(this).parents('tr');
+        var pageNumber = parseInt($(this).attr('data-page'));
+        var deviceId = parseInt($(this).attr('data-id'));
+        var url = '@Url.Action("AjaxRemoveDevice", "Device")';
+
+        ajaxGetSetup(url, function (token) {
+            ajaxPostJson('@Url.Action("AjaxRemoveDevice", "Device")', token, { deviceId: deviceId, page: pageNumber, viewPath: '_UserDeviceDetailPartial' }, function (response) {
+                if (response.success) {
+                    var $newRow = $('<tr/>').html(response.nextDeviceHtml);
+
+                    $deviceToRemove.remove();
+                    $deviceTableBody.append($newRow);
+
+                    $newRow.find('.logDeviceOutButton').click(logDeviceOut);
+                    $newRow.find('.suspendDeviceButton').click(suspendDevice);
+                    $newRow.find('.activateDeviceButton').click(activateDevice);
+                    $newRow.find('.forgetDeviceButton').click(forgetDevice);
+
+                    if (response.removeNextLink) {
+                        $nextDeviceButton.remove();
+                    }
+                }
+            });
+        });
+
+        e.preventDefault();
+    }
+</script>
+
+<style>
+    /*.waitingOverlay {
+        position: absolute;
+        z-index: 2;
+        background: white url(https://www.encryptics.com/img/NewRegistration/ajax-loader-blue-2.gif) center center no-repeat;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }*/
+
+    #deviceTable {
+        width: 100%;
+        margin: auto;
+    }
+
+        #deviceTable tr:nth-child(odd) td {
+            background-color: #f8f8f8;
+        }
+
+        #deviceTable tr:nth-child(even) td {
+            background-color: white;
+        }
+
+        #deviceTable td {
+            position: relative;
+            padding: 0.25em 0;
+        }
+
+    #devicePagingSection {
+        position: absolute;
+        bottom: 1px;
+        width: 100%;
+        /*padding: 10px 10px;*/
+    }
+
+    #deviceType {
+        text-align: center;
+    }
+
+        #deviceType img {
+            height: 53px;
+        }
+
+    #deviceName {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    #deviceActions {
+        height: 98%;
+    }
+
+        #deviceActions li {
+            list-style: none;
+            text-transform: capitalize;
+        }
+
+    .devicePaging {
+        width: auto;
+    }
+
+    #nextDevicesPage {
+        float: right;
+    }
+
+    #prevDevicesPage {
+        float: left;
+    }
+
+    .deviceSuspended {
+        height: 100%;
+    }
+
+    .disabledLogout {
+        padding: 0 3px;
+        color: #999;
+    }
+</style>

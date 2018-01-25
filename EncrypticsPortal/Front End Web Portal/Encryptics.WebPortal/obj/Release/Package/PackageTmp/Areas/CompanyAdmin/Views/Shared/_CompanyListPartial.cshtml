@@ -1,0 +1,18 @@
+﻿@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@model IEnumerable<CompanyListItemModel>
+
+<tr>
+    <th style="border-right: 1px solid #eee;">@Html.DisplayNameFor(model => model.Name)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Licensing.ActiveLicenses)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Licensing.AvailableLicenses)</th>
+    <th style="white-space: nowrap; text-align:right;">@Html.DisplayNameFor(model => model.Licensing.UsedLicenses)</th>
+</tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td style="border-right: 1px solid black;">@Html.ActionLink(item.Name, "Dashboard", "CompanyHome", new { entityId = item.Id, area = "Company" }, null)</td>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.Licensing.ActiveLicenses)</td>
+        <td style="text-align: right; width: 10%;border-right: 1px solid #999;">@Html.DisplayFor(m => item.Licensing.AvailableLicenses)</td>
+        <td style="text-align: right; width: 10%;">@Html.DisplayFor(m => item.Licensing.UsedLicenses)</td>
+    </tr>
+}

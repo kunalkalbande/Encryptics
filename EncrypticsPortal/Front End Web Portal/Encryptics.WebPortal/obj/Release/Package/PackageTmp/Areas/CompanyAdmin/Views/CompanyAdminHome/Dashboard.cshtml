@@ -1,0 +1,503 @@
+﻿@using System.Web.Configuration
+@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Areas.CompanyAdmin.Models
+@using Google.DataTable.Net.Wrapper
+@model CompanyAdminModel
+
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    bool showReleasesSection;
+    bool.TryParse(WebConfigurationManager.AppSettings["enableZDPVisibility"], out showReleasesSection);
+}
+
+<div class="pageHeader">
+    <h1>Admin Dashboard</h1>
+</div>
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+@if (encrypticsUser.HasPermission("CompanyAdmin/CompanyAdminHome/AddNewCompany") || encrypticsUser.HasPermission("CompanyAdmin/CompanyAdminHome/TransferLicenses"))
+{
+    <ul class="toolbar" id="actionToolbar">
+        @if (encrypticsUser.HasPermission("CompanyAdmin/CompanyAdminHome/AddNewCompany"))
+        {<li>
+            <a href="#" id="createNewCustomer">
+                <div>
+                    Create New Customer 
+                    <img src="~/Images/icons/Add.png" alt="">
+                </div>
+            </a>
+        </li>}
+        @if (encrypticsUser.HasPermission("CompanyAdmin/CompanyAdminHome/TransferLicenses"))
+        {<li>
+            <a href="#" id="transferLicenses">
+                <div>
+                    Transfer Licenses
+                    <img src="~/Images/icons/Transfer.png" alt="">
+                </div>
+            </a>
+        </li>}
+        @if (showReleasesSection && encrypticsUser.HasPermission("CompanyAdmin/SoftwareReleases/Index"))
+        {<li>
+            <a href="@Url.Action("Index", "SoftwareReleases", new { area = "CompanyAdmin" })">
+                <div>
+                    Software Releases 
+                </div>
+            </a>
+        </li>}
+    </ul>
+}
+
+<section id="graphSection">
+    <div id="licenseExpiringGraph" class="float-right">&nbsp;</div>
+    <div id="encryptsGraph" class="usageGraph float-left">&nbsp;</div>
+    <div id="decryptsGraph" class="usageGraph float-left">&nbsp;</div>
+</section>
+
+<section class="tabbed">
+    <ul class="tabs">
+        <li class="activeTab"><a href="#" id="showActiveCompanies" class="tab" data-show-page="activeCompanies">Active Companies</a></li>
+        <li><a href="#" id="showExpiredCompanies" class="tab" data-show-page="expiredCompanies">Expired Companies</a></li>
+    </ul>
+    <div id="activeCompanies" class="tabPage">@Html.Action("ActiveCompanies")</div>
+    <div id="expiredCompanies" class="tabPage hidden">@Html.Action("ExpiredCompanies")</div>
+</section>
+
+<div style="clear: both" id="createNewCustomerDialog" class="dialog">@Html.Partial("_AddNewCompanyPartial", new CompanyDetailsModel())</div>
+
+<div style="clear: both" id="tranferLicensesDialog" class="dialog">@Html.Partial("_TransferLicensePartial", new TransferLicenseModel { TransferAmount = 1 })</div>
+
+@section scripts
+{
+    <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/tabs")
+    <script>
+        var value;
+        var $container = $("#TransferAmount");
+        var pageChanging = false;
+        var searchAutoComplete = {
+            source: getCompanyNames,
+            minLength: 2,
+            focus: changeSelection,
+            select: changeSelection
+        };
+        var encryptsSummaryChartData;
+        var encryptsSummaryChart;
+
+        var decryptsSummaryChartData;
+        var decryptsSummaryChart;
+
+        google.load("visualization", "1", { packages: ["corechart", "table"], 'language': '@Html.Raw(UICulture)' });
+        google.setOnLoadCallback(initializeSummaryChart);
+
+        function initializeSummaryChart() {
+            var options = {
+                colors: ['#349AE9', '#F28B20', '#5E894A', '#76373C', '#CCCCCC'],
+                //title: "Encryptics Mothly Usage Summary",
+                hAxis: { title: 'Time' },
+                vAxis: { title: 'Encrypts' },
+                legend: { position: 'top', maxLines: 5 }
+            };
+
+            encryptsSummaryChartData = new google.visualization.DataTable('@Html.Raw(SystemDataTableConverter.Convert(Model.EncryptsData).GetJson())');
+            encryptsSummaryChart = new google.visualization.AreaChart($('#encryptsGraph').get(0));
+            encryptsSummaryChart.draw(encryptsSummaryChartData, options);
+
+            options.vAxis.title = "Decrypts";
+
+            decryptsSummaryChartData = new google.visualization.DataTable('@Html.Raw(SystemDataTableConverter.Convert(Model.DecryptsData).GetJson())');
+            decryptsSummaryChart = new google.visualization.AreaChart($('#decryptsGraph').get(0));
+            decryptsSummaryChart.draw(decryptsSummaryChartData, options);
+
+            var data = new google.visualization.DataTable(@{
+                // kludge to make the expires column a 'date' instead of 'datetime'. Hopefully can find a better solution one day.
+                var dataTable = SystemDataTableConverter.Convert(Model.LicenseExpirationData);
+                dataTable.Columns.Single(c => c.Label == "Expires").ColumnType = ColumnType.Date;
+                @Html.Raw("'" + dataTable.GetJson() + "'");
+                });
+
+            // Create a formatter.
+            // This example uses object literal notation to define the options.
+            var formatter = new google.visualization.DateFormat({ formatType: 'short' });
+
+            // Reformat our data.
+            formatter.format(data, 1);
+
+            var table = new google.visualization.Table(document.getElementById('licenseExpiringGraph'));
+
+            table.draw(data, { showRowNumber: false, width: '100%', /*height: '100%',*/ cssClassNames: { tableCell: 'tableCell' } });
+        }
+
+        $(function() {
+            $('#TransferAmount').spinner({
+                min: 1,
+            }).focus(function() {
+                value = $container.val();
+            }).blur(function() {
+                var value1 = $container.val();
+                if (value1 < 0) {
+                    $container.val(value);
+                }
+                if (isNaN(value1)) {
+                    $container.val(value);
+                }
+            });
+
+            var dialogWidth = "600";
+
+            if (isPhone) {
+                dialogWidth = "350";
+            }
+
+            $('#tranferLicensesDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Transfer Licenses",
+                width: dialogWidth,
+                modal: true,
+                resizable: false,
+                open: function() {
+                    $('#tranferLicensesDialog').css('overflow', 'hidden'); //this line does the actual hiding
+                },
+                buttons: {
+                    "OK": function() {
+                        var $form = $('#transferLicensesForm');
+                        $.validator.unobtrusive.parse($form);
+                        if ($form.valid()) {
+                            $(this).dialog("close");
+                            $form.submit();
+                        }
+                    },
+                    "Cancel": function() { $(this).dialog("close"); }
+                }
+            });
+
+            dialogWidth = "425";
+
+            if (isPhone) {
+                dialogWidth = "350";
+            }
+
+            $('#createNewCustomerDialog').dialog({
+                autoOpen: false,
+                dialogClass: "no-close",
+                title: "Create New Company",
+                width: dialogWidth,
+                modal: true,
+                resizable: false,
+                open: function() {
+                    $('#createNewCustomerDialog').css('overflow', 'hidden'); //this line does the actual hiding
+                },
+                buttons: {
+                    "OK": function() {
+                        var $form = $('#addNewCompanyForm');
+                        $.validator.unobtrusive.parse($form);
+                        if ($form.valid()) {
+                            $(this).dialog("close");
+                            $form.submit();
+                        }
+                    },
+                    "Cancel": function() { $(this).dialog("close"); }
+                }
+            });
+
+            $('#transferLicenses').click(function(e) {
+                e.preventDefault();
+
+                $('#tranferLicensesDialog').dialog("open");
+            });
+
+            $('#createNewCustomer').click(function(e) {
+                e.preventDefault();
+
+                $('#createNewCustomerDialog').dialog("open");
+            });
+
+            $('.searchField').autocomplete(searchAutoComplete);
+            // Active
+            $('#Active_PageSize').change(changeActiveCurrentPage);
+            $('#Active_CurrentPage').change(changeActiveCurrentPage);
+            $('#Active_NextCompanyPage').click(getNextActiveCompanyPage);
+            $('#Active_PrevCompanyPage').click(getPreviousActiveCompanyPage);
+            $('#Active_ClearCompaniesFilter').click(clearActiveCompaniesFilter);
+            $('#Active_FilterForm').submit(submitActiveFilterForm);
+            // Expired
+            $('#Expired_PageSize').change(changeExpiredCurrentPage);
+            $('#Expired_CurrentPage').change(changeExpiredCurrentPage);
+            $('#Expired_NextCompanyPage').click(getNextExpiredCompanyPage);
+            $('#Expired_PrevCompanyPage').click(getPreviousExpiredCompanyPage);
+            $('#Expired_ClearCompaniesFilter').click(clearExpiredCompaniesFilter);
+            $('#Expired_FilterForm').submit(submitExpiredFilterForm);
+        });
+
+        function changeSelection(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+            $(this).siblings('input[type=hidden]').val(ui.item.value);
+        }
+
+        function getCompanyNames(request, response) {
+            var url = '@Url.Action("GetCompanySearchResults", "CompanyAdminHome")';
+            ajaxGetSetup(url, function(token) {
+                ajaxPostForm(url, token, "searchTerm=" + request.term, function(data) {
+                    //console.log(data);
+                    response(data);
+                });
+            });
+        }
+
+        // Active
+
+        function changeActiveCurrentPage() {
+            var $form = $(this).parents("form");
+            var $searchTerm = $form.find('#Active_SearchTerm');
+            var $savedSearchTerm = $form.find('#Active_SavedSearchTerm');
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function getNextActiveCompanyPage(e) {
+            var $form = $('#Active_FilterForm');
+            var $searchTerm = $form.find('#Active_SearchTerm');
+            var $savedSearchTerm = $form.find('#Active_SavedSearchTerm');
+            var $currentPage = $form.find('#Active_CurrentPage');
+            var newPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(newPage);
+
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function getPreviousActiveCompanyPage(e) {
+            var $form = $('#Active_FilterForm');
+            var $searchTerm = $form.find('#Active_SearchTerm');
+            var $savedSearchTerm = $form.find('#Active_SavedSearchTerm');
+            var $currentPage = $form.find('#Active_CurrentPage');
+            var newPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(newPage);
+
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function clearActiveCompaniesFilter() {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#Active_CurrentPage');
+
+            $currentPage.val(1);
+
+            $form.find('#Active_SearchTerm').val('');
+
+            $form.submit();
+        }
+
+        function submitActiveFilterForm(e) {
+            e.preventDefault();
+            if (!pageChanging) {
+                var $form = $(this);
+                var url = $form.attr("action");
+
+                var searchTerm = $form.find('#Active_SearchTerm').val();
+                var savedSearchTerm = $form.find('#Active_SavedSearchTerm').val();
+
+                if (searchTerm != savedSearchTerm) {
+                    $form.find('#Active_CurrentPage').val(1);
+                }
+
+                pageChanging = true;
+
+                ajaxPost(url, $form.serializeObject(), function(response) {
+                    ajaxResponseReturned(response, function(data) {
+                        //console.debug(data);
+                        var $activeCompanies = $('#activeCompanies');
+                        $activeCompanies.html(data);
+
+                        //$activeCompanies.find('.searchField').autocomplete(searchAutoComplete);
+                        $activeCompanies.find('#Active_PageSize').change(changeActiveCurrentPage);
+                        $activeCompanies.find('#Active_CurrentPage').change(changeActiveCurrentPage);
+                        $activeCompanies.find('#Active_FilterForm').submit(submitActiveFilterForm);
+                        $activeCompanies.find('#Active_NextCompanyPage').click(getNextActiveCompanyPage);
+                        $activeCompanies.find('#Active_PrevCompanyPage').click(getPreviousActiveCompanyPage);
+                        $activeCompanies.find('#Active_ClearCompaniesFilter').click(clearActiveCompaniesFilter);
+                    });
+
+                    pageChanging = false;
+                });
+            }
+        }
+
+        // Expired
+
+        function changeExpiredCurrentPage() {
+            var $form = $(this).parents("form");
+            var $searchTerm = $form.find('#Expired_SearchTerm');
+            var $savedSearchTerm = $form.find('#Expired_SavedSearchTerm');
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function getNextExpiredCompanyPage(e) {
+            var $form = $('#Expired_FilterForm');
+            var $searchTerm = $form.find('#Expired_SearchTerm');
+            var $savedSearchTerm = $form.find('#Expired_SavedSearchTerm');
+            var $currentPage = $form.find('#Expired_CurrentPage');
+            var newPage = parseInt($currentPage.val()) + 1;
+
+            e.preventDefault();
+
+            $currentPage.val(newPage);
+
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function getPreviousExpiredCompanyPage(e) {
+            var $form = $('#Expired_FilterForm');
+            var $searchTerm = $form.find('#Expired_SearchTerm');
+            var $savedSearchTerm = $form.find('#Expired_SavedSearchTerm');
+            var $currentPage = $form.find('#Expired_CurrentPage');
+            var newPage = parseInt($currentPage.val()) - 1;
+
+            e.preventDefault();
+
+            $currentPage.val(newPage);
+
+            changeForm($form, $searchTerm, $savedSearchTerm);
+        }
+
+        function clearExpiredCompaniesFilter() {
+            var $form = $(this).parents('form');
+            var $currentPage = $form.find('#Expired_CurrentPage');
+
+            $currentPage.val(1);
+
+            $form.find('#Expired_SearchTerm').val('');
+
+            $form.submit();
+        }
+
+        function submitExpiredFilterForm(e) {
+            e.preventDefault();
+            if (!pageChanging) {
+                var $form = $(this);
+                var url = $form.attr("action");
+
+                var searchTerm = $form.find('#Expired_SearchTerm').val();
+                var savedSearchTerm = $form.find('#Expired_SavedSearchTerm').val();
+
+                if (searchTerm != savedSearchTerm) {
+                    $form.find('#Expired_CurrentPage').val(1);
+                }
+
+                pageChanging = true;
+
+                ajaxPost(url, $form.serializeObject(), function(response) {
+                    ajaxResponseReturned(response, function (data) {
+                        //console.debug(data);
+                        var $expiredCompanies = $('#expiredCompanies');
+                        $expiredCompanies.html(data);
+
+                        //$expiredCompanies.find('.searchField').autocomplete(searchAutoComplete);
+                        $expiredCompanies.find('#Expired_PageSize').change(changeExpiredCurrentPage);
+                        $expiredCompanies.find('#Expired_CurrentPage').change(changeExpiredCurrentPage);
+                        $expiredCompanies.find('#Expired_FilterForm').submit(submitExpiredFilterForm);
+                        $expiredCompanies.find('#Expired_NextCompanyPage').click(getNextExpiredCompanyPage);
+                        $expiredCompanies.find('#Expired_PrevCompanyPage').click(getPreviousExpiredCompanyPage);
+                        $expiredCompanies.find('#Expired_ClearCompaniesFilter').click(clearExpiredCompaniesFilter);
+                    });
+
+                    pageChanging = false;
+                });
+            }
+        }
+
+        function changeForm($form, $searchTerm, $savedSearchTerm) {
+            $searchTerm.val($savedSearchTerm.val());
+            $form.submit();
+        }
+    </script>
+}
+
+@section styles
+{
+    <style>
+        .pagingControls {
+            float: right;
+        }
+
+        .filterResults input {
+            font-size: .8em;
+        }
+
+        .filterResults .clearButton {
+            background: #f28b20 !important;
+            padding-left: 2px;
+        }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            #actionToolbar {
+                min-height: 40px;
+            }
+
+                #actionToolbar li {
+                    width: 33.3%;
+                }
+
+                    #actionToolbar li:last-child a div {
+                        border-right: none;
+                    }
+
+                    #actionToolbar li:hover {
+                        height: 100%;
+                    }
+        }
+
+        #graphSection {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .usageGraph {
+            background-color: white;
+            border: 1px solid #ccc;
+            display: block;
+            margin-top: 0;
+            padding: 0;
+            height: 200px;
+            min-height: 200px;
+            min-width: 700px;
+            width: 700px;
+        }
+
+        @@media only screen and (device-width: 768px) {
+            /* For general iPad layouts */
+            .usageGraph {
+                min-width: 746px;
+                width: 746px;
+            }
+        }
+
+        #licenseExpiringGraph {
+            background-color: white;
+            border: 1px solid #ccc;
+            display: block;
+            margin-top: 0;
+            padding: 0;
+            height: 402px;
+            min-height: 402px;
+            min-width: 256px;
+            width: 256px;
+        }
+
+        .tableCell {
+            font-size: 0.8em !important;
+        }
+    </style>
+}

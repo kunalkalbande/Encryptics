@@ -1,0 +1,30 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<table id="pageableTable">
+    @Html.Partial(Model.TableBodyPartialView, Model.DataItems)
+    <tr>
+        <td colspan="2" style="text-align: left" id="prevColumn"><< prev</td>
+        <td colspan="2" style="text-align: right" id="nextColumn">next >></td>
+    </tr>
+</table>
+
+<script>
+    //alert('hello world!');
+    $(function() {
+        console.log('hello world!');
+
+        @if ((Model.CurrentPage + 1) < Model.TotalPages)
+        {
+            Response.Write("$('nextColumn').html('<a href='#' id='nextPage'>next >></a>);");
+            Response.Write(string.Format("var x = {0}", Request.RawUrl));
+        };
+        @if (Model.CurrentPage > 0)
+        {
+            Response.Write("$('prevColumn').html('<a href='#' id='prevPage'><< prev</a>);");
+        };
+    });
+</script>

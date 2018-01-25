@@ -1,0 +1,18 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.CompanyDomainModel
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+<tr>
+    <td>
+        @if (encrypticsUser.HasPermission("Company/CompanyDomain/RemoveDomain"))
+        {
+            <input type="checkbox" class="selectedDomain" data-id="@Model.Id" />
+        }
+        else
+        {
+            <text>&nbsp;</text>
+        }
+    </td>
+    <td>@Html.DisplayFor(m => m.Domain)</td>
+    <td class="right">@Html.DisplayFor(m => m.CreatedDate)</td>
+</tr>

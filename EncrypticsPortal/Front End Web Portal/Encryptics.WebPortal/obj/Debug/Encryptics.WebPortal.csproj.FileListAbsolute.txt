@@ -936,5 +936,4 @@ E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\ar\Encryptics.WebPortal.resources.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.pdb
-E:\Encryptics\synerzip\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.dll
-E:\Encryptics\synerzip\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Security.Google.xml
+E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csprojResolveAssemblyReference.cache

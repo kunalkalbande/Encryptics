@@ -1,0 +1,110 @@
+﻿@using System.Web.Configuration
+@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Helpers
+@model CompanyDetailsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit Company";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+    bool showZdpSection;
+    bool.TryParse(WebConfigurationManager.AppSettings["enableZDPVisibility"], out showZdpSection);
+}
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="white">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+    <fieldset style="margin-right: 20px; position: relative; margin-bottom: 20px;">
+        <legend>Manage Company Details</legend>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.Abbreviation)
+        @Html.HiddenFor(model => model.ParentId)
+        @Html.HiddenFor(model => model.ParentCompanyName)
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.Contact1)
+        @Html.HiddenFor(model => model.Contact1PhoneNumber)
+        @Html.HiddenFor(model => model.Contact2)
+        @Html.HiddenFor(model => model.Contact2PhoneNumber)
+        @Html.HiddenFor(model => model.ContactInfo.Address1)
+        @Html.HiddenFor(model => model.ContactInfo.Address2)
+        @Html.HiddenFor(model => model.ContactInfo.City)
+        @Html.HiddenFor(model => model.ContactInfo.Country)
+        @Html.HiddenFor(model => model.ContactInfo.Email)
+        @Html.HiddenFor(model => model.ContactInfo.Region)
+        @Html.HiddenFor(model => model.ContactInfo.State)
+        @Html.HiddenFor(model => model.ContactInfo.ZipCode)
+        @Html.HiddenFor(model => model.ContactInfo.Phone)
+        @Html.HiddenFor(model => model.ContactInfo.Fax)
+        @Html.HiddenFor(model => model.ContactInfo.Mobile)
+        <ol class="float-left formSection">
+            <li>
+                <h3>global license expiration</h3>
+                <div class="fields">
+                    @Html.LabelFor(model => model.UseGlobalExpirationDate)
+                    @Html.ToggleFor(model => model.UseGlobalExpirationDate, "onoffswitch-inner-text")
+
+                    @Html.LabelFor(model => model.GlobalExpirationDate)
+                    @Html.TextBoxFor(model => model.GlobalExpirationDate, "{0:d}", new { @class = "date" })
+                    @Html.ValidationMessageFor(model => model.GlobalExpirationDate)
+
+                    @Html.LabelFor(model => model.IsInTrialMode)
+                    @Html.ToggleFor(model => model.IsInTrialMode, "onoffswitch-inner-text")
+
+                    @Html.LabelFor(m => m.EntityType)
+                    @Html.DropDownListFor(m => m.EntityType, new SelectList(Enum.GetValues(typeof(CompanyType))))
+                </div>
+            </li>
+        </ol>
+        <ol class="float-right formSection">
+            <li>
+                <h3>Email Protection</h3>
+                <div class="fields">
+                    @Html.LabelFor(model => model.IsPBPEnabled)
+                    @Html.ToggleFor(model => model.IsPBPEnabled)
+                </div>
+
+                @if (showZdpSection)
+                {
+                <div class="fields">
+                    @Html.LabelFor(model => model.IsZDPEnabled)
+                    @Html.ToggleFor(model => model.IsZDPEnabled)
+                </div>
+                }
+
+            </li>
+        </ol>
+        <div class="formActions">
+            <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+            <input type="submit" value="Update" class="mainAction" style="float: right;" />
+        </div>
+    </fieldset>
+    }
+</section>
+
+<div id="MessageDialog" class="dialog"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function() {
+            $('.date').datepicker();
+
+            $('#cancelButton').click(function(e) {
+                e.preventDefault();
+                window.location = '@Url.Action("Dashboard", "CompanyHome", new {area = "Company", entityId = Model.Id})';
+            });
+
+            var dialogWidth = "425";
+
+            if (isPhone) {
+                dialogWidth = "356";
+            }
+        });
+    </script>
+}

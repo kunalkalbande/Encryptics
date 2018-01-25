@@ -1,0 +1,28 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@using Encryptics.WebPortal.Helpers
+@model IEnumerable<DistributionGroupModel>
+@{
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+<tbody>
+    @foreach (var group in Model)
+    {
+        var groupClosure = group;
+        <tr>
+            <td class="selectColumn">
+                <input type="checkbox" class="selectedGroup" name="groupIds" value="@group.GroupId" /></td>
+            <td>@if (encrypticsUser.HasPermission("Company/DistributionGroup/Details"))
+                {
+                <a href="@Url.Action("Details", new { entityId = ViewBag.CompanyId, groupId = groupClosure.GroupId })" data-id="@group.GroupId">@Html.DisplayFor(m => group.GroupName)</a>
+                }
+                else
+                {
+                @Html.DisplayFor(m => group.GroupName)
+                }</td>
+            @*<td><a href="@Url.Action("Index", "DistributionGroupMembers", new { entityId = ViewBag.CompanyId, groupId = groupClosure.GroupId })">@Html.DisplayFor(m => group.MemberCount)</a></td>*@
+            <td>@Html.DisplayFor(m => group.MemberCount)</td>
+            <td>@Html.BooleanDisplayFor(m => groupClosure.IsActive)</td>
+        </tr>
+    }
+    <tr></tr>
+</tbody>

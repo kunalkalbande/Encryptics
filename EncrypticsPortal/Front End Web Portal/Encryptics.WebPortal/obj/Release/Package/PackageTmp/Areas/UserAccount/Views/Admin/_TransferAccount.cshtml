@@ -1,0 +1,32 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.UserAccountModel
+
+@using (Html.BeginForm("TransferAccount", "Admin", new { currentEntityId = ViewBag.CompanyId }, FormMethod.Post, new { id = "transferAccountForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.UserName)
+    @Html.HiddenFor(m => m.FirstName)
+    @Html.HiddenFor(m => m.LastName)
+    <fieldset>
+        <legend></legend>
+        <ol class="formSection">
+            <li>
+                <div class="fields">
+                    <label>Current Company</label>
+                    @Html.DisplayFor(m => m.CompanyName)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    <label>Transer To Company</label>
+                    @Html.HiddenFor(m => m.EntityId)
+                    <input type="text" class="searchField" placeholder="Type a name to begin searching" name="CompanyName" id="CompanyName" />
+                </div>
+            </li>
+            @* TODO: Put this back after a decision has been made on how to handle the license following a pro user from one company to another. *@
+            @*<li>
+                <div class="fields">@Html.CheckBox("transferLicenses", false) Transfer License</div>
+            </li>*@
+        </ol>
+    </fieldset>
+}

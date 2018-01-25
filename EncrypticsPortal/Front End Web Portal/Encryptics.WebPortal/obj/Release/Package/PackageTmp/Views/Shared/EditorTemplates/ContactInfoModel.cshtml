@@ -1,0 +1,54 @@
+﻿@model Encryptics.WebPortal.Models.ContactInfoModel
+
+<ol class="float-right formSection">
+    <li>
+        @Html.LabelFor(m => m.Address1)
+        @Html.TextBoxFor(m => m.Address1, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.Address1)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Address2)
+        @Html.TextBoxFor(m => m.Address2, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.Address2)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.City)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.State)
+        @Html.TextBoxFor(m => m.State, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.State)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.ZipCode)
+        @Html.TextBoxFor(m => m.ZipCode, new { maxLength = 20 })
+        @Html.ValidationMessageFor(m => m.ZipCode)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Region)
+        @Html.TextBoxFor(m => m.Region, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.Region)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Country)
+        @Html.TextBoxFor(m => m.Country, new { maxLength = 100 })
+        @Html.ValidationMessageFor(m => m.Country)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Phone)
+        @Html.TextBoxFor(m => m.Phone, new { maxLength = 20 })
+        @Html.ValidationMessageFor(m => m.Phone)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Fax)
+        @Html.TextBoxFor(m => m.Fax, new { maxLength = 20 })
+        @Html.ValidationMessageFor(m => m.Fax)
+    </li>
+    <li>
+        @Html.LabelFor(m => m.Mobile)
+        @Html.TextBoxFor(m => m.Mobile, new { maxLength = 20 })
+        @Html.ValidationMessageFor(m => m.Mobile)
+    </li>
+</ol>

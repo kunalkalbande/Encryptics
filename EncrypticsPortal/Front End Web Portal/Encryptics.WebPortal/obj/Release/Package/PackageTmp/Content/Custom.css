@@ -1,0 +1,106 @@
+﻿#headerBar {
+    height: 115px;
+}
+
+#loginForm input[type=submit] {
+    color: white;
+    background-color: darkkhaki;
+}
+
+    #loginForm input[type=submit]:hover {
+        background: darkkhaki;
+    }
+
+    #loginForm .validation-summary-errors li {
+            color: #870f05;
+        }
+
+        .field-validation-error span {
+            color: #870f05;
+        }
+        
+.dataTableToolbar .filterResults .filterButton {
+    background: darkkhaki;
+
+}
+
+.formActions .input.mainAction {
+    color: #D41E1B;
+}
+
+#actionToolbar li ul li a div {
+    border-left: solid 4px #D41E1B;
+}
+
+
+
+#barContainer .orangeBackground {
+    background-color: darkkhaki;
+}
+
+#barContainer .blueBackground {
+    background-color: darkkhaki;
+}
+
+#barContainer .greenBackground {
+    background-color: darkkhaki;
+}
+
+#barContainer .maroonBackground {
+    background-color: darkkhaki;
+}
+
+
+
+#reportsArea {
+    border: 1px solid darkkhaki;
+}
+
+    #reportsArea h3 {
+        background-color: darkkhaki;
+    }
+
+#pbpArea {
+    border: 1px solid darkkhaki;
+    background-color: darkkhaki;
+}
+
+    #pbpArea h3 {
+        background-color: #fff;
+        color: darkkhaki;
+    }
+
+    #pbpArea .simpleNumericReport {
+        color: #FFF;
+        border-right: solid 2px #fff;
+    }
+
+        #pbpArea .simpleNumericReport span {
+            color: #FFF;
+        }
+
+#zdpArea {
+    border: 1px solid #666;
+    background-color: #666;
+}
+
+    #zdpArea h3 {
+        background-color: #FFF;
+        color: #666;
+    }
+
+
+    #zdpArea .simpleNumericReport {
+        color: #FFF;
+        border-right: solid 2px #fff;
+    }
+
+        #zdpArea .simpleNumericReport span {
+            color: #FFF;
+        }
+
+.disabledFeature p {
+    color: #fff;
+}
+
+

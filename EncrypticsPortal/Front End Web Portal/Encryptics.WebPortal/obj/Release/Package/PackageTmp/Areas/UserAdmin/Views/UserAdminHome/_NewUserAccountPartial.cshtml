@@ -1,0 +1,72 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model Encryptics.WebPortal.Areas.UserAccount.Models.InsertableUserAccountModel
+
+@using (Html.BeginForm("AddNewUser", "UserAdminHome", new { entityId = Model.EntityId, month = ViewBag.Month, year = ViewBag.Year, area = "UserAdmin" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.EntityId)
+    @Html.HiddenFor(model => model.CompanyName)
+    <fieldset>
+        <legend></legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.TextBoxFor(model => model.FirstName)<br />
+                    @Html.ValidationMessageFor(model => model.FirstName)<br />
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.TextBoxFor(model => model.LastName)<br />
+                    @Html.ValidationMessageFor(model => model.LastName)<br />
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.UserName)
+                    @Html.TextBoxFor(model => model.UserName)<br />
+                    @Html.ValidationMessageFor(model => model.UserName)<br />
+                    <br />
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.ConfirmUserName)
+                    @Html.TextBoxFor(model => model.ConfirmUserName)<br />
+                    @Html.ValidationMessageFor(model => model.ConfirmUserName)<br />
+                    <br />
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.DownloadSoftware)
+                    @Html.ToggleFor(model => model.DownloadSoftware)<br />
+                    <br />
+                </div>
+            </li>
+        </ol>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(model => model.AssignLicense)
+                    @Html.ToggleFor(model => model.AssignLicense)
+                    <br />
+                </div>
+            </li>
+        </ol>
+        <div class="formActions">
+            <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+            <input type="submit" value="Add User" class="mainAction" style="float: right;" />
+        </div>
+    </fieldset>
+}

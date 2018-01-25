@@ -1,0 +1,43 @@
+﻿@model Encryptics.WebPortal.Areas.UserAccount.Models.EditableUserAccountModel
+
+@{
+    ViewBag.Title = "Manage Account";
+    var encrypticsUser = ViewHelper.GetEncrypticsUser();
+}
+
+@Html.Partial("_ErrorMessages")
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+
+    <h4 class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home", new { area = string.Empty })">
+            <img src="~/Images/icons/house.png" alt="" /></a>
+        &gt;
+        @if (encrypticsUser.CompanyCount > 1)
+        {
+            @Html.ActionLink(Model.CompanyName, "Dashboard", "CompanyHome", new { entityId = Model.EntityId, area = "Company" }, null)
+            <text>&gt;</text>
+        }
+        @Html.ActionLink("Account Management", "ManageAccounts", "UserAdminHome", new { entityId = Model.EntityId, area = "UserAdmin" }, null)
+        &gt;
+        @Html.ActionLink(Model.Name, "ActiveAccount", "Admin", new { area = "UserAccount", entityId = Model.EntityId, userId = Model.UserId }, null)
+        &gt;
+        <span>edit details</span>
+    </h4>
+</div>
+
+<section class="white">
+    @Html.EditorForModel()
+</section>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#cancelButton').click(function () {
+                window.location = '@Url.Action("ActiveAccount", "Admin", new { area = "UserAccount", entityId = Model.EntityId, userId = Model.UserId })';
+            });
+        });
+    </script>
+}

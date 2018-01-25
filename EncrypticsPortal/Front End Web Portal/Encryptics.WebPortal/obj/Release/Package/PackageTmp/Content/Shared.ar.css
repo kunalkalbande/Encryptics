@@ -1,0 +1,494 @@
+﻿/* iPhone and small Android devices */
+.dataTable {
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+    width: 90%;
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+    .dataTable td {
+        padding: 5px;
+    }
+
+@media screen and (max-width: 480px) {
+    .dataTable {
+        width: 99% !important;
+    }
+
+        .dataTable td {
+            width: 50%;
+        }
+}
+
+
+@media screen and (max-width: 1024px) {
+        .dataTable td {
+            padding: 3px 5px;
+        }
+}
+
+    .dataTable th {
+        font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+        font-weight: bold;
+        /*text-align: center;*/
+        background-color: white;
+        color: #666;
+        padding: 5px;
+        border-bottom: 1px #666;
+    }
+
+    .dataTable tr:nth-child(odd) td {
+        background-color: #ddd;
+    }
+
+    .dataTable tr:nth-child(even) td {
+        background-color: #eee;
+    }
+
+    .dataTable tr:last-child td, tfoot td {
+        background-color: white;
+        color: #ccc;
+    }
+
+    .dataTable tr:first-child th {
+        border-bottom: solid 1px #666;
+    }
+
+.button,
+input[type="submit"],
+input[type="button"],
+button {
+    background: url(https://www.encryptics.com/img/bg3.png)repeat scroll 0 0 #F28B20;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    border: 0 solid;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14pt;
+    font-weight: bold;
+    font-style: normal;
+    padding: 10px 20px;
+    width: auto;
+}
+
+    input[type="submit"]:after {
+        content: "<span>&lt;</span>";
+    }
+
+    .button:hover,
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    button:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+/* forms */
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    fieldset {
+        margin-left: 0;
+    }
+}
+
+
+fieldset legend {
+    display: none;
+}
+
+fieldset ol {
+    padding: 0;
+    list-style: none;
+}
+
+    fieldset ol li {
+        padding-bottom: 5px;
+    }
+
+label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+    label.checkbox {
+        display: inline;
+    }
+
+input, textarea {
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 300px;
+}
+
+textarea {
+    font-family: inherit;
+    width: 500px;
+}
+
+    /*input:focus, textarea:focus {
+        border: 1px solid #7ac0da;
+    }*/
+
+input[type="checkbox"] {
+    background: transparent;
+    border: inherit;
+    width: auto;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    background-color: #d3dce0;
+    border: 1px solid #787878;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 7px;
+    margin-right: 8px;
+    width: auto;
+}
+
+td input[type="submit"],
+td input[type="button"],
+td button {
+    font-size: 1em;
+    padding: 4px;
+    margin-right: 4px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/*device list*/
+.pageNavigation {
+    position: absolute;
+    bottom: 4%;
+}
+
+#noDevices {
+    margin-top: 10px;
+}
+
+    #noDevices div {
+        margin-top: 70px;
+        width: 50%;
+        float: left;
+    }
+
+#devices {
+    height: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    #noDevices {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+        #noDevices img {
+            display: none;
+        }
+
+        #noDevices div {
+            width: 98%;
+        }
+
+    #devices {
+        margin-top: 2%;
+    }
+}
+
+    #devices ol {
+        display: block;
+        list-style: none;
+    }
+
+        #devices ol li {
+            position: relative;
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            border: 3px #666 solid;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            display: list-item;
+            float: right;
+            height: 90%;
+            margin: 0 3.07% 0 0;
+            width: 20.5%;
+            padding-bottom: 0;
+        }
+        
+.deviceCard {
+    float: right;
+}
+
+.deviceCard /*#devices ul li*/ img {
+    width: 88%;
+    margin: auto;
+    display: block;
+}
+
+@media screen and (max-width: 480px) {
+    .deviceCard /*, #devices ul li*/ {
+        width: 93% !important;
+    }
+
+        .deviceCard /*#devices ul li*/ img {
+            width: 50% !important;
+        }
+}
+
+.deviceSessionStatusActive, .deviceSessionStatusInactive, .deviceSessionStatusSuspended {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.4em;
+    padding: 2% 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.deviceSessionStatusActive {
+    color: #6690CB;
+}
+
+.deviceSessionStatusSuspended {
+    color: #76373C;
+    z-index: 30;
+    position: absolute;
+}
+
+.deviceSessionStatusInactive {
+    color: #999;
+}
+
+.deviceField {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.deviceField, .deviceName {
+    text-align: center;
+}
+
+    .deviceField span {
+        display: inline-block !important;
+        font-weight: normal;
+        text-transform: lowercase;
+        color: #666;
+        font-size: smaller;
+    }
+
+.deviceName {
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 480px) {
+    .deviceName {
+        margin: 5px !important;
+    }
+}
+
+.deviceButtons {
+    background-color: #666;
+    margin-top: 10%;
+}
+
+    .deviceButtons ul {
+        list-style: none;
+        display: block;
+        width: 100%;
+        margin: 0 !important;
+    }
+
+        .deviceButtons ul li:first-child {
+            margin-right: 0 !important;
+        }
+
+        .deviceButtons ul li {
+            border: none !important;
+            background-color: #666;
+            -moz-border-radius-topleft: 0 !important;
+            -moz-border-radius-topright: 0 !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            width: 33% !important;
+            padding: 8px 0 !important;
+            text-align: center;
+            margin-left: 0 !important;
+            margin-right: 1px !important;
+            height: 38px !important;
+        }
+
+@media screen and (max-width: 480px) {
+    .deviceButtons {
+        margin-top: 3% !important;
+    }
+
+        .deviceButtons ul li {
+            width: 31% !important;
+        }
+
+            .deviceButtons ul li:first-child {
+                border-right: white 2px solid !important;
+            }
+
+    /* trying to force the width a bit smaller to make the action buttons evenly spaced */
+    #devices {
+        padding-right: 4px;
+    }
+}
+
+/* I did this so that Resharper will give the green light in _DevicePartial.cshtml */
+.logoffDeviceButton, .suspendDeviceButton, .activateDeviceButton, .forgetDeviceButton {
+    color: white;
+}
+
+/*@media screen and (max-width: 1024px) {
+    .logoffDeviceButton {
+        line-height: 10px;
+        background-color: aliceblue;
+    }
+
+    .smallText {
+        line-height: 10px;
+        background-color: honeydew;
+    }
+}*/
+
+.deviceButtons ul li a :hover {
+    text-decoration: none;
+}
+
+.deviceActionLast {
+    float: right !important;
+}
+
+.deviceCardError {
+    background-color: white;
+    background-image: url(https://www.encryptics.com/img/NewRegistration/Error.png);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    -moz-background-size: 90%;
+    -o-background-size: 90%;
+    background-size: 90%;
+    height: 100%;
+}
+
+    .deviceCardError h3 {
+        border-bottom: 1px black solid;
+    }
+
+    .deviceCardError p {
+        margin: 7.5% 5%;
+        line-height: 1;
+    }
+
+.deviceCardError, .deviceSuspended {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.deviceSuspended {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+    background-color: #777;
+    z-index: 2;
+    height: 89%;
+}
+
+@media screen and (max-width: 480px) {
+    .deviceSuspended {
+        height: 87.5% !important;
+    }
+}
+
+.whiteText {
+    color: white;
+}
+
+.dismissDeviceError:hover {
+    color: black;
+}
+
+.dismissDeviceError {
+    position: absolute;
+    bottom: 4%;
+    text-align: center;
+    width: 100%;
+    padding: 2%;
+}
+
+    .dismissDeviceError a {
+        background-image: url(https://www.encryptics.com/img/bg3.png);
+        color: white;
+        padding: 2% 10%;
+    }
+
+#successMessage {
+    width: 48% !important;
+    float: right;
+}
+
+#successImage {
+    float: left;
+}
+
+#successImage img {
+    display: block;
+}
+
+@media only screen and (max-width: 1024px) {
+    #successImage {
+        width: 40% !important;
+    }
+
+        #successImage img {
+            width: 117%;
+            margin-top: -24%;
+            margin-left: -5%;
+        }
+}
+
+@media only screen and (max-width: 480px) {
+    #successImage {
+        width: 37% !important;
+    }
+
+        #successImage img {
+            width: 110%;
+            /*margin-top: -7%;
+            margin-left: -15%;*/
+        }
+}

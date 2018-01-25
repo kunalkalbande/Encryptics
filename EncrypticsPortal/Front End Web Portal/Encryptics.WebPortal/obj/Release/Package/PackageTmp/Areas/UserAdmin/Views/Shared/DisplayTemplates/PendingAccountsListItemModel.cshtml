@@ -1,0 +1,15 @@
+﻿@model Encryptics.WebPortal.Areas.UserAdmin.Models.PendingAccountsListItemModel
+
+@{
+    string cssClasses = string.Format("accountType {0}", Model.IsLicenseReserved ? "Pro" : "Free");
+}
+
+<tr>
+    <td class="selectColumn" style="text-align: center;">
+      <input type="checkbox" class="selectedPendingAccount" data-id="@Model.Id" data-email="@Model.UserName">
+    </td>
+    <td>@Html.ActionLink(string.IsNullOrEmpty(Model.UserName) ? "N/A" : Html.DisplayFor(m => m.UserName).ToHtmlString(), "PendingAccount", "Admin", new { @area = "UserAccount", @entityId = Model.EntityId, @requestEmail = Model.UserName }, null)</td>
+    <td class="firstNameColumn">@Html.DisplayFor(m => m.FirstName)</td>
+    <td class="lastNameColumn">@Html.DisplayFor(m => m.LastName)</td>
+    <td class="accountTypeColumn"><div class="@cssClasses">@(Model.IsLicenseReserved ? "Pro" : "Free")</div></td>
+</tr>

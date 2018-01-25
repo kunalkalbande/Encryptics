@@ -1,0 +1,66 @@
+﻿@model Encryptics.WebPortal.Models.PageableViewModel<Encryptics.WebPortal.Areas.UserAdmin.Models.ImportFileModel>
+@{
+    ViewBag.Title = "Upload Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_ErrorMessages")
+
+@Html.Partial("_SuccessMessage")
+
+@Html.Partial("_CompanyBreadcrumbs")
+
+<section class="featured dark">
+    <p>Here you can view the files that have already been uploaded to create your companies accounts. You can go to the details of each file uploaded and view the results for each accounted included in the file.</p>
+</section>
+
+<section class="tabbed">
+    <ul class="tabs">
+        <li class="activeTab">@Html.ActionLink("Files Uploaded", "UploadedFiles", new { entityId = ViewBag.CompanyId })</li>
+        <li class="">@Html.ActionLink("Upload a File", "UploadFile", new { entityId = ViewBag.CompanyId })</li>
+    </ul>
+    <div class="tabPage">
+        @Html.Partial("_importFilesTable")
+    </div>
+</section>
+
+@section styles{
+    <style>
+        .featured ul {
+            list-style: none;
+        }
+
+        .onoffswitch {
+            display: inline-block;
+            top: 9px;
+        }
+
+        .onoffswitch-switch {
+            margin: 6px !important;
+        }
+
+        #cancelButton {
+            float: left;
+        }
+
+        .mainAction {
+            float: right;
+        }
+
+        .dark a {
+            color: orange;
+            text-decoration: none;
+        }
+
+            .dark a:hover {
+                color: #6690CB;
+                text-decoration: underline;
+            }
+
+        @@media only screen and (max-device-width: 736px), only screen and (width: 375px) {
+            .formActions {
+                width: 92%;
+            }
+        }
+    </style>
+}

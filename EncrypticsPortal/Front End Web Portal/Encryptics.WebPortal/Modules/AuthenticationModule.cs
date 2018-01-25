@@ -134,14 +134,16 @@ namespace Encryptics.WebPortal.Modules
                 SignUserOut(app);
             }
         }
-
+     
         private void SetEncrypticsPrincipal(HttpApplication app)
         {
+            string auth = string.Empty;
             string userName = app.Context.User.Identity.Name;
 
             if (string.IsNullOrEmpty(userName)) return;
 
             dynamic userData = GetUserData(app.User.Identity);
+            auth = userData.AuthenticationType;
             var tokenAuth = new TokenAuth { Token = userData.Token };
             var request = new ValidateTokenRequest(tokenAuth,
                                                    (long)userData.UserId);
@@ -153,10 +155,14 @@ namespace Encryptics.WebPortal.Modules
             ValidateTokenResponse response = null;
             try
             {
-                var result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url,string.Empty));
+                bool result = false;
+              
+                    result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, string.Empty));
+                
+               
                  tokenAuth = new TokenAuth();
                 WebHeaderCollection myWebHeaderCollection = cli.ResponseHeaders;
-                if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                if (result && myWebHeaderCollection.GetValues("tokenauth_id") != null)
                 {
                     tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
                     tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
@@ -226,7 +232,8 @@ namespace Encryptics.WebPortal.Modules
             }
             catch (Exception ex)
             {
-
+                //app.Context.Response.Cookies.Add(new HttpCookie("Logout", auth));
+              
             }
         }
 
@@ -295,14 +302,13 @@ namespace Encryptics.WebPortal.Modules
             if (app.User != null)
             {
                 string userName = app.User.Identity.Name;
-               
                 FormsAuthentication.SignOut();
                 //app.Session.Abandon();
 
                 // clear authentication cookie
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, "") { Expires = DateTime.Now.AddYears(-1) };
                 app.Response.Cookies.Add(authCookie);
-
+                app.Context.Response.Cookies.Add(new HttpCookie("Logout", "true"));
                 // clear session cookie (not necessary for your current problem but i would recommend you do it anyway)
                 DeleteCookie(app, "ASP.NET_SessionId");
                 DeleteCookie(app, "ticket");

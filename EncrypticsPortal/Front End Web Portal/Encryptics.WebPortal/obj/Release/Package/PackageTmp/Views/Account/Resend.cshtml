@@ -1,0 +1,50 @@
+﻿@using System.Web.Configuration
+@model Encryptics.WebPortal.Models.ResendActivationModel
+
+
+@{
+    ViewBag.Title = "Resend Activation Email";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+@Html.Partial("_SuccessMessage")
+@Html.Partial("_ErrorMessages")
+
+<section id="resendForm" class="white">
+    <h2>Enter the email address to send the activation.</h2>
+    @using (Html.BeginForm("Resend", "Account", null, FormMethod.Post, new { AutoComplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+@*Html.ValidationSummary(true)*@
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+            </ol>
+            <input type="submit" value="Resend Activation" />
+            @{
+        bool displayCaptcha;
+        bool.TryParse(WebConfigurationManager.AppSettings["CaptchaEnabled"], out displayCaptcha);
+        if (displayCaptcha)
+        {
+                <div class="g-recaptcha" data-sitekey="@WebConfigurationManager.AppSettings["CaptchaSiteKey"]" style="margin-top:10px;" />
+        }
+            }
+
+        </fieldset>
+    }
+
+    <p style="margin-top: 10px">Check your spam and junk folders for an email with the subject “Encryptics Activation.” If you don’t see it there, enter the email address you used when registering, click the Resend Activation Link button and we'll send you a brand new link. If you don't receive the email within 30 minutes, check your spam folders or junk mail. </p>
+
+</section>
+@section Scripts {
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

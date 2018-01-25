@@ -1,0 +1,17 @@
+﻿@using Encryptics.WebPortal.Areas.UserAccount.Models
+@using Encryptics.WebPortal.Helpers
+@model bool
+@{
+    var deviceStatus = (DeviceStatus)ViewData["DeviceStatus"];
+    string displayText = Html.OptionsForBoolean(m => m)
+                             .Single(o => o.Value == (Model ?
+                                                          Boolean.TrueString :
+                                                          Boolean.FalseString)).Text;
+
+    var classAttribute = string.Format(@"deviceSessionStatus{0}", Model ? "Active" : "Inactive");
+    if (deviceStatus != DeviceStatus.Active)
+    {
+        classAttribute += " whiteText";
+    }
+}
+<span class="@classAttribute">@displayText</span>

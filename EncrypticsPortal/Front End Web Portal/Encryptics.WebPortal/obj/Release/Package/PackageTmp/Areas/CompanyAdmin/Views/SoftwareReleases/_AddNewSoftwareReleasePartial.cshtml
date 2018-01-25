@@ -1,0 +1,47 @@
+﻿@using Encryptics.WebPortal.Helpers
+@model Encryptics.WebPortal.Areas.CompanyAdmin.Models.SoftwareReleaseModel
+
+@using (Html.BeginForm("Create", "SoftwareReleases", new { area = "CompanyAdmin" }, FormMethod.Post, new { id = "addNewReleaseForm" }))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>Create New Company</legend>
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.ProductId)
+                    @Html.DropDownListFor(m => m.ProductId, (IEnumerable<SelectListItem>)ViewBag.Platforms)
+                    @Html.ValidationMessageFor(m => m.ProductId)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.Version)
+                    @Html.TextBoxFor(m => m.Version)
+                    @Html.ValidationMessageFor(m => m.Version)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.DownloadUri)
+                    @Html.TextBoxFor(m => m.DownloadUri)
+                    @Html.ValidationMessageFor(m => m.DownloadUri)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.ReleaseNotes)
+                    @Html.TextAreaFor(m => m.ReleaseNotes, 4, 35, new Dictionary<string, object> { { "style", "width: 100%; resize: none;" } })
+                    @Html.ValidationMessageFor(m => m.ReleaseNotes)
+                </div>
+            </li>
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.IsMajorRelease)
+                    @Html.ToggleFor(m => m.IsMajorRelease)
+                    @Html.ValidationMessageFor(m => m.IsMajorRelease)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}

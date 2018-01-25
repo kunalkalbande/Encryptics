@@ -1,0 +1,15 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model DLPRuleModel
+
+@using (Html.BeginForm("EnableRule", "PolicyBasedProtection", new { entityId = ViewBag.CompanyId }, FormMethod.Post, new { @class = "enableRuleForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.EntityRuleId)
+    @Html.HiddenFor(m => m.RuleId)
+    if (Model.PolicyId == DLPPolicyId.UserPolicies)
+    {
+        <a href="#" class="deleteRule">delete</a>
+    }
+    @Html.CheckBoxFor(m => m.Enabled, new { @class = "enableRule", title = "Enable this rule." })
+    <a href="#" class="editRule" data-entity-rule-id="@Model.EntityRuleId" data-rule-id="@Model.RuleId" title="Edit rule details">@Model.Description</a>               
+}

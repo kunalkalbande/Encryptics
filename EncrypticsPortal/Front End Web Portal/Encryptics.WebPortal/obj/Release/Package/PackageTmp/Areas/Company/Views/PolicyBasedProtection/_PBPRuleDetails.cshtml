@@ -1,0 +1,20 @@
+﻿@using Encryptics.WebPortal.Areas.Company.Models
+@model DLPRuleModel
+@using (Html.BeginForm("UpdateRule", "PolicyBasedProtection", new { entityId = ViewBag.CompanyId }, FormMethod.Post, new { id = "UpdateRuleForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.RuleId)
+        @Html.Hidden("CompanyId", Request["EntityId"])
+        @Html.HiddenFor(m => m.EntityRuleId)
+        @Html.HiddenFor(m => m.RuleTypeId)
+        @Html.Hidden("PolicyId", Convert.ToInt32(Model.PolicyId))
+        @Html.HiddenFor(m => m.RegexTerm)
+        @if (Model.PolicyId != DLPPolicyId.UserPolicies)
+        {
+            @Html.HiddenFor(m => m.Description)
+        }
+        @Html.EditorForModel()
+    </fieldset>
+}

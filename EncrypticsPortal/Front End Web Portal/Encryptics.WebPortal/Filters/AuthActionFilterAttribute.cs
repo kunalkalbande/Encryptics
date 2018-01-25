@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Encryptics.WebPortal.Filters
 {
@@ -14,9 +15,9 @@ namespace Encryptics.WebPortal.Filters
         {
             var modelState = filterContext.Controller.ViewData.ModelState;
             var httpContext = filterContext.HttpContext;
-            if (httpContext.Session["auth"] != null && (!httpContext.Request.IsAuthenticated))
+           
+            if (httpContext.Session["auth"] != null)
             {
-                Trace.TraceInformation(String.Format("Enter in Authentication using {0} so redirecting to {0} authentication page", httpContext.Session["auth"].ToString()));
 
                 httpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
                              httpContext.Session["auth"].ToString());

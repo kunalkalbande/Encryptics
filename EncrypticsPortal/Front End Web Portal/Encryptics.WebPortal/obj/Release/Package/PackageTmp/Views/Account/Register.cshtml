@@ -1,0 +1,134 @@
+﻿@using System.Web.Configuration
+@model Encryptics.WebPortal.Models.RegisterModel
+@{
+    ViewBag.Title = "Register a New Account";
+}
+
+<div class="pageHeader">
+    <h1>@ViewBag.Title</h1>
+</div>
+
+@Html.ValidationSummary(true)
+
+<section class="featured light">
+    @using (Html.BeginForm("Register", "Account", null, FormMethod.Post, new { AutoComplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            <legend>Registration Form</legend>
+            <div>@Html.ActionLink(@"Did you not get an activation email?", "Resend", "Account")</div>
+
+            <ol class="float-left formSection">
+                <li>
+                    <ol>
+                        <li>
+                            <h3>user info</h3>
+                            <div class="fields">
+                                @*@Html.LabelFor(m => m.FirstName)
+                                @Html.TextBoxFor(m => m.FirstName)
+                                @Html.ValidationMessageFor(m => m.FirstName)
+
+                                @Html.LabelFor(m => m.LastName)
+                                @Html.TextBoxFor(m => m.LastName)
+                                @Html.ValidationMessageFor(m => m.LastName)*@
+
+                                @Html.LabelFor(m => m.UserName)
+                                @Html.TextBoxFor(m => m.UserName)
+                                @Html.ValidationMessageFor(m => m.UserName)
+
+                                @Html.LabelFor(m => m.UserAcceptsEULA, new { @style = "padding-bottom: 10px;" })
+                                @Html.CheckBoxFor(m => m.UserAcceptsEULA)
+                                @*@Html.LabelFor(m => m.UserAcceptsEULA, new { @class = "checkbox" })*@
+                                <label class="checkbox">I agree to <a href="@Url.Content("~/Content/EULA.pdf")" target="_new">Terms &amp; Conditions</a></label>
+
+                                @Html.ValidationMessageFor(m => m.UserAcceptsEULA)
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            <ol class="float-right formSection">
+                <li>
+                    <ol>
+                        <li>
+                            <h3>password</h3>
+                            <div class="fields">
+                                @Html.LabelFor(m => m.Password)
+                                @Html.PasswordFor(m => m.Password)
+                                @Html.ValidationMessageFor(m => m.Password)
+
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                                @Html.PasswordFor(m => m.ConfirmPassword)
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+            @*<ol class="float-right formSection">
+                <li>
+                    <ol>
+                        <li>
+                            <div class="fields">
+                                @Html.LabelFor(m => m.SecurityQuestion01)
+                                @Html.DropDownListFor(m => m.SecurityQuestion01, (SelectList)ViewBag.SecurityQuestionsList, "-Select One-")
+                                @Html.TextBoxFor(m => m.SecurityAnswer01)
+
+                                @Html.LabelFor(m => m.SecurityQuestion02)
+                                @Html.DropDownListFor(m => m.SecurityQuestion02, (SelectList)ViewBag.SecurityQuestionsList, "-Select One-")
+                                @Html.TextBoxFor(m => m.SecurityAnswer02)
+
+                                @Html.LabelFor(m => m.SecurityQuestion03)
+                                @Html.DropDownListFor(m => m.SecurityQuestion03, (SelectList)ViewBag.SecurityQuestionsList, "-Select One-")
+                                @Html.TextBoxFor(m => m.SecurityAnswer03)
+                            </div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>*@
+                        @{
+                            bool displayCaptcha;
+                            bool.TryParse(WebConfigurationManager.AppSettings["CaptchaEnabled"], out displayCaptcha);
+                            if (displayCaptcha)
+                            {
+                                <div class="g-recaptcha float-left" data-sitekey="@WebConfigurationManager.AppSettings["CaptchaSiteKey"]" style="margin: 20px 0"></div>
+                            }
+                        }
+            <div class="formActions">
+                <input type="button" value="Cancel" style="float: left;" id="cancelButton" />
+                <input type="submit" value="Create Account" class="mainAction" style="float: right;" />
+            </div>
+
+        </fieldset>
+    }
+</section>
+
+@section Scripts {
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            $('#cancelButton').click(function () {
+                window.location = '@Url.Action("Login", "Account", new { area = string.Empty })';
+            });
+        });
+    </script>
+}
+
+@section styles
+{
+    <style>
+        @@media only screen and (max-device-width:736px), only screen and (width:375px) {
+            fieldset ol {
+                float: none !important;
+            }
+
+            .formSection {
+                margin: 0 10px;
+            }
+        }
+    </style>
+}

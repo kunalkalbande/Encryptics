@@ -100,13 +100,23 @@ namespace Encryptics.WebPortal
                 var token = (string)Session["Token"];
                 var userId = (long)Session["UserID"];
                 var entityId = (long)Session["EntityID"];
-
+                
                 var tokenAuth = new TokenAuth
                     {
                         Token = token
                     };
 
                 client.UserLogout(ref tokenAuth, user_id: userId, entity_id: entityId);
+                if (!AuthConfig.LogOut)
+                {
+                    AuthConfig.LogOut = true;
+                    AuthConfig.AuthType = Session["auth"].ToString();
+                }
+                else
+                {
+                    AuthConfig.LogOut = false;
+                    AuthConfig.AuthType = string.Empty;
+                }
             }
         }
 

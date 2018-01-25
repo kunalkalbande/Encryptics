@@ -1,0 +1,18 @@
+﻿@model Encryptics.WebPortal.Areas.Company.Models.DistributionGroupModel
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend></legend>
+        @Html.AntiForgeryToken()
+        <ol class="float-left formSection">
+            <li>
+                <div class="fields">
+                    @Html.LabelFor(m => m.GroupName)
+                    @Html.TextBoxFor(m => m.GroupName)
+                    @Html.ValidationMessageFor(m => m.GroupName)
+                </div>
+            </li>
+        </ol>
+    </fieldset>
+}
