@@ -95,28 +95,32 @@ namespace Encryptics.WebPortal
 
         private void LogUserOff()
         {
-            using (var client = new PortalServiceSoapClient())
+            try
             {
-                var token = (string)Session["Token"];
-                var userId = (long)Session["UserID"];
-                var entityId = (long)Session["EntityID"];
-                
-                var tokenAuth = new TokenAuth
+                using (var client = new PortalServiceSoapClient())
+                {
+                    //AuthConfig.LogOut = true;
+                    //if (Session["auth"] != null)
+                    //{
+                    //    AuthConfig.AuthType = Session["auth"].ToString();
+                    //}
+                   
+                    var token = (string)Session["Token"];
+                    var userId = (long)Session["UserID"];
+                    var entityId = (long)Session["EntityID"];
+
+                    var tokenAuth = new TokenAuth
                     {
                         Token = token
                     };
 
-                client.UserLogout(ref tokenAuth, user_id: userId, entity_id: entityId);
-                if (!AuthConfig.LogOut)
-                {
-                    AuthConfig.LogOut = true;
-                    AuthConfig.AuthType = Session["auth"].ToString();
+                    client.UserLogout(ref tokenAuth, user_id: userId, entity_id: entityId);
+
                 }
-                else
-                {
-                    AuthConfig.LogOut = false;
-                    AuthConfig.AuthType = string.Empty;
-                }
+            }
+            catch
+            {
+
             }
         }
 

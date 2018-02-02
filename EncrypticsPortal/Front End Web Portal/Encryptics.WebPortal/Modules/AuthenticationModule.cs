@@ -4,6 +4,7 @@ using Encryptics.WebPortal.PortalService;
 using Newtonsoft.Json;
 using StructureMap;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -78,6 +79,23 @@ namespace Encryptics.WebPortal.Modules
 
             if (app != null && app.Context.Session != null)
             {
+                if (app.Context.Response.Cookies["Auth"] != null && !string.IsNullOrEmpty(app.Context.Response.Cookies["Auth"].Value as string))
+                {
+                    var portalService = ObjectFactory.GetInstance<PortalServiceSoap>();
+
+                    var encrypticsPrincipal = new EncrypticsPrincipal(app.User.Identity, portalService)
+                    {
+                        Token = app.Context.Response.Cookies["Token"].Value as string,
+                        Auth = app.Context.Response.Cookies["Auth"].Value as string,
+                        EntityId = Convert.ToInt32(app.Context.Response.Cookies["EntityId"].Value),
+                        UserId = Convert.ToInt32(app.Context.Response.Cookies["UserId"].Value),
+                        CompanyCount = Convert.ToInt32(app.Context.Response.Cookies["CompanyCount"].Value),
+                        UserName = app.Context.Response.Cookies["UserName"].Value as string
+                    };
+                    app.Context.Response.Cookies.Clear();
+
+                    app.Context.User = Thread.CurrentPrincipal = encrypticsPrincipal;
+                }
                 if (app.Context.Session.Keys.Count == 0 && app.User.Identity.IsAuthenticated)
                 {
                     if (app.User is EncrypticsPrincipal)
@@ -191,9 +209,9 @@ namespace Encryptics.WebPortal.Modules
                         EntityId = userData.EntityId,
                         UserId = userData.UserId,
                         Auth = userData.AuthenticationType,
-                        UserName = userName
+                        UserName = userName,
+                        
                     };
-
                     // TODO: Can probably get rid of the Roles functionality now...
                     //string roleName = userData.Role;
                     //var otherRoles = Roles.GetRolesForUser(userName).ToList().Except(new[] { roleName }).ToArray();
@@ -207,6 +225,11 @@ namespace Encryptics.WebPortal.Modules
                     //}
 
                     app.Context.User = Thread.CurrentPrincipal = encrypticsPrincipal;
+                    app.Context.Response.Cookies.Add(new HttpCookie("Token", encrypticsPrincipal.Token));
+                    app.Context.Response.Cookies.Add(new HttpCookie("EntityId", encrypticsPrincipal.EntityId.ToString()));
+                    app.Context.Response.Cookies.Add(new HttpCookie("UserId", encrypticsPrincipal.UserId.ToString()));
+                    app.Context.Response.Cookies.Add(new HttpCookie("Auth", encrypticsPrincipal.Auth));
+                    app.Context.Response.Cookies.Add(new HttpCookie("UserName", userName));
 
                     var companiesRequest = new GetUserCompaniesRequest
                     {
@@ -217,15 +240,16 @@ namespace Encryptics.WebPortal.Modules
 
                     Trace.TraceInformation("Requesting Entity Admin Roles.");
 
+                    cli = new WebClient();
+                    cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
+                    url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/companies/{1}",userData.UserId,0);
+                    cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    var companyResponse = cli.DownloadString(url);
+                    var userCompany= JsonConvert.DeserializeObject<List<CompanyListItem>>(companyResponse);
                     var userCompaniesResponse = _portalService.GetUserCompanies(companiesRequest);
+                    app.Context.Response.Cookies.Add(new HttpCookie("CompanyCount", userCompany.Count.ToString()));
 
-                    //********syn: remove hardcode response//
-                    userCompaniesResponse = new GetUserCompaniesResponse()
-                    {
-                        TokenAuth = response.TokenAuth,
-                        GetUserCompaniesResult = new CompanyListItem[] { new CompanyListItem { Id = 1, IsActive = true, Name = "syn", Role = RoleType.Admin } }
-                    };
-                    //********syn: remove hardcode response//
+                    userCompaniesResponse.GetUserCompaniesResult = userCompany.ToArray();
 
                     encrypticsPrincipal.CompanyCount = userCompaniesResponse.GetUserCompaniesResult.LongLength;
                 }

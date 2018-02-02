@@ -1,0 +1,510 @@
+2018-01-26 00:14:25.142 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 00:14:27.203 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 00:14:27.203 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 00:14:27.352 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 00:14:27.352 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 00:14:27.441 DEBUG                           ________________________ language: en-us
+2018-01-26 00:14:27.441 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 00:14:27.450 DEBUG                           ________________________ Request Type: False
+2018-01-26 00:14:27.450 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 00:14:27.450 DEBUG                           ________________________ QueryString:
+2018-01-26 00:14:27.450 DEBUG                           ________________________ Form:
+2018-01-26 00:14:27.450 DEBUG                           ________________________ Cookies:
+2018-01-26 00:14:27.496 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 00:14:27.496 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 00:14:27.496 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 00:14:27.654 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 00:14:27.654 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 00:14:27.700 INFO                            ________________________ Initializing Role Provider
+2018-01-26 00:14:27.736 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 00:14:27.736 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 Session Available: True
+2018-01-26 00:14:27.736 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 Session keys: 0
+2018-01-26 00:14:27.736 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 00:14:27.756 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 Initializing HomeController class.
+2018-01-26 00:14:27.783 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 Executing (GET) /
+2018-01-26 00:14:27.826 INFO                            bgrhzhdn4nqs3wwvkaw2nur0 Finished executing (GET) /
+2018-01-26 00:14:27.857 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 00:14:27.857 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 00:14:27.857 DEBUG                           ________________________ RequestType: GET
+2018-01-26 00:14:27.857 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 00:14:27.925 DEBUG                           ________________________ language: en-us
+2018-01-26 00:14:27.925 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 00:14:27.925 DEBUG                           ________________________ Request Type: False
+2018-01-26 00:14:27.925 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 00:14:27.925 DEBUG                           ________________________ QueryString:
+2018-01-26 00:14:27.925 DEBUG                           ________________________     returnUrl = /
+2018-01-26 00:14:27.925 DEBUG                           ________________________ Form:
+2018-01-26 00:14:27.925 DEBUG                           ________________________ Cookies:
+2018-01-26 00:14:27.925 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 00:14:27.925 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 00:14:27.925 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 00:14:27.925 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 00:14:27.925 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 00:14:27.935 INFO                            he40xecwr5zwxlkmt4lq5euw ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 00:14:27.935 INFO                            he40xecwr5zwxlkmt4lq5euw Session Available: True
+2018-01-26 00:14:27.935 INFO                            he40xecwr5zwxlkmt4lq5euw Session keys: 0
+2018-01-26 00:14:27.935 INFO                            he40xecwr5zwxlkmt4lq5euw ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 00:14:30.630 INFO                            he40xecwr5zwxlkmt4lq5euw Executing (GET) /Account/Login
+2018-01-26 00:14:30.630 INFO                            he40xecwr5zwxlkmt4lq5euw Finished executing (GET) /Account/Login
+2018-01-26 00:14:31.326 INFO                            he40xecwr5zwxlkmt4lq5euw Disposing AccountController class.
+2018-01-26 00:14:31.342 INFO                            he40xecwr5zwxlkmt4lq5euw AccountController disposed of.
+2018-01-26 00:14:31.342 INFO                            he40xecwr5zwxlkmt4lq5euw Disposing AccountController class.
+2018-01-26 00:14:31.342 INFO                            he40xecwr5zwxlkmt4lq5euw AccountController disposed of.
+2018-01-26 00:14:31.342 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 00:14:31.342 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 00:14:31.342 DEBUG                           ________________________ RequestType: GET
+2018-01-26 00:14:31.342 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 00:35:19.951 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 00:35:19.951 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 00:35:19.951 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 00:35:19.951 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 00:35:19.951 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 00:35:19.951 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 00:35:19.951 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 00:35:19.951 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 03:42:35.574 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 03:42:37.417 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 03:42:37.417 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 03:42:37.571 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 03:42:37.571 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 03:42:37.664 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 03:42:37.664 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 03:42:37.664 DEBUG                           ________________________ Request Type: False
+2018-01-26 03:42:37.664 DEBUG                           ________________________ Request Type: False
+2018-01-26 03:42:37.664 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 03:42:37.680 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 03:42:37.680 DEBUG                           ________________________ QueryString:
+2018-01-26 03:42:37.680 DEBUG                           ________________________ Form:
+2018-01-26 03:42:37.680 DEBUG                           ________________________ QueryString:
+2018-01-26 03:42:37.680 DEBUG                           ________________________ Form:
+2018-01-26 03:42:37.680 DEBUG                           ________________________ Cookies:
+2018-01-26 03:42:37.680 DEBUG                           ________________________ Cookies:
+2018-01-26 03:42:37.727 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 03:42:37.727 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 03:42:37.727 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 03:42:37.727 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 03:42:37.742 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 03:42:37.742 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 03:42:37.883 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 03:42:37.883 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 03:42:37.899 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:37.899 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:37.946 INFO                            ________________________ Initializing Role Provider
+2018-01-26 03:42:37.977 INFO                            iipbqaraha1kk3xxldoh421e ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 03:42:37.977 INFO                            iipbqaraha1kk3xxldoh421e Session Available: True
+2018-01-26 03:42:37.977 INFO                            iipbqaraha1kk3xxldoh421e Session keys: 0
+2018-01-26 03:42:37.977 INFO                            iipbqaraha1kk3xxldoh421e ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:37.977 INFO                            4y1hz31md5ui2onmyyi3oeu5 ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 03:42:37.977 INFO                            4y1hz31md5ui2onmyyi3oeu5 Session Available: True
+2018-01-26 03:42:37.977 INFO                            4y1hz31md5ui2onmyyi3oeu5 Session keys: 0
+2018-01-26 03:42:37.977 INFO                            4y1hz31md5ui2onmyyi3oeu5 ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:37.992 INFO                            iipbqaraha1kk3xxldoh421e Initializing HomeController class.
+2018-01-26 03:42:37.992 INFO                            4y1hz31md5ui2onmyyi3oeu5 Initializing HomeController class.
+2018-01-26 03:42:38.024 INFO                            4y1hz31md5ui2onmyyi3oeu5 Executing (GET) /
+2018-01-26 03:42:38.024 INFO                            iipbqaraha1kk3xxldoh421e Executing (GET) /
+2018-01-26 03:42:38.055 INFO                            4y1hz31md5ui2onmyyi3oeu5 Finished executing (GET) /
+2018-01-26 03:42:38.055 INFO                            iipbqaraha1kk3xxldoh421e Finished executing (GET) /
+2018-01-26 03:42:38.102 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 03:42:38.102 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 03:42:38.102 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 03:42:38.102 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 03:42:38.102 DEBUG                           ________________________ RequestType: GET
+2018-01-26 03:42:38.102 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 03:42:38.102 DEBUG                           ________________________ RequestType: GET
+2018-01-26 03:42:38.102 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 03:42:38.884 DEBUG                           ________________________ Request Type: False
+2018-01-26 03:42:38.884 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 03:42:38.884 DEBUG                           ________________________ QueryString:
+2018-01-26 03:42:38.884 DEBUG                           ________________________     returnUrl = /
+2018-01-26 03:42:38.884 DEBUG                           ________________________ Form:
+2018-01-26 03:42:38.884 DEBUG                           ________________________ Cookies:
+2018-01-26 03:42:38.884 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 03:42:38.884 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 03:42:38.884 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 03:42:38.884 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 03:42:38.884 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:38.884 INFO                            iapmdykyqhz3vf2tvteecvsk ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 03:42:38.884 INFO                            iapmdykyqhz3vf2tvteecvsk Session Available: True
+2018-01-26 03:42:38.884 INFO                            iapmdykyqhz3vf2tvteecvsk Session keys: 0
+2018-01-26 03:42:38.884 INFO                            iapmdykyqhz3vf2tvteecvsk ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 03:42:41.422 INFO                            iapmdykyqhz3vf2tvteecvsk Executing (GET) /Account/Login
+2018-01-26 03:42:41.422 INFO                            iapmdykyqhz3vf2tvteecvsk Finished executing (GET) /Account/Login
+2018-01-26 03:42:42.066 INFO                            iapmdykyqhz3vf2tvteecvsk Disposing AccountController class.
+2018-01-26 03:42:42.068 INFO                            iapmdykyqhz3vf2tvteecvsk AccountController disposed of.
+2018-01-26 03:42:42.068 INFO                            iapmdykyqhz3vf2tvteecvsk Disposing AccountController class.
+2018-01-26 03:42:42.068 INFO                            iapmdykyqhz3vf2tvteecvsk AccountController disposed of.
+2018-01-26 03:42:42.068 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 03:42:42.068 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 03:42:42.068 DEBUG                           ________________________ RequestType: GET
+2018-01-26 03:42:42.068 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 03:43:35.168 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 03:43:35.168 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 03:43:35.168 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 03:43:35.168 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 04:03:34.891 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 04:03:34.907 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 04:03:34.907 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 04:03:34.907 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 04:03:34.907 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 04:03:34.907 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 04:03:34.907 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 04:03:34.907 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 04:10:56.987 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 04:10:58.848 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 04:10:58.848 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 04:10:58.993 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 04:10:58.993 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 04:10:59.082 DEBUG                           ________________________ language: en-us
+2018-01-26 04:10:59.082 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 04:10:59.091 DEBUG                           ________________________ Request Type: False
+2018-01-26 04:10:59.091 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 04:10:59.091 DEBUG                           ________________________ QueryString:
+2018-01-26 04:10:59.091 DEBUG                           ________________________ Form:
+2018-01-26 04:10:59.091 DEBUG                           ________________________ Cookies:
+2018-01-26 04:10:59.143 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 04:10:59.143 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 04:10:59.143 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 04:10:59.293 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 04:10:59.300 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 04:10:59.338 INFO                            ________________________ Initializing Role Provider
+2018-01-26 04:10:59.367 INFO                            h1hcb0j4awrzijsvukdabshc ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 04:10:59.367 INFO                            h1hcb0j4awrzijsvukdabshc Session Available: True
+2018-01-26 04:10:59.367 INFO                            h1hcb0j4awrzijsvukdabshc Session keys: 0
+2018-01-26 04:10:59.367 INFO                            h1hcb0j4awrzijsvukdabshc ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 04:10:59.393 INFO                            h1hcb0j4awrzijsvukdabshc Initializing HomeController class.
+2018-01-26 04:10:59.421 INFO                            h1hcb0j4awrzijsvukdabshc Executing (GET) /
+2018-01-26 04:10:59.457 INFO                            h1hcb0j4awrzijsvukdabshc Finished executing (GET) /
+2018-01-26 04:10:59.496 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 04:10:59.497 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 04:10:59.497 DEBUG                           ________________________ RequestType: GET
+2018-01-26 04:10:59.497 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 04:10:59.558 DEBUG                           ________________________ language: en-us
+2018-01-26 04:10:59.558 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 04:10:59.559 DEBUG                           ________________________ Request Type: False
+2018-01-26 04:10:59.559 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 04:10:59.559 DEBUG                           ________________________ QueryString:
+2018-01-26 04:10:59.559 DEBUG                           ________________________     returnUrl = /
+2018-01-26 04:10:59.559 DEBUG                           ________________________ Form:
+2018-01-26 04:10:59.559 DEBUG                           ________________________ Cookies:
+2018-01-26 04:10:59.559 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 04:10:59.559 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 04:10:59.559 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 04:10:59.559 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 04:10:59.559 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 04:10:59.559 INFO                            43eraeesnjfchdrcdi051m1p ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 04:10:59.559 INFO                            43eraeesnjfchdrcdi051m1p Session Available: True
+2018-01-26 04:10:59.559 INFO                            43eraeesnjfchdrcdi051m1p Session keys: 0
+2018-01-26 04:10:59.559 INFO                            43eraeesnjfchdrcdi051m1p ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 04:11:02.852 INFO                            43eraeesnjfchdrcdi051m1p Executing (GET) /Account/Login
+2018-01-26 04:11:02.852 INFO                            43eraeesnjfchdrcdi051m1p Finished executing (GET) /Account/Login
+2018-01-26 04:11:03.476 INFO                            43eraeesnjfchdrcdi051m1p Disposing AccountController class.
+2018-01-26 04:11:03.476 INFO                            43eraeesnjfchdrcdi051m1p AccountController disposed of.
+2018-01-26 04:11:03.476 INFO                            43eraeesnjfchdrcdi051m1p Disposing AccountController class.
+2018-01-26 04:11:03.476 INFO                            43eraeesnjfchdrcdi051m1p AccountController disposed of.
+2018-01-26 04:11:03.476 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 04:11:03.476 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 04:11:03.481 DEBUG                           ________________________ RequestType: GET
+2018-01-26 04:11:03.481 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 04:31:56.620 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 04:31:56.620 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 04:31:56.620 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 04:31:56.620 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 04:31:56.620 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 04:31:56.620 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 04:31:56.620 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 04:31:56.620 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 08:11:02.396 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 08:11:04.516 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 08:11:04.516 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 08:11:04.669 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 08:11:04.669 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 08:11:04.763 DEBUG                           ________________________ language: en-us
+2018-01-26 08:11:04.763 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 08:11:04.763 DEBUG                           ________________________ Request Type: False
+2018-01-26 08:11:04.779 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 08:11:04.779 DEBUG                           ________________________ QueryString:
+2018-01-26 08:11:04.779 DEBUG                           ________________________ Form:
+2018-01-26 08:11:04.779 DEBUG                           ________________________ Cookies:
+2018-01-26 08:11:04.826 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 08:11:04.826 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 08:11:04.826 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 08:11:04.991 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 08:11:04.991 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 08:11:05.039 INFO                            ________________________ Initializing Role Provider
+2018-01-26 08:11:05.073 INFO                            uoqmliznxpmau3gnqiuwxxmb ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 08:11:05.073 INFO                            uoqmliznxpmau3gnqiuwxxmb Session Available: True
+2018-01-26 08:11:05.073 INFO                            uoqmliznxpmau3gnqiuwxxmb Session keys: 0
+2018-01-26 08:11:05.073 INFO                            uoqmliznxpmau3gnqiuwxxmb ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 08:11:05.093 INFO                            uoqmliznxpmau3gnqiuwxxmb Initializing HomeController class.
+2018-01-26 08:11:05.120 INFO                            uoqmliznxpmau3gnqiuwxxmb Executing (GET) /
+2018-01-26 08:11:05.161 INFO                            uoqmliznxpmau3gnqiuwxxmb Finished executing (GET) /
+2018-01-26 08:11:05.192 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 08:11:05.192 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 08:11:05.192 DEBUG                           ________________________ RequestType: GET
+2018-01-26 08:11:05.192 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 08:11:05.264 DEBUG                           ________________________ language: en-us
+2018-01-26 08:11:05.265 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 08:11:05.265 DEBUG                           ________________________ Request Type: False
+2018-01-26 08:11:05.265 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 08:11:05.265 DEBUG                           ________________________ QueryString:
+2018-01-26 08:11:05.265 DEBUG                           ________________________     returnUrl = /
+2018-01-26 08:11:05.265 DEBUG                           ________________________ Form:
+2018-01-26 08:11:05.265 DEBUG                           ________________________ Cookies:
+2018-01-26 08:11:05.265 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 08:11:05.265 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 08:11:05.265 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 08:11:05.265 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 08:11:05.265 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 08:11:05.265 INFO                            dlxdeawubacw3i43axywmeao ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 08:11:05.265 INFO                            dlxdeawubacw3i43axywmeao Session Available: True
+2018-01-26 08:11:05.265 INFO                            dlxdeawubacw3i43axywmeao Session keys: 0
+2018-01-26 08:11:05.265 INFO                            dlxdeawubacw3i43axywmeao ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 08:11:08.771 INFO                            dlxdeawubacw3i43axywmeao Executing (GET) /Account/Login
+2018-01-26 08:11:08.787 INFO                            dlxdeawubacw3i43axywmeao Finished executing (GET) /Account/Login
+2018-01-26 08:11:09.488 INFO                            dlxdeawubacw3i43axywmeao Disposing AccountController class.
+2018-01-26 08:11:09.488 INFO                            dlxdeawubacw3i43axywmeao AccountController disposed of.
+2018-01-26 08:11:09.488 INFO                            dlxdeawubacw3i43axywmeao Disposing AccountController class.
+2018-01-26 08:11:09.488 INFO                            dlxdeawubacw3i43axywmeao AccountController disposed of.
+2018-01-26 08:11:09.488 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 08:11:09.488 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 08:11:09.488 DEBUG                           ________________________ RequestType: GET
+2018-01-26 08:11:09.488 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 08:31:57.560 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 08:31:57.560 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 08:31:57.560 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 08:31:57.560 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 08:31:57.560 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 08:31:57.560 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 08:31:57.560 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 08:31:57.560 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 12:11:10.851 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 12:11:12.922 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 12:11:12.922 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 12:11:13.091 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 12:11:13.091 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 12:11:13.185 DEBUG                           ________________________ language: en-us
+2018-01-26 12:11:13.185 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 12:11:13.185 DEBUG                           ________________________ Request Type: False
+2018-01-26 12:11:13.185 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 12:11:13.185 DEBUG                           ________________________ QueryString:
+2018-01-26 12:11:13.200 DEBUG                           ________________________ Form:
+2018-01-26 12:11:13.200 DEBUG                           ________________________ Cookies:
+2018-01-26 12:11:13.232 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 12:11:13.247 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 12:11:13.247 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 12:11:13.398 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 12:11:13.405 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 12:11:13.443 INFO                            ________________________ Initializing Role Provider
+2018-01-26 12:11:13.476 INFO                            wgxpecmdxdjg1sot4mu33fpk ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 12:11:13.476 INFO                            wgxpecmdxdjg1sot4mu33fpk Session Available: True
+2018-01-26 12:11:13.476 INFO                            wgxpecmdxdjg1sot4mu33fpk Session keys: 0
+2018-01-26 12:11:13.476 INFO                            wgxpecmdxdjg1sot4mu33fpk ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 12:11:13.497 INFO                            wgxpecmdxdjg1sot4mu33fpk Initializing HomeController class.
+2018-01-26 12:11:13.525 INFO                            wgxpecmdxdjg1sot4mu33fpk Executing (GET) /
+2018-01-26 12:11:13.564 INFO                            wgxpecmdxdjg1sot4mu33fpk Finished executing (GET) /
+2018-01-26 12:11:13.599 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 12:11:13.599 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 12:11:13.599 DEBUG                           ________________________ RequestType: GET
+2018-01-26 12:11:13.599 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 12:11:13.666 DEBUG                           ________________________ language: en-us
+2018-01-26 12:11:13.666 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 12:11:13.666 DEBUG                           ________________________ Request Type: False
+2018-01-26 12:11:13.666 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 12:11:13.666 DEBUG                           ________________________ QueryString:
+2018-01-26 12:11:13.666 DEBUG                           ________________________     returnUrl = /
+2018-01-26 12:11:13.666 DEBUG                           ________________________ Form:
+2018-01-26 12:11:13.666 DEBUG                           ________________________ Cookies:
+2018-01-26 12:11:13.670 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 12:11:13.670 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 12:11:13.670 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 12:11:13.670 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 12:11:13.670 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 12:11:13.670 INFO                            uorgr1bg5jxwzkcwfbujgcrc ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 12:11:13.670 INFO                            uorgr1bg5jxwzkcwfbujgcrc Session Available: True
+2018-01-26 12:11:13.670 INFO                            uorgr1bg5jxwzkcwfbujgcrc Session keys: 0
+2018-01-26 12:11:13.670 INFO                            uorgr1bg5jxwzkcwfbujgcrc ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 12:11:16.257 INFO                            uorgr1bg5jxwzkcwfbujgcrc Executing (GET) /Account/Login
+2018-01-26 12:11:16.272 INFO                            uorgr1bg5jxwzkcwfbujgcrc Finished executing (GET) /Account/Login
+2018-01-26 12:11:16.952 INFO                            uorgr1bg5jxwzkcwfbujgcrc Disposing AccountController class.
+2018-01-26 12:11:16.968 INFO                            uorgr1bg5jxwzkcwfbujgcrc AccountController disposed of.
+2018-01-26 12:11:16.968 INFO                            uorgr1bg5jxwzkcwfbujgcrc Disposing AccountController class.
+2018-01-26 12:11:16.968 INFO                            uorgr1bg5jxwzkcwfbujgcrc AccountController disposed of.
+2018-01-26 12:11:16.968 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 12:11:16.968 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 12:11:16.968 DEBUG                           ________________________ RequestType: GET
+2018-01-26 12:11:16.968 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 12:32:05.641 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 12:32:05.656 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 12:32:05.656 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 12:32:05.656 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 12:32:05.656 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 12:32:05.656 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 12:32:05.656 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 12:32:05.656 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 14:57:59.026 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 14:58:00.831 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 14:58:00.836 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 14:58:01.018 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 14:58:01.018 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 14:58:01.111 DEBUG                           ________________________ language: zh-CN
+2018-01-26 14:58:01.111 DEBUG                           ________________________ language: zh;q=0.8
+2018-01-26 14:58:01.111 DEBUG                           ________________________ language: en-US;q=0.5
+2018-01-26 14:58:01.111 DEBUG                           ________________________ language: en;q=0.3
+2018-01-26 14:58:01.111 DEBUG                           ________________________ Request Type: False
+2018-01-26 14:58:01.127 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 14:58:01.127 DEBUG                           ________________________ QueryString:
+2018-01-26 14:58:01.127 DEBUG                           ________________________ Form:
+2018-01-26 14:58:01.127 DEBUG                           ________________________ Cookies:
+2018-01-26 14:58:01.174 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 14:58:01.174 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 14:58:01.190 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 14:58:01.330 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 14:58:01.330 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 14:58:01.377 INFO                            ________________________ Initializing Role Provider
+2018-01-26 14:58:01.408 INFO                            z3zxffwgavjbfhd0u1h1l4bw ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 14:58:01.408 INFO                            z3zxffwgavjbfhd0u1h1l4bw Session Available: True
+2018-01-26 14:58:01.408 INFO                            z3zxffwgavjbfhd0u1h1l4bw Session keys: 0
+2018-01-26 14:58:01.408 INFO                            z3zxffwgavjbfhd0u1h1l4bw ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 14:58:01.424 INFO                            z3zxffwgavjbfhd0u1h1l4bw Initializing HomeController class.
+2018-01-26 14:58:01.455 INFO                            z3zxffwgavjbfhd0u1h1l4bw Executing (GET) /
+2018-01-26 14:58:01.503 INFO                            z3zxffwgavjbfhd0u1h1l4bw Finished executing (GET) /
+2018-01-26 14:58:01.535 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 14:58:01.535 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 14:58:01.535 DEBUG                           ________________________ RequestType: GET
+2018-01-26 14:58:01.538 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 15:18:58.486 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 15:18:58.486 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 15:18:58.486 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 15:18:58.486 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 15:18:58.486 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 15:18:58.486 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 15:18:58.486 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 15:18:58.486 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 16:11:14.265 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 16:11:16.345 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 16:11:16.345 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 16:11:16.491 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 16:11:16.491 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 16:11:16.579 DEBUG                           ________________________ language: en-us
+2018-01-26 16:11:16.579 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 16:11:16.588 DEBUG                           ________________________ Request Type: False
+2018-01-26 16:11:16.588 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 16:11:16.588 DEBUG                           ________________________ QueryString:
+2018-01-26 16:11:16.588 DEBUG                           ________________________ Form:
+2018-01-26 16:11:16.588 DEBUG                           ________________________ Cookies:
+2018-01-26 16:11:16.640 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 16:11:16.640 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 16:11:16.640 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 16:11:16.791 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 16:11:16.791 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 16:11:16.822 INFO                            ________________________ Initializing Role Provider
+2018-01-26 16:11:16.869 INFO                            0hibftg5cxwy3fk1hluw3khe ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 16:11:16.869 INFO                            0hibftg5cxwy3fk1hluw3khe Session Available: True
+2018-01-26 16:11:16.869 INFO                            0hibftg5cxwy3fk1hluw3khe Session keys: 0
+2018-01-26 16:11:16.869 INFO                            0hibftg5cxwy3fk1hluw3khe ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 16:11:16.885 INFO                            0hibftg5cxwy3fk1hluw3khe Initializing HomeController class.
+2018-01-26 16:11:16.920 INFO                            0hibftg5cxwy3fk1hluw3khe Executing (GET) /
+2018-01-26 16:11:16.956 INFO                            0hibftg5cxwy3fk1hluw3khe Finished executing (GET) /
+2018-01-26 16:11:16.996 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 16:11:16.996 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 16:11:16.996 DEBUG                           ________________________ RequestType: GET
+2018-01-26 16:11:16.996 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 16:11:17.057 DEBUG                           ________________________ language: en-us
+2018-01-26 16:11:17.057 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 16:11:17.057 DEBUG                           ________________________ Request Type: False
+2018-01-26 16:11:17.057 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 16:11:17.057 DEBUG                           ________________________ QueryString:
+2018-01-26 16:11:17.057 DEBUG                           ________________________     returnUrl = /
+2018-01-26 16:11:17.057 DEBUG                           ________________________ Form:
+2018-01-26 16:11:17.057 DEBUG                           ________________________ Cookies:
+2018-01-26 16:11:17.057 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 16:11:17.057 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 16:11:17.057 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 16:11:17.057 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 16:11:17.057 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 16:11:17.071 INFO                            f2hi4qcasfvfzlcwgbdhk32t ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 16:11:17.071 INFO                            f2hi4qcasfvfzlcwgbdhk32t Session Available: True
+2018-01-26 16:11:17.071 INFO                            f2hi4qcasfvfzlcwgbdhk32t Session keys: 0
+2018-01-26 16:11:17.071 INFO                            f2hi4qcasfvfzlcwgbdhk32t ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 16:11:20.646 INFO                            f2hi4qcasfvfzlcwgbdhk32t Executing (GET) /Account/Login
+2018-01-26 16:11:20.649 INFO                            f2hi4qcasfvfzlcwgbdhk32t Finished executing (GET) /Account/Login
+2018-01-26 16:11:21.687 INFO                            f2hi4qcasfvfzlcwgbdhk32t Disposing AccountController class.
+2018-01-26 16:11:21.687 INFO                            f2hi4qcasfvfzlcwgbdhk32t AccountController disposed of.
+2018-01-26 16:11:21.687 INFO                            f2hi4qcasfvfzlcwgbdhk32t Disposing AccountController class.
+2018-01-26 16:11:21.687 INFO                            f2hi4qcasfvfzlcwgbdhk32t AccountController disposed of.
+2018-01-26 16:11:21.687 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 16:11:21.687 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 16:11:21.687 DEBUG                           ________________________ RequestType: GET
+2018-01-26 16:11:21.687 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 16:32:09.041 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 16:32:09.041 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 16:32:09.041 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 16:32:09.041 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 16:32:09.041 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 16:32:09.041 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 16:32:09.041 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 16:32:09.041 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 20:11:17.452 INFO                            ________________________ Initializing dependency resolution.
+2018-01-26 20:11:19.284 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 20:11:19.291 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 20:11:19.438 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-01-26 20:11:19.438 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-01-26 20:11:19.532 DEBUG                           ________________________ language: en-us
+2018-01-26 20:11:19.532 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 20:11:19.532 DEBUG                           ________________________ Request Type: False
+2018-01-26 20:11:19.547 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-01-26 20:11:19.547 DEBUG                           ________________________ QueryString:
+2018-01-26 20:11:19.547 DEBUG                           ________________________ Form:
+2018-01-26 20:11:19.547 DEBUG                           ________________________ Cookies:
+2018-01-26 20:11:19.594 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 20:11:19.594 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 20:11:19.594 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 20:11:19.751 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 20:11:19.751 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 20:11:19.796 INFO                            ________________________ Initializing Role Provider
+2018-01-26 20:11:19.829 INFO                            onh4ec02iwiy0ftxywkr0lf5 ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 20:11:19.829 INFO                            onh4ec02iwiy0ftxywkr0lf5 Session Available: True
+2018-01-26 20:11:19.829 INFO                            onh4ec02iwiy0ftxywkr0lf5 Session keys: 0
+2018-01-26 20:11:19.829 INFO                            onh4ec02iwiy0ftxywkr0lf5 ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 20:11:19.848 INFO                            onh4ec02iwiy0ftxywkr0lf5 Initializing HomeController class.
+2018-01-26 20:11:19.874 INFO                            onh4ec02iwiy0ftxywkr0lf5 Executing (GET) /
+2018-01-26 20:11:19.917 INFO                            onh4ec02iwiy0ftxywkr0lf5 Finished executing (GET) /
+2018-01-26 20:11:19.948 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-01-26 20:11:19.948 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 20:11:19.948 DEBUG                           ________________________ RequestType: GET
+2018-01-26 20:11:19.948 DEBUG                           ________________________ StatusCode: 302
+2018-01-26 20:11:20.027 DEBUG                           ________________________ language: en-us
+2018-01-26 20:11:20.027 DEBUG                           ________________________ language: en;q=0.5
+2018-01-26 20:11:20.027 DEBUG                           ________________________ Request Type: False
+2018-01-26 20:11:20.027 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 20:11:20.027 DEBUG                           ________________________ QueryString:
+2018-01-26 20:11:20.027 DEBUG                           ________________________     returnUrl = /
+2018-01-26 20:11:20.027 DEBUG                           ________________________ Form:
+2018-01-26 20:11:20.027 DEBUG                           ________________________ Cookies:
+2018-01-26 20:11:20.027 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-01-26 20:11:20.027 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-01-26 20:11:20.027 WARN                            ________________________ Nothing sent in request data.
+2018-01-26 20:11:20.027 DEBUG                           ________________________ Encrypted ticket: 
+2018-01-26 20:11:20.027 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 20:11:20.027 INFO                            2w2tpnkiwkfu2u4olqj1hd1f ******** Beginning OnPostAcquireRequestState. ********
+2018-01-26 20:11:20.027 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Session Available: True
+2018-01-26 20:11:20.027 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Session keys: 0
+2018-01-26 20:11:20.027 INFO                            2w2tpnkiwkfu2u4olqj1hd1f ******** Exiting OnAuthenticateRequest. ********
+2018-01-26 20:11:22.685 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Executing (GET) /Account/Login
+2018-01-26 20:11:22.685 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Finished executing (GET) /Account/Login
+2018-01-26 20:11:23.331 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Disposing AccountController class.
+2018-01-26 20:11:23.331 INFO                            2w2tpnkiwkfu2u4olqj1hd1f AccountController disposed of.
+2018-01-26 20:11:23.331 INFO                            2w2tpnkiwkfu2u4olqj1hd1f Disposing AccountController class.
+2018-01-26 20:11:23.337 INFO                            2w2tpnkiwkfu2u4olqj1hd1f AccountController disposed of.
+2018-01-26 20:11:23.337 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-01-26 20:11:23.337 INFO                            ________________________ ContextOnEndRequest
+2018-01-26 20:11:23.337 DEBUG                           ________________________ RequestType: GET
+2018-01-26 20:11:23.337 DEBUG                           ________________________ StatusCode: 200
+2018-01-26 20:32:16.999 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 20:32:16.999 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 20:32:16.999 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 20:32:16.999 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********
+2018-01-26 20:32:16.999 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-01-26 20:32:16.999 INFO                            ________________________ AuthenticationModule disposed of.
+2018-01-26 20:32:16.999 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-01-26 20:32:16.999 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********

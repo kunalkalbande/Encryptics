@@ -499,7 +499,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:05</publishTime>
     </File>
     <File Include="bin/ar/Encryptics.WebPortal.resources.dll">
-      <publishTime>01/25/2018 14:47:13</publishTime>
+      <publishTime>01/31/2018 18:08:29</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>12/19/2017 12:05:05</publishTime>
@@ -589,7 +589,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:05</publishTime>
     </File>
     <File Include="bin/Encryptics.WebPortal.dll">
-      <publishTime>01/25/2018 14:47:13</publishTime>
+      <publishTime>01/31/2018 18:08:29</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/19/2017 12:05:05</publishTime>
@@ -2263,7 +2263,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/24/2018 14:23:59</publishTime>
+      <publishTime>01/30/2018 18:28:08</publishTime>
     </File>
   </ItemGroup>
 </Project>

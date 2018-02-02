@@ -116,7 +116,6 @@ namespace Encryptics.WebPortal.Controllers
         public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
             Trace.TraceInformation("Entering Login");
-
             ViewBag.RetrnUrl = returnUrl;
             ViewBag.Title = "Portal &mdash; Log In";
             ViewBag.SessionEnded = string.Empty;
@@ -124,7 +123,7 @@ namespace Encryptics.WebPortal.Controllers
             string tenant = GetTenantId(model);
             if (!string.IsNullOrEmpty(tenant))
             {
-
+                Session["IsLogin"] = true;
                 AuthenticateUser(model);
                 return null;
                 //return RedirectToLocal(returnUrl);
@@ -171,10 +170,9 @@ namespace Encryptics.WebPortal.Controllers
 
             return View(model);
         }
-
+       
         private void AuthenticateUser(LoginModel model)
         {
-            AuthConfig.UserName = model.UserName;
             Session["Model"] = model;
             Session["UserName"] = model.UserName;
             Session["auth"] = model.Tenant;
@@ -918,21 +916,33 @@ namespace Encryptics.WebPortal.Controllers
         }
 
         // GET: /Account/SessionEnded
-        [HttpGet,AuthActionFilterAttribute]
+        [HttpGet,AuthActionFilter]
         public ViewResult SessionEnded(string returnUrl)
         {
 
-            if (AuthConfig.LogOut && HttpContext.User.Identity.IsAuthenticated)
+            //if (AuthConfig.LogOut && HttpContext.User.Identity.IsAuthenticated)
+            if(Session["IsLogin"]==null && HttpContext.User.Identity.IsAuthenticated)
             {
-               
+                string username = string.Empty;
+                if(string.IsNullOrEmpty(HttpContext.User.Identity.Name))
+                {
+                   username= ((System.Security.Claims.ClaimsPrincipal)HttpContext.User).Claims.Where(x => x.Type.Contains("email")).FirstOrDefault().Value;
+                }
+                else
+                {
+                    username = HttpContext.User.Identity.Name;
+                }
+                string tenant = GetTenantId(new LoginModel { UserName = username });
+                Session["Expire"] = true;
+                Session["returnurl"] = returnUrl;
                 string callbackUrl = Url.Action("SignOutCallback", "Home", routeValues: null, protocol: Request.Url.Scheme);
                 HttpContext.GetOwinContext().Authentication.SignOut(
                     new AuthenticationProperties { RedirectUri = callbackUrl },
-                 AuthConfig.AuthType, Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.AuthenticationType, Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
+                 tenant, Microsoft.Owin.Security.WsFederation.WsFederationAuthenticationDefaults.AuthenticationType, Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
                
             }
-            AuthConfig.LogOut = false;
-            AuthConfig.AuthType = string.Empty;
+            //AuthConfig.LogOut = false;
+           // AuthConfig.AuthType = string.Empty;
 
             ViewBag.ReturnUrl = returnUrl;
             ViewBag.Title = "Session Expired &mdash; Log In";
@@ -1146,7 +1156,8 @@ namespace Encryptics.WebPortal.Controllers
             //  HttpContext.GetOwinContext().Authentication.SignOut(Session["auth"].ToString(), Microsoft.Owin.Security.Cookies.CookieAuthenticationDefaults.AuthenticationType);
             if (Session["auth"]!=null)
             {
-                AuthConfig.LogOut = true;
+               
+               
                 string callbackUrl = Url.Action("SignOutCallback", "Home", routeValues: null, protocol: Request.Url.Scheme);
                 HttpContext.GetOwinContext().Authentication.SignOut(
                     new AuthenticationProperties { RedirectUri = callbackUrl },
@@ -1190,6 +1201,7 @@ namespace Encryptics.WebPortal.Controllers
             string encryptedToken = FormsAuthentication.Encrypt(authTicket);
 
             HttpContext.User = Thread.CurrentPrincipal = new RolePrincipal(new FormsIdentity(authTicket));
+
 
             if (encryptedToken == null)
             {
@@ -1496,10 +1508,9 @@ namespace Encryptics.WebPortal.Controllers
                     tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
                 }
                 Debug.Print("Token Status: {0}", tokenAuth.Status);
-
                 if (userAccount != null)
                 {
-                    
+
                     if (tokenAuth.Status == TokenStatus.NewToken)
                     {
                         CreateFormsAuthenticationTicket(userName, tokenAuth.Token, userAccount.EntityId,
@@ -1757,17 +1768,17 @@ namespace Encryptics.WebPortal.Controllers
        
         protected override void Dispose(bool disposing)
         {
-            //if (Session["auth"] != null && (!Request.IsAuthenticated))
-            //{
+           // if (Session["auth"] != null && (!Request.IsAuthenticated))
+            {
 
-            //    HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
-            //                 Session["auth"].ToString());
-            //    //if (Request.FilePath == "/Account/SessionEnded" && HttpContext.Application["isStarted"] != null)
-            //    //{
-            //    //    HttpContext.Application.Remove("isStarted");
-            //    //}
+                //HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
+                //         "adfs");
+                //    //if (Request.FilePath == "/Account/SessionEnded" && HttpContext.Application["isStarted"] != null)
+                //    //{
+                //    //    HttpContext.Application.Remove("isStarted");
+                //    //}
 
-            //}
+            }
             Trace.TraceInformation(string.Format("Disposing {0} class.", GetType().Name));
 
             if (disposing)

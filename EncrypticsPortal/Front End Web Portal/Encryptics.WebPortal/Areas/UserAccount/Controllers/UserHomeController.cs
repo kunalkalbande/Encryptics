@@ -437,25 +437,30 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
             var accountDetailRequest =
                 new GetAccountDetailsRequest(_tokenAuth, _encrypticsUser.EntityId, _encrypticsUser.UserId);
             var cli = new WebClient();
-            string jsonstring = string.Empty;
-            if (Session["auth"] == null)
-                jsonstring = JsonConvert.SerializeObject(new LoginModel { UserName = User.Identity.Name });
-            else
-                jsonstring = JsonConvert.SerializeObject(new LoginModel { UserName = Session["UserName"].ToString() });
-            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/getUserIdentifier");
+           
+            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/{1}/details",_encrypticsUser.EntityId,_encrypticsUser.UserId);
+            cli.Headers.Add("TokenAuth_ID", _tokenAuth.Token);
             cli.Headers[HttpRequestHeader.ContentType] = "application/json";
             PortalService.UserAccount useracc=null;
+            var tokenAuth = new TokenAuth();
+           
             try
             {
-               useracc = JsonConvert.DeserializeObject<PortalService.UserAccount>(cli.UploadString(url, jsonstring));
+               useracc = JsonConvert.DeserializeObject<PortalService.UserAccount>(cli.DownloadString(url));
+                WebHeaderCollection myWebHeaderCollection = cli.ResponseHeaders;
+                if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                {
+                    tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                    tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                }
             }
             catch (Exception ex)
             {
 
             }
-            GetAccountDetailsResponse response = await _portalService.GetAccountDetailsAsync(accountDetailRequest);
-            response.TokenAuth.Status = TokenStatus.Succes;
-            response.GetAccountDetailsResult = useracc;
+
+            GetAccountDetailsResponse response =new GetAccountDetailsResponse() { GetAccountDetailsResult=useracc,TokenAuth=tokenAuth};
+            //await _portalService.GetAccountDetailsAsync(accountDetailRequest);
             return response.TokenAuth.Status == TokenStatus.Succes
                        ? Mapper.Map<PortalService.UserAccount, UserAccountModel>(response.GetAccountDetailsResult)
                        : null;

@@ -41,6 +41,7 @@ namespace Encryptics.WebPortal.Controllers
                 {
 
                     var encrypticsUser = EncrypticsPrincipal.CurrentEncrypticsUser;
+
                     if (encrypticsUser.CompanyCount > 1)
                     {
                         return RedirectToAction("Dashboard", "CompanyAdminHome", new { area = "CompanyAdmin" });
@@ -67,6 +68,32 @@ namespace Encryptics.WebPortal.Controllers
         }
         public ActionResult SignOutCallback()
         {
+            //AuthConfig.LogOut = false;
+            //AuthConfig.AuthType = string.Empty;
+            if (Session["Expire"]!=null ||TempData["Expire"]!=null)
+            {
+                string returnurl = null;
+
+                if (Session["Expire"] != null)
+                {
+                    if (Session["returnurl"] !=null)
+                    {
+                        returnurl= Session["returnurl"].ToString() ;
+                        TempData["returnurl"] = returnurl;
+                        Session.Remove("returnurl");
+                    }
+                    else if(TempData["returnurl"] !=null)
+                    {
+                        returnurl = TempData["returnurl"].ToString();
+                    }
+
+                    Session.Remove("Expire");
+
+                    TempData["Expire"] = true;
+                }
+                return RedirectToAction("SessionEnded", "Account", new { area = string.Empty, returnUrl = returnurl == null ? string.Empty : returnurl});
+
+            }
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]

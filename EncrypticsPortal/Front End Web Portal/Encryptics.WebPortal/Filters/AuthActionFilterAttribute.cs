@@ -15,19 +15,15 @@ namespace Encryptics.WebPortal.Filters
         {
             var modelState = filterContext.Controller.ViewData.ModelState;
             var httpContext = filterContext.HttpContext;
-           
+
             if (httpContext.Session["auth"] != null)
             {
-
+                httpContext.GetOwinContext().Response.Headers["UserName"] = httpContext.Session["UserName"].ToString();
                 httpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
                              httpContext.Session["auth"].ToString());
-                //if (Request.FilePath == "/Account/SessionEnded" && HttpContext.Application["isStarted"] != null)
-                //{
-                //    HttpContext.Application.Remove("isStarted");
-                //}
 
             }
-           
+
         }
     }
 }

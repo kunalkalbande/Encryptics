@@ -28,29 +28,31 @@ namespace Encryptics.WebPortal
 
 
                 //  app.UseActiveDirectoryFederationServicesBearerAuthentication(new Microsoft.Owin.Security.ActiveDirectory.ActiveDirectoryFederationServicesBearerAuthenticationOptions() { Audience = realm, MetadataEndpoint = adfsMetadata });
+
                 app.UseWsFederationAuthentication(
                     new WsFederationAuthenticationOptions
                     {
                         // Caption = "adfs",
                         MetadataAddress = "https://172.25.29.30/federationmetadata/2007-06/federationmetadata.xml",
-                        Wtrealm = "https://idtp376/Home/adfsSignin",
+                        Wtrealm = "https://localhost:44356/",
                         BackchannelCertificateValidator = new CertificateValidator(),
                         AuthenticationType = "adfs",
                         CallbackPath = new PathString("/"),
-                        // AuthenticationMode = AuthenticationMode.Passive,
+                        AuthenticationMode = AuthenticationMode.Passive,
                         Notifications = new WsFederationAuthenticationNotifications
                         {
-                            RedirectToIdentityProvider=n=>
-                            {
-                                string user = AuthConfig.UserName;
-                                AuthConfig.UserName = string.Empty;
-                                n.ProtocolMessage.SetParameter("login_hint", user);
-                                n.ProtocolMessage.SetParameter("AlwaysRequireAuthentication", "true");
-                                return Task.FromResult(0);
-                            },
+                            RedirectToIdentityProvider = n =>
+                              {
+
+                                  var userName = n.OwinContext.Response.Headers["UserName"];
+                                  string user = userName;
+                                  n.ProtocolMessage.SetParameter("login_hint", user);
+                                  n.ProtocolMessage.SetParameter("AlwaysRequireAuthentication", "true");
+                                  return Task.FromResult(0);
+                              },
                             SecurityTokenValidated = n =>
                             {
-                             
+
                                 System.Diagnostics.Trace.TraceInformation("Login successful.");
                                 var id = n.AuthenticationTicket.Identity;
                                 List<Claim> claims = new List<Claim>();
@@ -80,8 +82,8 @@ namespace Encryptics.WebPortal
                      {
                          RedirectToIdentityProvider = n =>
                          {
-                             string user = AuthConfig.UserName;
-                             AuthConfig.UserName = string.Empty;
+                             var userName = n.OwinContext.Response.Headers["UserName"];
+                             string user = userName;
                              n.ProtocolMessage.SetParameter("login_hint", user);
                              return Task.FromResult(0);
                          },
@@ -90,18 +92,11 @@ namespace Encryptics.WebPortal
                          {
                              var id = n.AuthenticationTicket.Identity;
                              List<Claim> claims = new List<Claim>();
-                             var name = id.Claims.ToList().Find(x => x.Type == "http://schemas.microsoft.com/identity/claims/displayname");
-                             if (name != null)
-                             {
-                                 claims.Add(new Claim("Name", name.Value));
-                             }
                              foreach (var claim in id.Claims)
                              {
                                  var type = claim.Type;
                                  claims.Add(claim);
-
                              }
-
                              return Task.FromResult(0);
                          }
 
