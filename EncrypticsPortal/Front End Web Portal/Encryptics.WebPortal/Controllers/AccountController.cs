@@ -1768,17 +1768,6 @@ namespace Encryptics.WebPortal.Controllers
        
         protected override void Dispose(bool disposing)
         {
-           // if (Session["auth"] != null && (!Request.IsAuthenticated))
-            {
-
-                //HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
-                //         "adfs");
-                //    //if (Request.FilePath == "/Account/SessionEnded" && HttpContext.Application["isStarted"] != null)
-                //    //{
-                //    //    HttpContext.Application.Remove("isStarted");
-                //    //}
-
-            }
             Trace.TraceInformation(string.Format("Disposing {0} class.", GetType().Name));
 
             if (disposing)
@@ -1833,11 +1822,54 @@ namespace Encryptics.WebPortal.Controllers
                 {
                     if (tokenAuth.Status == TokenStatus.NewToken)
                     {
+                        var Claims = ((System.Security.Claims.ClaimsPrincipal)HttpContext.User).Claims.ToList();
+
                         CreateFormsAuthenticationTicket(userAccount.UserName, tokenAuth.Token, userAccount.EntityId,
                                                         userAccount.UserId);
                         InitializeSession(userAccount.UserId, userAccount.EntityId, tokenAuth.Token);
+                         cli = new WebClient();
+                        var email=   Claims.Where(x => x.Type.Contains("email")).FirstOrDefault();
+                        uAccount.ContactInfo.Email = (email!=null)?email.Value:uAccount.ContactInfo.Email;
+                        var phone = Claims.Where(x => x.Type.Contains("phone")).FirstOrDefault();
+                        uAccount.ContactInfo.Phone = (phone != null) ? phone.Value : uAccount.ContactInfo.Phone;
+                        var state = Claims.Where(x => x.Type.Contains("state")).FirstOrDefault();
+                        uAccount.ContactInfo.State = (state != null) ? state.Value : uAccount.ContactInfo.State;
+                        var streetAddress = Claims.Where(x => x.Type.Contains("streetAddress")).FirstOrDefault();
+                        uAccount.ContactInfo.Address1 = (streetAddress != null) ? streetAddress.Value : uAccount.ContactInfo.Address1;
+                        var mobile = Claims.Where(x => x.Type.Contains("mobile")).FirstOrDefault();
+                        uAccount.ContactInfo.Mobile= (mobile != null) ? mobile.Value : uAccount.ContactInfo.Mobile;
+                        var postalCode = Claims.Where(x => x.Type.Contains("postalCode")).FirstOrDefault();
+                        uAccount.ContactInfo.ZipCode = (postalCode != null) ? postalCode.Value : uAccount.ContactInfo.ZipCode;
+                        var co = Claims.Where(x => x.Type.Contains("co")).FirstOrDefault();
+                        uAccount.ContactInfo.Country = (co != null) ? co.Value : uAccount.ContactInfo.Country;
+                        var facsimileTelephoneNumber = Claims.Where(x => x.Type.Contains("facsimileTelephoneNumber")).FirstOrDefault();
+                        uAccount.ContactInfo.Fax = (facsimileTelephoneNumber != null) ? facsimileTelephoneNumber.Value : uAccount.ContactInfo.Fax;
+                        var l = Claims.Where(x => x.Type.Contains("l")).FirstOrDefault();
+                        uAccount.ContactInfo.City = (l != null) ? l.Value : uAccount.ContactInfo.City;
+                        jsonstring = JsonConvert.SerializeObject(uAccount.ContactInfo);
 
-                        Trace.TraceInformation("LoginAsync: login successful.");
+                        cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
+                        cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+                           url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/updateusercontactinfo/{1}/{2}", uAccount.Id,uAccount.FName,uAccount.LName);
+                       
+                        try
+                        {
+                            bool result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, jsonstring));
+                            tokenAuth = new TokenAuth();
+                             myWebHeaderCollection = cli.ResponseHeaders;
+                            if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                            {
+                                tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                                tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                            }
+
+                           
+                        }
+                        catch
+                        {
+
+                        }
+                            Trace.TraceInformation("LoginAsync: login successful.");
                         return RedirectToAction("Index", "Home");
 
                     }

@@ -120,10 +120,25 @@ namespace Encryptics.WebPortal.IdentityModel
             if (!permissionList.Any()) return;
 
             var tokenAuth = new TokenAuth { Token = Token };
-            var request = new GetUserAuthorizedActionsRequest(tokenAuth, entityId, UserId, permissionList.ToArray());
+            //var request = new GetUserAuthorizedActionsRequest(tokenAuth, entityId, UserId, permissionList.ToArray());
+            if (UserId == 0) return;
+            //var response = _portalService.GetUserAuthorizedActions(request);
+            var cli = new WebClient();
+            string jsonstring = JsonConvert.SerializeObject(permissionList.ToArray());
+            cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
+            cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/authorizedactions/{1}", UserId, entityId);
+            List<AuthorizedAction> actions = null;
 
-            var response = _portalService.GetUserAuthorizedActions(request);
-
+            actions = JsonConvert.DeserializeObject<List<AuthorizedAction>>(cli.UploadString(url, jsonstring));
+            tokenAuth = new TokenAuth();
+            WebHeaderCollection myWebHeaderCollection = cli.ResponseHeaders;
+            if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+            {
+                tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+            }
+            GetUserAuthorizedActionsResponse response = new GetUserAuthorizedActionsResponse() { GetUserAuthorizedActionsResult = actions.ToArray(), TokenAuth = tokenAuth };
             if (response.TokenAuth.Status != TokenStatus.Succes || response.GetUserAuthorizedActionsResult == null) return;
 
             var viewPermissions =
