@@ -499,7 +499,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:05</publishTime>
     </File>
     <File Include="bin/ar/Encryptics.WebPortal.resources.dll">
-      <publishTime>01/31/2018 18:08:29</publishTime>
+      <publishTime>02/20/2018 13:50:32</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>12/19/2017 12:05:05</publishTime>
@@ -589,7 +589,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:05</publishTime>
     </File>
     <File Include="bin/Encryptics.WebPortal.dll">
-      <publishTime>01/31/2018 18:08:29</publishTime>
+      <publishTime>02/20/2018 13:50:31</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/19/2017 12:05:05</publishTime>
@@ -669,26 +669,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Data.OData.dll">
       <publishTime>12/19/2017 12:05:06</publishTime>
     </File>
+    <File Include="bin/Microsoft.IdentityModel.Clients.ActiveDirectory.dll">
+      <publishTime>01/31/2018 01:32:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll">
+      <publishTime>01/31/2018 01:32:06</publishTime>
+    </File>
     <File Include="bin/Microsoft.IdentityModel.Protocol.Extensions.dll">
       <publishTime>08/19/2014 10:01:54</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>05/04/2017 11:53:36</publishTime>
+      <publishTime>04/05/2017 11:53:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>05/04/2017 11:53:40</publishTime>
+      <publishTime>04/05/2017 11:53:40</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>05/04/2017 11:53:42</publishTime>
+      <publishTime>04/05/2017 11:53:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>05/04/2017 11:53:42</publishTime>
+      <publishTime>04/05/2017 11:53:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Google.dll">
-      <publishTime>05/04/2017 11:53:44</publishTime>
+      <publishTime>04/05/2017 11:53:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.WsFederation.dll">
-      <publishTime>05/04/2017 11:53:48</publishTime>
+      <publishTime>04/05/2017 11:53:48</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
       <publishTime>12/19/2017 12:05:05</publishTime>
@@ -1357,7 +1363,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:04</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/18/2018 15:20:13</publishTime>
+      <publishTime>02/16/2018 16:03:26</publishTime>
     </File>
     <File Include="Scripts/ajax.js">
       <publishTime>12/19/2017 12:05:04</publishTime>
@@ -2263,7 +2269,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2017 12:05:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/30/2018 18:28:08</publishTime>
+      <publishTime>02/20/2018 12:38:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

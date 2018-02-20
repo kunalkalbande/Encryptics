@@ -937,8 +937,12 @@ E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.dll
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.pdb
 E:\Encryptics\EncrypticsIIS\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csprojResolveAssemblyReference.cache
-E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Encryptics.Cryptography.Fips.txt
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csprojResolveAssemblyReference.cache
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.Properties.Resources.resources
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.Properties.Resources.ar.resources
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csproj.GenerateResource.Cache
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\AutoMapper.Net4.dll
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Encryptics.Cryptography.Fips.txt
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\NLog.config
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Content\webfonts\24E818_2A_0.eot
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Content\webfonts\24E818_2A_0.ttf
@@ -980,6 +984,8 @@ E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.CSharp.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Data.Edm.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Data.OData.dll
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -1055,6 +1061,8 @@ E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Google.ProtocolBuffers.xml
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\LumenWorks.Framework.IO.pdb
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\LumenWorks.Framework.IO.xml
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.xml
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
@@ -1122,10 +1130,6 @@ E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.Web
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\ru\System.Spatial.resources.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\zh-Hans\System.Spatial.resources.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\bin\zh-Hant\System.Spatial.resources.dll
-E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.Properties.Resources.resources
-E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.Properties.Resources.ar.resources
-E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csproj.GenerateResource.Cache
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\ar\Encryptics.WebPortal.resources.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.dll
 E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.pdb
-E:\EncrypticsDev\Encryptics\EncrypticsPortal\Front End Web Portal\Encryptics.WebPortal\obj\Debug\Encryptics.WebPortal.csprojResolveAssemblyReference.cache

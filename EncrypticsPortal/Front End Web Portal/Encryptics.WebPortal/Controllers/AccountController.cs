@@ -6,6 +6,7 @@ using Encryptics.WebPortal.Helpers;
 using Encryptics.WebPortal.IdentityModel;
 using Encryptics.WebPortal.Models;
 using Encryptics.WebPortal.PortalService;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.Owin.Security;
 using Microsoft.Web.WebPages.OAuth;
 using Newtonsoft.Json;
@@ -15,6 +16,8 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Principal;
 using System.ServiceModel;
 using System.Threading;
@@ -176,7 +179,7 @@ namespace Encryptics.WebPortal.Controllers
             Session["Model"] = model;
             Session["UserName"] = model.UserName;
             Session["auth"] = model.Tenant;
-            HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "Account/SetUserDetails" },
+            HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "Account/GetUserIdentifier" },
                 model.Tenant);
         }
        
@@ -1798,7 +1801,7 @@ namespace Encryptics.WebPortal.Controllers
 
             base.Dispose(disposing);
         }
-        public ActionResult SetUserDetails()
+        public async Task<ActionResult> GetUserIdentifier()
         {
             var cli = new WebClient();
             var jsonstring = JsonConvert.SerializeObject(Session["Model"]);
@@ -1822,54 +1825,90 @@ namespace Encryptics.WebPortal.Controllers
                 {
                     if (tokenAuth.Status == TokenStatus.NewToken)
                     {
-                        var Claims = ((System.Security.Claims.ClaimsPrincipal)HttpContext.User).Claims.ToList();
+                    
+                        var Claims = ((System.Security.Claims.ClaimsIdentity)HttpContext.User.Identity).Claims.ToList();
 
                         CreateFormsAuthenticationTicket(userAccount.UserName, tokenAuth.Token, userAccount.EntityId,
                                                         userAccount.UserId);
                         InitializeSession(userAccount.UserId, userAccount.EntityId, tokenAuth.Token);
-                         cli = new WebClient();
-                        var email=   Claims.Where(x => x.Type.Contains("email")).FirstOrDefault();
-                        uAccount.ContactInfo.Email = (email!=null)?email.Value:uAccount.ContactInfo.Email;
-                        var phone = Claims.Where(x => x.Type.Contains("phone")).FirstOrDefault();
-                        uAccount.ContactInfo.Phone = (phone != null) ? phone.Value : uAccount.ContactInfo.Phone;
-                        var state = Claims.Where(x => x.Type.Contains("state")).FirstOrDefault();
-                        uAccount.ContactInfo.State = (state != null) ? state.Value : uAccount.ContactInfo.State;
-                        var streetAddress = Claims.Where(x => x.Type.Contains("streetAddress")).FirstOrDefault();
-                        uAccount.ContactInfo.Address1 = (streetAddress != null) ? streetAddress.Value : uAccount.ContactInfo.Address1;
-                        var mobile = Claims.Where(x => x.Type.Contains("mobile")).FirstOrDefault();
-                        uAccount.ContactInfo.Mobile= (mobile != null) ? mobile.Value : uAccount.ContactInfo.Mobile;
-                        var postalCode = Claims.Where(x => x.Type.Contains("postalCode")).FirstOrDefault();
-                        uAccount.ContactInfo.ZipCode = (postalCode != null) ? postalCode.Value : uAccount.ContactInfo.ZipCode;
-                        var co = Claims.Where(x => x.Type.Contains("co")).FirstOrDefault();
-                        uAccount.ContactInfo.Country = (co != null) ? co.Value : uAccount.ContactInfo.Country;
-                        var facsimileTelephoneNumber = Claims.Where(x => x.Type.Contains("facsimileTelephoneNumber")).FirstOrDefault();
-                        uAccount.ContactInfo.Fax = (facsimileTelephoneNumber != null) ? facsimileTelephoneNumber.Value : uAccount.ContactInfo.Fax;
-                        var l = Claims.Where(x => x.Type.Contains("l")).FirstOrDefault();
-                        uAccount.ContactInfo.City = (l != null) ? l.Value : uAccount.ContactInfo.City;
-                        jsonstring = JsonConvert.SerializeObject(uAccount.ContactInfo);
-
-                        cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
-                        cli.Headers[HttpRequestHeader.ContentType] = "application/json";
-                           url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/updateusercontactinfo/{1}/{2}", uAccount.Id,uAccount.FName,uAccount.LName);
-                       
-                        try
+                        if (Session["auth"] != null)
                         {
-                            bool result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, jsonstring));
-                            tokenAuth = new TokenAuth();
-                             myWebHeaderCollection = cli.ResponseHeaders;
-                            if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                            cli = new WebClient();
+                            if (Session["auth"].ToString() == "azure")
                             {
-                                tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
-                                tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                                string clientId = Startup.AzureClientId;
+                                string ClientSecret = Startup.AzureClientSecret;
+                                string auth = string.Format("https://login.microsoftonline.com/{0}",Startup.AzureTenantId);
+                                ClientCredential credential = new ClientCredential(clientId, ClientSecret);
+                                AuthenticationContext authContext = new AuthenticationContext(auth);
+                                AuthenticationResult results = await authContext.AcquireTokenAsync("https://graph.windows.net", credential);
+                                var userId = Claims.Where(x => x.Type.Contains("objectidentifier")).FirstOrDefault();
+                                string graphapi = string.Format("https://graph.windows.net/{0}/users/{1}?api-version=1.6", Startup.AzureTenantId,userId.Value);
+                                var client = new HttpClient();
+                                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", results.AccessToken);
+                                var queryString = HttpUtility.ParseQueryString(string.Empty);
+                                queryString["api-version"] = "1.6";
+                                var uri = graphapi;
+                                var response = await client.GetAsync(uri);
+                                var s = await response.Content.ReadAsStringAsync();
+                                var user_detail = JsonConvert.DeserializeObject<AzureUserDetail>(s);
+                                uAccount.ContactInfo.Email =  user_detail.mail ?? uAccount.ContactInfo.Email;
+                                uAccount.ContactInfo.Phone = user_detail.telephoneNumber ?? uAccount.ContactInfo.Phone;
+                                uAccount.ContactInfo.State = user_detail.state ?? uAccount.ContactInfo.State;
+                                uAccount.ContactInfo.Address1 = user_detail.streetAddress ?? uAccount.ContactInfo.Address1;
+                                uAccount.ContactInfo.Mobile = user_detail.mobile ?? uAccount.ContactInfo.Mobile;
+                                uAccount.ContactInfo.ZipCode = user_detail.postalCode ?? uAccount.ContactInfo.ZipCode;
+                                uAccount.ContactInfo.Country = user_detail.country ?? uAccount.ContactInfo.Country;
+                                uAccount.ContactInfo.Fax = user_detail.facsimileTelephoneNumber ?? uAccount.ContactInfo.Fax;
+                                uAccount.ContactInfo.City = user_detail.city ?? uAccount.ContactInfo.City;
                             }
+                            else if (Session["auth"].ToString()=="adfs")
+                            {
+                                var email = Claims.Where(x => x.Type.Contains("email")).FirstOrDefault();
+                                uAccount.ContactInfo.Email = (email != null) ? email.Value : uAccount.ContactInfo.Email;
+                                var phone = Claims.Where(x => x.Type.Contains("phone")).FirstOrDefault();
+                                uAccount.ContactInfo.Phone = (phone != null) ? phone.Value : uAccount.ContactInfo.Phone;
+                                var state = Claims.Where(x => x.Type.Contains("state")).FirstOrDefault();
+                                uAccount.ContactInfo.State = (state != null) ? state.Value : uAccount.ContactInfo.State;
+                                var streetAddress = Claims.Where(x => x.Type.Contains("streetAddress")).FirstOrDefault();
+                                uAccount.ContactInfo.Address1 = (streetAddress != null) ? streetAddress.Value : uAccount.ContactInfo.Address1;
+                                var mobile = Claims.Where(x => x.Type.Contains("mobile")).FirstOrDefault();
+                                uAccount.ContactInfo.Mobile = (mobile != null) ? mobile.Value : uAccount.ContactInfo.Mobile;
+                                var postalCode = Claims.Where(x => x.Type.Contains("postalCode")).FirstOrDefault();
+                                uAccount.ContactInfo.ZipCode = (postalCode != null) ? postalCode.Value : uAccount.ContactInfo.ZipCode;
+                                var co = Claims.Where(x => x.Type.Contains("country")).FirstOrDefault();
+                                uAccount.ContactInfo.Country = (co != null) ? co.Value : uAccount.ContactInfo.Country;
+                                var facsimileTelephoneNumber = Claims.Where(x => x.Type.Contains("facsimileTelephoneNumber")).FirstOrDefault();
+                                uAccount.ContactInfo.Fax = (facsimileTelephoneNumber != null) ? facsimileTelephoneNumber.Value : uAccount.ContactInfo.Fax;
+                                var l = Claims.Where(x => x.Type.Contains("city")).FirstOrDefault();
+                                uAccount.ContactInfo.City = (l != null) ? l.Value : uAccount.ContactInfo.City;
+                            }
+                            jsonstring = JsonConvert.SerializeObject(uAccount.ContactInfo);
+                            cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
+                            cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+                            url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/updateusercontactinfo/{1}/{2}", uAccount.Id, uAccount.FName, uAccount.LName);
 
-                           
-                        }
-                        catch
-                        {
+                            try
+                            {
+                                bool result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, jsonstring));
+                                tokenAuth = new TokenAuth();
+                                myWebHeaderCollection = cli.ResponseHeaders;
+                                if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                                {
+                                    tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                                    tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                                }
 
+
+                            }
+                            catch
+                            {
+
+                            }
                         }
-                            Trace.TraceInformation("LoginAsync: login successful.");
+
+                      
+                        Trace.TraceInformation("LoginAsync: login successful.");
                         return RedirectToAction("Index", "Home");
 
                     }

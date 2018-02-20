@@ -17,6 +17,12 @@ namespace Encryptics.WebPortal
 {
     public class Startup
     {
+        private static readonly string _azureClientId = "f46f44d3-f950-459d-8cd7-50b0a30da48c";
+        private static readonly string _azureClientSecret = "6vap2Qt2mU5AmD7RxMWt3xV5a50QzhhYxkZkXs6LFbw=";
+        private static readonly string _azureTenantId = "6bdbcf21-53c5-4629-82a6-7ae4a487a821";
+        public static string AzureClientId { get { return _azureClientId; } }
+        public static string AzureClientSecret { get { return _azureClientSecret; } }
+        public static string AzureTenantId { get { return _azureTenantId; } }
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
@@ -69,8 +75,10 @@ namespace Encryptics.WebPortal
                  new WsFederationAuthenticationOptions
                  {
                      // AuthenticateRequestSigningBehavior = SigningBehavior.Never,// or add a signing certificate
-                     Wtrealm = "https://synpreshitoutlook075.onmicrosoft.com/8ceb8256-b74e-4ae6-bd16-dd6de975dedf",
-                     MetadataAddress = "https://login.microsoftonline.com/d9b0ee78-8419-4455-b52c-64e4cb2e453f/FederationMetadata/2007-06/FederationMetadata.xml",
+                     //  Wtrealm = "https://synpreshitoutlook075.onmicrosoft.com/8ceb8256-b74e-4ae6-bd16-dd6de975dedf",
+                     //  MetadataAddress = "https://login.microsoftonline.com/d9b0ee78-8419-4455-b52c-64e4cb2e453f/FederationMetadata/2007-06/FederationMetadata.xml",
+                     Wtrealm = "https://tanvikansarasynerzip.onmicrosoft.com/1f02f5c0-b981-43a2-808b-c2920ecc1aa9",// "https://synpreshitoutlook075.onmicrosoft.com/8ceb8256-b74e-4ae6-bd16-dd6de975dedf",
+                     MetadataAddress = "https://login.microsoftonline.com/6bdbcf21-53c5-4629-82a6-7ae4a487a821/federationmetadata/2007-06/federationmetadata.xml",//"https://login.microsoftonline.com/d9b0ee78-8419-4455-b52c-64e4cb2e453f/FederationMetadata/2007-06/FederationMetadata.xml",
                      // BackchannelCertificateValidator = null,
 
                      //   Wreply = "https://localhost:44365/Home/Authenticate/",

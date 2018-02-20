@@ -19,7 +19,7 @@ namespace Encryptics.WebPortal.Filters
             if (httpContext.Session["auth"] != null)
             {
                 httpContext.GetOwinContext().Response.Headers["UserName"] = httpContext.Session["UserName"].ToString();
-                httpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/SetUserDetails" },
+                httpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/Account/GetUserIdentifier" },
                              httpContext.Session["auth"].ToString());
 
             }
