@@ -1,8 +1,6 @@
-﻿using Microsoft.Owin.Security;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 // TODO: figure out if there's a way to get the the controllers token so we can check if there's a token error and log it and log the user off the site.
@@ -14,7 +12,7 @@ namespace Encryptics.WebPortal.Filters
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             var modelState = filterContext.Controller.ViewData.ModelState;
-           
+
             if (modelState.ToList().Any(m => m.Value.Errors.ToList().Any()))
             {
                 int i = 0;

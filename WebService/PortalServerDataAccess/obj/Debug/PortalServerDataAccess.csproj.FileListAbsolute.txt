@@ -16,13 +16,33 @@ C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataA
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll.config
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.dll
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
-E:\Encryptics\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
-E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
-E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
-E:\Encryptics\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll.config
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll.config
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb
+E:\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll.config
+E:\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.dll
+E:\synerzip\PortalServerDataAccess\bin\Debug\PortalServerDataAccess.pdb
+E:\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.dll
+E:\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.dll
+E:\synerzip\PortalServerDataAccess\bin\Debug\PortalCommon.pdb
+E:\synerzip\PortalServerDataAccess\bin\Debug\ServicesCommon.pdb
+E:\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.csprojResolveAssemblyReference.cache
+E:\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.dll
+E:\synerzip\PortalServerDataAccess\obj\Debug\PortalServerDataAccess.pdb

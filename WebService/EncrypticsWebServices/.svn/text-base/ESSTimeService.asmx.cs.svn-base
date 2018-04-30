@@ -1,0 +1,89 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Web;
+using System.Web.Services;
+
+namespace ESS
+{
+	//================================================================//
+	// ESSTimeService
+	//================================================================//
+	[ WebService ( Namespace = "http://www.essentialsecurity.com/webservices/" )]
+	public class ESSTimeService :
+		System.Web.Services.WebService {
+		
+		//----------------------------------------------------------------//
+		public ESSTimeService() {
+			//CODEGEN: This call is required by the ASP.NET Web Services Designer
+			InitializeComponent();
+		}
+
+		#region Component Designer generated code
+		
+		//Required by the Web Services Designer 
+		private IContainer components = null;
+				
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing )
+		{
+			if(disposing && components != null)
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);		
+		}
+		
+		#endregion
+
+        #region web methods
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Get the currnt time - serialized
+        /// </summary>
+        /// <returns></returns>
+		[WebMethod]
+		public byte [] GetCurrentTime () {
+			
+            byte [] timeServerResponse = null;
+
+            try
+            {
+                TimeServerResponse response = new TimeServerResponse();
+                response.pCurrentTime = DateTime.Now;
+                response.pServerTime = response.pCurrentTime;
+                timeServerResponse = SerialMgr.SerialToBytes ( response );
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex);
+            }
+            return timeServerResponse;
+		}
+		
+		//----------------------------------------------------------------//
+        /// <summary>
+        /// Test connection to the web service
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public int tESSTS()
+        {
+            return 1;
+        }
+
+        #endregion
+	}
+}

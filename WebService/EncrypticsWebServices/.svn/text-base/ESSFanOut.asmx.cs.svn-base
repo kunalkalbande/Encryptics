@@ -1,0 +1,106 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Web;
+using System.Web.Services;
+
+namespace ESS
+{
+	/// <summary>
+	/// This class exposes the webservice used for Fan Out tracking
+	/// </summary>
+    //[WebService(Namespace = "http://www.essentialsecurity.com/webservices/")]
+    public class ESSFanOut : System.Web.Services.WebService
+	{
+		public ESSFanOut()
+		{
+			//CODEGEN: This call is required by the ASP.NET Web Services Designer
+			InitializeComponent();
+        }
+
+        #region web methods
+
+        /// <summary>
+		/// Called by the Taceo client in order to create a parent child fanout relationship in the database.
+		/// </summary>
+		/// <param name="parent">GUID the anonymous unique identifier of the parent</param>
+		/// <param name="child">GUID the anonymous unique identifier of the child</param>
+		/// <param name="isTest">BOOL if the call has been made for testing purposes then true else false (production data)</param>
+		/// <returns>Success --> a string starting with "Success" followed by the ID of the new record in the DB
+		///			Failure -->  the Exception.message string.
+		/// </returns>
+		[WebMethod]
+		public string FanOut(Guid parent, Guid child, bool isTest)
+		{
+            string result = string.Empty;
+            try
+            {
+        
+                byte testBit;
+
+                // Create an instance of the class which has the code to insert the record into the DB.
+                ESS.FanOutTracking FanOutInserter = new FanOutTracking();
+                if (isTest)
+                {
+                    testBit = 1;
+                }
+                else
+                {
+                    testBit = 0;
+                }
+                result = FanOutInserter.InsertFanOutRecord(parent.ToString(), child.ToString(), testBit);
+                //string s = "Success Hello Bill parent = " + parent.ToString() + " " + "child = " + child.ToString() + " isTest = " + isTest.ToString();
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex, parent, child, isTest);
+                return null;
+            }
+            return result;
+		}
+
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Test health state of the web service
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public int tESSFOS()
+        {
+            return 1;
+        }
+
+        #endregion
+
+        #region Component Designer generated code
+
+        //Required by the Web Services Designer 
+		private IContainer components = null;
+				
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing )
+		{
+			if(disposing && components != null)
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);		
+		}
+		
+		#endregion
+
+	
+	}
+}

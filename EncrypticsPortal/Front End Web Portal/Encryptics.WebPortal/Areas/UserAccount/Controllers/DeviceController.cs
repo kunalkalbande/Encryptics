@@ -258,14 +258,21 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
 
         private IEnumerable<DeviceModel> GetDevices(long? entityId, long? userId)
         {
-            var getDeviceListRequest = BuildGetDeviceListRequest(entityId, userId);
+            try
+            {
+                var getDeviceListRequest = BuildGetDeviceListRequest(entityId, userId);
 
-            var response = _portalService.GetDeviceList(getDeviceListRequest);
+                var response = _portalService.GetDeviceList(getDeviceListRequest);
 
-            IEnumerable<DeviceModel> devices = Mapper.Map<Device[], IEnumerable<DeviceModel>>(response.GetDeviceListResult)
-                .OrderByDescending(x => x.HasActiveSession).ThenByDescending(x => x.DateDeployed);
+                IEnumerable<DeviceModel> devices = Mapper.Map<Device[], IEnumerable<DeviceModel>>(response.GetDeviceListResult)
+                    .OrderByDescending(x => x.HasActiveSession).ThenByDescending(x => x.DateDeployed);
 
-            return devices;
+                return devices;
+            }
+            catch
+            {
+                return new List<DeviceModel>();
+            }
         }
 
         private async Task<IEnumerable<DeviceModel>> GetDevicesAsync(long? entityId, long? userId)

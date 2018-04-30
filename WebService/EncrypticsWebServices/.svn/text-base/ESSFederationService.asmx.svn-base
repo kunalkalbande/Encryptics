@@ -1,0 +1,1 @@
+<%@ WebService Language="C#" CodeBehind="ESSFederationService.asmx.cs" Class="ESS.ESSFederationService" %>

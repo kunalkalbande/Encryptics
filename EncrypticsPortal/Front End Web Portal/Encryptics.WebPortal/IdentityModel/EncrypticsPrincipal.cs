@@ -9,11 +9,14 @@ using StructureMap;
 using System.Net;
 using System;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace Encryptics.WebPortal.IdentityModel
 {
     public class EncrypticsPrincipal : RolePrincipal
     {
+        private string hosturl = ConfigurationManager.AppSettings["hosturl"];
+
         private /*static*/ readonly PortalServiceSoap _portalService;
 
         //static EncrypticsPrincipal()
@@ -75,7 +78,7 @@ namespace Encryptics.WebPortal.IdentityModel
             string jsonstring = JsonConvert.SerializeObject(permissions.ToArray());
             cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
             cli.Headers[HttpRequestHeader.ContentType] = "application/json";
-            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/authorizedactions/{1}", UserId, entityId);
+            string url = String.Format(hosturl+"v2/accounts/{0}/authorizedactions/{1}", UserId, entityId);
             List<AuthorizedAction> actions = null;
             try
             {
@@ -127,7 +130,7 @@ namespace Encryptics.WebPortal.IdentityModel
             string jsonstring = JsonConvert.SerializeObject(permissionList.ToArray());
             cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
             cli.Headers[HttpRequestHeader.ContentType] = "application/json";
-            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/authorizedactions/{1}", UserId, entityId);
+            string url = String.Format(hosturl+"v2/accounts/{0}/authorizedactions/{1}", UserId, entityId);
             List<AuthorizedAction> actions = null;
 
             actions = JsonConvert.DeserializeObject<List<AuthorizedAction>>(cli.UploadString(url, jsonstring));

@@ -38,17 +38,64 @@ C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Debug\PortalServer.dll
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalServer\obj\Debug\PortalServer.pdb
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.dll.config
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.dll
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.pdb
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalCommon.dll
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.dll
-E:\Encryptics\synerzip\PortalServer\bin\Debug\ServicesCommon.dll
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalCommon.pdb
-E:\Encryptics\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.pdb
-E:\Encryptics\synerzip\PortalServer\bin\Debug\ServicesCommon.pdb
-E:\Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.csprojResolveAssemblyReference.cache
-E:\Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.Properties.Resources.resources
-E:\Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
-E:\Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.dll
-E:\Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalServer.dll.config
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalServer.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalServer.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\EncrypticsAPI.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\bin\Debug\EncrypticsAPI.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\obj\Debug\PortalServer.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\obj\Debug\PortalServer.Properties.Resources.resources
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\obj\Debug\PortalServer.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalServer\obj\Debug\PortalServer.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalServer.dll.config
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalServer.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalServer.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\ServicesCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\ServicesCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\bin\Debug\EncrypticsAPI.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalServer\obj\Debug\PortalServer.csprojResolveAssemblyReference.cache
+E:\Encryptics\OriginalSource\synerzip\PortalServer\obj\Debug\PortalServer.Properties.Resources.resources
+E:\Encryptics\OriginalSource\synerzip\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
+E:\Encryptics\OriginalSource\synerzip\PortalServer\obj\Debug\PortalServer.dll
+E:\Encryptics\OriginalSource\synerzip\PortalServer\obj\Debug\PortalServer.pdb
+E:\synerzip\PortalServer\bin\Debug\PortalServer.dll.config
+E:\synerzip\PortalServer\bin\Debug\PortalServer.dll
+E:\synerzip\PortalServer\bin\Debug\PortalServer.pdb
+E:\synerzip\PortalServer\bin\Debug\PortalCommon.dll
+E:\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.dll
+E:\synerzip\PortalServer\bin\Debug\ServicesCommon.dll
+E:\synerzip\PortalServer\bin\Debug\PortalCommon.pdb
+E:\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.pdb
+E:\synerzip\PortalServer\bin\Debug\ServicesCommon.pdb
+E:\synerzip\PortalServer\bin\Debug\EncrypticsAPI.pdb
+E:\synerzip\PortalServer\obj\Debug\PortalServer.csprojResolveAssemblyReference.cache
+E:\synerzip\PortalServer\obj\Debug\PortalServer.Properties.Resources.resources
+E:\synerzip\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
+E:\synerzip\PortalServer\obj\Debug\PortalServer.dll
+E:\synerzip\PortalServer\obj\Debug\PortalServer.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.dll.config
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.dll
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalServer.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalCommon.dll
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.dll
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\ServicesCommon.dll
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalCommon.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\PortalServerDataAccess.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\ServicesCommon.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\bin\Debug\EncrypticsAPI.pdb
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.csprojResolveAssemblyReference.cache
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.Properties.Resources.resources
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.csproj.GenerateResource.Cache
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.dll
+E:\Encryptics\Latest Encryptics\synerzip\PortalServer\obj\Debug\PortalServer.pdb

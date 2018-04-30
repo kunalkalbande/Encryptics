@@ -1,0 +1,195 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Web;
+using System.Web.Services;
+
+namespace ESS {
+
+	//================================================================//
+	// ESSKeyService
+	//================================================================//
+	[ WebService ( Namespace = "http://www.essentialsecurity.com/webservices/" )]
+	public class ESSKeyService :
+		System.Web.Services.WebService {
+		
+		//----------------------------------------------------------------//
+		public ESSKeyService() {
+			//CODEGEN: This call is required by the ASP.NET Web Services Designer
+			InitializeComponent();
+		}
+
+		#region Component Designer generated code
+		
+		//Required by the Web Services Designer 
+		private IContainer components = null;
+				
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
+
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing ) {
+			if(disposing && components != null) {
+				components.Dispose();
+			}
+			base.Dispose(disposing);		
+		}
+		
+		#endregion
+
+        #region web methods
+
+        //----------------------------------------------------------------//
+		/// <summary>
+        ///  Returns a LicensePack held in a SignedEnvelope
+		/// </summary>
+		/// <param name="request">
+		/// Serialized class which contains info about the user and the list of recipients.
+		/// </param>
+		/// <returns>
+		/// byte array (byte []) representing the LicensePack
+		/// </returns>
+		[WebMethod]
+		public byte [] GetSessionKey ( byte [] request ) {
+
+            // check to see if we actually were given bytes
+            if (request == null)
+                return null; 
+		
+			ESSLicenseServerInit.Init ();
+
+			byte [] returnVal = null;
+			try {
+				KeyServerRequest keyServerRequest = SerialMgr.SerialFromBytes ( request ) as KeyServerRequest;
+				ErrEnum.Assert ( keyServerRequest != null );
+				// keyServerRequest.pListAuthor.pEmailAddress used for sending email
+				KeyServerAPI keyServer = new KeyServerAPI ();
+				KeyServerResponse keyServerResponse = keyServer.GetSessionKey ( keyServerRequest );
+				
+				ErrEnum.Assert ( keyServerResponse != null );
+				returnVal = SerialMgr.SerialToBytes ( keyServerResponse );
+			}
+			catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex, request);
+			}
+			
+			return returnVal;
+        }
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Gets the currently public key for type 'type'
+        /// Currently returns the default Public key until Key rolling and 
+        /// multiple keys are put into place
+        /// </summary>
+        /// <param name="type">type will eventually be an enum</param>
+        /// <returns></returns>
+        [WebMethod]
+        public byte[] GetCurrentPublicKey(int type)
+        {
+            byte[] returnVal = null;
+            try
+            {
+                ServerInfo.pSingle.Update(); // Update ourselves so we know we are using the current keys
+                Key pKey = ServerInfo.pSingle.GetCurrentPublicKey((Key.KeyType)type);
+                PublicKeyResponse pKeyResponse = new PublicKeyResponse(pKey);
+                ErrEnum.Assert(pKeyResponse != null);
+                returnVal = SerialMgr.SerialToBytes(pKeyResponse);
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex);
+            }
+            return returnVal;
+        }
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Returns the current key in use for the server given the type of key
+        /// 
+        /// </summary>
+        /// <param name="type">KeyType representing one kind of key</param>
+        /// <returns>XML representation of the public key</returns>
+        [WebMethod(MessageName="GetCurrentPublicKeyByType")]
+        public byte[] GetCurrentPublicKey(Key.KeyType type)
+        {
+            byte[] returnVal = null;
+            try
+            {
+                Key pKey = ServerInfo.pSingle.GetCurrentPublicKey(type);
+                PublicKeyResponse pKeyResponse = new PublicKeyResponse(pKey);
+                ErrEnum.Assert(pKeyResponse != null);
+                returnVal = SerialMgr.SerialToBytes(pKeyResponse);
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex);
+            }
+            return returnVal;
+        }
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Returns a Key given a valid ID. Otherwise null is returned. This will often be
+        /// called when a signature needs to be validated using a key the user does not have.
+        /// </summary>
+        /// <param name="id">The ID of the key</param>
+        /// <returns>A serialized PublicKeyResponse containing the key</returns>
+        [WebMethod]
+        public byte[] GetPublicKeyByID(int id)
+        {
+            byte[] returnVal = null;
+            try
+            {
+                LicenseServerAPI lServer = new LicenseServerAPI();
+                Key pKey = lServer.GetPublicKey(id);
+                PublicKeyResponse pKeyResponse = new PublicKeyResponse(pKey);
+                ErrEnum.Assert(pKeyResponse != null);
+                returnVal = SerialMgr.SerialToBytes(pKeyResponse);
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex);
+            }
+            return returnVal;
+        }
+        //----------------------------------------------------------------//
+        [WebMethod]
+        public byte[] GetCurrentPublicKeys()
+        {
+            byte[] returnVal = null;
+            try
+            {
+                Key commKey = ServerInfo.pSingle.pCommPublicKey;
+                Key containerKey = ServerInfo.pSingle.pContainerPublicKey;
+                Key signKey = ServerInfo.pSingle.pSigningPublicKey;
+                PublicKeysResponse pKeysResponse = new PublicKeysResponse(commKey, containerKey, signKey);
+                ErrEnum.Assert(pKeysResponse != null);
+                returnVal = SerialMgr.SerialToBytes(pKeysResponse);
+            }
+            catch
+            {
+            }
+            return returnVal;
+        }
+        //----------------------------------------------------------------//
+        /// <summary>
+        /// Test health state of the web service
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public int tESSKS()
+        {
+            return 1;
+        }
+
+        #endregion
+    }
+}

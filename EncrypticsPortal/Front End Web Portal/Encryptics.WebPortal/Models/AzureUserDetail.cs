@@ -5,6 +5,9 @@ using System.Web;
 
 namespace Encryptics.WebPortal.Models
 {
+    /// <summary>
+    /// Get User details from Azure
+    /// </summary>
     public class AzureUserDetail
     {
        
@@ -50,7 +53,7 @@ namespace Encryptics.WebPortal.Models
         public object sipProxyAddress { get; set; }
         public string state { get; set; }
         public string streetAddress { get; set; }
-        public object surname { get; set; }
+        public string surname { get; set; }
         public string telephoneNumber { get; set; }
         public object usageLocation { get; set; }
         public List<object> userIdentities { get; set; }

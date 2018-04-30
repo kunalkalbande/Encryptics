@@ -1,0 +1,101 @@
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.KeyService.resources
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.Global.resources
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.KeyService.resources
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.Global.resources
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.Global.resources
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalServer.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\EncrypticsWebServices\bin\PortalServer.pdb
+E:\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+E:\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+E:\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.pdb
+E:\synerzip\EncrypticsWebServices\bin\PortalCommon.dll
+E:\synerzip\EncrypticsWebServices\bin\PortalServer.dll
+E:\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+E:\synerzip\EncrypticsWebServices\bin\ServicesCommon.dll
+E:\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+E:\synerzip\EncrypticsWebServices\bin\ServicesCommon.pdb
+E:\synerzip\EncrypticsWebServices\bin\PortalCommon.pdb
+E:\synerzip\EncrypticsWebServices\bin\PortalServer.pdb
+E:\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+E:\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.Global.resources
+E:\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csproj.GenerateResource.Cache
+E:\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.dll
+E:\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\EncrypticsWebServices.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalCommon.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalServer.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\ServicesCommon.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\ServicesCommon.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalCommon.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\bin\PortalServer.pdb
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.Global.resources
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.csproj.GenerateResource.Cache
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.dll
+E:\Encryptics\Latest Encryptics\synerzip\EncrypticsWebServices\obj\Debug\EncrypticsWebServices.pdb

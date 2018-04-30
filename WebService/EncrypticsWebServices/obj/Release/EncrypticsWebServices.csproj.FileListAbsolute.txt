@@ -1,0 +1,119 @@
+D:\Dragon\Taceo\ProtoWebServices\bin\ProtoCommon.dll
+D:\Dragon\Taceo\ProtoWebServices\bin\ProtoServer.dll
+D:\Dragon\Taceo\ProtoWebServices\bin\EncrypticsServerDataAccess.dll
+D:\Dragon\Taceo\ProtoWebServices\bin\ProtoCommon.pdb
+D:\Dragon\Taceo\ProtoWebServices\bin\ProtoServer.pdb
+D:\Dragon\Taceo\ProtoWebServices\bin\EncrypticsServerDataAccess.pdb
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\ProtoWebServices.TimeService.resources
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.csproj.GenerateResource.Cache
+D:\Dragon\Taceo\ProtoWebServices\bin\EncrypticsWebServices.dll
+D:\Dragon\Taceo\ProtoWebServices\bin\EncrypticsWebServices.XmlSerializers.dll
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.KeyService.resources
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.LicensingService.resources
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.dll
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.XmlSerializers.dll
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.AdminService.resources
+D:\Dragon\Taceo\ProtoWebServices\obj\Release\EncrypticsWebServices.Global.resources
+D:\Dragon\Taceo\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+D:\Dragon\Taceo\EncrypticsWebServices\bin\EncrypticsWebServices.XmlSerializers.dll
+D:\Dragon\Taceo\EncrypticsWebServices\bin\ProtoCommon.dll
+D:\Dragon\Taceo\EncrypticsWebServices\bin\ProtoServer.dll
+D:\Dragon\Taceo\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+D:\Dragon\Taceo\EncrypticsWebServices\bin\ProtoCommon.pdb
+D:\Dragon\Taceo\EncrypticsWebServices\bin\ProtoServer.pdb
+D:\Dragon\Taceo\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.AdminService.resources
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.KeyService.resources
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\ProtoWebServices.TimeService.resources
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.LicensingService.resources
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.Global.resources
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csproj.GenerateResource.Cache
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.dll
+D:\Dragon\Taceo\EncrypticsWebServices\obj\Release\EncrypticsWebServices.XmlSerializers.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoServer.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoCommon.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ProtoServer.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.KeyService.resources
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.Global.resources
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\GIT Repository\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoServer.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoCommon.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ProtoServer.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.KeyService.resources
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.Global.resources
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll.config
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsWebServices.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ClientServer.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalServer.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ProtoCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ProtoServer.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsAPI.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Newtonsoft.Json.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.Oauth2.v2.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.Core.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\System.Net.Http.dll
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ClientServer.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalServer.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ProtoCommon.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ProtoServer.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\ClientServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\EncrypticsAPI.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Newtonsoft.Json.xml
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.Oauth2.v2.xml
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.xml
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\PortalServerDataAccess.pdb
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\bin\Google.Apis.Core.xml
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.KeyService.resources
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.Global.resources
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.csproj.GenerateResource.Cache
+C:\Users\Courtney\Documents\Git\raptor\EncrypticsWebServices\obj\Release\EncrypticsWebServices.dll

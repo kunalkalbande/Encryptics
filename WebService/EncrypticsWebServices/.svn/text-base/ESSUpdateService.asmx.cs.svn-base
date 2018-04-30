@@ -1,0 +1,94 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Web;
+using System.Web.Services;
+
+namespace ESS
+{
+	//================================================================//
+	// ESSTimeService
+	//================================================================//
+	[ WebService ( Namespace = "http://www.essentialsecurity.com/webservices/" )]
+	public class ESSUpdateService :
+		System.Web.Services.WebService {
+	
+		//----------------------------------------------------------------//
+		public ESSUpdateService() {
+			//CODEGEN: This call is required by the ASP.NET Web Services Designer
+			InitializeComponent();
+		}
+
+		#region Component Designer generated code
+		
+		//Required by the Web Services Designer 
+		private IContainer components = null;
+				
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing )
+		{
+			if(disposing && components != null)
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);		
+		}
+		
+		#endregion
+
+        #region web methods
+
+        //----------------------------------------------------------------//
+		/// <summary>
+        /// Takes a version info certificate and returns an UpdateServerResponse
+		/// </summary>
+		/// <param name="evelopeBytes"></param>
+		/// <param name="hwid"></param>
+		/// <returns></returns>
+        /// <remarks>Currently this method is not used!</remarks>
+		[WebMethod]
+		public byte [] GetUpdateInfo ( byte [] evelopeBytes, string hwid )
+        {
+            if (evelopeBytes == null)
+                return null;
+
+            try
+            {
+                UpdateServerResponse sResponse = new UpdateServerResponse();
+                sResponse.pURL = "http://www.gettaceo.com";
+                sResponse.mNeedsUpdate = true;
+                sResponse.pAutoUpdate = true;
+                return SerialMgr.SerialToBytes(sResponse);
+            }
+            catch
+            {
+                return null;
+            }
+		}
+		
+		//----------------------------------------------------------------//
+        /// <summary>
+        /// Test connection to the web service
+        /// </summary>
+        /// <returns></returns>
+		[WebMethod]
+		public int tESSUS ()
+        {
+            return 1;
+        }
+
+        #endregion
+    }
+}

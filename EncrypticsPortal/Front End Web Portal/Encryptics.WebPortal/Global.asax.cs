@@ -99,12 +99,6 @@ namespace Encryptics.WebPortal
             {
                 using (var client = new PortalServiceSoapClient())
                 {
-                    //AuthConfig.LogOut = true;
-                    //if (Session["auth"] != null)
-                    //{
-                    //    AuthConfig.AuthType = Session["auth"].ToString();
-                    //}
-                   
                     var token = (string)Session["Token"];
                     var userId = (long)Session["UserID"];
                     var entityId = (long)Session["EntityID"];

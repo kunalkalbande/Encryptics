@@ -3,8 +3,39 @@ using ServicesCommon;
 
 namespace PortalCommon
 {
+    // ENUMS //
+
+    public enum CompanyStatus
+    {
+        ANY = 0,
+        ACTIVE = 1,
+        INACTIVE = 2
+    }
+
+    public enum RoleType
+    {
+        User = 0,
+        Admin = 1,
+        SuperAdmin = 2
+    }
+
     // CLASSES //
-    
+
+    public class AuthorizedAction
+    {
+        public string Action { get; set; }
+        public bool IsAuthorized { get; set; }
+    }
+
+    public class CompanyListItem
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public RoleType Role { get; set; }
+        public LicensingInfo LicensingInfo { get; set; }
+        public bool IsActive { get; set; }
+    }
+
     public class ContactInfo
     {
         public string Email { get; set; }
@@ -19,7 +50,14 @@ namespace PortalCommon
         public string Region { get; set; }
         public string Country { get; set; }
     }
-    
+
+    public class LicensingInfo
+    {
+        public long ActiveLicenses { get; set; }
+        public long AvailableLicenses { get; set; }
+        public long UsedLicenses { get; set; }
+    }
+
     public class PortalRoleListItem
     {
         public long Id { get; set; }

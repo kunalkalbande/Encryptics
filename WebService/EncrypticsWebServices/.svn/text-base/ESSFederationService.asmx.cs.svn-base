@@ -1,0 +1,46 @@
+using System;
+using System.Data;
+using System.Web;
+using System.Collections;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+using System.ComponentModel;
+using ESS.Licensing;
+using ESSFederationServer;
+
+namespace ESS
+{
+    /// <summary>
+    /// Summary description for ESSFederationService
+    /// </summary>
+    [WebService(Namespace = "http://www.essentialsecurity.com/webservices/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [ToolboxItem(false)]
+    public class ESSFederationService : System.Web.Services.WebService
+    {
+        [WebMethod]
+        public byte[] ValidateMyUser(byte[] request)
+        {
+            if (request == null)
+                return null;
+            try
+            {
+                ESSLicenseServerInit.Init();
+                ValidateUserRequest vURequest = SerialMgr.SerialFromBytes(request) as ValidateUserRequest;
+                FederationServerAPI fedServer = new FederationServerAPI();
+                // We send the request and the DNS name of the computer that made the request. 
+                // We need the DNS name to ensure that there is no spoofing taking place.
+                byte[] responseBytes = fedServer.ValidateMyUser(vURequest, HttpContext.Current.Request.UserHostName);
+                return responseBytes;
+            }
+            catch { return null;    }
+        }
+        
+        [WebMethod]
+        public byte[] ViewMyCertificate()
+        {
+            FederationServerAPI fedServer = new FederationServerAPI();
+            return SerialMgr.SerialToBytes(fedServer.GetServerCertificate());
+        }
+    }
+}

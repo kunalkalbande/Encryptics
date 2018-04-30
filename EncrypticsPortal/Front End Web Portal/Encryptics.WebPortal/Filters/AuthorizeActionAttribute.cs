@@ -1,8 +1,12 @@
 ﻿using Encryptics.WebPortal.IdentityModel;
 using Encryptics.WebPortal.PortalService;
+using Newtonsoft.Json;
 using StructureMap;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
+using System.Net;
 using System.Web.Mvc;
 
 namespace Encryptics.WebPortal.Filters
@@ -10,6 +14,8 @@ namespace Encryptics.WebPortal.Filters
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class AuthorizeActionAttribute : AuthorizeAttribute
     {
+        private string hosturl = ConfigurationManager.AppSettings["hosturl"];
+
         private readonly PortalServiceSoap _portalService;
         private readonly bool _overrideEnabled;
 
@@ -78,12 +84,23 @@ namespace Encryptics.WebPortal.Filters
             }
             else
             {
-                var response = _portalService.GetUserAuthorizedAction(getUserAuthorizedActionRequest);
-                authorized = response.GetUserAuthorizedActionResult;
+                var cli = new WebClient();
+                string jsonstring = JsonConvert.SerializeObject(action);
+                cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
+                cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+                string url = String.Format(hosturl+"v2/accounts/{0}/authorizedaction/{1}", encrypticsUser.UserId, entityId);
+                try
+                {
+                    authorized = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, jsonstring));
+                   
+                }
+                catch
+                {
+                    authorized = false;
+                }
+                //   var response = _portalService.GetUserAuthorizedAction(getUserAuthorizedActionRequest);
+                //  authorized = response.GetUserAuthorizedActionResult;
 
-                //********syn: remove hardcode response//
-                authorized = true;
-                //********syn: remove hardcode response//
             }
 
             if (authorized)

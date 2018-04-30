@@ -6,11 +6,27 @@ C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\bin\
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\bin\Debug\PortalCommon.pdb
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\obj\Debug\PortalCommon.dll
 C:\Users\Courtney\Documents\Visual Studio 2015\Projects\raptor\PortalCommon\obj\Debug\PortalCommon.pdb
-E:\Encryptics\synerzip\PortalCommon\bin\Debug\PortalCommon.dll.config
-E:\Encryptics\synerzip\PortalCommon\bin\Debug\PortalCommon.dll
-E:\Encryptics\synerzip\PortalCommon\bin\Debug\PortalCommon.pdb
-E:\Encryptics\synerzip\PortalCommon\bin\Debug\ServicesCommon.dll
-E:\Encryptics\synerzip\PortalCommon\bin\Debug\ServicesCommon.pdb
-E:\Encryptics\synerzip\PortalCommon\obj\Debug\PortalCommon.csprojResolveAssemblyReference.cache
-E:\Encryptics\synerzip\PortalCommon\obj\Debug\PortalCommon.dll
-E:\Encryptics\synerzip\PortalCommon\obj\Debug\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\bin\Debug\PortalCommon.dll.config
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\bin\Debug\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\bin\Debug\PortalCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\bin\Debug\ServicesCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\bin\Debug\ServicesCommon.pdb
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\obj\Debug\PortalCommon.csprojResolveAssemblyReference.cache
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\obj\Debug\PortalCommon.dll
+C:\Users\Courtney\Documents\Git\synerzip\PortalCommon\obj\Debug\PortalCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\bin\Debug\PortalCommon.dll.config
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\bin\Debug\PortalCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\bin\Debug\PortalCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\bin\Debug\ServicesCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\bin\Debug\ServicesCommon.pdb
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\obj\Debug\PortalCommon.csprojResolveAssemblyReference.cache
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\obj\Debug\PortalCommon.dll
+E:\Encryptics\OriginalSource\synerzip\PortalCommon\obj\Debug\PortalCommon.pdb
+E:\synerzip\PortalCommon\bin\Debug\PortalCommon.dll.config
+E:\synerzip\PortalCommon\bin\Debug\PortalCommon.dll
+E:\synerzip\PortalCommon\bin\Debug\PortalCommon.pdb
+E:\synerzip\PortalCommon\bin\Debug\ServicesCommon.dll
+E:\synerzip\PortalCommon\bin\Debug\ServicesCommon.pdb
+E:\synerzip\PortalCommon\obj\Debug\PortalCommon.csprojResolveAssemblyReference.cache
+E:\synerzip\PortalCommon\obj\Debug\PortalCommon.dll
+E:\synerzip\PortalCommon\obj\Debug\PortalCommon.pdb

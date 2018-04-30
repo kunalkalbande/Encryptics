@@ -1,0 +1,1137 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.IO;
+using System.Web;
+using System.Web.Services;
+
+using ESS.Licensing;
+
+namespace ESS {
+
+	//================================================================//
+	// ESSLicensingService
+	//================================================================//
+	[ WebService ( Namespace = "http://www.essentialsecurity.com/webservices/" )]
+	public class ESSLicensingService :
+		System.Web.Services.WebService {
+	
+		//----------------------------------------------------------------//
+		public ESSLicensingService() {
+			//CODEGEN: This call is required by the ASP.NET Web Services Designer
+			InitializeComponent();
+		}
+
+		#region Component Designer generated code
+		
+		//Required by the Web Services Designer 
+		private IContainer components = null;
+				
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
+
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing ) {
+			if(disposing && components != null) {
+				components.Dispose();
+			}
+			base.Dispose(disposing);		
+		}
+		
+		#endregion
+
+		
+
+        #region New School Client Side Registration web methods
+
+		//---------------------------------------------------------------//
+        /// <summary>
+        /// Handles login to the server
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="Login", Description="Login to the server")]
+		public byte[] Login ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null; 
+
+			ESSLicenseServerInit.Init ();
+			
+			byte [] responseBytes = null;
+			try 
+			{
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+				// Decrypting envelope
+                // First try and decrypt message using current key
+                // If fails try and decrypt using default key
+                // If fails send back response for Client to update current key
+				byte [] requestBytes = envelope.Decrypt ( ServerKeyPair.Get ());
+				
+				// Deserializing LoginRequest
+				ESS.Licensing.LoginRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as ESS.Licensing.LoginRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+				
+				// Handle Login Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                LoginResponse loginResponse = webSrvcHandler.HandleLoginRequest(request); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				//Serializing response
+				byte [] loginResponseBytes = SerialMgr.SerialToBytes ( loginResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, loginResponseBytes);
+				
+				// Sign envelope with server keypair
+                Key sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+				envelope.Sign ( CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(),ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;
+		}
+
+		//---------------------------------------------------------------//
+        /// <summary>
+        /// Create a new user account
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="CreateNewAccount", Description="Create a new user account")]
+		public byte[] CreateNewAccount ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+			
+			byte [] responseBytes = null;
+			try 
+			{
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+				// Decrypting envelope.
+				byte [] requestBytes = envelope.Decrypt ( ServerKeyPair.Get ());
+				
+				// Deserializing NewAccountRequest
+				NewAccountRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as NewAccountRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+				
+				// Handle Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                NewAccountResponse newAccountResponse = webSrvcHandler.HandleNewAccountrequest(request); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] newAccountResponseBytes = SerialMgr.SerialToBytes ( newAccountResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, newAccountResponseBytes);
+				
+				// Sign envelope with server keypair
+                Key sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex ) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;		
+		}
+        		
+		
+		//---------------------------------------------------------------//
+        /// <summary>
+        /// Register new alias.
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="RegisterNewAlias", Description="Register a new license with the server, and initiate the rest of the registration process")]
+		public byte[] RegisterNewAlias ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+			byte [] responseBytes = null;
+			try 
+			{
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+				// Decrypting envelope
+                byte[] requestBytes;
+				
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException)
+                    {
+                        return null;
+                    }
+                }
+				// Deserializing NewAliasNotification
+				AliasCreationNotification request = SerialMgr.SerialFromBytes ( requestBytes ) as AliasCreationNotification;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+                
+                // Create key to use for signing from here on out
+                Key sKey;
+                if (!defaultKey)
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+				// Handle Licensing Request for creating alias
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                AliasCreationResponse aliasCreationResponse = webSrvcHandler.HandleAliasCreationRequest(request, sKey); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] aliasCreationResponseBytes = SerialMgr.SerialToBytes ( aliasCreationResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, aliasCreationResponseBytes);
+				
+				// Sign envelope with server keypair
+
+
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;		
+		}
+
+		
+		//---------------------------------------------------------------//
+        /// <summary>
+        /// Binds a purchased copy to a machine by returning Hardware license, or give trial time remaining.
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="GetHardwareLicenseStatus", Description="Binds a purchased copy to a machine, or gives trial time remaining")]
+		public byte[] GetHardwareLicenseStatus ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+			byte [] responseBytes = null;
+			try 
+			{
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+				// Decrypting envelope.
+                byte[] requestBytes;
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try 
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException) 
+                    {
+                        return null;
+                    }
+                }
+                
+				// Deserializing NewAliasNotification
+				HWLicenseStatusRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as HWLicenseStatusRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+                // Create the signing key for signing things from here on out
+                
+                Key sKey;
+                if (!defaultKey) // we didn't use the default key so we can go ahead and use our current signing key
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+				// Handle Hardware Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                HWLicenseStatusResponse HWLicenseStatusResponse = webSrvcHandler.HandleHWLicenseStatusRequest(request, sKey); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] HWLicenseStatusResponseBytes = SerialMgr.SerialToBytes ( HWLicenseStatusResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, HWLicenseStatusResponseBytes);
+				
+				// Sign envelope with server keypair
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+
+			}
+			catch ( Exception ex) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;				
+		}
+
+
+		//---------------------------------------------------------------//
+        /// <summary>
+        /// Check to see if any un-activated licenses should be activated by getting the alias status
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="GetAliasStatus", Description="Check to see if any un-activated licenses should be activated")]
+		public byte[] GetAliasStatus ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+			byte [] responseBytes = null;
+			try 
+			{
+				
+                // Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+
+                // Decrypting envelope.
+                byte[] requestBytes;
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException)
+                    {
+                        return null;
+                    }
+                }
+
+
+				// Deserializing NewAliasNotification
+				AliasStatusRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as AliasStatusRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+
+                // Create the signing key for signing things from here on out
+                Key sKey;
+                if (!defaultKey) // we didn't use the default key so we can go ahead and use our current signing key
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+				// Handle Licensing  Status Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                AliasStatusResponse aliasStatusResponseResponse = webSrvcHandler.HandleAliasStatusRequest(request, sKey); 
+
+				// New SecureEnvelope (for response)
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] AliasStatusResponseBytes = SerialMgr.SerialToBytes ( aliasStatusResponseResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, AliasStatusResponseBytes);
+				
+				// Sign envelope with server keypair
+
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex ) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;				
+		}
+
+        //---------------------------------------------------------------//
+        /// <summary>
+        /// Check if a given alias has been revoked
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="VerifyAlias", Description="Check to see a given alias has been revoked")]
+		public byte[] VerifyAilias ( byte [] envelopeBytes ) 
+		{
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+			byte [] responseBytes = null;
+			try 
+			{
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+
+                // Decrypting envelope.
+                byte[] requestBytes;
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException)
+                    {
+                        return null;
+                    }
+                }
+				
+				// Deserializing NewAliasNotification
+				AliasVerificationRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as AliasVerificationRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+                
+                // Create the signing key for signing things from here on out
+                
+                Key sKey;
+                if (!defaultKey) // we didn't use the default key so we can go ahead and use our current signing key
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+				// Handlealias verification Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                AliasVerificationResponse aliasVerificationResponse = new AliasVerificationResponse(webSrvcHandler.HandleAliasVerificationRequest(request, sKey)); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] AliasVerificationResponseBytes = SerialMgr.SerialToBytes ( aliasVerificationResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, AliasVerificationResponseBytes);
+				
+				// Sign envelope with server keypair
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex ) 
+			{
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;				
+		}
+
+
+		#endregion
+
+        #region New Alias Account Verification web methods
+
+        [WebMethod]
+        public byte[] RequestEmailAccountValidation(byte[] envelopeBytes)
+        {
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+			byte [] responseBytes = null;
+            try
+            {
+                // Attempting to deserialize envelope...
+                SecureEnvelope envelope = null;
+                envelope = SerialMgr.SerialFromBytes(envelopeBytes) as SecureEnvelope;
+
+                // Checking to see if envelope exists...
+                if (envelope == null) throw new Exception();
+
+                // Decrypting envelope
+                byte[] requestBytes;
+
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    return null;
+                }
+                // Deserializing NewAliasNotification
+                EAccountValidationRequest request = SerialMgr.SerialFromBytes(requestBytes) as EAccountValidationRequest;
+                if (request == null) return null;
+
+                // Verifying envelope signature.
+                //if (!envelope.Verify(request.ResponseKey)) throw new Exception();
+                
+                // Create key to use for signing from here on out
+                Key sKey;
+                if (!defaultKey)
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+                // Handle Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                EAccountValidationResponse response = webSrvcHandler.HandleAccountValidation(request, sKey);
+
+                envelope = new SecureEnvelope();
+                byte[] plainResponseBytes = SerialMgr.SerialToBytes(response);
+                envelope.Encrypt(request.mPair.certUser.pPublicKey, CryptTypeID.eSpecies.TRIPLEDES, plainResponseBytes);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+
+                // Serializing Secure Envelope
+                responseBytes = SerialMgr.SerialToBytes(envelope);
+                return responseBytes;  
+            }
+            catch 
+            { 
+                return null;
+            }
+            
+        }
+        [WebMethod]
+        public byte[] UpgradeLicense(byte[] envelopeBytes)
+        {
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+            bool defaultKey = false;
+            byte[] responseBytes = null;
+            try
+            {
+                // Attempting to deserialize envelope...
+                SecureEnvelope envelope = null;
+                envelope = SerialMgr.SerialFromBytes(envelopeBytes) as SecureEnvelope;
+
+                // Checking to see if envelope exists...
+                if (envelope == null) throw new Exception();
+
+                // Decrypting envelope
+                byte[] requestBytes;
+
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    return null;
+                }
+                // Deserializing NewAliasNotification
+                UpgradeLicenseRequest request = SerialMgr.SerialFromBytes(requestBytes) as UpgradeLicenseRequest;
+                if (request == null) return null;
+
+                // Verifying envelope signature.
+                //if (!envelope.Verify(request.ResponseKey)) throw new Exception();
+
+                // Create key to use for signing from here on out
+                Key sKey;
+                if (!defaultKey)
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+                // Handle Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                HWLicenseStatusResponse response = webSrvcHandler.HandleUpgradeLicense(request, sKey);
+
+                envelope = new SecureEnvelope();
+                byte[] plainResponseBytes = SerialMgr.SerialToBytes(response);
+                envelope.Encrypt(request.responseKey, CryptTypeID.eSpecies.TRIPLEDES, plainResponseBytes);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+
+                // Serializing Secure Envelope
+                responseBytes = SerialMgr.SerialToBytes(envelope);
+                return responseBytes;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// Designing without cryptography first. Will add cryptography to method before release.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public byte[] VerifyActivation(byte[] envelopeBytes)
+        {
+            if (envelopeBytes == null)
+                return null;
+            try
+            {
+                ESSLicenseServerInit.Init();
+                // Attempting to deserialize envelope...
+                SecureEnvelope envelope = null;
+                envelope = SerialMgr.SerialFromBytes(envelopeBytes) as SecureEnvelope;
+
+                // Checking to see if envelope exists...
+                if (envelope == null) throw new Exception();
+
+                // Decrypting envelope
+                byte[] requestBytes;
+
+                // try to decrypt with current key
+                // if that fails message back to get current key
+
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    return null;
+                }
+                ActivationInfo request = (ActivationInfo)SerialMgr.SerialFromBytes(requestBytes) as ActivationInfo;
+                if (request == null)
+                    return null;
+                Key sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                WebServiceHandler handler = new WebServiceHandler();
+                byte[] plainResponseBytes = SerialMgr.SerialToBytes(handler.HandleVerifyActivation(request, sKey));
+                envelope = new SecureEnvelope();
+                envelope.Encrypt(request.certUser.pPublicKey, CryptTypeID.eSpecies.TRIPLEDES, plainResponseBytes);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+
+                // Serializing Secure Envelope
+                byte[] responseBytes = SerialMgr.SerialToBytes(envelope);
+                return responseBytes;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Designing without cryptography first. Will add cryptography to method before release.
+        /// </summary>
+        /// <param name="productKey"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public bool IsProductKeyValid(string productKey)
+        {
+            LicenseServerAPI lServer = new LicenseServerAPI();
+            return lServer.IsProductKeyValid(productKey);
+        }
+
+        /// <summary>
+        /// Designing without cryptography first. Will add cryptography to method before release.
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+        [WebMethod(MessageName = "GetHWLicenseOwner", Description = "Returns email address of a user who is registered with provided hardware license.")]
+        public byte[] GetHWLicenseOwner(byte[] envelopeBytes)
+        {
+            if (envelopeBytes == null) return null;
+
+            byte[] responseBytes = null;
+            try
+            {
+                ESSLicenseServerInit.Init();
+                // Attempting to deserialize envelope...
+                SecureEnvelope envelope = null;
+                envelope = SerialMgr.SerialFromBytes(envelopeBytes) as SecureEnvelope;
+
+                // Checking to see if envelope exists...
+                if (envelope == null) throw new Exception();
+
+                // Decrypting envelope.
+                byte[] requestBytes;
+                // try to decrypt with current COMMUNICATION key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // It is hopeless they are using an old key or a bad key foce them to get the current key
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    return null;
+                }
+
+                HWLicenseOwnerRequest request = (HWLicenseOwnerRequest)SerialMgr.SerialFromBytes(requestBytes) as HWLicenseOwnerRequest;
+                if (request == null) return null;
+                Key sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                WebServiceHandler handler = new WebServiceHandler();
+                byte[] handledBytes = SerialMgr.SerialToBytes(handler.HandleHWLicenseOwnerRequest(request));
+                
+                // New SecureEnvelope for response
+                envelope = new SecureEnvelope();
+                envelope.Encrypt(request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, handledBytes);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+
+                responseBytes = SerialMgr.SerialToBytes(envelope);
+            }
+            catch ( Exception ex ) 
+            {
+                ExceptionLogger.LogException(ex, envelopeBytes);
+            }
+            return responseBytes;
+        }
+
+        #region Sig File related web methods
+
+        //---------------------------------------------------------------//
+        /// <summary>
+        /// This method is called during Centralized Deployment.
+        /// When the IT Administrator runs the Centralized Deployment command from the command line,
+        /// A request is sent to the server to create a sig file that will contain the IT Administrator
+        /// login credentials.
+        /// The method validates the Admin account and creates a sig file which is sent back to the computer
+        /// that made the request.
+        /// A record is added to the SIG table in the ESS database.
+        /// </summary>
+        /// <param name="envelopeBytes">Contains the Administrator credentials</param>
+        /// <returns></returns>
+		[WebMethod(MessageName="RequestSigFile", Description="Request a .sig file from the server")]
+		public byte[] RequestSigFile ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null;
+
+            ESSLicenseServerInit.Init();
+			
+			byte [] responseBytes = null;
+			try {
+
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+				// Decrypting envelope.
+				byte [] requestBytes = envelope.Decrypt ( ServerKeyPair.Get ());
+				
+				// Deserializing SigFileRequest
+				ESS.Licensing.SigFileRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as ESS.Licensing.SigFileRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+				
+				// Handle Sig file Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                SigFileResponse sigFileResponse = webSrvcHandler.HandleSigFileRequest(request); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] sigFileResponseBytes = SerialMgr.SerialToBytes ( sigFileResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, sigFileResponseBytes);
+				
+				// Sign envelope with server keypair
+                Key sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex)
+            {
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;
+		}
+
+        //---------------------------------------------------------------//
+		/// <summary>
+		/// This method is called from a client machine after Taceo was installed via Centralized Deployment,
+        /// when Taceo runs for the first time and a sig file is found on the client machine.
+        /// HandleSigStatusRequest is using the Administrator's email address
+        /// and password to get the UID of the admin.
+        /// It then checks if this admin has unbound licenses, if so - a new client can install a licensed Taceo on his computer.
+		/// </summary>
+		/// <param name="envelopeBytes"></param>
+		/// <returns></returns>
+        [WebMethod(MessageName = "RequestSigStatus", Description = "Get the status of a sig file (true = valid)")]
+        public byte[] RequestSigStatus(byte[] envelopeBytes)
+        {
+            return this.RequestSigStatus(envelopeBytes, -1);
+        }
+        /// <summary>
+        /// Returns the status either valid or invalid of a given SIG file.
+        /// In order for the sig file to register as valid it needs to be encrypted for this server,
+        /// Contain a valid signature, have valid login credentials (user name and password) of an account
+        /// that contains unbound hardware licenses.
+        /// </summary>
+        /// <param name="envelopeBytes">The encrypted sig file</param>
+        /// <param name="keyID">The id of the key used to encrypt the sig file</param>
+        /// <returns>Response bytes containing the bool value of whether it is valid or not</returns>
+        [WebMethod(MessageName="Request SIg Status", Description="Gets the status of a given sig file")]
+		public byte[] RequestSigStatus ( byte [] envelopeBytes, int keyID ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null; 
+			
+			ESSLicenseServerInit.Init ();
+
+			byte [] responseBytes = null;
+			try {
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+                bool defaultKey = false;
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+				
+                // Decrypting envelope.
+                byte[] requestBytes;
+                // try to decrypt with current key
+                // if that fails try and decrypt with the default key
+                // if that fails message back to get current key
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException)
+                    {
+                        return null;
+                    }
+                }
+				// Deserializing LoginRequest
+				ESS.Licensing.SigStatusRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as ESS.Licensing.SigStatusRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+				
+				// Handle Sig status Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                SigStatusResponse sigStatusResponse = webSrvcHandler.HandleSigStatusRequest(request, keyID); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] sigStatusResponseBytes = SerialMgr.SerialToBytes ( sigStatusResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, sigStatusResponseBytes);
+				
+				// Sign envelope with server keypair
+                Key sKey;
+                if (!defaultKey) // we didn't use the default key so we can go ahead and use our current signing key
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+			catch ( Exception ex)
+            {
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;
+		}
+
+		//---------------------------------------------------------------//
+
+        /// <summary>
+        /// This method is called from a client machine after Taceo was installed via Centralized Deployment,
+        /// the Admin's sig file exist and has unbound licenses.
+        /// A child account and new alias are created.
+        /// The parent of the child account is the Administrator that ran the Centralized Deployment
+        /// </summary>
+        /// <param name="envelopeBytes"></param>
+        /// <returns></returns>
+		[WebMethod(MessageName="CreateChildAccount", Description="Create an account owned by the parent account listed in the sig file")]
+		public byte[] CreateChildAccount ( byte [] envelopeBytes ) {
+
+            // check to see if we actually were given bytes
+            if (envelopeBytes == null)
+                return null; 
+
+			ESSLicenseServerInit.Init ();
+			
+			byte [] responseBytes = null;
+			try {
+				
+				// Attempting to deserialize envelope...
+				SecureEnvelope envelope = null;
+				envelope = SerialMgr.SerialFromBytes ( envelopeBytes ) as SecureEnvelope;
+				
+				// Checking to see if envelope exists...
+				if ( envelope == null ) throw new Exception ();
+                
+                bool defaultKey = false;
+				
+                // Decrypting envelope.
+				byte [] requestBytes;
+
+                try
+                {
+                    Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.COMMUNICATION);
+                    requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                }
+                // Oops we failed maybe they used the default key on this one
+                catch (System.Security.Cryptography.CryptographicException)
+                {
+                    try
+                    {
+                        // Try to decrypt with the default key pair 1.8 clients will be using this key.
+                        Key cKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+                        requestBytes = envelope.Decrypt(cKey.GetKeyPair());
+                        defaultKey = true;
+                    }
+                    // It is hopeless they are using an old key or a bad key foce them to get the current key
+                    catch (System.Security.Cryptography.CryptographicException)
+                    {
+                        return null;
+                    }
+                }
+				// Deserializing LoginRequest
+				ESS.Licensing.ChildAccountRequest request = SerialMgr.SerialFromBytes ( requestBytes ) as ESS.Licensing.ChildAccountRequest;
+				if ( request == null ) return null;
+
+				// Verifying envelope signature.
+				if ( !envelope.Verify ( request.ResponseKey )) throw new Exception ();
+                
+                
+                Key sKey;
+                if (!defaultKey) // we didn't use the default key so we can go ahead and use our current signing key
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.SIGNING);
+                else
+                    sKey = ServerInfo.pSingle.GetCurrentKeyPair(Key.KeyType.DEFAULT);
+
+				// Handle Child Account Licensing Request
+                WebServiceHandler webSrvcHandler = new WebServiceHandler();
+                ChildAccountResponse childAccountResponse = webSrvcHandler.HandleChildAccountRequest(request, sKey); 
+
+				// New SecureEnvelope for response
+				envelope = new SecureEnvelope ();
+				
+				// Serializing response
+				byte [] childAccountResponseBytes = SerialMgr.SerialToBytes ( childAccountResponse );
+				
+				// Encrypting responseBytes
+				envelope.Encrypt( request.ResponseKey, CryptTypeID.eSpecies.TRIPLEDES, childAccountResponseBytes);
+				
+                // Sign envelope with server keypair
+                envelope.Sign(CryptTypeID.eSpecies.SHA1, sKey.GetKeyPair(), ServerInfo.pSingle.pWebServicesURL, sKey.pKeyID);
+				
+				
+				// Serializing SecureEnvelope
+				responseBytes = SerialMgr.SerialToBytes ( envelope );
+			}
+            catch (Exception ex)
+            {
+                ExceptionLogger.LogException(ex, envelopeBytes);
+			}
+			
+			return responseBytes;
+		}
+
+		#endregion
+
+
+		//----------------------------------------------------------------//
+        /// <summary>
+        /// This method is used to test the connection to the web services.
+        /// </summary>
+        /// <returns></returns>
+		[WebMethod]
+		public int TestA ()
+		{
+			return 1;
+		}
+
+	}
+}

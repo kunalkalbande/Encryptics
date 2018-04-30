@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using PortalCommon;
 using PortalServerDataAccess;
 using ServicesCommon;
@@ -7,6 +8,174 @@ namespace PortalServer
 {
     public class PortalServerAPI
     {
+        public bool HandleExpireTokenSession(ref TokenAuth header, long entityId, long userId)
+        {
+            if (ValidateHeaders("HandleExpireTokenSession", ref header) == false)
+                return false;
+
+            PortalServerDA da = new PortalServerDA();
+
+            bool isSuccess = false;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    isSuccess = da.ExpireTokenSession(userIdents.EntityId, userIdents.Id, entityId, userId, null, header.Token);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleExpireTokenSession", "Exception: " + e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public UserAccount HandleGetAccountDetails(ref TokenAuth header, long entityId, long userId)
+        {
+            if (ValidateHeaders("HandleGetAccountDetails", ref header) == false)
+                return null;
+
+            PortalServerDA da = new PortalServerDA();
+
+            UserAccount userAcc = new UserAccount();
+
+            try
+            {
+                UserIdentifiers userIds = da.GetUserIdentifiers(header.Token);
+
+                if (userIds != null)
+                    userAcc = da.GetUserAccount(userIds.EntityId, userIds.Id, entityId, userId);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleGetAccountDetails", "Exception: " + e.Message);
+            }
+
+            return userAcc;
+        }
+
+        public bool HandleGetUserAuthorizedAction(ref TokenAuth header, long entityId, long userId, string action)
+        {
+            if (ValidateHeaders("HandleGetUserAuthorizedAction", ref header) == false)
+                return false;
+
+            PortalServerDA da = new PortalServerDA();
+
+            bool result = false;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    result = da.GetUserAuthorizedAction(userIdents.EntityId, userIdents.Id, entityId, userId, action);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleGetUserAuthorizedAction", "Exception: " + e.Message);
+            }
+
+            return result;
+        }
+
+        public List<AuthorizedAction> HandleGetUserAuthorizedActions(ref TokenAuth header, long entityId, long userId, string[] actions)
+        {
+            if (ValidateHeaders("HandleGetUserAuthorizedActions", ref header) == false)
+                return null;
+
+            PortalServerDA da = new PortalServerDA();
+
+            List<AuthorizedAction> result = null;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    result = da.GetUserAuthorizedActions(userIdents.EntityId, userIdents.Id, entityId, userId, actions);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleGetUserAuthorizedActions", "Exception: " + e.Message);
+            }
+
+            return result;
+        }
+
+        public List<CompanyListItem> HandleGetUserCompanies(ref TokenAuth header, long userId, CompanyStatus companyStatus)
+        {
+            if (ValidateHeaders("HandleGetUserCompanies", ref header) == false)
+                return null;
+
+            PortalServerDA da = new PortalServerDA();
+
+            List<CompanyListItem> enc = null;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    enc = da.GetUserCompanies(userIdents.EntityId, userIdents.Id, userId, companyStatus);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "GetUserCompanies", "Exception: " + e.Message);
+            }
+
+            return enc;
+        }
+
+        public bool HandleUpdateUserCompany(ref TokenAuth header, long entityId, long userId, long newEntityId, bool transferLicenses)
+        {
+            if (ValidateHeaders("HandleUpdateUserCompany", ref header) == false)
+                return false;
+
+            PortalServerDA da = new PortalServerDA();
+
+            bool isSuccess = false;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    isSuccess = da.UpdateUserCompany(userIdents.EntityId, userIdents.Id, entityId, userId, newEntityId, transferLicenses);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleUpdateUserCompany", "Exception: " + e.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public bool HandleUpdateUserContactInfo(ref TokenAuth header, long userId, string firstName, string lastName, ContactInfo userContactInfo)
+        {
+            if (ValidateHeaders("HandleUpdateUserContactInfo", ref header) == false)
+                return false;
+
+            PortalServerDA da = new PortalServerDA();
+
+            bool isSuccess = false;
+
+            try
+            {
+                UserIdentifiers userIdents = da.GetUserIdentifiers(header.Token);
+
+                if (userIdents != null)
+                    isSuccess = da.UpdateUserContactInfo(userId, firstName, lastName, userContactInfo);
+            }
+            catch (Exception e)
+            {
+                da.LogAppRecord("PortalServerAPI", "HandleUpdateUserContactInfo", "Exception: " + e.Message);
+            }
+
+            return isSuccess;
+        }
+
         public UserAccount HandleUserLogin(ref TokenAuth header, string accountName, string password)
         {
             PortalServerDA da = new PortalServerDA();
@@ -109,14 +278,12 @@ namespace PortalServer
 
             return true;
         }
-
         public string GetTenant(string accountName)
         {
             string tenant = null;
             tenant = ServicesCommonDA.GetTenantIdByEmail(accountName);
             return tenant;
         }
-
         public UserAccount HandleUserLogin(ref TokenAuth header, string accountName)
         {
             PortalServerDA da = new PortalServerDA();

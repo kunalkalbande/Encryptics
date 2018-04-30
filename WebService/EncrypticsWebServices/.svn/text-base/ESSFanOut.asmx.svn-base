@@ -1,0 +1,1 @@
+<%@ WebService Language="c#" Codebehind="ESSFanOut.asmx.cs" Class="ESS.ESSFanOut" %>

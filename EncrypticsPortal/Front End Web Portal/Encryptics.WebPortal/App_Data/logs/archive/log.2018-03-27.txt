@@ -1,0 +1,380 @@
+2018-03-26 11:37:55.682 INFO                            ________________________ Initializing dependency resolution.
+2018-03-26 17:09:38.509 INFO                            ________________________ Initializing dependency resolution.
+2018-03-26 17:09:41.385 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:41.397 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:41.720 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:41.720 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:41.938 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:41.940 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:41.940 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:41.940 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:42.018 INFO                            ________________________ ******** Beginning request. ********: (GET)/
+2018-03-26 17:09:42.018 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:42.018 DEBUG                           ________________________ Form:
+2018-03-26 17:09:42.018 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:42.152 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-03-26 17:09:42.152 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-03-26 17:09:42.162 WARN                            ________________________ Nothing sent in request data.
+2018-03-26 17:09:42.421 DEBUG                           ________________________ Encrypted ticket: 
+2018-03-26 17:09:42.428 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:42.475 INFO                            ________________________ Initializing Role Provider
+2018-03-26 17:09:42.712 INFO                            o4dry4ifk1co1aryavfdgssr ******** Beginning OnPostAcquireRequestState. ********
+2018-03-26 17:09:42.712 INFO                            o4dry4ifk1co1aryavfdgssr Session Available: True
+2018-03-26 17:09:42.721 INFO                            o4dry4ifk1co1aryavfdgssr Session keys: 0
+2018-03-26 17:09:42.721 INFO                            o4dry4ifk1co1aryavfdgssr ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:42.781 INFO                            o4dry4ifk1co1aryavfdgssr Initializing HomeController class.
+2018-03-26 17:09:42.825 INFO                            o4dry4ifk1co1aryavfdgssr Executing (GET) /
+2018-03-26 17:09:42.888 INFO                            o4dry4ifk1co1aryavfdgssr Finished executing (GET) /
+2018-03-26 17:09:43.147 INFO                            ________________________ ******** Ending request. ********: (GET)/
+2018-03-26 17:09:43.147 INFO                            ________________________ ContextOnEndRequest
+2018-03-26 17:09:43.147 DEBUG                           ________________________ RequestType: GET
+2018-03-26 17:09:43.147 DEBUG                           ________________________ StatusCode: 302
+2018-03-26 17:09:43.306 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:43.306 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:43.306 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:43.306 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:43.306 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-03-26 17:09:43.306 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:43.306 DEBUG                           ________________________     returnUrl = /
+2018-03-26 17:09:43.306 DEBUG                           ________________________ Form:
+2018-03-26 17:09:43.313 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:43.313 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:43.313 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-03-26 17:09:43.313 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-03-26 17:09:43.313 WARN                            ________________________ Nothing sent in request data.
+2018-03-26 17:09:43.313 DEBUG                           ________________________ Encrypted ticket: 
+2018-03-26 17:09:43.313 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:43.313 INFO                            wf4qw5fybhlqehds0a3gwjgw ******** Beginning OnPostAcquireRequestState. ********
+2018-03-26 17:09:43.313 INFO                            wf4qw5fybhlqehds0a3gwjgw Session Available: True
+2018-03-26 17:09:43.313 INFO                            wf4qw5fybhlqehds0a3gwjgw Session keys: 0
+2018-03-26 17:09:43.313 INFO                            wf4qw5fybhlqehds0a3gwjgw ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:43.515 INFO                            wf4qw5fybhlqehds0a3gwjgw Executing (GET) /Account/Login
+2018-03-26 17:09:43.524 INFO                            wf4qw5fybhlqehds0a3gwjgw Finished executing (GET) /Account/Login
+2018-03-26 17:09:44.982 INFO                            wf4qw5fybhlqehds0a3gwjgw Disposing AccountController class.
+2018-03-26 17:09:44.990 INFO                            wf4qw5fybhlqehds0a3gwjgw AccountController disposed of.
+2018-03-26 17:09:44.990 INFO                            wf4qw5fybhlqehds0a3gwjgw Disposing AccountController class.
+2018-03-26 17:09:44.990 INFO                            wf4qw5fybhlqehds0a3gwjgw AccountController disposed of.
+2018-03-26 17:09:45.006 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/Login?returnUrl=%2F
+2018-03-26 17:09:45.006 INFO                            ________________________ ContextOnEndRequest
+2018-03-26 17:09:45.006 DEBUG                           ________________________ RequestType: GET
+2018-03-26 17:09:45.006 DEBUG                           ________________________ StatusCode: 200
+2018-03-26 17:09:45.025 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:45.025 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:45.025 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:45.025 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:45.025 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/shared.css
+2018-03-26 17:09:45.032 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:45.032 DEBUG                           ________________________ Form:
+2018-03-26 17:09:45.032 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:45.032 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:45.032 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:45.066 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:45.066 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:45.066 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:45.066 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:45.066 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:45.066 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:45.078 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/site.css
+2018-03-26 17:09:46.027 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:47.007 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:48.007 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:49.015 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:49.988 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:51.012 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.007 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.029 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.051 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/shared.css
+2018-03-26 17:09:52.051 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:52.074 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.096 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.118 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.139 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.161 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.183 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.183 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.207 DEBUG                           ________________________ Form:
+2018-03-26 17:09:52.229 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.229 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.229 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.255 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.277 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:52.299 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.321 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.342 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.364 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:52.386 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.386 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.409 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.430 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:52.452 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2018-03-26 17:09:52.473 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.495 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.516 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:52.540 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.540 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.565 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.590 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.614 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2018-03-26 17:09:52.638 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:52.661 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.687 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:52.690 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.716 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:52.738 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:52.738 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.738 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.768 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:52.790 DEBUG                           ________________________ Form:
+2018-03-26 17:09:52.812 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:52.834 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:52.857 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:52.882 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:52.911 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.937 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/site.css
+2018-03-26 17:09:52.938 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:52.962 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:52.984 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:53.005 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.027 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.049 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/custom.css
+2018-03-26 17:09:53.070 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/ajax.js
+2018-03-26 17:09:53.092 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:53.116 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-1.8.2.js
+2018-03-26 17:09:53.141 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:53.165 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:53.188 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.210 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:53.232 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.255 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.276 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.298 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:53.298 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.cookie.js
+2018-03-26 17:09:53.321 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.343 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:53.365 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:53.386 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:53.386 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.409 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.430 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.452 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.473 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:53.494 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.516 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery-ui-1.11.1.js
+2018-03-26 17:09:53.538 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:53.560 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:53.581 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:53.581 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.605 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.css
+2018-03-26 17:09:53.605 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.628 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.649 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.671 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2018-03-26 17:09:53.693 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.714 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:53.736 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.757 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.779 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.801 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.theme.css
+2018-03-26 17:09:53.801 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.823 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:53.845 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.866 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:53.888 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2018-03-26 17:09:53.909 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:53.909 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:53.909 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:53.909 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:53.941 DEBUG                           ________________________ Form:
+2018-03-26 17:09:53.963 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:53.984 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.006 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.028 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:54.028 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:54.033 INFO                            ________________________ Initializing AuthenticationModule class.
+2018-03-26 17:09:54.055 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/ajax.js
+2018-03-26 17:09:54.055 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/custom.css
+2018-03-26 17:09:54.055 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-1.8.2.js
+2018-03-26 17:09:54.055 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.055 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.082 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.103 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.124 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.146 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:54.168 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:54.168 INFO                            ________________________ ******** Initializing PipelineLoggingModule class. ********
+2018-03-26 17:09:54.192 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.213 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.213 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.237 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.cookie.js
+2018-03-26 17:09:54.237 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2018-03-26 17:09:54.261 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:54.261 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.283 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:54.306 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.306 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:54.329 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery-ui-1.11.1.js
+2018-03-26 17:09:54.329 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.352 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.374 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.376 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.js
+2018-03-26 17:09:54.398 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:54.419 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.441 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:54.462 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/modernizr-2.6.2.js
+2018-03-26 17:09:54.462 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.462 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.462 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.487 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.509 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.509 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.531 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.532 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.532 INFO                            ________________________ ******** Beginning request. ********: (GET)/Images/LAndingPage-logo.png
+2018-03-26 17:09:54.556 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/themes/encryptics/jquery-ui.structure.css
+2018-03-26 17:09:54.556 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.578 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.601 INFO                            ________________________ ******** Beginning request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2018-03-26 17:09:54.601 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.601 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.601 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.626 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.626 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.648 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.648 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.648 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.648 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:54.673 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:54.695 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.695 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.695 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.718 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.unobtrusive.js
+2018-03-26 17:09:54.719 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.742 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.unobtrusive-ajax.js
+2018-03-26 17:09:54.742 INFO                            ________________________ ******** Ending request. ********: (GET)/Scripts/jquery.validate.js
+2018-03-26 17:09:54.742 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.742 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2018-03-26 17:09:54.767 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.767 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.788 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.788 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.788 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.788 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.788 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:54.788 INFO                            ________________________ ******** Ending request. ********: (GET)/Images/LAndingPage-logo.png
+2018-03-26 17:09:54.799 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/24E818_2A_0.woff
+2018-03-26 17:09:54.951 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:54.951 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:54.951 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:54.953 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:54.953 INFO                            ________________________ ******** Beginning request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2018-03-26 17:09:54.953 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:54.953 DEBUG                           ________________________ Form:
+2018-03-26 17:09:54.953 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:54.953 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:54.953 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:55.049 INFO                            ________________________ ******** Ending request. ********: (GET)/Content/webfonts/260969_0_0.woff
+2018-03-26 17:09:55.413 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:55.413 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:55.413 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:55.413 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:09:55.413 INFO                            ________________________ ******** Beginning request. ********: (GET)/favicon.ico
+2018-03-26 17:09:55.413 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:55.413 DEBUG                           ________________________ Form:
+2018-03-26 17:09:55.422 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:55.422 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:55.422 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:55.422 INFO                            ________________________ ******** Ending request. ********: (GET)/favicon.ico
+2018-03-26 17:09:56.129 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:09:56.129 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:09:56.129 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:09:56.129 DEBUG                           ________________________ Request Type: True
+2018-03-26 17:09:56.129 INFO                            ________________________ ******** Beginning request. ********: (GET)/__browserLink/requestData/477e44b48f314de99d895971fe285dee?version=2
+2018-03-26 17:09:56.129 DEBUG                           ________________________ QueryString:
+2018-03-26 17:09:56.129 DEBUG                           ________________________     version = 2
+2018-03-26 17:09:56.129 DEBUG                           ________________________ Form:
+2018-03-26 17:09:56.129 DEBUG                           ________________________ Cookies:
+2018-03-26 17:09:56.129 DEBUG                           ________________________     Auth = 
+2018-03-26 17:09:56.129 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:09:56.141 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-03-26 17:09:56.141 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-03-26 17:09:56.141 WARN                            ________________________ Nothing sent in request data.
+2018-03-26 17:09:56.141 DEBUG                           ________________________ Encrypted ticket: 
+2018-03-26 17:09:56.141 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:56.141 INFO                            ________________________ ******** Beginning OnPostAcquireRequestState. ********
+2018-03-26 17:09:56.141 INFO                            ________________________ Session Available: False
+2018-03-26 17:09:56.141 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:09:56.224 INFO                            ________________________ ******** Ending request. ********: (GET)/__browserLink/requestData/477e44b48f314de99d895971fe285dee?version=2
+2018-03-26 17:09:56.224 INFO                            ________________________ ContextOnEndRequest
+2018-03-26 17:09:56.224 DEBUG                           ________________________ RequestType: GET
+2018-03-26 17:09:56.224 DEBUG                           ________________________ StatusCode: 200
+2018-03-26 17:10:03.795 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:10:03.795 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:10:03.798 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:10:03.798 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:10:03.798 INFO                            ________________________ ******** Beginning request. ********: (POST)/Account/Login?returnUrl=%2F
+2018-03-26 17:10:03.798 DEBUG                           ________________________ QueryString:
+2018-03-26 17:10:03.798 DEBUG                           ________________________     returnUrl = /
+2018-03-26 17:10:03.798 DEBUG                           ________________________ Form:
+2018-03-26 17:10:03.798 DEBUG                           ________________________     __RequestVerificationToken = 6CskfSIR7DJ6HXdS8fvNEbCGOrKBUmLTQO-I02vPeSRc15Wgt7ean3vxNDVDSJvXHp1FTkxrMl_rWMircbi7hP7Vo5_niZLIVMd231ZVd981
+2018-03-26 17:10:03.798 DEBUG                           ________________________     UserName = tanvik@idera.local
+2018-03-26 17:10:03.798 DEBUG                           ________________________     RememberMe = false,
+2018-03-26 17:10:03.798 DEBUG                           ________________________ Cookies:
+2018-03-26 17:10:03.798 DEBUG                           ________________________     Auth = 
+2018-03-26 17:10:03.798 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:10:03.798 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-03-26 17:10:03.813 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-03-26 17:10:03.899 WARN                            ________________________ Could not deserialize as JSON.
+2018-03-26 17:10:03.899 DEBUG                           ________________________ Encrypted ticket: 
+2018-03-26 17:10:03.899 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:10:03.899 INFO                            h2e2h5opxmsvkisticpx1b0g ******** Beginning OnPostAcquireRequestState. ********
+2018-03-26 17:10:03.899 INFO                            h2e2h5opxmsvkisticpx1b0g Session Available: True
+2018-03-26 17:10:03.899 INFO                            h2e2h5opxmsvkisticpx1b0g Session keys: 0
+2018-03-26 17:10:03.899 INFO                            h2e2h5opxmsvkisticpx1b0g ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:10:04.024 INFO                            h2e2h5opxmsvkisticpx1b0g Executing (POST) /Account/Login
+2018-03-26 17:10:07.827 INFO                            h2e2h5opxmsvkisticpx1b0g Entering Login
+2018-03-26 17:10:12.115 WARN                            h2e2h5opxmsvkisticpx1b0g ModelState errors detected:
+2018-03-26 17:10:12.115 ERROR                           h2e2h5opxmsvkisticpx1b0g 1) The password is required.
+2018-03-26 17:10:12.115 INFO                            h2e2h5opxmsvkisticpx1b0g Finished executing (POST) /Account/Login
+2018-03-26 17:10:12.115 INFO                            h2e2h5opxmsvkisticpx1b0g Disposing AccountController class.
+2018-03-26 17:10:12.115 INFO                            h2e2h5opxmsvkisticpx1b0g AccountController disposed of.
+2018-03-26 17:10:12.115 INFO                            h2e2h5opxmsvkisticpx1b0g Disposing AccountController class.
+2018-03-26 17:10:12.115 INFO                            h2e2h5opxmsvkisticpx1b0g AccountController disposed of.
+2018-03-26 17:10:12.129 INFO                            ________________________ ******** Ending request. ********: (POST)/Account/Login?returnUrl=%2F
+2018-03-26 17:10:12.129 INFO                            ________________________ ContextOnEndRequest
+2018-03-26 17:10:12.129 DEBUG                           ________________________ RequestType: POST
+2018-03-26 17:10:12.129 DEBUG                           ________________________ StatusCode: 302
+2018-03-26 17:10:12.129 DEBUG                           ________________________ language: en-GB
+2018-03-26 17:10:12.129 DEBUG                           ________________________ language: en-US;q=0.9
+2018-03-26 17:10:12.129 DEBUG                           ________________________ language: en;q=0.8
+2018-03-26 17:10:12.129 DEBUG                           ________________________ Request Type: False
+2018-03-26 17:10:12.129 INFO                            ________________________ ******** Beginning request. ********: (GET)/Account/SessionEnded?ReturnUrl=%2fAccount%2fLogin%3freturnUrl%3d%252F&returnUrl=%2F
+2018-03-26 17:10:12.142 DEBUG                           ________________________ QueryString:
+2018-03-26 17:10:12.142 DEBUG                           ________________________     ReturnUrl = /Account/Login?returnUrl=%2F,/
+2018-03-26 17:10:12.142 DEBUG                           ________________________ Form:
+2018-03-26 17:10:12.142 DEBUG                           ________________________ Cookies:
+2018-03-26 17:10:12.142 DEBUG                           ________________________     Auth = 
+2018-03-26 17:10:12.142 DEBUG                           ________________________     __RequestVerificationToken = VYZ966TueO-FvJUOIGNIlB55VvBPWECXhsXsCVHTjgrmowo_4_1UtSEsUUvbXC_3DE3og9ipPTIZ3OQWMw6iICCPrq1A5UfouA1jpFp3dhA1
+2018-03-26 17:10:12.142 DEBUG                           ________________________     ASP.NET_SessionId = h2e2h5opxmsvkisticpx1b0g
+2018-03-26 17:10:12.142 INFO                            ________________________ ******** Beginning OnAuthenticateRequest. ********
+2018-03-26 17:10:12.142 WARN                            ________________________ Forms Authentication cookie not in request cookies.
+2018-03-26 17:10:12.142 WARN                            ________________________ Nothing sent in request data.
+2018-03-26 17:10:12.142 DEBUG                           ________________________ Encrypted ticket: 
+2018-03-26 17:10:12.157 INFO                            ________________________ ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:10:12.157 INFO                            h2e2h5opxmsvkisticpx1b0g ******** Beginning OnPostAcquireRequestState. ********
+2018-03-26 17:10:12.157 INFO                            h2e2h5opxmsvkisticpx1b0g Session Available: True
+2018-03-26 17:10:12.157 INFO                            h2e2h5opxmsvkisticpx1b0g Session keys: 4
+2018-03-26 17:10:12.157 INFO                            h2e2h5opxmsvkisticpx1b0g ******** Exiting OnAuthenticateRequest. ********
+2018-03-26 17:10:12.233 INFO                            h2e2h5opxmsvkisticpx1b0g Executing (GET) /Account/SessionEnded
+2018-03-26 17:10:12.241 INFO                            h2e2h5opxmsvkisticpx1b0g Finished executing (GET) /Account/SessionEnded
+2018-03-26 17:10:12.241 INFO                            h2e2h5opxmsvkisticpx1b0g Disposing AccountController class.
+2018-03-26 17:10:12.241 INFO                            h2e2h5opxmsvkisticpx1b0g AccountController disposed of.
+2018-03-26 17:10:12.241 INFO                            h2e2h5opxmsvkisticpx1b0g Disposing AccountController class.
+2018-03-26 17:10:12.251 INFO                            h2e2h5opxmsvkisticpx1b0g AccountController disposed of.
+2018-03-26 17:10:12.251 INFO                            ________________________ ******** Ending request. ********: (GET)/Account/SessionEnded?ReturnUrl=%2fAccount%2fLogin%3freturnUrl%3d%252F&returnUrl=%2F
+2018-03-26 17:10:12.251 INFO                            ________________________ ContextOnEndRequest
+2018-03-26 17:10:12.251 DEBUG                           ________________________ RequestType: GET
+2018-03-26 17:10:12.251 DEBUG                           ________________________ StatusCode: 401
+2018-03-26 17:10:25.498 INFO                            ________________________ Disposing AuthenticationModule class.
+2018-03-26 17:10:25.501 INFO                            ________________________ AuthenticationModule disposed of.
+2018-03-26 17:10:25.501 INFO                            ________________________ ******** Disposing PipelineLoggingModule class. ********
+2018-03-26 17:10:25.517 INFO                            ________________________ ******** Disposing JsonContentTypeModule class. ********

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/ESS/!svn/ver/5004/trunk/Taceo/WebProjects/ESSWebServices
+END
+Web.config
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/ESS/!svn/ver/4986/trunk/Taceo/WebProjects/ESSWebServices/Web.config
+END
+ESSTimeService.asmx.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSTimeService.asmx.resx
+END
+ESSFanOut.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/ESS/!svn/ver/2625/trunk/Taceo/WebProjects/ESSWebServices/ESSFanOut.asmx.cs
+END
+ESSLicensingService.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/ESS/!svn/ver/5004/trunk/Taceo/WebProjects/ESSWebServices/ESSLicensingService.asmx.cs
+END
+ESSFederationService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/ESS/!svn/ver/3497/trunk/Taceo/WebProjects/ESSWebServices/ESSFederationService.asmx
+END
+ESSUpdateService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSUpdateService.asmx
+END
+ESSFederationService.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/ESS/!svn/ver/3637/trunk/Taceo/WebProjects/ESSWebServices/ESSFederationService.asmx.cs
+END
+ESSUpdateService.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/ESS/!svn/ver/5004/trunk/Taceo/WebProjects/ESSWebServices/ESSUpdateService.asmx.cs
+END
+Global.asax
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/Global.asax
+END
+ESSWebServices.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/ESS/!svn/ver/4986/trunk/Taceo/WebProjects/ESSWebServices/ESSWebServices.csproj
+END
+ESSKeyService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSKeyService.asmx
+END
+ESSFanOut.asmx.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSFanOut.asmx.resx
+END
+ESSLicensingService.asmx.resx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSLicensingService.asmx.resx
+END
+Global.asax.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/ESS/!svn/ver/2281/trunk/Taceo/WebProjects/ESSWebServices/Global.asax.cs
+END
+AssemblyInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/ESS/!svn/ver/2150/trunk/Taceo/WebProjects/ESSWebServices/AssemblyInfo.cs
+END
+ESSKeyService.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/ESS/!svn/ver/4645/trunk/Taceo/WebProjects/ESSWebServices/ESSKeyService.asmx.cs
+END
+ESSTimeService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSTimeService.asmx
+END
+ESSTimeService.asmx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/ESS/!svn/ver/2625/trunk/Taceo/WebProjects/ESSWebServices/ESSTimeService.asmx.cs
+END
+ESSUpdateService.asmx.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSUpdateService.asmx.resx
+END
+TaceoKeyPair.snk
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/ESS/!svn/ver/2159/trunk/Taceo/WebProjects/ESSWebServices/TaceoKeyPair.snk
+END
+ESSKeyService.asmx.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSKeyService.asmx.resx
+END
+Global.asax.resx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/Global.asax.resx
+END
+ESSLicensingService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSLicensingService.asmx
+END
+ESSFanOut.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/ESS/!svn/ver/1993/trunk/Taceo/WebProjects/ESSWebServices/ESSFanOut.asmx
+END

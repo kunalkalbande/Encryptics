@@ -12,6 +12,7 @@ using Microsoft.Owin.Security.WsFederation;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -29,6 +30,8 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
     [SessionState(SessionStateBehavior.ReadOnly), Authorize]
     public class UserHomeController : PortalServiceAwareController
     {
+        private string hosturl = ConfigurationManager.AppSettings["hosturl"];
+
         public string MobileDeviceModel
         {
             get { return Request.Browser.MobileDeviceModel.ToLower(); }
@@ -68,8 +71,14 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
                 
                 return View(accountModel);
             }
-
-            ViewBag.Message(MyResources.CouldNotRetrieveAccountDetailsErrorMessage);
+            if (ViewBag.Message == null)
+            {
+                ViewBag.Message = MyResources.CouldNotRetrieveAccountDetailsErrorMessage;
+            }
+            else
+            {
+                ViewBag.Message(MyResources.CouldNotRetrieveAccountDetailsErrorMessage);
+            }
 
             return View();
         }
@@ -165,19 +174,36 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
         public async Task<ActionResult> Manage()
         {
             ViewData["ErrorMessage"] = TempData["ErrorMessage"];
+			
+			           var cli = new WebClient();
 
-            var request = new GetAccountDetailsRequest(_tokenAuth, _encrypticsUser.EntityId,
-                                                       _encrypticsUser.UserId);
+            string url = String.Format(hosturl+"v2/accounts/{0}/{1}/details", _encrypticsUser.EntityId, _encrypticsUser.UserId);
+            cli.Headers.Add("TokenAuth_ID", _tokenAuth.Token);
+            cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+            PortalService.UserAccount useracc = null;
+            var tokenAuth = new TokenAuth();
 
-            GetAccountDetailsResponse response = await _portalService.GetAccountDetailsAsync(request);
-            if (response.TokenAuth.Status == TokenStatus.Succes && response.GetAccountDetailsResult != null)
+            try
             {
-                EditableUserAccountModel accountDetails =
-                    Mapper.Map<PortalService.UserAccount, EditableUserAccountModel>(response.GetAccountDetailsResult);
+                useracc = JsonConvert.DeserializeObject<PortalService.UserAccount>(cli.DownloadString(url));
+                WebHeaderCollection myWebHeaderCollection = cli.ResponseHeaders;
+                if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                {
+                    tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                    tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                    if (tokenAuth.Status == TokenStatus.Succes && useracc != null)
+                    {
+                        EditableUserAccountModel accountDetails =
+                            Mapper.Map<PortalService.UserAccount, EditableUserAccountModel>(useracc);
 
-                return View(accountDetails);
+                        return View(accountDetails);
+                    }
+                }
             }
+            catch (Exception ex)
+            {
 
+            }
             TempData["ErrorMessage"] = MyResources.CouldNotRetrieveUserAccount;
 
             return RedirectToAction("Index", "Home", new { area = string.Empty });
@@ -198,13 +224,33 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
                         user_id = _encrypticsUser.UserId
                     };
 
-                var response = await _portalService.UpdateUserContactInfoAsync(request);
+                var cli = new WebClient();
+                var jsonstring = JsonConvert.SerializeObject(model.ContactInfo);
+                cli.Headers.Add("TokenAuth_ID", _tokenAuth.Token);
+                cli.Headers[HttpRequestHeader.ContentType] = "application/json";
+                string url = String.Format(hosturl+"v2/accounts/{0}/updateusercontactinfo/{1}/{2}", _encrypticsUser.UserId, model.FirstName, model.LastName);
 
-                if (response.UpdateUserContactInfoResult && response.TokenAuth.Status == TokenStatus.Succes)
+                try
                 {
-                    return RedirectToAction(string.Empty);
-                }
+                    bool result = JsonConvert.DeserializeObject<bool>(cli.UploadString(url, jsonstring));
+                    var tokenAuth = new TokenAuth();
+                    var myWebHeaderCollection = cli.ResponseHeaders;
+                    if (myWebHeaderCollection.GetValues("tokenauth_id") != null)
+                    {
+                        tokenAuth.Token = myWebHeaderCollection.GetValues("tokenauth_id")[0];
+                        tokenAuth.Status = Convert.ToInt32(myWebHeaderCollection.GetValues("tokenauth_status")[0]);
+                        if (result && tokenAuth.Status == TokenStatus.Succes)
+                        {
+                            return RedirectToAction(string.Empty);
+                        }
+                    }
 
+
+                }
+                catch
+                {
+
+                }
                 ViewData["ErrorMessage"] = "Could not update account details.";
             }
             else
@@ -438,7 +484,7 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
                 new GetAccountDetailsRequest(_tokenAuth, _encrypticsUser.EntityId, _encrypticsUser.UserId);
             var cli = new WebClient();
            
-            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/{1}/details",_encrypticsUser.EntityId,_encrypticsUser.UserId);
+            string url = String.Format(hosturl+"v2/accounts/{0}/{1}/details",_encrypticsUser.EntityId,_encrypticsUser.UserId);
             cli.Headers.Add("TokenAuth_ID", _tokenAuth.Token);
             cli.Headers[HttpRequestHeader.ContentType] = "application/json";
             PortalService.UserAccount useracc=null;
@@ -468,21 +514,28 @@ namespace Encryptics.WebPortal.Areas.UserAccount.Controllers
 
         private IEnumerable<UsageSummaryModel> RetrieveUsageDetails()
         {
-            var getDeviceListRequest = new GetUserUsageSummaryByMonthRequest
+            try
+            {
+                var getDeviceListRequest = new GetUserUsageSummaryByMonthRequest
                 {
                     TokenAuth = _tokenAuth,
                     entity_id = _encrypticsUser.EntityId,
                     user_id = _encrypticsUser.UserId
                 };
 
-            GetUserUsageSummaryByMonthResponse response =
-                _portalService.GetUserUsageSummaryByMonth(getDeviceListRequest);
+                GetUserUsageSummaryByMonthResponse response =
+                    _portalService.GetUserUsageSummaryByMonth(getDeviceListRequest);
 
-            IEnumerable<UsageSummaryModel> usage =
-                Mapper.Map<UsageSummary[], IEnumerable<UsageSummaryModel>>(response.GetUserUsageSummaryByMonthResult)
-                      .ToList().OrderByDescending(us => us.Year).ThenByDescending(us => us.Month);
+                IEnumerable<UsageSummaryModel> usage =
+                    Mapper.Map<UsageSummary[], IEnumerable<UsageSummaryModel>>(response.GetUserUsageSummaryByMonthResult)
+                          .ToList().OrderByDescending(us => us.Year).ThenByDescending(us => us.Month);
 
-            return usage;
+                return usage;
+            }
+            catch
+            {
+                return new List<UsageSummaryModel>();
+            }
         }
 
         private void CalculateReferencePath()

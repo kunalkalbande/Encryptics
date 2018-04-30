@@ -99,12 +99,12 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.19.1.3001, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.19.1\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.19.2.6005, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.19.2\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform, Version=3.19.1.3001, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.19.1\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform, Version=3.19.2.6005, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.19.2\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -465,6 +465,13 @@
     <Compile Include="Helpers\HtmlPrefixScopeExtensions.cs" />
     <Compile Include="Helpers\TimeZoneHelper.cs" />
     <Compile Include="IdentityModel\EncrypticsRoleProvider.cs" />
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AzureUserDetail.cs" />
     <Compile Include="Models\LicenseTransferModel.cs" />
     <Compile Include="Models\SoftwareReleaseProductModel.cs" />
@@ -682,6 +689,7 @@
     <Content Include="Images\tinyloader1.gif" />
     <Content Include="Images\tinyloader2.gif" />
     <Content Include="installer\ios\manifest.plist" />
+    <Content Include="Logout.aspx" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -853,6 +861,7 @@
     <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTableBodyPartial.cshtml" />
     <Content Include="Areas\CompanyAdmin\Views\Search\_SuspendedAccountsTableFooterPartial.cshtml" />
     <Content Include="Areas\CompanyAdmin\Views\Shared\DisplayTemplates\SuspendedAccountsListItemModel.cshtml" />
+    <None Include="Properties\PublishProfiles\EncrypticsPortal - Web Deploy.pubxml" />
     <None Include="Service References\PortalService\portalservice.disco" />
     <Content Include="Views\Shared\_CompanyBreadcrumbs.cshtml" />
     <Content Include="Areas\Company\Views\Shared\DisplayTemplates\CompanyProductVersionModel.cshtml" />
@@ -2058,7 +2067,6 @@
     <Content Include="Areas\Company\Views\Shared\_Announcements.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Account\ActivateDevice.cshtml" />
-    <Content Include="Views\Home\adfsSignin.cshtml" />
     <None Include="Web.Development.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

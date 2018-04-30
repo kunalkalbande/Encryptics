@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using StructureMap;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,8 @@ namespace Encryptics.WebPortal.Modules
 {
     public class AuthenticationModule : EncrypticsHttpModule, IHttpModule
     {
+        private string hosturl = ConfigurationManager.AppSettings["hosturl"];
+
         private readonly PortalServiceSoap _portalService;
         public AuthenticationModule()
         {
@@ -167,7 +170,7 @@ namespace Encryptics.WebPortal.Modules
                                                    (long)userData.UserId);
             //   ValidateTokenResponse response = _portalService.ValidateToken(request);
             var cli = new WebClient();
-            string url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/tokens/validate", userData.UserId);
+            string url = String.Format(hosturl+"v2/accounts/{0}/tokens/validate", userData.UserId);
             cli.Headers.Add("tokenauth_id", tokenAuth.Token);
             cli.Headers[HttpRequestHeader.ContentType] = "application/json";
             ValidateTokenResponse response = null;
@@ -242,7 +245,7 @@ namespace Encryptics.WebPortal.Modules
 
                     cli = new WebClient();
                     cli.Headers.Add("TokenAuth_ID", tokenAuth.Token);
-                    url = String.Format("http://idtp376/EncrypticsWebAPI/v2/accounts/{0}/companies/{1}",userData.UserId,0);
+                    url = String.Format(hosturl+"v2/accounts/{0}/companies/{1}",userData.UserId,0);
                     cli.Headers[HttpRequestHeader.ContentType] = "application/json";
                     var companyResponse = cli.DownloadString(url);
                     var userCompany= JsonConvert.DeserializeObject<List<CompanyListItem>>(companyResponse);
